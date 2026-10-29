@@ -47,3 +47,9 @@ def test_operation_is_parameter_authority():
     target = next(item for item in operation.parameters if item.name == 'targetbg')
     with pytest.raises(ValueError):
         ParameterDefinition.model_validate({**target.model_dump(), 'default': 1.1})
+
+
+def test_only_declared_output_node_is_an_execution_endpoint():
+    manifest=json.loads((ROOT/'bundle.json').read_text())
+    assert manifest['output_nodes']==['169de083-7f81-4cde-a329-5541ecacf463']
+    assert (ROOT/'examples/agent.md').is_file()

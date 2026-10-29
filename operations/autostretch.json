@@ -75,7 +75,7 @@
     "input": "image",
     "max_edge": 1024
   },
-  "help": "Connect an APF_SCIENCE fixed image or ordered group to image. Adjust linked, shadowsclip and targetbg. Live preview uses a 1024px sample; Run processes originals and writes new FITS. Output previews must not be auto-stretched again.",
+  "help": "Connect an APF_SCIENCE fixed image or ordered group to image. Adjust linked, shadowsclip and targetbg. Live preview uses a 1024px sample; Run processes originals and writes new FITS. Output previews must not be auto-stretched again. Agent flow: list_nodes/get_node, list_canvas_pages/get_canvas, then edit_canvas(add_node, set_parameter, connect) with fresh target tokens. Unknown results must be queried, not replayed. See examples/agent.md in the bundle.",
   "examples": [
     {
       "linked": false,

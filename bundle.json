@@ -2,7 +2,7 @@
   "schema_version": 1,
   "package_id": "siril",
   "name": "Siril CLI",
-  "bundle_version": "0.1.0",
+  "bundle_version": "0.1.1",
   "software_version": "1.4.4",
   "platform": "windows-x86_64",
   "host_api": 1,
@@ -19,5 +19,8 @@
     "nodes/autostretch.json"
   ],
   "commands": "reference/commands.json",
-  "assessments": "reference/assessments.json"
+  "assessments": "reference/assessments.json",
+  "output_nodes": [
+    "169de083-7f81-4cde-a329-5541ecacf463"
+  ]
 }
