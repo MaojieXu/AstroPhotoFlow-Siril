@@ -1,0 +1,86 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "autostretch",
+    "name": "Auto Stretch",
+    "description": "Applies Auto Stretch to each static image in fixed order using Siril. Linked mode preserves channel balance. Writes new FITS files; originals remain unchanged.",
+    "syntax": "autostretch [-linked] [shadowsclip [targetbg]]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "linked",
+        "kind": "boolean",
+        "default": false,
+        "minimum": null,
+        "maximum": null,
+        "step": null,
+        "choices": null,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "shadowsclip",
+        "kind": "float",
+        "default": -2.8,
+        "minimum": null,
+        "maximum": null,
+        "step": null,
+        "choices": null,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "targetbg",
+        "kind": "float",
+        "default": 0.25,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "step": null,
+        "choices": null,
+        "advanced": false,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": null
+  },
+  "preview": {
+    "kind": "science-image",
+    "input": "image",
+    "max_edge": 1024
+  },
+  "help": "Connect an APF_SCIENCE fixed image or ordered group to image. Adjust linked, shadowsclip and targetbg. Live preview uses a 1024px sample; Run processes originals and writes new FITS. Output previews must not be auto-stretched again.",
+  "examples": [
+    {
+      "linked": false,
+      "shadowsclip": -2.8,
+      "targetbg": 0.25
+    }
+  ]
+}

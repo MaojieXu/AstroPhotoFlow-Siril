@@ -1,0 +1,42 @@
+{
+  "definition_id": "169de083-7f81-4cde-a329-5541ecacf463",
+  "source": "package",
+  "name": "Siril Auto Stretch",
+  "description": "Siril 1.4.4 Auto Stretch; processes fixed static images or an ordered group and writes new FITS files.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "autostretch",
+    "inputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "linked": {
+        "kind": "parameter",
+        "name": "linked"
+      },
+      "shadowsclip": {
+        "kind": "parameter",
+        "name": "shadowsclip"
+      },
+      "targetbg": {
+        "kind": "parameter",
+        "name": "targetbg"
+      }
+    },
+    "outputs": {
+      "image": "image"
+    }
+  }
+}

@@ -1,0 +1,1395 @@
+[
+  {
+    "command": "addmax",
+    "scriptable": false,
+    "syntax": "addmax filename",
+    "description": "Computes a new image combining the image in memory with the image filename . At each pixel location, the new value is determined as the max of value in current image and in filename",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#addmax"
+  },
+  {
+    "command": "asinh",
+    "scriptable": true,
+    "syntax": "asinh [-human] stretch { [offset] [-clipmode=] }",
+    "description": "Stretches the image to show faint objects using an hyperbolic arcsin transformation. The mandatory argument stretch , typically between 1 and 1000, will give the strength of the stretch. The black point can be offset by providing an optional offset argument in the normalized pixel value of [0, 1]. Finally the option -human enables using human eye luminous efficiency weights to compute the luminance used to compute the stretch value for each pixel, instead of the simple mean of the channels pixel values. This stretch method preserves lightness from the L*a*b* color space. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#asinh"
+  },
+  {
+    "command": "autoghs",
+    "scriptable": true,
+    "syntax": "autoghs [-linked] shadowsclip stretchamount [-b=] [-hp=] [-lp=] [-clipmode=]",
+    "description": "Application of the generalized hyperbolic stretch with a symmetry point SP defined as k.sigma from the median of each channel (the provided shadowsclip value is the k here and can be negative). By default, SP and the stretch are computed per channel; SP can be computed as a mean of image channels by passing -linked . The stretch amount D is provided in the second mandatory argument.\n\nImplicit values of 13 for B , making it very focused on the SP brightness range, 0.7 for HP , 0 for LP are used but can be changed with the options of the same names. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#autoghs"
+  },
+  {
+    "command": "autostretch",
+    "scriptable": true,
+    "syntax": "autostretch [-linked] [shadowsclip [targetbg]]",
+    "description": "Auto-stretches the currently loaded image, with different parameters for each channel (unlinked) unless -linked is passed. Arguments are optional, shadowclip is the shadows clipping point, measured in sigma units from the main histogram peak (default is -2.8), targetbg is the target background value, giving a final brightness to the image, range [0, 1], default is 0.25. The default values are those used in the Auto-stretch rendering from the GUI.\n\nDo not use the unlinked version after color calibration, it will alter the white balance",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#autostretch"
+  },
+  {
+    "command": "bg",
+    "scriptable": true,
+    "syntax": "bg",
+    "description": "Returns the background level of the loaded image",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#bg"
+  },
+  {
+    "command": "bgnoise",
+    "scriptable": true,
+    "syntax": "bgnoise",
+    "description": "Returns the background noise level of the loaded image\n\nFor more information, see the statistics documentation",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#bgnoise"
+  },
+  {
+    "command": "binxy",
+    "scriptable": true,
+    "syntax": "binxy coefficient [-sum]",
+    "description": "Computes the numerical binning of the in-memory image (sum of the pixels 2x2, 3x3..., like the analogic binning of CCD camera). If the optional argument -sum is passed, then the sum of pixels is computed, while it is the average when no optional argument is provided",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#binxy"
+  },
+  {
+    "command": "boxselect",
+    "scriptable": true,
+    "syntax": "boxselect [-clear] [x y width height]",
+    "description": "Make a selection area in the currently loaded image with the arguments x , y , width and height , with x and y being the coordinates of the top left corner starting at (0, 0), and width and height , the size of the selection. The -clear argument deletes any selection area. If no argument is passed, the current selection is printed",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#boxselect"
+  },
+  {
+    "command": "calibrate",
+    "scriptable": true,
+    "syntax": "calibrate sequencename [-bias=filename] [-dark=filename] [-flat=filename] [-cc=dark [siglo sighi] || -cc=bpm bpmfile] [-cfa] [-debayer] [-fix_xtrans] [-equalize_cfa] [-opt[=exp]] [-all] [-prefix=] [-fitseq]",
+    "description": "Calibrates the sequence sequencename using bias, dark and flat given in argument.\n\nFor bias, a uniform level can be specified instead of an image, by entering a quoted expression starting with an = sign, such as -bias=\"=256\" or -bias=\"=64*$OFFSET\".\n\nBy default, cosmetic correction is not activated. If you wish to apply some, you will need to specify it with -cc= option.\n\nYou can use -cc=dark to detect hot and cold pixels from the masterdark (a masterdark must be given with the -dark= option), optionally followed by siglo and sighi for cold and hot pixels respectively. A value of 0 deactivates the correction. If sigmas are not provided, only hot pixels detection with a sigma of 3 will be applied.\n\nAlternatively, you can use -cc=bpm followed by the path to your Bad Pixel Map to specify which pixels must be corrected. An example file can be obtained with a find_hot command on a masterdark.\n\nThree options apply to color images (in CFA format): -cfa for cosmetic correction purposes, -debayer to demosaic images before saving them, and -equalize_cfa to equalize the mean intensity of RGB layers of the master flat, to avoid tinting the calibrated image.\n\nThe -fix_xtrans option is dedicated to X-Trans images by applying a correction on darks and biases to remove a rectangle pattern caused by autofocus.\n\nIt's also possible to optimize dark subtraction with -opt , which requires the supply of bias and dark masters, and automatically calculates the coefficient to be applied to dark, or calculates the coefficient thanks to the exposure keyword with -opt=exp .\n\nBy default, frames marked as excluded will not be processed. The argument -all can be used to force processing of all frames even if marked as excluded.\n\nThe output sequence name starts with the prefix \"pp_\" unless otherwise specified with option -prefix= .\n\nIf -fitseq is provided, the output sequence will be a FITS sequence (single file)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#calibrate"
+  },
+  {
+    "command": "calibrate_single",
+    "scriptable": true,
+    "syntax": "calibrate_single imagename [-bias=filename] [-dark=filename] [-flat=filename] [-cc=dark [siglo sighi] || -cc=bpm bpmfile] [-cfa] [-debayer] [-fix_xtrans] [-equalize_cfa] [-opt[=exp]] [-prefix=]",
+    "description": "Calibrates the image imagename using bias, dark and flat given in argument.\n\nFor bias, a uniform level can be specified instead of an image, by entering a quoted expression starting with an = sign, such as -bias=\"=256\" or -bias=\"=64*$OFFSET\".\n\nBy default, cosmetic correction is not activated. If you wish to apply some, you will need to specify it with -cc= option.\n\nYou can use -cc=dark to detect hot and cold pixels from the masterdark (a masterdark must be given with the -dark= option), optionally followed by siglo and sighi for cold and hot pixels respectively. A value of 0 deactivates the correction. If sigmas are not provided, only hot pixels detection with a sigma of 3 will be applied.\n\nAlternatively, you can use -cc=bpm followed by the path to your Bad Pixel Map to specify which pixels must be corrected. An example file can be obtained with a find_hot command on a masterdark.\n\nThree options apply to color images (in CFA format): -cfa for cosmetic correction purposes, -debayer to demosaic images before saving them, and -equalize_cfa to equalize the mean intensity of RGB layers of the master flat, to avoid tinting the calibrated image.\n\nThe -fix_xtrans option is dedicated to X-Trans images by applying a correction on darks and biases to remove a rectangle pattern caused by autofocus.\n\nIt's also possible to optimize dark subtraction with -opt , which requires the supply of bias and dark masters, and automatically calculates the coefficient to be applied to dark, or calculates the coefficient thanks to the exposure keyword with -opt=exp\n\nThe output filename starts with the prefix \"pp_\" unless otherwise specified with option -prefix=",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#calibrate_single"
+  },
+  {
+    "command": "capabilities",
+    "scriptable": true,
+    "syntax": "capabilities",
+    "description": "Lists Siril capabilities, based on compilation options and runtime",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#capabilities"
+  },
+  {
+    "command": "catsearch",
+    "scriptable": true,
+    "syntax": "catsearch name",
+    "description": "Searches an object by name and adds it to the user annotation catalog. The object is first searched in the annotation catalogs, if not found a request is made to SIMBAD.\n\nThe object can be a solar system object, in which case a prefix, 'a:' for asteroid, 'p:' for planet, 'c:' for comet, 'dp:' for dwarf planet or 's:' for natural satellite, is required before the object name. The search is done for the date, time and observing location found in the image header, using the IMCCE Miriade service",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#catsearch"
+  },
+  {
+    "command": "ccm",
+    "scriptable": true,
+    "syntax": "ccm m00 m01 m02 m10 m11 m12 m20 m21 m22 [gamma]",
+    "description": "Applies a color conversion matrix to the current image.\n\nThere are 9 mandatory arguments corresponding to the 9 matrix elements:\n\nm00, m01, m02\n\nm10, m11, m12\n\nm20, m21, m22\n\nAn additional tenth argument [gamma] can be provided: if it is omitted, it defaults to 1.0.\n\nThese are applied to each pixel according to the following formulae:\n\nr' = (m00 * r + m01 * g + m02 * b)^(-1/gamma)\n\ng' = (m10 * r + m11 * g + m12 * b)^(-1/gamma)\n\nb' = (m20 * r + m21 * g + m22 * b)^(-1/gamma)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#ccm"
+  },
+  {
+    "command": "cd",
+    "scriptable": true,
+    "syntax": "cd directory",
+    "description": "Sets the new current working directory.\n\nThe argument directory can contain the ~ token, expanded as the home directory, directories with spaces in the name can be protected using single or double quotes",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#cd"
+  },
+  {
+    "command": "cdg",
+    "scriptable": true,
+    "syntax": "cdg",
+    "description": "Returns the coordinates of the center of gravity of the image. Only pixels with values above 15.7% of max ADU and having four neighbors filling the same condition are used to compute it, and it is computed only if there are at least 50 of them",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#cdg"
+  },
+  {
+    "command": "clahe",
+    "scriptable": true,
+    "syntax": "clahe cliplimit tileSize",
+    "description": "Equalizes the histogram of an image using Contrast Limited Adaptive Histogram Equalization.\n\ncliplimit sets the threshold for contrast limiting.\n\ntilesize sets the size of grid for histogram equalization. Input image will be divided into equally sized rectangular tiles",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#clahe"
+  },
+  {
+    "command": "clear",
+    "scriptable": false,
+    "syntax": "clear",
+    "description": "Clears the graphical output logs",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#clear"
+  },
+  {
+    "command": "clearstar",
+    "scriptable": false,
+    "syntax": "clearstar",
+    "description": "Clears all the stars saved in memory and displayed on the screen",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#clearstar"
+  },
+  {
+    "command": "close",
+    "scriptable": true,
+    "syntax": "close",
+    "description": "Properly closes the opened image and the opened sequence, if any",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#close"
+  },
+  {
+    "command": "conesearch",
+    "scriptable": true,
+    "syntax": "conesearch [limit_magnitude] [-cat=] [-phot] [-obscode=] [-tag={on|off}] [-log={on|off}] [-trix=] [-out=]",
+    "description": "Displays stars from the local catalog by default for the loaded plate solved image, down to the provided limit_magnitude (13 by default for most catalogues, except 14.5 for aavso_chart, 20 for solsys, and omitted for pgc).\n\nAn alternate online catalog can be specified with -cat= , taking values\n\n- for stars: tycho2, nomad, gaia, localgaia, ppmxl, bsc, apass, gcvs, vsx, simbad, aavso_chart\n\n- for exoplanets: exo\n\n- for deep-sky: pgc\n\n- for solar system objects: solsys (closest IAU observatory code can be passed with the argument -obscode= for better position accuracy)\n\nFor stars catalogues containing photometric data, stars with no B-V information will be kept; they can be excluded by passing -phot\n\nThe argument -trix= can be passed instead of a catalogue followed by a number between 0 and 511 to plot stars contained in local catalogues trixel of level 3 (for dev usage mainly)\n\nSome catalogs (bsc, gcvs, pgc, exo, aavso_chart, varisum and solsys) will also display, by default, names alongside markers in the display (GUI only) and list them in the log. For others with larger number of objects, namely vsx and simbad, the information can also be shown but, as it may clutter the display, it is not activated by default. This behavior can be toggled on/off with the options -tag=on|off to display names alongside markers and -log=on|off to list the objects in the console log\n\nThe list of items that are present in the image can optionally saved to a csv file by passing the argument -out=",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#conesearch"
+  },
+  {
+    "command": "convert",
+    "scriptable": true,
+    "syntax": "convert basename [-debayer] [-fitseq] [-ser] [-start=index] [-out=]",
+    "description": "Converts all images of the current working directory that are in a supported format into Siril's sequence of FITS images (several files) or a FITS sequence (single file) if -fitseq is provided or a SER sequence (single file) if -ser is provided. The argument basename is the base name of the new sequence, numbers and the extension will be put behind it.\n\nFor FITS images, Siril will try to make a symbolic link; if not possible, files will be copied. The option -debayer applies demosaicing to CFA input images; in this case no symbolic link is done.\n\n-start=index sets the starting index number, useful to continue an existing sequence (not used with -fitseq or -ser ; make sure you remove or clear the target .seq if it exists in that case).\n\nThe -out= option changes the output directory to the provided argument.\n\nSee also CONVERTRAW and LINK\n\nLinks: convertraw , link",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#convert"
+  },
+  {
+    "command": "convertraw",
+    "scriptable": true,
+    "syntax": "convertraw basename [-debayer] [-fitseq] [-ser] [-start=index] [-out=]",
+    "description": "Same as CONVERT but converts only DSLR RAW files found in the current working directory\n\nLinks: convert",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#convertraw"
+  },
+  {
+    "command": "cosme",
+    "scriptable": true,
+    "syntax": "cosme [filename].lst",
+    "description": "Applies the local mean to a set of pixels on the loaded image (cosmetic correction). The coordinates of these pixels are in a text file [.lst file], the FIND_HOT command can also create it for single hot pixels, but manual operation is needed to remove rows or columns. COSME is adapted to correct residual hot and cold pixels after calibration.\n\nInstead of providing the list of bad pixels, it's also possible to detect them in the current image using the FIND_COSME command\n\nLinks: find_hot , find_cosme\n\nFile format for the bad pixels list:\n* Lines in the form P x y will fix the pixel at coordinates (x, y) type is an optional character (C or H) specifying to Siril if the current pixel is cold or hot. This line is created by the command FIND_HOT but you also can add the two following line types manually\n* Lines in the form C x 0 will fix the bad column at coordinates x.\n* Lines in the form L y 0 will fix the bad line at coordinates y.",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#cosme"
+  },
+  {
+    "command": "cosme_cfa",
+    "scriptable": true,
+    "syntax": "cosme_cfa [filename].lst",
+    "description": "Same function as COSME but applying to RAW CFA images\n\nLinks: cosme",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#cosme_cfa"
+  },
+  {
+    "command": "crop",
+    "scriptable": true,
+    "syntax": "crop [x y width height]",
+    "description": "Crops to a selected area of the loaded image.\n\nIf a selection is active, no further arguments are required. Otherwise, or in scripts, arguments have to be given, with x and y being the coordinates of the top left corner, and width and height the size of the selection. Alternatively, the selection can be made using the BOXSELECT command\n\nLinks: boxselect",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#crop"
+  },
+  {
+    "command": "ddp",
+    "scriptable": false,
+    "syntax": "ddp level coef sigma",
+    "description": "Performs a DDP (digital development processing) on the loaded image, as described first by Kunihiko Okano. This implementation is the one described in IRIS.\n\nIt combines a linear distribution on low levels (below level ) and a non-linear one on high levels.\n\nIt uses a Gaussian filter of standard deviation sigma and multiplies the resulting image by coef . Typical values for sigma are within 0.7 and 2. The level argument should be in the range [0, 65535] for 16-bit images and may be given either in the range [0, 1] or [0, 65535] for 32-bit images in which case it will be scaled automatically",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#ddp"
+  },
+  {
+    "command": "denoise",
+    "scriptable": true,
+    "syntax": "denoise [-nocosmetic] [-mod=m] [ -vst | -da3d | -sos=n [-rho=r] ] [-indep]",
+    "description": "Denoises the image using the non-local Bayesian algorithm described by Lebrun, Buades and Morel .\n\nIt is strongly recommended to apply cosmetic correction to remove salt and pepper noise before running denoise, and by default this command will apply cosmetic correction automatically. However, if this has already been carried out earlier in the workflow it may be disabled here using the optional command -nocosmetic .\n\nAn optional argument -mod=m may be given, where 0 <= m <= 1. The output pixel is computed as : out=m x d + (1 − m) x in , where d is the denoised pixel value. A modulation value of 1 will apply no modulation. If the parameter is omitted, it defaults to 1.\n\nThe optional argument -vst can be used to apply the generalised Anscombe variance stabilising transform prior to NL-Bayes. This is useful with photon-starved images such as single subs, where the noise follows a Poisson or Poisson-Gaussian distribution rather than being primarily Gaussian. It cannot be used in conjunction with DA3D or SOS, and for denoising stacked images it is usually not beneficial.\n\nThe optional argument -da3d can be used to enable Data-Adaptive Dual Domain Denoising (DA3D) as a final stage denoising algorithm. This uses the output of BM3D as a guide image to refine the denoising. It improves detail and reduces staircasing artefacts.\n\nThe optional argument -sos=n can be used to enable Strengthen-Operate-Subtract (SOS) iterative denoise boosting, with the number of iterations specified by n. In particular, this booster may produce better results if the un-boosted NL-Bayes algorithm produces artefacts in background areas. If both -da3d and -sos=n are specified, the last to be specified will apply.\n\nThe optional argument -rho=r may be specified, where 0 < r < 1. This is used by the SOS booster to determine the amount of noisy image added in to the intermediate result between each iteration. If -sos=n is not specified then the parameter is ignored.\n\nThe default is not to apply DA3D or SOS, as the improvement in denoising is usually relatively small and these techniques requires additional processing time.\n\nIn very rare cases, blocky coloured artefacts may be found in the output when denoising colour images. The optional argument -indep can be used to prevent this by denoising each channel separately. This is slower but will eliminate artefacts",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#denoise"
+  },
+  {
+    "command": "dir",
+    "scriptable": false,
+    "syntax": "dir",
+    "description": "Lists files and directories in the working directory\n\nThis command is only available on Microsoft Windows, for the equivalent command on Linux and MacOS, see ls .",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#dir"
+  },
+  {
+    "command": "disto",
+    "scriptable": false,
+    "syntax": "disto [clear]",
+    "description": "Shows distortion field on a plate-solved image which solution includes distortion terms\n\nPass option clear to disable",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#disto"
+  },
+  {
+    "command": "dumpheader",
+    "scriptable": true,
+    "syntax": "dumpheader",
+    "description": "Dumps the FITS header of the loaded image in the console",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#dumpheader"
+  },
+  {
+    "command": "entropy",
+    "scriptable": true,
+    "syntax": "entropy",
+    "description": "Computes the entropy of the loaded image on the displayed layer, only in the selected area if one has been selected or in the whole image. The entropy is one way of measuring the noise or the details in an image",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#entropy"
+  },
+  {
+    "command": "epf",
+    "scriptable": true,
+    "syntax": "epf [-guided] [-d=] [-si=] [-ss=] [-mod=] [-guideimage=]",
+    "description": "Applies an edge preserving filter. By default a bilateral filter is applied; a guided filter can be specified using the argument -guided . The filter diameter defaults to 3 and can be set using -d= . Be careful with values of d greater than 20 as the algorithm can be computationally expensive.\n\nThe intensity filtering sigma value can be set using -si= and the spatial sigma value can be set using -ss= . Sigma values represent the difference in pixel values over which the filter acts strongly: for 32-bit images the value should be between 0 and 1.0, whereas for 16-bit images it should be between 0 and 65535. The defaults if not specified are for both to be set to 11. If -d=0 is set then the filter diameter will be set automatically based on the value of -ss . Note that when applying a guided filter, only -sc applies.\n\nWhen specifying a guided filter, a guide image may be set using -guideimage= . The default if no guide image is specified is to perform a self-guided filter. Note: the guide image must have the same dimensions as the image to be filtered!\n\nThe strength of the filter can be modulated using the -mod= argument. If mod = 1.0 the full effect of the filter will be applied; for mod less than 1.0 a proportion of the original image will be mixed with the result, and for mod = 0.0 no filtering will be applied",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#epf"
+  },
+  {
+    "command": "exit",
+    "scriptable": true,
+    "syntax": "exit",
+    "description": "Quits the application",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#exit"
+  },
+  {
+    "command": "extract",
+    "scriptable": true,
+    "syntax": "extract NbPlans",
+    "description": "Extracts NbPlans planes of wavelet domain of the loaded image.\n\nSee also WAVELET and WRECONS. For color extraction, see SPLIT\n\nLinks: wavelet , wrecons , split",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#extract"
+  },
+  {
+    "command": "extract_Green",
+    "scriptable": true,
+    "syntax": "extract_Green",
+    "description": "Extracts green signal from the loaded CFA image. It reads the Bayer matrix information from the image or the preferences and exports only the averaged green filter data as a new half-sized FITS file. A new file is created, its name is prefixed with \"Green_\"",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#extract_Green"
+  },
+  {
+    "command": "extract_Ha",
+    "scriptable": true,
+    "syntax": "extract_Ha [-upscale]",
+    "description": "Extracts H-Alpha signal from the loaded CFA image. It reads the Bayer matrix information from the image or the preferences and exports only the red filter data as a new half-sized FITS file. If the argument -upscale is provided, the output will be upscaled x2 to match the full sensor resolution, for example to match other images produced by the same family of sensors. A new file is created, its name is prefixed with \"Ha_\"",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#extract_Ha"
+  },
+  {
+    "command": "extract_HaOIII",
+    "scriptable": true,
+    "syntax": "extract_HaOIII [-resample=]",
+    "description": "Extracts H-Alpha and O-III signals from the loaded CFA image. It reads the Bayer matrix information from the image or the preferences and exports only the red filter data for H-Alpha as a new half-sized FITS file (like EXTRACTHA) and keeps the three others for O-III with an interpolated replacement for the red pixel. The output files names start with the prefix \"Ha_\" and \"OIII_\"\n\nThe optional argument -resample={ha|oiii} sets whether to upsample the Ha image or downsample the OIII image to have images the same size. If this argument is not provided, no resampling will be carried out and the OIII image will have twice the height and width of the Ha image",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#extract_HaOIII"
+  },
+  {
+    "command": "fdiv",
+    "scriptable": true,
+    "syntax": "fdiv filename scalar",
+    "description": "Divides the loaded image by the image given in argument. The resulting image is multiplied by the value of the scalar argument. See also IDIV\n\nLinks: idiv",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fdiv"
+  },
+  {
+    "command": "ffill",
+    "scriptable": true,
+    "syntax": "ffill value [x y width height]",
+    "description": "Same command as FILL but this is a symmetric fill of a region defined by the mouse or with BOXSELECT. Used to process an image in the Fourier (FFT) domain\n\nLinks: fill , boxselect",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#ffill"
+  },
+  {
+    "command": "fftd",
+    "scriptable": true,
+    "syntax": "fftd modulus phase",
+    "description": "Applies a Fast Fourier Transform to the loaded image. modulus and phase given in argument are the names of the saved in FITS files",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fftd"
+  },
+  {
+    "command": "ffti",
+    "scriptable": true,
+    "syntax": "ffti modulus phase",
+    "description": "Retrieves corrected image applying an inverse transformation. The modulus and phase arguments are the input file names, the result will be the new loaded image",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#ffti"
+  },
+  {
+    "command": "fill",
+    "scriptable": true,
+    "syntax": "fill value [x y width height]",
+    "description": "Fills the loaded image entirely or only the selection if there is one with pixels having the value intensity expressed in ADU",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fill"
+  },
+  {
+    "command": "find_cosme",
+    "scriptable": true,
+    "syntax": "find_cosme cold_sigma hot_sigma",
+    "description": "Applies an automatic detection and replacement of cold and hot pixels in the loaded image, with the thresholds passed in arguments in sigma units",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#find_cosme"
+  },
+  {
+    "command": "find_cosme_cfa",
+    "scriptable": true,
+    "syntax": "find_cosme_cfa cold_sigma hot_sigma",
+    "description": "Same command as FIND_COSME but for CFA images\n\nLinks: find_cosme",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#find_cosme_cfa"
+  },
+  {
+    "command": "find_hot",
+    "scriptable": true,
+    "syntax": "find_hot filename cold_sigma hot_sigma",
+    "description": "Saves a list file filename (text format) in the working directory which contains the coordinates of the pixels which have an intensity hot_sigma times higher and cold_sigma lower than standard deviation, extracted from the loaded image. We generally use this command on a master-dark file. The COSME command can apply this list of bad pixels to a loaded image, see also SEQCOSME to apply it to a sequence\n\nLinks: cosme , seqcosme\n\nLines P x y type will fix the pixel at coordinates (x, y) type is an optional character (C or H) specifying to Siril if the current pixel is cold or hot. This line is created by the command FIND_HOT but you also can add some lines manually:\n\nLines C x 0 type will fix the bad column at coordinates x.\n\nLines L y 0 type will fix the bad line at coordinates y.",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#find_hot"
+  },
+  {
+    "command": "findcompstars",
+    "scriptable": true,
+    "syntax": "findcompstars star_name [-narrow|-wide] [-catalog={nomad|apass}] [-dvmag=3] [-dbv=0.5] [-emag=0.03] [-out=nina_file.csv]",
+    "description": "Automatically finds comparison stars in the field of the plate solved loaded image, for photometric analysis of a star's light curve according to\n\n- the provided name of the star\n\n- the field of view of the image, reduced to a diameter of its height if -narrow is passed, avoiding stars in the corners\n\n- the chosen catalog (APASS by default), can be changed with -catalog={NOMAD|APASS}\n\n- the difference in visual magnitude from the variable star, in the range [0, 6] with a default of 3, changed with -dvmag=\n\n- the difference in color with the variable star, in the range [0.0, 0.7] of their B-V indices with a default of 0.5, changed with -dbv=\n\n- the maximum allowed error on Vmag in the range [0.0, 0.1] with a default of 0.03, changed with -emag= .\n\nThe list can optionally be saved as a CSV file compatible with the NINA comparison stars list, specifying the file name with -out= . If the provided name is the special value auto , it is generated using the input parameters\n\nSee also LIGHT_CURVE\n\nLinks: light_curve",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#findcompstars"
+  },
+  {
+    "command": "findstar",
+    "scriptable": true,
+    "syntax": "findstar [-out=] [-layer=] [-maxstars=]",
+    "description": "Detects stars in the currently loaded image, having a level greater than a threshold computed by Siril.\n\nAfter that, a PSF is applied and Siril rejects all detected structures that don't fulfill a set of prescribed detection criteria, that can be tuned with command SETFINDSTAR.\n\nFinally, an ellipse is drawn around detected stars.\n\nOptional parameter -out= allows the results to be saved to the given path.\n\nOption -layer= specifies the layer onto which the detection is performed (for color images only).\n\nYou can also limit the maximum number of stars detected by passing a value to option -maxstars= .\n\nSee also CLEARSTAR\n\nLinks: psf , setfindstar , clearstar",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#findstar"
+  },
+  {
+    "command": "fix_xtrans",
+    "scriptable": true,
+    "syntax": "fix_xtrans",
+    "description": "Fixes the Fujifilm X-Trans Auto Focus pixels in the loaded image.\n\nIndeed, because of the phase detection auto focus system, the photosites used for auto focus get a little less light than the surrounding photosites. The camera compensates for this and increases the values from these specific photosites giving a visible square in the middle of the dark/bias frames",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fix_xtrans"
+  },
+  {
+    "command": "fixbanding",
+    "scriptable": true,
+    "syntax": "fixbanding amount sigma [-vertical]",
+    "description": "Tries to remove the horizontal or vertical banding in the loaded image.\n\namount defines the amount of correction, between 0 and 4.\n\nsigma defines the highlight protection level of the algorithm, higher sigma gives higher protection, between 0 and 5. Values of 1 and 1 are often good enough.\n\n-vertical option enables to perform vertical banding removal, horizontal is the default",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fixbanding"
+  },
+  {
+    "command": "fmedian",
+    "scriptable": true,
+    "syntax": "fmedian ksize modulation",
+    "description": "Performs a median filter of size ksize x ksize ( ksize MUST be odd) to the loaded image with a modulation parameter modulation .\n\nThe output pixel is computed as : out=mod x m + (1 − mod) x in, where m is the median-filtered pixel value. A modulation's value of 1 will apply no modulation",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fmedian"
+  },
+  {
+    "command": "fmul",
+    "scriptable": true,
+    "syntax": "fmul scalar",
+    "description": "Multiplies the loaded image by the scalar given in argument",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#fmul"
+  },
+  {
+    "command": "gauss",
+    "scriptable": true,
+    "syntax": "gauss sigma",
+    "description": "Applies to the loaded image a Gaussian blur with the given sigma .\n\nSee also UNSHARP, the same with a blending parameter\n\nLinks: unsharp",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#gauss"
+  },
+  {
+    "command": "get",
+    "scriptable": true,
+    "syntax": "get { -a | -A | variable }",
+    "description": "Gets a value from the settings using its name, or list all with -a (name and value list) or with -A (detailed list)\n\nSee also SET to update values\n\nLinks: set",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#get"
+  },
+  {
+    "command": "getref",
+    "scriptable": true,
+    "syntax": "getref sequencename",
+    "description": "Prints information about the reference image of the sequence given in argument. First image has index 0",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#getref"
+  },
+  {
+    "command": "ght",
+    "scriptable": true,
+    "syntax": "ght -D= [-B=] [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels]",
+    "description": "Generalised hyperbolic stretch based on the work of the ghsastro.co.uk team.\n\nThe argument -D= defines the strength of the stretch, between 0 and 10. This is the only mandatory argument. The following optional arguments further tailor the stretch:\n\nB defines the intensity of the stretch near the focal point, between -5 and 15;\n\nLP defines a shadow preserving range between 0 and SP where the stretch will be linear, preserving shadow detail;\n\nSP defines the symmetry point of the stretch, between 0 and 1, which is the point at which the stretch will be most intense;\n\nHP defines a region between HP and 1 where the stretch is linear, preserving highlight details and preventing star bloat.\n\nIf omitted B, LP and SP default to 0.0 ad HP defaults to 1.0.\n\nAn optional argument (either -human , -even or -independent ) can be passed to select either human-weighted or even-weighted luminance or independent colour channels for colour stretches. The argument is ignored for mono images. Alternatively, the argument -sat specifies that the stretch is performed on image saturation - the image must be color and all channels must be selected for this to work.\n\nOptionally the parameter [channels] may be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#ght"
+  },
+  {
+    "command": "grey_flat",
+    "scriptable": true,
+    "syntax": "grey_flat",
+    "description": "Equalizes the mean intensity of RGB layers in the loaded CFA image. This is the same process used on flats during calibration when the option equalize CFA is used",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#grey_flat"
+  },
+  {
+    "command": "help",
+    "scriptable": true,
+    "syntax": "help [command]",
+    "description": "Lists the available commands or help for one command",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#help"
+  },
+  {
+    "command": "histo",
+    "scriptable": true,
+    "syntax": "histo channel (channel=0, 1, 2 with 0: red, 1: green, 2: blue)",
+    "description": "Calculates the histogram of the layer of the loaded image and produces file histo_[channel name].dat in the working directory.\n\nlayer = 0, 1 or 2 with 0=red, 1=green and 2=blue",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#histo"
+  },
+  {
+    "command": "iadd",
+    "scriptable": true,
+    "syntax": "iadd filename",
+    "description": "Adds the image filename to the loaded image.\n\nResult will be in 32 bits per channel if allowed in the preferences",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#iadd"
+  },
+  {
+    "command": "icc_assign",
+    "scriptable": true,
+    "syntax": "icc_assign profile",
+    "description": "Assigns the ICC profile specified in the argument to the current image.\n\nOne of the following special arguments may be provided to use the respective built-in profiles: sRGB , sRGBlinear , Rec2020 , Rec2020linear , working to set the working mono or RGB color profile, (for mono images only) linear , or the path to an ICC profile file may be provided. If a built-in profile is specified with a monochrome image loaded, the Gray profile with the corresponding TRC will be used",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#icc_assign"
+  },
+  {
+    "command": "icc_convert_to",
+    "scriptable": true,
+    "syntax": "icc_convert_to profile [intent]",
+    "description": "Converts the current image to the specified ICC profile.\n\nOne of the following special arguments may be provided to use the respective built-in profiles: sRGB , sRGBlinear , Rec2020 , Rec2020linear , graysrgb , grayrec2020 , graylinear or working to set the working mono or RGB color profile, (for mono images only) linear , or the path to an ICC profile file may be provided. If a built-in profile is specified with a monochrome image loaded, the Gray profile with the corresponding TRC will be used.\n\nA second argument may be provided to specify the color transform intent: this should be one of perceptual , relative (for relative colorimetric), saturation or absolute (for absolute colorimetric)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#icc_convert_to"
+  },
+  {
+    "command": "icc_remove",
+    "scriptable": true,
+    "syntax": "icc_remove",
+    "description": "Removes the ICC profile from the current image, if it has one",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#icc_remove"
+  },
+  {
+    "command": "idiv",
+    "scriptable": true,
+    "syntax": "idiv filename",
+    "description": "Divides the loaded image by the image filename .\n\nResult will be in 32 bits per channel if allowed in the preferences.\n\nSee also FDIV\n\nLinks: fdiv",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#idiv"
+  },
+  {
+    "command": "imul",
+    "scriptable": true,
+    "syntax": "imul filename",
+    "description": "Multiplies image filename by the loaded image.\n\nResult will be in 32 bits per channel if allowed in the preferences",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#imul"
+  },
+  {
+    "command": "inspector",
+    "scriptable": false,
+    "syntax": "inspector",
+    "description": "Splits the loaded image in a nine-panel mosaic showing the image corners and the center for a closer inspection (GUI only)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#inspector"
+  },
+  {
+    "command": "invght",
+    "scriptable": true,
+    "syntax": "invght -D= [-B=] [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels]",
+    "description": "Inverts a generalised hyperbolic stretch. It provides the inverse transformation of GHT, if provided with the same parameters, undoes a GHT command, possibly returning to a linear image. It can also work the same way as GHT but for images in negative\n\nLinks: ght",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#invght"
+  },
+  {
+    "command": "invmodasinh",
+    "scriptable": true,
+    "syntax": "invmodasinh -D= [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels]",
+    "description": "Inverts a modified arcsinh stretch. It provides the inverse transformation of MODASINH, if provided with the same parameters, undoes a MODASINH command, possibly returning to a linear image. It can also work the same way as MODASINH but for images in negative\n\nLinks: modasinh",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#invmodasinh"
+  },
+  {
+    "command": "invmtf",
+    "scriptable": true,
+    "syntax": "invmtf low mid high [channels]",
+    "description": "Inverts a midtones transfer function. It provides the inverse transformation of MTF, if provided with the same parameters, undoes a MTF command, possibly returning to a linear image. It can also work the same way as MTF but for images in negative\n\nLinks: mtf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#invmtf"
+  },
+  {
+    "command": "isub",
+    "scriptable": true,
+    "syntax": "isub filename",
+    "description": "Subtracts the loaded image by the image filename .\n\nResult will be in 32 bits per channel if allowed in the preferences, so capable of storing negative values. To clip negative value, use 16 bit mode or use the THRESHLO command\n\nLinks: threshlo",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#isub"
+  },
+  {
+    "command": "jsonmetadata",
+    "scriptable": true,
+    "syntax": "jsonmetadata FITS_file [-stats_from_loaded] [-nostats] [-out=]",
+    "description": "Dumps metadata and statistics of the currently loaded image in JSON form. The file name is required, even if the image is already loaded. Image data may not be read from the file if it is the current loaded image and if the -stats_from_loaded option is passed. Statistics can be disabled by providing the -nostats option. A file containing the JSON data is created with default file name '$(FITS_file_without_ext).json' and can be changed with the -out= option",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#jsonmetadata"
+  },
+  {
+    "command": "light_curve",
+    "scriptable": true,
+    "syntax": "light_curve sequencename channel [-autoring] { -at=x,y | -wcs=ra,dec } { -refat=x,y | -refwcs=ra,dec } ...\nlight_curve sequencename channel [-autoring] -ninastars=file",
+    "description": "Analyses several stars with aperture photometry in a sequence of images and produces a light curve for one, calibrated by the others. The first coordinates, in pixels if -at= is used or in degrees if -wcs= is used, are for the star whose light will be plotted, the others for the comparison stars.\n\nAlternatively, a list of target and reference stars can be passed in the format of the NINA exoplanet plugin star list, with the -ninastars= option. Siril will verify that all reference stars can be used before actually using them. A data file is created in the current directory named light_curve.dat, Siril plots the result to a PNG image if available\n\nThe ring radii for the annulus can either be configured in the settings or set to a factor of the reference image's FWHM if -autoring is passed. These autoring sizes are 4.2 time and 6.3 times the FWHM for the inner and outer radii, respectively.\n\nSee also the setphot command to set the same way the aperture radius size.\n\nSee also SEQPSF for operations on single star\n\nLinks: seqpsf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#light_curve"
+  },
+  {
+    "command": "limit",
+    "scriptable": true,
+    "syntax": "limit { -clip | -posrescale | -rescale }",
+    "description": "Limits pixel values in 32-bit images to the range 0.0 to 1.0. This command does not apply to 16-bit images as there cannot be out-of-range values. Range limiting can be done in one of the following ways:\n\n-clip : this option simply clips all negative pixels to 0.0 and all pixels with a value > 1.0 to 1.0.\n\n-posrescale : this option scales all positive pixel values so that the maximum value is 1.0, clipping any negative pixels to 0.0. For 3-channel images the same scaling factor is applied to all channels. If the maximum pixel value is already <= 1.0 negative pixels will still be clipped but no scaling factor will be applied to positive pixels.\n\n-rescale : using this option, if there are any negative pixel values the image will have a constant value added to all pixel values so that the minimum value is 0.0. Then if the maximum pixel value is > 1.0, a scaling factor is applied so that the maximum pixel value is scaled to 1.0.\n\nNote that if there are one or more extreme outliers (for example as a result of bad pixels) the -rescale and -posrescale options may produce an unexpected result. This can be mitigated by applying cosmetic correction to the image first",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#limit"
+  },
+  {
+    "command": "linear_match",
+    "scriptable": true,
+    "syntax": "linear_match reference low high",
+    "description": "Computes and applies a linear function between a reference image and the loaded image.\n\nThe algorithm will ignore all reference pixels whose values are outside of the [ low , high ] range",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#linear_match"
+  },
+  {
+    "command": "link",
+    "scriptable": true,
+    "syntax": "link basename [-date] [-start=index] [-out=]",
+    "description": "Same as CONVERT but converts only FITS files found in the current working directory. This is useful to avoid conversions of JPEG results or other files that may end up in the directory. The additional argument -date enables sorting files with their DATE-OBS value instead of with their name alphanumerically\n\nLinks: convert",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#link"
+  },
+  {
+    "command": "linstretch",
+    "scriptable": true,
+    "syntax": "linstretch -BP= [-sat] [-clipmode=] [channels] [-clipmode=]",
+    "description": "Stretches the image linearly to a new black point BP.\n\nThe argument [channels] may optionally be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels.\n\nOptionally the parameter -sat may be used to apply the linear stretch to the image saturation channel. This argument only works if all channels are selected. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#linstretch"
+  },
+  {
+    "command": "livestack",
+    "scriptable": true,
+    "syntax": "livestack filename",
+    "description": "Process the provided image for live stacking. Only possible after START_LS. The process involves calibrating the incoming file if configured in START_LS, demosaicing if it's an OSC image, registering and stacking. The temporary result will be in the file live_stack_00001.fit until a new option to change it is added\n\nLinks: start_ls",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#livestack"
+  },
+  {
+    "command": "load",
+    "scriptable": true,
+    "syntax": "load filename[.ext]",
+    "description": "Loads the image filename from the current working directory, which becomes the 'currently loaded image' used in many of the single-image commands.\n\nIt first attempts to load filename , then filename .fit, filename .fits and finally all supported formats.\n\nThis scheme is applicable to every Siril command that involves reading files",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#load"
+  },
+  {
+    "command": "load_seq",
+    "scriptable": false,
+    "syntax": "load_seq sequencename[.ext]",
+    "description": "Loads the sequence sequencename from the current working directory, which becomes the 'currently loaded sequence'. While Siril sequence commands require the sequence name to be specified, it is necessary to load a sequence in order to read its metadata using Python scripting",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#load_seq"
+  },
+  {
+    "command": "log",
+    "scriptable": true,
+    "syntax": "log",
+    "description": "Computes and applies a logarithmic scale to the loaded image, using the following formula: log(1 - (value - min) / (max - min)), with min and max being the minimum and maximum pixel value for the channel",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#log"
+  },
+  {
+    "command": "ls",
+    "scriptable": false,
+    "syntax": "ls",
+    "description": "Lists files and directories in the working directory\n\nThis command is only available on Unix-like Systems, for the equivalent command on Microsoft Windows, see dir .",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#ls"
+  },
+  {
+    "command": "makepsf",
+    "scriptable": true,
+    "syntax": "makepsf clear\nmakepsf load filename\nmakepsf save [filename]\nmakepsf blind [-l0] [-si] [-multiscale] [-lambda=] [-comp=] [-ks=] [-savepsf=]\nmakepsf stars [-sym] [-ks=] [-savepsf=]\nmakepsf manual { -gaussian | -moffat | -disc | -airy } [-fwhm=] [-angle=] [-ratio=] [-beta=] [-dia=] [-fl=] [-wl=] [-pixelsize=] [-obstruct=] [-ks=] [-savepsf=]",
+    "description": "Generates a PSF for use with deconvolution, any of the three methods exposed by RL, SB or WIENER commands. One of the following must be given as the first argument: clear (clears the existing PSF), load (loads a PSF from a file), save (saves the current PSF), blind (blind estimate of tke PSF), stars (generates a PSF based on measured stars from the image) or manual (generates a PSF manually based on a function and parameters).\n\nNo additional arguments are required when using the clear argument.\n\nTo load a previously saved PSF the load argument requires the PSF filename as a second argument. This may be in any format that Siril has been compiled with support for, but it must be square and should ideally be odd.\n\nTo save a previously generated PSF the argument save is used. Optionally, a filename may be provided (this must have one of the extensions \".fit\", \".fits\", \".fts\" or \".tif\") but if none is provided the PSF will be named based on the name of the open file or sequence.\n\nFor blind , the following optional arguments may be provided: -l0 uses the l0 descent method, -si uses the spectral irregularity method, -multiscale configures the l0 method to do a multi-scale PSF estimate, -lambda= provides the regularization constant.\n\nFor PSF from detected stars the only optional parameter is -sym , which configures the PSF to be symmetric.\n\nFor a manual PSF, one of -gaussian , -moffat , -disc or -airy can be provided to specify the PSF function, Gaussian by default. For Gaussian or Moffat PSFs the optional arguments -fwhm= , -angle= and -ratio= may be provided. For Moffat PSFs the optional argument -beta= may also be provided. If these values are omitted, they default to the same values as in the deconvolution dialog. For disc PSFs only the argument -fwhm= is required, which for this function is used to set the diameter of the PSF. For Airy PSFs the following arguments may be provided: -dia= (sets the telescope diameter), -fl= (sets the telescope focal length), -wl= (sets the wavelength to calculate the Airy diffraction pattern for), -pixelsize= (sets the sensor pixel size), -obstruct= (sets the central obstruction as a percentage of the overall aperture area). If these parameters are not provided, wavelength will default to 525nm and central obstruction will default to 0%. Siril will attempt to read the others from the open image, but some imaging software may not provide all of them in which case you will get bad results, and note the metadata may not be populated for SER format videos. You will learn from experience which are safe to omit for your particular imaging setup.\n\nFor any of the above PSF generation options the optional argument -ks= may be provided to set the PSF dimension, and the optional argument -savepsf=filename may be used to save the generated PSF: a filename must be provided and the same filename extension requirements apply as for makepsf save filename\n\nLinks: psf , rl , sb , wiener",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#makepsf"
+  },
+  {
+    "command": "merge",
+    "scriptable": true,
+    "syntax": "merge sequence1 sequence2 [sequence3 ...] output_sequence",
+    "description": "Merges several sequences of the same type (FITS images, FITS sequence or SER) and same image properties into a new sequence with base name newseq created in the current working directory, with the same type. The input sequences can be in different directories, can specified either in absolute or relative path, with the exact .seq name or with only the base name with or without the trailing '_'",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#merge"
+  },
+  {
+    "command": "merge_cfa",
+    "scriptable": true,
+    "syntax": "merge_cfa file_CFA0 file_CFA1 file_CFA2 file_CFA3 bayerpattern",
+    "description": "Builds a Bayer masked color image from 4 separate images containing the data from Bayer subchannels CFA0, CFA1, CFA2 and CFA3. (The corresponding command to split the CFA pattern into subchannels is split_cfa .) This function can be used as part of a workflow applying some processing to the individual Bayer subchannels prior to demosaicing. The fifth parameter bayerpattern specifies the Bayer matrix pattern to recreate: bayerpattern should be one of 'RGGB', 'BGGR', 'GRBG' or 'GBRG'",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#merge_cfa"
+  },
+  {
+    "command": "mirrorx",
+    "scriptable": true,
+    "syntax": "mirrorx [-bottomup]",
+    "description": "Flips the loaded image about the horizontal axis. Option -bottomup will only flip it if it's not already bottom-up",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#mirrorx"
+  },
+  {
+    "command": "mirrorx_single",
+    "scriptable": true,
+    "syntax": "mirrorx_single image",
+    "description": "Flips the image about the horizontal axis, only if needed (if it's not already bottom-up). It takes the image file name as argument, allowing it to avoid reading image data entirely if no flip is required. Image is overwritten if a flip is made",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#mirrorx_single"
+  },
+  {
+    "command": "mirrory",
+    "scriptable": true,
+    "syntax": "mirrory",
+    "description": "Flips the image about the vertical axis",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#mirrory"
+  },
+  {
+    "command": "modasinh",
+    "scriptable": true,
+    "syntax": "modasinh -D= [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels]",
+    "description": "Modified arcsinh stretch based on the work of the ghsastro.co.uk team.\n\nThe argument -D= defines the strength of the stretch, between 0 and 10. This is the only mandatory argument. The following optional arguments further tailor the stretch:\n\nLP defines a shadow preserving range between 0 and SP where the stretch will be linear, preserving shadow detail;\n\nSP defines the symmetry point of the stretch, between 0 and 1, which is the point at which the stretch will be most intense;\n\nHP defines a region between HP and 1 where the stretch is linear, preserving highlight details and preventing star bloat.\n\nIf omitted LP and SP default to 0.0 ad HP defaults to 1.0.\n\nAn optional argument (either -human , -even or -independent ) can be passed to select either human-weighted or even-weighted luminance or independent colour channels for colour stretches. The argument is ignored for mono images. Alternatively, the argument -sat specifies that the stretch is performed on image saturation - the image must be color and all channels must be selected for this to work.\n\nOptionally the parameter [channels] may be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#modasinh"
+  },
+  {
+    "command": "mtf",
+    "scriptable": true,
+    "syntax": "mtf low mid high [channels]",
+    "description": "Applies midtones transfer function to the current loaded image.\n\nThree parameters are needed, low , midtones and high where midtones balance parameter defines a nonlinear histogram stretch in the [0,1] range. For an automatic determination of the parameters, see AUTOSTRETCH.\n\nOptionally the parameter [channels] may be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels\n\nLinks: autostretch",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#mtf"
+  },
+  {
+    "command": "neg",
+    "scriptable": true,
+    "syntax": "neg",
+    "description": "Changes pixel values of the currently loaded image to a negative view, like 1-value for 32 bits, 65535-value for 16 bits. This does not change the display mode",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#neg"
+  },
+  {
+    "command": "new",
+    "scriptable": false,
+    "syntax": "new width height nb_channel [filename]",
+    "description": "Creates a new image filled with zeros with a size of width x height .\n\nOptionally the parameter [filename] may be used to specify the name of the new file.\n\nThe image is in 32-bit format, and it contains nb_channel channels, nb_channel being 1 or 3. It is not saved, but becomes the loaded image and it is displayed and can be saved afterwards",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#new"
+  },
+  {
+    "command": "nozero",
+    "scriptable": true,
+    "syntax": "nozero level",
+    "description": "Replaces null values by level values. Useful before an idiv or fdiv operation, mostly for 16-bit images",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#nozero"
+  },
+  {
+    "command": "offline",
+    "scriptable": true,
+    "syntax": "offline",
+    "description": "Sets Siril to offline mode. In this mode networking functions such as remote catalogue lookups, update of git repositories etc. are unavailable. Cached data is still accessible",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#offline"
+  },
+  {
+    "command": "offset",
+    "scriptable": true,
+    "syntax": "offset value",
+    "description": "Adds the constant value (specified in ADU) to the current image. This constant can take a negative value.\n\nIn 16-bit mode, values of pixels that fall outside of [0, 65535] are clipped. In 32-bit mode, no clipping occurs",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#offset"
+  },
+  {
+    "command": "online",
+    "scriptable": true,
+    "syntax": "online",
+    "description": "Sets Siril to online mode. In this mode networking functions such as remote catalogue lookups, update of git repositories etc. is allowed",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#online"
+  },
+  {
+    "command": "parse",
+    "scriptable": true,
+    "syntax": "parse str [-r]",
+    "description": "Parses the string str using the information contained in the header of the image currently loaded. Main purpose of this command is to debug path parsing of header keys which can be used in other commands.\n\nOption -r specifies the string is to be interpreted in read mode. In read mode, all wildcards defined in string str are used to find a file name matching the pattern. Otherwise, default mode is write mode and wildcards, if any, are removed from the string to be parsed.\n\nIf str starts with $def prefix, it will be recognized as a reserved keyword and looked for in the strings stored in gui_prepro.dark_lib, gui_prepro.flat_lib, gui_prepro.bias_lib or gui_prepro.stack_default for $defdark , $defflat , $defbias or $defstack respectively.\n\nThe keyword $seqname$ can also be used when a sequence is loaded",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#parse"
+  },
+  {
+    "command": "pcc",
+    "scriptable": true,
+    "syntax": "pcc [-limitmag=[+-]] [-catalog=] [-bgtol=lower,upper]",
+    "description": "Run the Photometric Color Correction on the loaded plate-solved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used is NOMAD by default, it can be changed by providing -catalog=apass , -catalog=localgaia or -catalog=gaia . If installed locally, the remote NOMAD (the complete version) can be forced by providing -catalog=nomad\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#pcc"
+  },
+  {
+    "command": "platesolve",
+    "scriptable": true,
+    "syntax": "platesolve [-force] [image_center_coords] [-focal=] [-pixelsize=]\nplatesolve ... [-noflip] [-downscale] [-order=] [-radius=] [-disto=]\nplatesolve ... [-limitmag=[+-]] [-catalog=] [-nocrop]\nplatesolve ... [-localasnet [-blindpos] [-blindres]]",
+    "description": "Plate solve the loaded image.\n\nIf the image has already been plate solved nothing will be done, unless the -force argument is passed to force a new solve. If WCS or other image metadata is erroneous or missing, arguments must be passed:\n\nthe approximate image center coordinates can be provided in decimal degrees or degree/hour minute second values (J2000 with colon separators), with right ascension and declination values separated by a comma or a space (not mandatory for astrometry.net).\n\nfocal length and pixel size can be passed with -focal= (in mm) and -pixelsize= (in microns), overriding values from image and settings. See also options to solve blindly with local Astrometry.net\n\nUnless -noflip is specified, if the image is detected as being upside-down, it will be flipped.\n\nFor faster star detection in big images, downsampling the image is possible with -downscale .\n\nThe solve can account for distortions using SIP convention with polynomials up to order 5. Default value is taken form the astrometry preferences. This can be changed with the option -order= giving a value between 1 and 5.\n\nWhen using Siril solver local catalogues or with local Astrometry.net, if the initial solve is not successful, the solver will search for a solution within a cone of radius specified with -radius= option. If no value is passed, the search radius is taken from the astrometry preferences. Siril near search can be disabled by passing a value of 0. (cannot be disabled for Astrometry.net).\n\nYou can save the current solution as a distortion file with the option -disto= .\n\nImages can be either plate solved by Siril using a star catalog and the global registration algorithm or by astrometry.net's local solve-field command (enabled with -localasnet ).\n\nSiril platesolver options:\n\nThe limit magnitude of stars used for plate solving is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe choice of the star catalog is automatic unless the -catalog= option is passed: if local catalogs are installed, they are used, otherwise the choice is based on the field of view and limit magnitude. If the option is passed, it forces the use of the catalog given in argument, with possible values: tycho2, nomad, localgaia, gaia, ppmxl, brightstars, apass.\n\nIf the computed field of view is larger than 5 degrees, star detection will be bounded to a cropped area around the center of the image unless -nocrop option is passed.\n\nAstrometry.net solver options:\n\nPassing options -blindpos and/or -blindres enables to solve blindly for position and for resolution respectively. You can use these when solving an image with a completely unknown location and sampling",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#platesolve"
+  },
+  {
+    "command": "pm",
+    "scriptable": true,
+    "syntax": "pm \"expression\" [-rescale [low] [high]] [-nosum]",
+    "description": "This command evaluates the expression given in argument as in PixelMath tool. The full expression must be between double quotes and variables (that are image names, without extension, located in the working directory in that case) must be surrounded by the token $, e.g. \"$image1$ * 0.5 + $image2$ * 0.5\". A maximum of 10 images can be used in the expression.\n\nImage can be rescaled with the option -rescale followed by low and high values in the range [0, 1]. If no low and high values are provided, default values are set to 0 and 1. Another optional argument, -nosum tells Siril not to sum exposure times. This impacts FITS keywords such as LIVETIME and STACKCNT",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#pm"
+  },
+  {
+    "command": "profile",
+    "scriptable": true,
+    "syntax": "profile -from=x,y -to=x,y [-tri] [-cfa] [-arcsec] { [-savedat] | [-filename=] } [-layer=] [-width=] [-spacing=] [\"-title=My Plot\"]",
+    "description": "Generates an intensity profile plot between 2 points in the image, also known as a cut . The arguments may be provided in any order. The arguments -to=x,y and -from=x,y are mandatory.\n\nThe argument -layer={red | green | blue | lum | col} specifies which channel (or luminance or colour) to plot if the image is color. It may also be used with the -tri option, which generates 3 parallel equispaced profiles each separated by -spacing= pixels, but note that for tri profiles the col option will be treated the same as lum .\n\nThe option -cfa selects CFA mode, which generates 4 profiles: 1 for each CFA channel in a Bayer patterned image. This option cannot be used with color images or mono images with no Bayer pattern, and cannot be used at the same time as the -tri option.\n\nThe option -arcsec causes the x axis to display distance in arcsec, if the necessary metadata is available. If not provided or if metadata is not available, distance will be shown in pixel units.\n\nThe argument -savedat will cause the data files to be saved: the filename will be written to the log. Alternatively the argument -filename= can be used to specify a filename to write the data file to. (The -filename= option implies -savedat .)\n\nThe argument \"-title=My Title\" sets a custom title \"My Title\"",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#profile"
+  },
+  {
+    "command": "psf",
+    "scriptable": true,
+    "syntax": "psf [channel]",
+    "description": "Performs a PSF (Point Spread Function) on the selected star and display the results. For headless operation, the selection can be given in pixels using BOXSELECT. If provided, the channel argument selects the image channel on which the star will be analyzed. It can be omitted for monochrome images or when run from the GUI with one of the channels active in the view\n\nLinks: boxselect",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#psf"
+  },
+  {
+    "command": "pwd",
+    "scriptable": true,
+    "syntax": "pwd",
+    "description": "Prints the current working directory",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#pwd"
+  },
+  {
+    "command": "pyscript",
+    "scriptable": true,
+    "syntax": "pyscript [-async] scriptname.py [script_argv]",
+    "description": "Executes a Siril python script\n\nAn optional argument -async may be provided. If it is provided it must be the first argument. This allows the script launched by pyscript to run in the background without blocking a script that calls it. This is expected to be useful for launcher-type scripts. The default is for the script to block until completion if pyscript is run as part of a script, but not to block if run from the GUI command entry (so the -async argument makes no difference when running like that).\n\nThe script name must be provided next (or first, if -async is not provided). If it is not found in the current working directory, the user-defined script paths specified in Preferences and the local siril-scripts repository will be searched. All subsequent arguments will be treated as script arguments and passed to the script as its argument vector. Note that the specific script must incorporate support for reading input from the argument vector",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#pyscript"
+  },
+  {
+    "command": "register",
+    "scriptable": true,
+    "syntax": "register sequencename [-2pass] [-selected] [-prefix=] [-scale=]\nregister sequencename ... [-layer=] [-transf=] [-minpairs=] [-maxstars=] [-nostarlist] [-disto=]\nregister sequencename ... [-interp=] [-noclamp]\nregister sequencename ... [-drizzle [-pixfrac=] [-kernel=] [-flat=]]",
+    "description": "Finds and optionally performs geometric transforms on images of the sequence given in argument so that they may be superimposed on the reference image. Using stars for registration, this algorithm only works with deep sky images. Star detection options can be changed using SETFINDSTAR or the Dynamic PSF dialog.\n\nAll images of the sequence will be registered unless the option -selected is passed, in that case the excluded images will not be processed.\n\nThe -2pass option will only compute the transforms but not generate the transformed images, -2pass adds a preliminary pass to the algorithm to find a good reference image before computing the transforms, based on image quality and framing. To generate transformed images after this pass, use SEQAPPLYREG.\n\nIf created, the output sequence name will start with the prefix \"r_\" unless otherwise specified with -prefix= option. The output images can be rescaled by passing a -scale= argument with a float value between 0.1 and 3.\n\nImage transformation options:\n\nThe detection is done on the green layer for colour images, unless specified by the -layer= option with an argument ranging from 0 to 2 for red to blue.\n\n-transf= specifies the use of either shift , similarity , affine or homography (default) transformations respectively.\n\n-minpairs= will specify the minimum number of star pairs a frame must have with the reference frame, otherwise the frame will be dropped and excluded from the sequence.\n\n-maxstars= will specify the maximum number of stars to find within each frame (must be between 100 and 2000). With more stars, a more accurate registration can be computed, but will take more time to run.\n\n-nostarlist disables saving the star lists to disk.\n\n-disto= uses distortion terms from a previous platesolve solution (with a SIP order > 1). It takes as parameter either image to use the solution contained in the currently loaded image, file followed by the path to the image containing the solution or master to load automatically the matching distortion master corresponding to each image. When using this option, the polynomials are used both to correct star positions before computing the transformation and to undistort the images when output images are exported.\n\nImage interpolation options:\n\nBy default, transformations are applied to register the images by using interpolation.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}. If none is passed, the transformation is forced to shift and a pixel-wise shift is applied to each image without any interpolation.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument.\n\nImage drizzle options:\n\nOtherwise, the images can be exported using HST drizzle algorithm by passing the argument -drizzle which can take the additional options:\n\n-pixfrac= sets the pixel fraction (default = 1.0).\n\nThe -kernel= argument sets the drizzle kernel and must be followed by one of point , turbo , square , gaussian , lanczos2 or lanczos3 . The default is square .\n\nThe -flat= argument specifies a master flat to weight the drizzled input pixels (default is no flat).\n\nNote: when using -drizzle on images taken with a color camera, the input images must not be debayered. In that case, star detection will always occur on the green pixels\n\nLinks: setfindstar , psf , seqapplyreg",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#register"
+  },
+  {
+    "command": "reloadscripts",
+    "scriptable": false,
+    "syntax": "reloadscripts",
+    "description": "Rescans the scripts folders and updates the Scripts menu. Note that this command may not be used headless (i.e. from siril-cli) and also that the update will happen asynchronously (i.e. the command will trigger the update but will not wait for the update to complete)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#reloadscripts"
+  },
+  {
+    "command": "requires",
+    "scriptable": true,
+    "syntax": "requires min_version [obsolete_version]",
+    "description": "Returns an error if the version of Siril is older than the minimum required version passed in the first argument. Optionally, takes a second argument for the Siril version at which the script is obsolete: returns an error if the version of Siril is newer than or equal to the one passed in the second argument.\n\nExample: requires 1.2.0 1.4.0 allows the script to run for all of the 1.2.x series and 1.3.x series, but will not run for any versions earlier than 1.2.0 or for version 1.4.0 or any later versions",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#requires"
+  },
+  {
+    "command": "resample",
+    "scriptable": true,
+    "syntax": "resample { factor | -width= | -height= | -maxdim= } [-interp=] [-noclamp]",
+    "description": "Resamples the loaded image, either with a factor factor or for the target width or height provided by either of -width= , -height= or -maxdim= . This is generally used to resize images: a factor of 0.5 divides size by 2. The -maxdim argument can be used to resize the longest dimension of the image to a set size, which can be useful for optimizing images for certain websites, e.g. social media websites.\n\nIn the graphical user interface, we can see that several interpolation algorithms are proposed.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#resample"
+  },
+  {
+    "command": "rgbcomp",
+    "scriptable": true,
+    "syntax": "rgbcomp red green blue [-out=result_filename] [-nosum]\nrgbcomp -lum=image { rgb_image | red green blue } [-out=result_filename] [-nosum]",
+    "description": "Creates an RGB composition using three independent images, or an LRGB composition using the optional luminance image and three monochrome images or a color image. Result image is called composed_rgb.fit or composed_lrgb.fit unless another name is provided in the optional argument. Another optional argument, -nosum tells Siril not to sum exposure times. This impacts FITS keywords such as LIVETIME and STACKCNT",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#rgbcomp"
+  },
+  {
+    "command": "rgradient",
+    "scriptable": true,
+    "syntax": "rgradient xc yc dR dalpha",
+    "description": "Creates two images, with a radial shift ( dR in pixels) and a rotational shift ( dalpha in degrees) with respect to the point ( xc , yc ).\n\nBetween these two images, the shifts have the same amplitude, but an opposite sign. The two images are then added to create the final image. This process is also called Larson Sekanina filter",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#rgradient"
+  },
+  {
+    "command": "rl",
+    "scriptable": true,
+    "syntax": "rl [-loadpsf=] [-alpha=] [-iters=] [-stop=] [-gdstep=] [-tv] [-fh] [-mul]",
+    "description": "Restores an image using the Richardson-Lucy method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename (created with MAKEPSF).\n\nThe number of iterations is provide by -iters (the default is 10).\n\nThe type of regularization can be set with -tv for Total Variation, or -fh for the Frobenius norm of the Hessian matrix (the default is none) and -alpha= provides the regularization strength (lower value = more regularization, default = 3000).\n\nBy default the gradient descent method is used with a default step size of 0.0005, however the multiplicative method may be specified with -mul .\n\nThe stopping criterion may be activated by specifying a stopping limit with -stop=\n\nLinks: psf , makepsf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#rl"
+  },
+  {
+    "command": "rmgreen",
+    "scriptable": true,
+    "syntax": "rmgreen [-nopreserve] [type] [amount]",
+    "description": "Applies a chromatic noise reduction filter. It removes green tint in the current image. This filter is based on PixInsight's SCNR and it is also the same filter used by HLVG plugin in Photoshop.\n\nLightness is preserved by default but this can be disabled with the -nopreserve switch.\n\nType can take values 0 for average neutral, 1 for maximum neutral, 2 for maximum mask, 3 for additive mask, defaulting to 0. The last two can take an amount argument, a value between 0 and 1, defaulting to 1",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#rmgreen"
+  },
+  {
+    "command": "rotate",
+    "scriptable": true,
+    "syntax": "rotate degree [-nocrop] [-interp=] [-noclamp]",
+    "description": "Rotates the loaded image by an angle of degree value. The option -nocrop can be added to avoid cropping to the image size (black borders will be added).\n\nNote: if a selection is active, i.e. by using a command `boxselect` before `rotate`, the resulting image will be a rotated crop. In this particular case, the option -nocrop will be ignored if passed.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}. If none is passed, the transformation is forced to shift and a pixel-wise shift is applied to each image without any interpolation.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#rotate"
+  },
+  {
+    "command": "rotatePi",
+    "scriptable": true,
+    "syntax": "rotatePi",
+    "description": "Rotates the loaded image of an angle of 180° around its center. This is equivalent to the command \"ROTATE 180\" or \"ROTATE -180\"\n\nLinks: rotate",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#rotatePi"
+  },
+  {
+    "command": "satu",
+    "scriptable": true,
+    "syntax": "satu amount [background_factor [hue_range_index]]",
+    "description": "Enhances the color saturation of the loaded image. Try iteratively to obtain best results.\n\namount can be a positive number to increase color saturation, negative to decrease it, 0 would do nothing, 1 would increase it by 100%\n\nbackground_factor is a factor to (median + sigma) used to set a threshold for which only pixels above it would be modified. This allows background noise to not be color saturated, if chosen carefully. Defaults to 1. Setting 0 disables the threshold.\n\nhue_range_index can be [0, 6], meaning: 0 for pink to orange, 1 for orange to yellow, 2 for yellow to cyan, 3 for cyan, 4 for cyan to magenta, 5 for magenta to pink, 6 for all (default)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#satu"
+  },
+  {
+    "command": "save",
+    "scriptable": true,
+    "syntax": "save filename [-chksum]",
+    "description": "Saves current image to filename .fit (or .fits, depending on your preferences, see SETEXT) in the current working directory. The image remains loaded. filename can contain a path as long as the directory already exists. The -chksum option stores checksum keywords (CHECKSUM and DATASUM) in the FITS header\n\nLinks: setext",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#save"
+  },
+  {
+    "command": "savebmp",
+    "scriptable": true,
+    "syntax": "savebmp filename",
+    "description": "Saves current image under the form of a bitmap file with 8-bit per channel: filename .bmp (BMP 24-bit)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savebmp"
+  },
+  {
+    "command": "savejpg",
+    "scriptable": true,
+    "syntax": "savejpg filename [quality]",
+    "description": "Saves current image into a JPG file: filename .jpg.\n\nThe compression quality can be adjusted using the optional quality value, 100 being the best and default, while a lower value increases the compression ratio",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savejpg"
+  },
+  {
+    "command": "savejxl",
+    "scriptable": true,
+    "syntax": "savejxl filename [-effort=] [-quality=] [-8bit]",
+    "description": "Saves current image into a JPG XL file: filename .jxl.\n\nAll other arguments are optional. The quality setting expresses a maximum permissible distance between the original and the compressed image: the -quality= argument may be provided and must be specified as a floating point number between 0.0 and 10.0. A higher quality means better quality, but larger file size. Quality = 10.0 is mathematically lossless, quality = 9.0 is visually lossless and quality = 0 is visually poor but gives very small file sizes. The default value is 9.0; typical values range from 7.0 to 10.0. The compression effort can be adjusted using the optional -effort= value, 9 being the most effort but very slow, while a lower value increases the compression ratio. Values above 7 are not recommended as they can be very slow and produce little if any benefit to file size, in fact sometimes effort = 9 can produce larger files. If this argument is omitted the default value of 7 is used. An option -8bit may be provided to force output to be 8 bits per pixel",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savejxl"
+  },
+  {
+    "command": "savepng",
+    "scriptable": true,
+    "syntax": "savepng filename",
+    "description": "Saves current image into a PNG file: filename .png, with 16 bits per channel if the loaded image is 16 or 32 bits, and 8 bits per channel if the loaded image is 8 bits",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savepng"
+  },
+  {
+    "command": "savepnm",
+    "scriptable": true,
+    "syntax": "savepnm filename",
+    "description": "Saves current image under the form of a NetPBM file format with 16-bit per channel.\n\nThe extension of the output will be filename .ppm for RGB image and filename .pgm for gray-level image",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savepnm"
+  },
+  {
+    "command": "savetif",
+    "scriptable": true,
+    "syntax": "savetif filename [-astro] [-deflate]",
+    "description": "Saves current image under the form of a uncompressed TIFF file with 16-bit per channel: filename .tif. The option -astro allows saving in Astro-TIFF format, while -deflate enables compression.\n\nSee also SAVETIF32 and SAVETIF8",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savetif"
+  },
+  {
+    "command": "savetif32",
+    "scriptable": true,
+    "syntax": "savetif32 filename [-astro] [-deflate]",
+    "description": "Same command as SAVETIF but the output file is saved in 32-bit per channel: filename .tif. The option -astro allows saving in Astro-TIFF format, while -deflate enables compression\n\nLinks: savetif",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savetif32"
+  },
+  {
+    "command": "savetif8",
+    "scriptable": true,
+    "syntax": "savetif8 filename [-astro] [-deflate]",
+    "description": "Same command as SAVETIF but the output file is saved in 8-bit per channel: filename .tif. The option -astro allows saving in Astro-TIFF format, while -deflate enables compression\n\nLinks: savetif",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#savetif8"
+  },
+  {
+    "command": "sb",
+    "scriptable": true,
+    "syntax": "sb [-loadpsf=] [-alpha=] [-iters=]",
+    "description": "Restores an image using the Split Bregman method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename .\n\nThe number of iterations is provide by -iters (the default is 1).\n\nThe regularization factor -alpha= provides the regularization strength (lower value = more regularization, default = 3000)\n\nLinks: psf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#sb"
+  },
+  {
+    "command": "select",
+    "scriptable": true,
+    "syntax": "select sequencename from to",
+    "description": "This command allows easy mass selection of images in the sequence sequencename (from from to to included). This is a selection for later processing.\n\nSee also UNSELECT\n\nLinks: unselect\n\nExamples:\n\nselect . 0 0\n\nselects the first of the currently loaded sequence\n\nselect sequencename 1000 1200\n\nselects 201 images starting from number 1000 in sequence named sequencename\n\nThe second number can be greater than the number of images to just go up to the end.",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#select"
+  },
+  {
+    "command": "seqapplyreg",
+    "scriptable": true,
+    "syntax": "seqapplyreg sequencename [-prefix=] [-scale=] [-layer=] [-framing=]\nseqapplyreg sequencename ... [-interp=] [-noclamp]\nseqapplyreg sequencename ... [-drizzle [-pixfrac=] [-kernel=] [-flat=]]\nseqapplyreg sequencename ... [-filter-fwhm=value[%|k]] [-filter-wfwhm=value[%|k]] [-filter-round=value[%|k]] [-filter-bkg=value[%|k]] [-filter-nbstars=value[%|k]] [-filter-quality=value[%|k]] [-filter-incl[uded]]\n[-filter-fwhm=value[%|k]] [-filter-wfwhm=value[%|k]] [-filter-round=value[%|k]] [-filter-bkg=value[%|k]]\n[-filter-nbstars=value[%|k]] [-filter-quality=value[%|k]] [-filter-incl[uded]]",
+    "description": "Applies geometric transforms on images of the sequence given in argument so that they may be superimposed on the reference image, using registration data previously computed (see REGISTER).\n\nThe output sequence name starts with the prefix \"r_\" unless otherwise specified with -prefix= option.\n\nThe registration is done on the first layer for which data exists for RGB images unless specified by -layer= option (0, 1 or 2 for R, G and B respectively).\n\nThe output images can be rescaled by passing a -scale= argument with a float value between 0.1 and 3.\n\nAutomatic framing of the output sequence can be specified using -framing= keyword followed by one of the methods in the list { current | min | max | cog } :\n\n-framing=max (bounding box) will project each image and compute its shift wrt. reference image. The resulting sequence can then be stacked using option -maximize of STACK command which will create the full image encompassing all images of the sequence.\n\n-framing=min (common area) crops each image to the area it has in common with all images of the sequence.\n\n-framing=cog determines the best framing position as the center of gravity (cog) of all the images.\n\nImage interpolation options:\n\nBy default, transformations are applied to register the images by using interpolation.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}. If none is passed, the transformation is forced to shift and a pixel-wise shift is applied to each image without any interpolation.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument.\n\nImage drizzle options:\n\nOtherwise, the images can be exported using HST drizzle algorithm by passing the argument -drizzle which can take the additional options:\n\n-pixfrac= sets the pixel fraction (default = 1.0).\n\nThe -kernel= argument sets the drizzle kernel and must be followed by one of point , turbo , square , gaussian , lanczos2 or lanczos3 . The default is square .\n\nThe -flat= argument specifies a master flat to weight the drizzled input pixels (default is no flat).\n\nFiltering out images:\n\nImages to be registered can be selected based on some filters, like those selected or with best FWHM, with some of the -filter-* options.\n\nLinks: register , stack\n\nWith filtering being some of these in no particular order or number:\n\nBest images from the sequence can be stacked by using the filtering arguments. Each of these arguments can remove bad images based on a property their name contains, taken from the registration data, with either of the three types of argument values:\n\n- a numeric value for the worse image to keep depending on the type of data used (between 0 and 1 for roundness and quality, absolute values otherwise),\n\n- a percentage of best images to keep if the number is followed by a % sign,\n\n- or a k value for the k.sigma of the worse image to keep if the number is followed by a k sign.\n\nIt is also possible to use manually selected images, either previously from the GUI or with the select or unselect commands, using the -filter-included argument.",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqapplyreg"
+  },
+  {
+    "command": "seqccm",
+    "scriptable": true,
+    "syntax": "seqccm sequencename [-prefix=]",
+    "description": "Same command as CCM but for the the sequence sequencename . Only selected images in the sequence are processed.\n\nThe output sequence name starts with the prefix \"ccm\" unless otherwise specified with option -prefix=\n\nLinks: ccm",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqccm"
+  },
+  {
+    "command": "seqclean",
+    "scriptable": true,
+    "syntax": "seqclean sequencename [-reg] [-stat] [-sel]",
+    "description": "This command clears selection, registration and/or statistics data stored for the sequence sequencename .\n\nYou can specify to clear only registration, statistics and/or selection with -reg , -stat and -sel options respectively. All are cleared if no option is passed",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqclean"
+  },
+  {
+    "command": "seqcosme",
+    "scriptable": true,
+    "syntax": "seqcosme sequencename [filename].lst [-prefix=]",
+    "description": "Same command as COSME but for the the sequence sequencename . Only selected images in the sequence are processed.\n\nThe output sequence name starts with the prefix \"cosme_\" unless otherwise specified with option -prefix=\n\nLinks: cosme",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqcosme"
+  },
+  {
+    "command": "seqcosme_cfa",
+    "scriptable": true,
+    "syntax": "seqcosme_cfa sequencename [filename].lst [-prefix=]",
+    "description": "Same command as COSME_CFA but for the the sequence sequencename . Only selected images in the sequence are processed.\n\nThe output sequence name starts with the prefix \"cosme_\" unless otherwise specified with option -prefix=\n\nLinks: cosme_cfa",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqcosme_cfa"
+  },
+  {
+    "command": "seqcrop",
+    "scriptable": true,
+    "syntax": "seqcrop sequencename x y width height [-prefix=]",
+    "description": "Crops the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe crop selection is specified by the upper left corner position x and y and the selection width and height , like for CROP.\n\nThe output sequence name starts with the prefix \"cropped_\" unless otherwise specified with -prefix= option\n\nLinks: crop",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqcrop"
+  },
+  {
+    "command": "seqextract_Green",
+    "scriptable": true,
+    "syntax": "seqextract_Green sequencename [-prefix=]",
+    "description": "Same command as EXTRACT_GREEN but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"Green_\" unless otherwise specified with option -prefix=",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqextract_Green"
+  },
+  {
+    "command": "seqextract_Ha",
+    "scriptable": true,
+    "syntax": "seqextract_Ha sequencename [-prefix=] [-upscale]",
+    "description": "Same command as EXTRACT_HA but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"Ha_\" unless otherwise specified with option -prefix=",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqextract_Ha"
+  },
+  {
+    "command": "seqextract_HaOIII",
+    "scriptable": true,
+    "syntax": "seqextract_HaOIII sequencename [-resample=]",
+    "description": "Same command as EXTRACT_HAOIII but for the sequence sequencename .\n\nThe output sequences names start with the prefixes \"Ha_\" and \"OIII_\"",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqextract_HaOIII"
+  },
+  {
+    "command": "seqfind_cosme",
+    "scriptable": true,
+    "syntax": "seqfind_cosme sequencename cold_sigma hot_sigma [-prefix=]",
+    "description": "Same command as FIND_COSME but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"cc_\" unless otherwise specified with -prefix= option\n\nLinks: find_cosme",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqfind_cosme"
+  },
+  {
+    "command": "seqfind_cosme_cfa",
+    "scriptable": true,
+    "syntax": "seqfind_cosme_cfa sequencename cold_sigma hot_sigma [-prefix=]",
+    "description": "Same command as FIND_COSME_CFA but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"cc_\" unless otherwise specified with -prefix= option\n\nLinks: find_cosme_cfa",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqfind_cosme_cfa"
+  },
+  {
+    "command": "seqfindstar",
+    "scriptable": true,
+    "syntax": "seqfindstar sequencename [-layer=] [-maxstars=]",
+    "description": "Same command as FINDSTAR but for the sequence sequencename .\n\nThe option -out= is not available for this process as all the star list files are saved with the default name seqname_seqnb.lst\n\nLinks: findstar",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqfindstar"
+  },
+  {
+    "command": "seqfixbanding",
+    "scriptable": true,
+    "syntax": "seqfixbanding sequencename amount sigma [-prefix=] [-vertical]",
+    "description": "Same command as FIXBANDING but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"unband_\" unless otherwise specified with -prefix= option\n\nLinks: fixbanding",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqfixbanding"
+  },
+  {
+    "command": "seqght",
+    "scriptable": true,
+    "syntax": "seqght sequence -D= [-B=] [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels] [-prefix=]",
+    "description": "Same command as GHT but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: ght",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqght"
+  },
+  {
+    "command": "seqheader",
+    "scriptable": true,
+    "syntax": "seqheader sequencename keyword [keyword2 ...] [-sel] [-out=file.csv]",
+    "description": "Prints the FITS header value corresponding to the given keys for all images in the sequence. You can write several keys in a row, separated by a space. The -out= option, followed by a file name, allows you to print the output in a csv file. The -sel option limits the output to the images selected in the sequence",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqheader"
+  },
+  {
+    "command": "seqinvght",
+    "scriptable": true,
+    "syntax": "seqinvght sequence -D= [-B=] [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels] [-prefix=]",
+    "description": "Same command as INVGHT but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: invght",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqinvght"
+  },
+  {
+    "command": "seqinvmodasinh",
+    "scriptable": true,
+    "syntax": "seqinvmodasinh sequence -D= [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels] [-prefix=]",
+    "description": "Same command as INVMODASINH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: invmodasinh",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqinvmodasinh"
+  },
+  {
+    "command": "seqlinstretch",
+    "scriptable": true,
+    "syntax": "seqlinstretch sequence -BP= [channels] [-sat] [-prefix=]",
+    "description": "Same command as LINSTRETCH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: linstretch",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqlinstretch"
+  },
+  {
+    "command": "seqmerge_cfa",
+    "scriptable": true,
+    "syntax": "seqmerge_cfa sequencename0 sequencename1 sequencename2 sequencename3 bayerpattern [-prefixout=]",
+    "description": "Merges 4 sequences of images to recombine the Bayer pattern. The sequences are specified in the arguments sequencename0 , sequencename1 , sequencename2 and sequencename3 .\n\nThe Bayer pattern to be reconstructed must be provided as the second argument as one of RGGB, BGGR, GBRG or GRBG (the order of the Bayer channels must match the order of the specified sequences).\n\nNote: all 4 input sequences must be present and have the same dimensions, bit depth and number of images.\n\nThe output sequence name starts with the prefix \"mCFA_\" and a number unless otherwise specified with -prefixout= option",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqmerge_cfa"
+  },
+  {
+    "command": "seqmodasinh",
+    "scriptable": true,
+    "syntax": "seqmodasinh sequence -D= [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels] [-prefix=]",
+    "description": "Same command as MODASINH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: modasinh",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqmodasinh"
+  },
+  {
+    "command": "seqmtf",
+    "scriptable": true,
+    "syntax": "seqmtf sequencename low mid high [channels] [-prefix=]",
+    "description": "Same command as MTF but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"mtf_\" unless otherwise specified with -prefix= option\n\nLinks: mtf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqmtf"
+  },
+  {
+    "command": "seqprofile",
+    "scriptable": true,
+    "syntax": "seqprofile sequence -from=x,y -to=x,y [-tri] [-cfa] [-arcsec] [-savedat] [-layer=] [-width=] [-spacing=] [ {-xaxis=wavelength | -xaxis=wavenumber } ] [{-wavenumber1= | -wavelength1=} -wn1at=x,y {-wavenumber2= | -wavelength2=} -wn2at=x,y] [\"-title=My Plot\"]",
+    "description": "Generates an intensity profile plot between 2 points in each image in the sequence. After the mandatory first argument stating the sequence to process, the other arguments are the same as for the profile command. If processing a sequence and it is desired to have the current image number and total number of images displayed in the format \"My Sequence (1 / 5)\", the given title should end with () (e.g. \"My Sequence ()\" and the numbers will be populated automatically)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqprofile"
+  },
+  {
+    "command": "seqpsf",
+    "scriptable": true,
+    "syntax": "seqpsf sequencename [channel] [{ -at=x,y | -wcs=ra,dec }] [-followstar]",
+    "description": "Same command as PSF but runs on sequences. This is similar to the one-star registration, except results can be used for photometry analysis rather than aligning images and the coordinates of the star can be provided by options.\n\nThis command is what is called internally by the menu that appears on right click in the image, with the PSF for the sequence entry. If registration data already exist for the sequence, they will can be used to shift the search window in each image. If there is no registration data and if there is significant shift between images in the sequence, the default settings will fail to find stars in the initial position of the search area.\n\nThe follow star option can then be activated with the argument -followstar .\n\nResults will be displayed in the Plot tab, from which they can also be exported to a comma-separated values (CSV) file for external analysis.\n\nWhen creating a light curve, the first star for which seqpsf has been run, marked 'V' in the display, will be considered as the variable star. All others are averaged to create a reference light curve subtracted to the light curve of the variable star.\n\nCurrently, in headless operation, the command prints some analysed data in the console, another command allows several stars to be analysed and plotted as a light curve: LIGHT_CURVE. Arguments are mandatory: the sequence name must be provided (\".\" may be used to indicate the currently loaded sequence) and when headless it is mandatory to provide the coordinates of the star, with -at= allowing coordinates in pixels to be provided for the target star of -wcs= allowing J2000 equatorial coordinates to be provided\n\nLinks: psf , light_curve",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqpsf"
+  },
+  {
+    "command": "seqplatesolve",
+    "scriptable": true,
+    "syntax": "seqplatesolve sequencename [image_center_coords] [-focal=] [-pixelsize=]\nseqplatesolve sequencename ... [-downscale] [-order=] [-radius=] [-force] [-noreg] [-disto=]\nseqplatesolve sequencename ... [-limitmag=[+-]] [-catalog=] [-nocrop] [-nocache]\nseqplatesolve sequencename ... [-localasnet [-blindpos] [-blindres]]",
+    "description": "Plate solve a sequence. A new sequence will be created with the prefix \"ps_\" if the input sequence is SER, otherwise, the images headers will be updated. In case of SER, providing the metadata is mandatory and the output sequence will be in the FITS cube format, as SER cannot store WCS data.\n\nIf WCS or other image metadata are erroneous or missing, arguments must be passed:\n\nthe approximate image center coordinates can be provided in decimal degrees or degree/hour minute second values (J2000 with colon separators), with right ascension and declination values separated by a comma or a space (not mandatory for astrometry.net).\n\nfocal length and pixel size can be passed with -focal= (in mm) and -pixelsize= (in microns), overriding values from images and settings. See also options to solve blindly with local Astrometry.net\n\nFor faster star detection in big images, downsampling the image is possible with -downscale .\n\nThe solve can account for distortions using SIP convention with polynomials up to order 5. Default value is taken form the astrometry preferences. This can be changed with the option -order= giving a value between 1 and 5.\n\nWhen using Siril solver local catalogues or with local Astrometry.net, if the initial solve is not successful, the solver will search for a solution within a cone of radius specified with -radius= option. If no value is passed, the search radius is taken from the astrometry preferences. Siril near search can be disabled by passing a value of 0. (cannot be disabled for Astrometry.net).\n\nImages already solved will be skipped by default. This can be disabled by passing the option -force .\n\nUsing this command will update registration data unless the option -noreg is passed.\n\nYou can save the current solution as a distortion file with the option -disto= .\n\nImages can be either plate solved by Siril using a star catalogue and the global registration algorithm or by astrometry.net's local solve-field command (enabled with -localasnet ).\n\nSiril platesolver options:\n\nThe limit magnitude of stars used for plate solving is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe choice of the star catalog is automatic unless the -catalog= option is passed: if local catalogs are installed, they are used, otherwise the choice is based on the field of view and limit magnitude. If the option is passed, it forces the use of the remote catalog given in argument, with possible values: tycho2, nomad, gaia, ppmxl, brightstars, apass.\n\nIf the computed field of view is larger than 5 degrees, star detection will be bounded to a cropped area around the center of the image unless -nocrop option is passed.\n\nWhen using online catalogues, a single catalogue extraction will be done for the entire sequence. If there is a lot of drift or different sampling, that may not succeed for all images. This can be disabled by passing the argument -nocache , in which case metadata from each image will be used (except for the forced values like center coordinates, pixel size and/or focal length).\n\nAstrometry.net solver options:\n\nPassing options -blindpos and/or -blindres enables to solve blindly for position and for resolution respectively. You can use these when solving an image with a completely unknown location and sampling",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqplatesolve"
+  },
+  {
+    "command": "seqresample",
+    "scriptable": true,
+    "syntax": "seqresample sequencename { -scale= | -width= | -height= } [-interp=] [-prefix=]",
+    "description": "Scales the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe scale factor is specified either by the -scale= argument or by setting the output width, height or maximum dimension using the -width= , -height= or -maxdim= options.\n\nAn interpolation method may be specified using the -interp= argument followed by one of the methods in the list ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}.. Clamping is applied for cubic and lanczos interpolation.\n\nThe output sequence name starts with the prefix \"scaled_\" unless otherwise specified with -prefix= option",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqresample"
+  },
+  {
+    "command": "seqrl",
+    "scriptable": true,
+    "syntax": "seqrl sequencename [-loadpsf=] [-alpha=] [-iters=] [-stop=] [-gdstep=] [-tv] [-fh] [-mul]",
+    "description": "The same as the RL command, but applies to a sequence which must be specified as the first argument\n\nLinks: rl",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqrl"
+  },
+  {
+    "command": "seqsb",
+    "scriptable": true,
+    "syntax": "seqsb sequencename [-loadpsf=] [-alpha=] [-iters=]",
+    "description": "The same as the SB command, but applies to a sequence which must be specified as the first argument\n\nLinks: sb",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqsb"
+  },
+  {
+    "command": "seqsetmag",
+    "scriptable": false,
+    "syntax": "seqsetmag magnitude",
+    "description": "Same as SETMAG command but for the loaded sequence.\n\nThis command is only valid after having run SEQPSF or its graphical counterpart (select the area around a star and launch the PSF analysis for the sequence, it will appear in the graphs).\n\nThis command has the same goal as SETMAG but recomputes the reference magnitude for each image of the sequence where the reference star has been found.\n\nWhen running the command, the last star that has been analysed will be considered as the reference star. Displaying the magnitude plot before typing the command makes it easy to understand.\n\nTo reset the reference star and magnitude offset, see SEQUNSETMAG\n\nLinks: setmag , seqpsf , psf , sequnsetmag",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqsetmag"
+  },
+  {
+    "command": "seqsplit_cfa",
+    "scriptable": true,
+    "syntax": "seqsplit_cfa sequencename [-prefix=]",
+    "description": "Same command as SPLIT_CFA but for the sequence sequencename .\n\nThe output sequences names start with the prefix \"CFA_\" and a number unless otherwise specified with -prefix= option.\n\nLimitation: the sequence always outputs a sequence of FITS files, no matter the type of input sequence\n\nLinks: split_cfa",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqsplit_cfa"
+  },
+  {
+    "command": "seqstarnet",
+    "scriptable": true,
+    "syntax": "seqstarnet sequencename [-stretch] [-upscale] [-stride=value] [-nostarmask]",
+    "description": "This command calls Starnet++ to remove stars from the sequence sequencename . See STARNET\n\nLinks: starnet",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqstarnet"
+  },
+  {
+    "command": "seqstat",
+    "scriptable": true,
+    "syntax": "seqstat sequencename output_file [option] [-cfa]",
+    "description": "Same command as STAT for sequence sequencename .\n\nData is saved as a csv file output_file .\n\nThe optional parameter defines the number of statistical values computed: basic , main (default) or full (more detailed but longer to compute).\n\n\\t basic includes mean, median, sigma, bgnoise, min and max\n\n\\t main includes basic with the addition of avgDev, MAD and the square root of BWMV\n\n\\t full includes main with the addition of location and scale.\n\nIf -cfa is passed and the images are CFA, statistics are made on per-filter extractions\n\nLinks: stat",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqstat"
+  },
+  {
+    "command": "seqsubsky",
+    "scriptable": true,
+    "syntax": "seqsubsky sequencename { -rbf | degree } [-nodither] [-samples=20] [-tolerance=1.0] [-smooth=0.5] [-prefix=]",
+    "description": "Same command as SUBSKY but for the sequence sequencename .\n\nDithering, required for low dynamic gradients, can be disabled with -nodither . Note that the -existing option is not available for sequence background removal, as the frames of a sequence are not necessarily always aligned.\n\nThe output sequence name starts with the prefix \"bkg_\" unless otherwise specified with -prefix= option. Only selected images in the sequence are processed\n\nLinks: subsky",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqsubsky"
+  },
+  {
+    "command": "seqtilt",
+    "scriptable": true,
+    "syntax": "seqtilt sequencename",
+    "description": "Same command as TILT but for the sequence sequencename . It generally gives better results\n\nLinks: tilt",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqtilt"
+  },
+  {
+    "command": "sequnsetmag",
+    "scriptable": false,
+    "syntax": "sequnsetmag",
+    "description": "Resets the magnitude calibration and reference star for the sequence. See SEQSETMAG\n\nLinks: seqsetmag",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#sequnsetmag"
+  },
+  {
+    "command": "sequpdate_key",
+    "scriptable": true,
+    "syntax": "sequpdate_key sequencename key value [keycomment]\nsequpdate_key sequencename -delete key\nsequpdate_key sequencename -modify key newkey\nsequpdate_key sequencename -comment comment",
+    "description": "Same command as UPDATE_KEY but for the sequence sequencename . However, this command won't work on SER sequence\n\nLinks: update_key",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#sequpdate_key"
+  },
+  {
+    "command": "seqwiener",
+    "scriptable": true,
+    "syntax": "wiener sequencename [-loadpsf=] [-alpha=]",
+    "description": "The same as the WIENER command, but applies to a sequence which must be specified as the first argument\n\nLinks: wiener",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#seqwiener"
+  },
+  {
+    "command": "set",
+    "scriptable": true,
+    "syntax": "set { -import=inifilepath | variable=value }",
+    "description": "Updates a setting value, using its variable name, with the given value, or a set of values using an existing ini file with -import= option.\n\nSee GET to get values or the list of variables\n\nLinks: get",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#set"
+  },
+  {
+    "command": "set16bits",
+    "scriptable": true,
+    "syntax": "set16bits",
+    "description": "Forbids images to be saved with 32 bits per channel on processing, use 16 bits instead",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#set16bits"
+  },
+  {
+    "command": "set32bits",
+    "scriptable": true,
+    "syntax": "set32bits",
+    "description": "Allows images to be saved with 32 bits per channel on processing",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#set32bits"
+  },
+  {
+    "command": "setcompress",
+    "scriptable": true,
+    "syntax": "setcompress 0/1 [-type=] [q]",
+    "description": "Defines if images are compressed or not.\n\n0 means no compression while 1 enables compression.\n\nIf compression is enabled, the type must be explicitly written in the option -type= (\"rice\", \"gzip1\", \"gzip2\").\n\nAssociated to the compression, the quantization value must be within [0, 256] range.\n\nFor example, \"setcompress 1 -type=rice 16\" sets the rice compression with a quantization of 16",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setcompress"
+  },
+  {
+    "command": "setcpu",
+    "scriptable": true,
+    "syntax": "setcpu number",
+    "description": "Defines the number of processing threads used for calculation.\n\nCan be as high as the number of virtual threads existing on the system, which is the number of CPU cores or twice this number if hyperthreading (Intel HT) is available. The default value is the maximum number of threads available, so this should mostly be used to limit processing power. This is reset on every Siril run. See also SETMEM\n\nLinks: setmem",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setcpu"
+  },
+  {
+    "command": "setext",
+    "scriptable": true,
+    "syntax": "setext extension",
+    "description": "Sets the extension used and recognized by sequences.\n\nThe argument extension can be \"fit\", \"fts\" or \"fits\"",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setext"
+  },
+  {
+    "command": "setfindstar",
+    "scriptable": true,
+    "syntax": "setfindstar [reset] [-radius=] [-sigma=] [-roundness=] [-focal=] [-pixelsize=] [-convergence=] [ [-gaussian] | [-moffat] ] [-minbeta=] [-relax=on|off] [-minA=] [-maxA=] [-maxR=]",
+    "description": "Defines stars detection parameters for FINDSTAR and REGISTER commands.\n\nPassing no parameter lists the current values.\n\nPassing reset resets all values to defaults. You can then still pass values after this keyword.\n\nConfigurable values:\n\n-radius= defines the radius of the initial search box and must be between 3 and 50.\n\n-sigma= defines the threshold above noise and must be greater than or equal to 0.05.\n\n-roundness= defines minimum star roundness and must between 0 and 0.95. -maxR allows an upper bound to roundness to be set, to visualize only the areas where stars are significantly elongated, do not change for registration.\n\n-minA and -maxA define limits for the minimum and maximum amplitude of stars to keep, normalized between 0 and 1.\n\n-focal= defines the focal length of the telescope.\n\n-pixelsize= defines the pixel size of the sensor.\n\n-gaussian and -moffat configure the solver model to be used (Gaussian is the default).\n\nIf Moffat is selected, -minbeta= defines the minimum value of beta for which candidate stars will be accepted and must be greater than or equal to 0.0 and less than 10.0.\n\n-convergence= defines the number of iterations performed to fit PSF and should be set between 1 and 3 (more tolerant).\n\n-relax= relaxes the checks that are done on star candidates to assess if they are stars or not, to allow objects not shaped like stars to still be accepted (off by default)\n\nLinks: findstar , register , psf\n\nThe threshold for star detection is computed as the median of the image (which\nrepresents in general the background level) plus k times sigma, sigma being the\nstandard deviation of the image (which is a good indication of the noise\namplitude). If you have many stars in your images and a good signal/noise\nratio, it may be a good idea to increase this value to speed-up the detection\nand false positives.\n\nIt is recommended to test the values used for a sequence with Siril's GUI,\navailable in the dynamic PSF toolbox from the analysis menu. It may improve\nregistration quality to increase the parameters, but it is also important to be\nable to detect several tens of stars in each image.",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setfindstar"
+  },
+  {
+    "command": "setmag",
+    "scriptable": false,
+    "syntax": "setmag magnitude",
+    "description": "Calibrates the magnitudes by selecting a star and giving the known apparent magnitude.\n\nAll PSF computations will return the calibrated apparent magnitude afterwards, instead of an apparent magnitude relative to ADU values. Note that the provided value must match the magnitude for the observation filter to be meaningful.\n\nTo reset the magnitude constant see UNSETMAG\n\nLinks: psf , unsetmag",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setmag"
+  },
+  {
+    "command": "setmem",
+    "scriptable": true,
+    "syntax": "setmem ratio",
+    "description": "Sets a new ratio of used memory on free memory.\n\nRatio value should be between 0.05 and 2, depending on other activities of the machine. A higher ratio should allow siril to process faster, but setting the ratio of used memory above 1 will require the use of on-disk memory, which is very slow and unrecommended, even sometimes not supported, leading to system crash. A fixed amount of memory can also be set in the generic settings, with SET, instead of a ratio\n\nLinks: set",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setmem"
+  },
+  {
+    "command": "setphot",
+    "scriptable": true,
+    "syntax": "setphot [-inner=20] [-outer=30] [-aperture=10] [-dyn_ratio=4.0] [-gain=2.3] [-min_val=0] [-max_val=60000]",
+    "description": "Gets or sets photometry settings, mostly used by SEQPSF. If arguments are provided, they will update the settings. None are mandatory, any can be provided, default values are shown in the command's syntax. At the end of the command, the active configuration will be printed.\n\nThe Aperture size is dynamic unless it is forced. If so, the aperture value from the settings is used. If dynamic, the radius of the aperture is defined by the supplied dynamic ratio (\"radius/half-FWHM\").\n\nAllowed values for the argument -dyn_ratio are in the range [1.0, 5.0]. A value outside this range will automatically set the aperture to the fixed value -aperture .\n\nGain is used only if not available from the FITS header\n\nLinks: seqpsf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setphot"
+  },
+  {
+    "command": "setref",
+    "scriptable": true,
+    "syntax": "setref sequencename image_number",
+    "description": "Sets the reference image of the sequence given in first argument. image_number is the sequential number of the image in the sequence, not the number in the filename, starting at 1",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#setref"
+  },
+  {
+    "command": "show",
+    "scriptable": false,
+    "syntax": "show [-clear] [{ -list=file.csv | [name] RA Dec }] [-nolog] [-notag]",
+    "description": "Shows a point on the loaded plate solved image using the temporary user annotations catalogue, based on its equatorial coordinates. The -clear option clears this catalogue first and can be used alone.\n\nSeveral points can be passed using a CSV file with the option -list= containing at least ra and dec columns. If the passed file also contains a column name, names will be used as tags in the image and listed in the Console, unless toggled off with the options -notag and -nolog .\n\nThis is only available from the GUI of Siril",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#show"
+  },
+  {
+    "command": "spcc",
+    "scriptable": true,
+    "syntax": "spcc [-limitmag=[+-]] [ { -monosensor= [ -rfilter= ] [-gfilter=] [-bfilter=] | -oscsensor= [-oscfilter=] [-osclpf=] } ] [-whiteref=] [ -narrowband [-rwl=] [-gwl=] [-bwl=] [-rbw=] [-gbw=] [-bbw=] ] [-bgtol=lower,upper] [ -atmos [-obsheight=] { [-pressure=] | [-slp=] } ]",
+    "description": "Run the Spectrophotometric Color Correction on the loaded platesolved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used for SPCC is always Gaia DR3: by default the local Gaia DR3 xp_sampled catalog will be used if available but this can be overridden with -catalog={gaia | localgaia} .\n\nThe names of sensors and filters can be specified using the following options: -monosensor= , -rfilter= , -gfilter= , -bfilter= or -oscsensor= , -oscfilter= , -osclpf= ; the name of the white reference can be specified using the -whiteref= option. In all cases the name must be provided exactly as it is in the combo boxes in the SPCC tool. Note that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\".\n\nNarrowband mode can be selected using the argument -narrowband , in which case the previous filter arguments are ignored and NB filter wavelengths and bandwidths can be provided using -rwl= , -rbw= , -gwl= , -gbw= , -bwl= and -bbw= .\n\nIf one of the spectral data argument is omitted, the previously used value will be used.\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0.\n\nAtmospheric correction can be applied by passing -atmos . In this case the following optional arguments apply: -obsheight= specifies the observer's height above sea level in metres (default 10), -pressure= specifies local atmospheric pressure at the observing site in hPa, or -slp= specifies sea-level atmospheric pressure in hPa (default pressure is 1013.25 hPa at sea level)",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#spcc"
+  },
+  {
+    "command": "spcc_list",
+    "scriptable": true,
+    "syntax": "spcc_list { oscsensor | monosensor | redfilter | greenfilter | bluefilter | oscfilter | osclpf | whiteref }",
+    "description": "Print a list of SPCC names available for use to define sensors, filters or white references using the spcc command. This command requires an argument to set which list is printed: the options are oscsensor , monosensor , redfilter , greenfilter , bluefilter , oscfilter , osclpf or whiteref .\n\nNote that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\"\n\nLinks: spcc",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#spcc_list"
+  },
+  {
+    "command": "split",
+    "scriptable": true,
+    "syntax": "split file1 file2 file3 [-hsl | -hsv | -lab]",
+    "description": "Splits the loaded color image into three distinct files (one for each color) and saves them in file1 .fit, file2 .fit and file3 .fit files. A last argument can optionally be supplied, -hsl , -hsv or lab to perform an HSL, HSV or CieLAB extraction. If no option are provided, the extraction is of RGB type, meaning no conversion is done",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#split"
+  },
+  {
+    "command": "split_cfa",
+    "scriptable": true,
+    "syntax": "split_cfa",
+    "description": "Splits the loaded CFA image into four distinct files (one for each channel) and saves them in files",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#split_cfa"
+  },
+  {
+    "command": "stack",
+    "scriptable": true,
+    "syntax": "stack seqfilename\nstack seqfilename { sum | min | max } [-output_norm] [-out=filename] [-maximize] [-upscale] [-32b]\nstack seqfilename { med | median } [-nonorm, -norm=] [-fastnorm] [-rgb_equal] [-output_norm] [-out=filename] [-32b]\nstack seqfilename { rej | mean } [rejection type] [sigma_low sigma_high]  [-rejmap[s]] [-nonorm, -norm=] [-fastnorm] [-overlap_norm] [-weight={noise|wfwhm|nbstars|nbstack}] [-feather=] [-rgb_equal] [-output_norm] [-out=filename] [-maximize] [-upscale] [-32b]\n[-filter-fwhm=value[%|k]] [-filter-wfwhm=value[%|k]] [-filter-round=value[%|k]] [-filter-bkg=value[%|k]]\n[-filter-nbstars=value[%|k]] [-filter-quality=value[%|k]] [-filter-incl[uded]]",
+    "description": "Stacks the sequencename sequence, using options.\n\nRejection type:\n\nThe allowed types are: sum , max , min , med (or median ) and rej (or mean ). If no argument other than the sequence name is provided, sum stacking is assumed.\n\nStacking with rejection:\n\nTypes rej or mean require the use of additional arguments for rejection type and values. The rejection type is one of n[one], p[ercentile], s[igma], m[edian], w[insorized], l[inear], g[eneralized], [m]a[d] for Percentile, Sigma, Median, Winsorized, Linear-Fit, Generalized Extreme Studentized Deviate Test or k-MAD clipping. If omitted, the default Winsorized is used.\n\nThe sigma low and sigma high parameters of rejection are mandatory unless none is selected.\n\nOptionally, rejection maps can be created, showing where pixels were rejected in one ( -rejmap ) or two ( -rejmaps , for low and high rejections) newly created images.\n\nNormalization of input images:\n\nFor med (or median ) and rej (or mean ) stacking types, different types of normalization are allowed: -norm=add for additive, -norm=mul for multiplicative. Options -norm=addscale and -norm=mulscale apply same normalization but with scale operations. -nonorm is the option to disable normalization. Otherwise addtive with scale method is applied by default.\n\n-fastnorm option specifies to use faster estimators for location and scale than the default IKSS.\n\n-overlap_norm , if passed, will compute normalization coeffcients on images overlaps instead of whole images (allowed only if -maximize is passed).\n\nOther options for rejection stacking:\n\nWeighting can be applied to the images of the sequences using the option -weight= followed by:\n\nnoise to add larger weights to frames with lower background noise.\n\nnbstack to weight input images based on how many images were used to create them, useful for live stacking.\n\nnbstars or wfwhm to weight input images based on number of stars or wFWHM computed during registration step.\n\n-feather= option will apply a feathering mask on each image borders over the distance (in pixels) given in argument.\n\nOutputs:\n\nResult image name can be set with the -out= option. Otherwise, it will be named as sequencename _stacked.fit.\n\n-output_norm applies a normalization to rescale result in the [0, 1] range (median and mean stacking only).\n\n-maximize option will use registration data from the sequence to create a stacked image that encompasses all the images of the sequence (applicable to all methods except median stacking).\n\n-upscale option will upscale the sequence by a factor 2 prior to stacking using the registration data (applicable to all methods except median stacking).\n\n-rgb_equal will use normalization to equalize color image backgrounds, useful if PCC/SPCC or unlinked AUTOSTRETCH will not be used.\n\n-32b will override the bitdepth set in Preferences and save the stacked image in 32b.\n\nFiltering out images:\n\nImages to be stacked can be selected based on some filters, like manual selection or best FWHM, with some of the -filter-* options.\n\nLinks: pcc , spcc , autostretch\n\nBest images from the sequence can be stacked by using the filtering arguments. Each of these arguments can remove bad images based on a property their name contains, taken from the registration data, with either of the three types of argument values:\n\n- a numeric value for the worse image to keep depending on the type of data used (between 0 and 1 for roundness and quality, absolute values otherwise),\n\n- a percentage of best images to keep if the number is followed by a % sign,\n\n- or a k value for the k.sigma of the worse image to keep if the number is followed by a k sign.\n\nIt is also possible to use manually selected images, either previously from the GUI or with the select or unselect commands, using the -filter-included argument.",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#stack"
+  },
+  {
+    "command": "stackall",
+    "scriptable": true,
+    "syntax": "stackall\nstackall { sum | min | max } [-maximize] [-upscale] [-32b]\nstackall { med | median } [-nonorm, norm=] [-32b]\nstackall { rej | mean } [rejection type] [sigma_low sigma_high] [-nonorm, norm=] [-overlap_norm] [-weight={noise|wfwhm|nbstars|nbstack}] [-feather=] [-rgb_equal] [-out=filename] [-maximize] [-upscale] [-32b]",
+    "description": "Opens all sequences in the current directory and stacks them with the optionally specified stacking type and filtering or with sum stacking. See STACK command for options description\n\nLinks: stack",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#stackall"
+  },
+  {
+    "command": "starnet",
+    "scriptable": true,
+    "syntax": "starnet [-stretch] [-upscale] [-stride=value] [-nostarmask]",
+    "description": "Calls StarNet to remove stars from the loaded image.\n\nPrerequisite: StarNet is an external program, with no affiliation with Siril, and must be installed correctly prior the first use of this command, with the path to its CLI version installation correctly set in Preferences / Miscellaneous.\n\nThe starless image is loaded on completion, and a star mask image is created in the working directory unless the optional parameter -nostarmask is provided.\n\nOptionally, parameters may be passed to the command:\n\n- The option -stretch is for use with linear images and will apply a pre-stretch before running StarNet and the inverse stretch to the generated starless and starmask images.\n\n- To improve star removal on images with very tight stars, the parameter -upscale may be provided. This will upsample the image by a factor of 2 prior to StarNet processing and rescale it to the original size afterwards, at the expense of more processing time.\n\n- The optional parameter -stride=value may be provided, however the author of StarNet strongly recommends that the default stride of 256 be used",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#starnet"
+  },
+  {
+    "command": "start_ls",
+    "scriptable": true,
+    "syntax": "start_ls [-dark=filename] [-flat=filename] [-rotate] [-32bits]",
+    "description": "Initializes a livestacking session, using the optional calibration files and waits for input files to be provided by the LIVESTACK command until STOP_LS is called. Default processing will use shift-only registration and 16-bit processing because it's faster, it can be changed to rotation with -rotate and -32bits\n\nNote that the live stacking commands put Siril in a state in which it's not able to process other commands. After START_LS, only LIVESTACK, STOP_LS and EXIT can be called until STOP_LS is called to return Siril in its normal, non-live-stacking, state\n\nLinks: livestack , stop_ls , exit",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#start_ls"
+  },
+  {
+    "command": "stat",
+    "scriptable": true,
+    "syntax": "stat [-cfa] [main]",
+    "description": "Returns statistics of the current image, the basic list by default or the main list if main is passed. If a selection is made, statistics are computed within the selection. If -cfa is passed and the image is CFA, statistics are made on per-filter extractions",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#stat"
+  },
+  {
+    "command": "stop_ls",
+    "scriptable": true,
+    "syntax": "stop_ls",
+    "description": "Stops the live stacking session. Only possible after START_LS\n\nLinks: start_ls",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#stop_ls"
+  },
+  {
+    "command": "subsky",
+    "scriptable": true,
+    "syntax": "subsky { -rbf | degree } [-dither] [-samples=20] [-tolerance=1.0] [-smooth=0.5] [-existing]",
+    "description": "Computes a synthetic background gradient using either the polynomial function model of degree degrees or the RBF model (if -rbf is provided instead) and subtracts it from the image.\n\nThe number of samples per horizontal line and the tolerance to exclude brighter areas can be adjusted with the optional arguments. Tolerance is in MAD units: median + tolerance * mad.\n\nDithering, required for low dynamic gradients, can be enabled with -dither .\n\nFor RBF, the additional smoothing parameter is also available. To use pre-existing background samples (e.g. if you have set background samples using a Python script) the -existing argument must be used",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#subsky"
+  },
+  {
+    "command": "synthstar",
+    "scriptable": true,
+    "syntax": "synthstar",
+    "description": "Fixes imperfect stars from the loaded image. No matter how much coma, tracking drift or other distortion your stars have, if Siril's star finder routine can detect it, synthstar will fix it. To use intensive care, you may wish to manually detect all the stars you wish to fix. This can be done using the findstar console command or the Dynamic PSF dialog. If you have not run star detection, it will be run automatically with default settings.\n\nFor best results synthstar should be run before stretching.\n\nThe output of synthstar is a fully corrected synthetic star mask comprising perfectly round star PSFs (Moffat or Gaussian profiles depending on star saturation) computed to match the intensity, FWHM, hue and saturation measured for each star detected in the input image. This can then be recombined with the starless image to produce an image with perfect stars.\n\nNo parameters are required for this command\n\nLinks: psf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#synthstar"
+  },
+  {
+    "command": "threshlo",
+    "scriptable": true,
+    "syntax": "threshlo level",
+    "description": "Replaces values below level in the loaded image with level",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#threshlo"
+  },
+  {
+    "command": "threshhi",
+    "scriptable": true,
+    "syntax": "threshi level",
+    "description": "Replaces values above level in the loaded image with level",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#threshhi"
+  },
+  {
+    "command": "thresh",
+    "scriptable": true,
+    "syntax": "thresh lo hi",
+    "description": "Replaces values below level in the loaded image with level",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#thresh"
+  },
+  {
+    "command": "tilt",
+    "scriptable": false,
+    "syntax": "tilt [clear]",
+    "description": "Computes the sensor tilt as the FWHM difference between the best and worst corner truncated mean values. The clear option allows to clear the drawing",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#tilt"
+  },
+  {
+    "command": "trixel",
+    "scriptable": true,
+    "syntax": "trixel [-p]",
+    "description": "For developers.\n\nWithout any argument, lists all the trixels of level 3 visible in the plate-solved image. The stars from each trixel can then be shown with command CONESEARCH using -trix= followed by a visible trixel number\n\nWith argument -p , prints out all the valid stars from all the 512 level3 trixels to file \"trixels.csv\"\n\nLinks: conesearch",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#trixel"
+  },
+  {
+    "command": "unclipstars",
+    "scriptable": true,
+    "syntax": "unclipstars",
+    "description": "Re-profiles clipped stars of the loaded image to desaturate them, scaling the output so that all pixel values are <= 1.0",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#unclipstars"
+  },
+  {
+    "command": "unpurple",
+    "scriptable": true,
+    "syntax": "unpurple [-starmask] [-blue=value] [-thresh=value]",
+    "description": "Applies a cosmetic filter to reduce effects of purple fringing on stars.\n\nIf the -starmask parameter is given, a star mask will be used to identify areas of the image to affect. If a Dynamic PSF has already been run, this will be used for the starmask, otherwise one will be created automatically. The -mod= parameter should be given a value somewhere around 0.14 to reduce the amount of purple. The -thresh= will specify the size modifier for each star in the starmask and should be large enough to cause the stars to be entirely processed without remaining purple fringing. The value should between 0 and 1, typically around 0.5.\n\nIf the -starmask parameter is not given, the purple reduction will be applied across the entire image for any purple pixels with a luminance value higher than the given -thresh= . In this case, the -thresh= value should be reasonably low. This mode is useful for starmasks or other images without nebula or galaxy\n\nLinks: psf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#unpurple"
+  },
+  {
+    "command": "unselect",
+    "scriptable": true,
+    "syntax": "unselect sequencename from to",
+    "description": "Allows easy mass unselection of images in the sequence sequencename (from from to to included). See SELECT\n\nLinks: select",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#unselect"
+  },
+  {
+    "command": "unsetmag",
+    "scriptable": false,
+    "syntax": "unsetmag",
+    "description": "Resets the magnitude calibration to 0. See SETMAG\n\nLinks: setmag",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#unsetmag"
+  },
+  {
+    "command": "unsharp",
+    "scriptable": true,
+    "syntax": "unsharp sigma multi",
+    "description": "Applies an unsharp mask, actually a Gaussian filtered image with sigma sigma and a blend with the parameter amount used as such: out = in * (1 + amount) + filtered * (-amount).\n\nSee also GAUSS, the same without blending\n\nLinks: gauss",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#unsharp"
+  },
+  {
+    "command": "update_key",
+    "scriptable": true,
+    "syntax": "update_key key value [keycomment]\nupdate_key -delete key\nupdate_key -modify key newkey\nupdate_key -comment comment",
+    "description": "Updates FITS keyword. Please note that the validity of value is not checked. This verification is the responsibility of the user. It is also possible to delete a key with the -delete option in front of the name of the key to be deleted, or to modify the key with the -modify option. The latter must be followed by the key to be modified and the new key name. Finally, the -comment option, followed by text, adds a comment to the FITS header. Please note that any text containing spaces must be enclosed in double quotation marks",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#update_key"
+  },
+  {
+    "command": "visu",
+    "scriptable": false,
+    "syntax": "visu low high",
+    "description": "Displays the loaded image with low and high as the low and high threshold, GUI only",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#visu"
+  },
+  {
+    "command": "wavelet",
+    "scriptable": true,
+    "syntax": "wavelet nbr_layers type",
+    "description": "Computes the wavelet transform of the loaded image on ( nbr_layers =1...n) layer(s) using linear ( type =1) or bspline ( type =2) version of the 'à trous' algorithm. The result is stored in a file as a structure containing the layers, ready for weighted reconstruction with WRECONS.\n\nSee also EXTRACT\n\nLinks: wrecons , extract",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#wavelet"
+  },
+  {
+    "command": "wiener",
+    "scriptable": true,
+    "syntax": "wiener [-loadpsf=] [-alpha=]",
+    "description": "Restores an image using the Wiener deconvolution method.\n\nOptionally, a PSF created by MAKEPSF may be loaded using the argument -loadpsf=filename .\n\nThe parameter -alpha= provides the Gaussian noise modelled regularization factor\n\nLinks: psf , makepsf",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#wiener"
+  },
+  {
+    "command": "wrecons",
+    "scriptable": true,
+    "syntax": "wrecons c1 c2 c3 ...",
+    "description": "Reconstructs to current image from the layers previously computed with wavelets and weighted with coefficients c1 , c2 , ..., cn according to the number of layers used for wavelet transform, after the use of WAVELET\n\nLinks: wavelet",
+    "url": "https://siril.readthedocs.io/en/stable/Commands.html#wrecons"
+  }
+]
