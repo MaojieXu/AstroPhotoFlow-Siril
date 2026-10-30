@@ -1,0 +1,149 @@
+{
+  "definition_id": "2e321334-9e29-59b3-af0c-427508df9120",
+  "source": "package",
+  "name": "Siril invmodasinh",
+  "description": "Inverts a modified arcsinh stretch. It provides the inverse transformation of MODASINH, if provided with the same parameters, undoes a MODASINH command, possibly returning to a linear image. It can also work the same way as MODASINH but for images in negative\n\nLinks: modasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "stretch",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 10
+    },
+    {
+      "name": "low_protection",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "symmetry_point",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "high_protection",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "clipmode",
+      "kind": "choice",
+      "default": "rgbblend",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "rgbblend",
+        "clip",
+        "rescale",
+        "globalrescale"
+      ]
+    },
+    {
+      "name": "channels",
+      "kind": "choice",
+      "default": "RGB",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "RGB",
+        "R",
+        "G",
+        "B",
+        "RG",
+        "RB",
+        "GB"
+      ]
+    },
+    {
+      "name": "colour_model",
+      "kind": "choice",
+      "default": "independent",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "independent",
+        "human",
+        "even",
+        "sat"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "invmodasinh",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "stretch": {
+        "kind": "parameter",
+        "name": "stretch"
+      },
+      "low_protection": {
+        "kind": "parameter",
+        "name": "low_protection"
+      },
+      "symmetry_point": {
+        "kind": "parameter",
+        "name": "symmetry_point"
+      },
+      "high_protection": {
+        "kind": "parameter",
+        "name": "high_protection"
+      },
+      "clipmode": {
+        "kind": "parameter",
+        "name": "clipmode"
+      },
+      "channels": {
+        "kind": "parameter",
+        "name": "channels"
+      },
+      "colour_model": {
+        "kind": "parameter",
+        "name": "colour_model"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

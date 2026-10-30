@@ -1,0 +1,61 @@
+{
+  "definition_id": "fea80ef0-34a3-50e2-a149-9b5166df4fca",
+  "source": "package",
+  "name": "Siril histo",
+  "description": "Calculates the histogram of the layer of the loaded image and produces file histo_[channel name].dat in the working directory.\n\nlayer = 0, 1 or 2 with 0=red, 1=green and 2=blue\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "channel",
+      "kind": "int",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 2
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "histo",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "channel": {
+        "kind": "parameter",
+        "name": "channel"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

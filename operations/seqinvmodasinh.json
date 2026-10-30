@@ -1,0 +1,153 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "seqinvmodasinh",
+    "name": "seqinvmodasinh",
+    "description": "Same command as INVMODASINH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: invmodasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "seqinvmodasinh sequence -D= [-LP=] [-SP=] [-HP=] [-clipmode=] [-human | -even | -independent | -sat] [channels] [-prefix=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "stretch",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 10
+      },
+      {
+        "name": "low_protection",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "symmetry_point",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "high_protection",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "clipmode",
+        "kind": "choice",
+        "default": "rgbblend",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "rgbblend",
+          "clip",
+          "rescale",
+          "globalrescale"
+        ]
+      },
+      {
+        "name": "channels",
+        "kind": "choice",
+        "default": "RGB",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "RGB",
+          "R",
+          "G",
+          "B",
+          "RG",
+          "RB",
+          "GB"
+        ]
+      },
+      {
+        "name": "colour_model",
+        "kind": "choice",
+        "default": "independent",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "independent",
+          "human",
+          "even",
+          "sat"
+        ]
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "direct",
+  "help": "Siril 1.4.4. Same command as INVMODASINH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: invmodasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "stretch": 1,
+      "low_protection": 0,
+      "symmetry_point": 0,
+      "high_protection": 1,
+      "clipmode": "rgbblend",
+      "channels": "RGB",
+      "colour_model": "independent",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

@@ -1,0 +1,148 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "ccm",
+    "name": "ccm",
+    "description": "Applies a color conversion matrix to the current image.\n\nThere are 9 mandatory arguments corresponding to the 9 matrix elements:\n\nm00, m01, m02\n\nm10, m11, m12\n\nm20, m21, m22\n\nAn additional tenth argument [gamma] can be provided: if it is omitted, it defaults to 1.0.\n\nThese are applied to each pixel according to the following formulae:\n\nr' = (m00 * r + m01 * g + m02 * b)^(-1/gamma)\n\ng' = (m10 * r + m11 * g + m12 * b)^(-1/gamma)\n\nb' = (m20 * r + m21 * g + m22 * b)^(-1/gamma)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "ccm m00 m01 m02 m10 m11 m12 m20 m21 m22 [gamma]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "m00",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m01",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m02",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m10",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m11",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m12",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m20",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m21",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "m22",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "gamma",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 10
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Applies a color conversion matrix to the current image.\n\nThere are 9 mandatory arguments corresponding to the 9 matrix elements:\n\nm00, m01, m02\n\nm10, m11, m12\n\nm20, m21, m22\n\nAn additional tenth argument [gamma] can be provided: if it is omitted, it defaults to 1.0.\n\nThese are applied to each pixel according to the following formulae:\n\nr' = (m00 * r + m01 * g + m02 * b)^(-1/gamma)\n\ng' = (m10 * r + m11 * g + m12 * b)^(-1/gamma)\n\nb' = (m20 * r + m21 * g + m22 * b)^(-1/gamma)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "m00": 1,
+      "m01": 0,
+      "m02": 0,
+      "m10": 0,
+      "m11": 1,
+      "m12": 0,
+      "m20": 0,
+      "m21": 0,
+      "m22": 1,
+      "gamma": 1,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

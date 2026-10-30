@@ -1,0 +1,359 @@
+{
+  "definition_id": "d049d30f-39f2-5210-9f77-ce93cd99ca12",
+  "source": "package",
+  "name": "Siril seqapplyreg",
+  "description": "Applies geometric transforms on images of the sequence given in argument so that they may be superimposed on the reference image, using registration data previously computed (see REGISTER).\n\nThe output sequence name starts with the prefix \"r_\" unless otherwise specified with -prefix= option.\n\nThe registration is done on the first layer for which data exists for RGB images unless specified by -layer= option (0, 1 or 2 for R, G and B respectively).\n\nThe output images can be rescaled by passing a -scale= argument with a float value between 0.1 and 3.\n\nAutomatic framing of the output sequence can be specified using -framing= keyword followed by one of the methods in the list { current | min | max | cog } :\n\n-framing=max (bounding box) will project each image and compute its shift wrt. reference image. The resulting sequence can then be stacked using option -maximize of STACK command which will create the full image encompassing all images of the sequence.\n\n-framing=min (common area) crops each image to the area it has in common with all images of the sequence.\n\n-framing=cog determines the best framing position as the center of gravity (cog) of all the images.\n\nImage interpolation options:\n\nBy default, transformations are applied to register the images by using interpolation.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}. If none is passed, the transformation is forced to shift and a pixel-wise shift is applied to each image without any interpolation.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument.\n\nImage drizzle options:\n\nOtherwise, the images can be exported using HST drizzle algorithm by passing the argument -drizzle which can take the additional options:\n\n-pixfrac= sets the pixel fraction (default = 1.0).\n\nThe -kernel= argument sets the drizzle kernel and must be followed by one of point , turbo , square , gaussian , lanczos2 or lanczos3 . The default is square .\n\nThe -flat= argument specifies a master flat to weight the drizzled input pixels (default is no flat).\n\nFiltering out images:\n\nImages to be registered can be selected based on some filters, like those selected or with best FWHM, with some of the -filter-* options.\n\nLinks: register , stack\n\nWith filtering being some of these in no particular order or number:\n\nBest images from the sequence can be stacked by using the filtering arguments. Each of these arguments can remove bad images based on a property their name contains, taken from the registration data, with either of the three types of argument values:\n\n- a numeric value for the worse image to keep depending on the type of data used (between 0 and 1 for roundness and quality, absolute values otherwise),\n\n- a percentage of best images to keep if the number is followed by a % sign,\n\n- or a k value for the k.sigma of the worse image to keep if the number is followed by a k sign.\n\nIt is also possible to use manually selected images, either previously from the GUI or with the select or unselect commands, using the -filter-included argument.\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "flat",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "use_scale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "scale",
+      "kind": "float",
+      "default": 1,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_layer",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "layer",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 2
+    },
+    {
+      "name": "interpolation",
+      "kind": "choice",
+      "default": "lanczos4",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "lanczos4",
+        "nearest",
+        "cubic",
+        "linear",
+        "area"
+      ]
+    },
+    {
+      "name": "no_clamp",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "drizzle",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_pixel_fraction",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "pixel_fraction",
+      "kind": "float",
+      "default": 1,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_kernel",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "kernel",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_framing",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "framing",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_filter_fwhm",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_fwhm",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_filter_wfwhm",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_wfwhm",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_filter_round",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_round",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_filter_bkg",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_bkg",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_filter_nbstars",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_nbstars",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_filter_quality",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_quality",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "filter_unit",
+      "kind": "choice",
+      "default": "absolute",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "absolute",
+        "percent",
+        "sigma"
+      ]
+    },
+    {
+      "name": "filter_included",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqapplyreg",
+    "inputs": {
+      "image": "image",
+      "flat": "flat"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "use_scale": {
+        "kind": "parameter",
+        "name": "use_scale"
+      },
+      "scale": {
+        "kind": "parameter",
+        "name": "scale"
+      },
+      "use_layer": {
+        "kind": "parameter",
+        "name": "use_layer"
+      },
+      "layer": {
+        "kind": "parameter",
+        "name": "layer"
+      },
+      "interpolation": {
+        "kind": "parameter",
+        "name": "interpolation"
+      },
+      "no_clamp": {
+        "kind": "parameter",
+        "name": "no_clamp"
+      },
+      "drizzle": {
+        "kind": "parameter",
+        "name": "drizzle"
+      },
+      "use_pixel_fraction": {
+        "kind": "parameter",
+        "name": "use_pixel_fraction"
+      },
+      "pixel_fraction": {
+        "kind": "parameter",
+        "name": "pixel_fraction"
+      },
+      "use_kernel": {
+        "kind": "parameter",
+        "name": "use_kernel"
+      },
+      "kernel": {
+        "kind": "parameter",
+        "name": "kernel"
+      },
+      "use_framing": {
+        "kind": "parameter",
+        "name": "use_framing"
+      },
+      "framing": {
+        "kind": "parameter",
+        "name": "framing"
+      },
+      "use_filter_fwhm": {
+        "kind": "parameter",
+        "name": "use_filter_fwhm"
+      },
+      "filter_fwhm": {
+        "kind": "parameter",
+        "name": "filter_fwhm"
+      },
+      "use_filter_wfwhm": {
+        "kind": "parameter",
+        "name": "use_filter_wfwhm"
+      },
+      "filter_wfwhm": {
+        "kind": "parameter",
+        "name": "filter_wfwhm"
+      },
+      "use_filter_round": {
+        "kind": "parameter",
+        "name": "use_filter_round"
+      },
+      "filter_round": {
+        "kind": "parameter",
+        "name": "filter_round"
+      },
+      "use_filter_bkg": {
+        "kind": "parameter",
+        "name": "use_filter_bkg"
+      },
+      "filter_bkg": {
+        "kind": "parameter",
+        "name": "filter_bkg"
+      },
+      "use_filter_nbstars": {
+        "kind": "parameter",
+        "name": "use_filter_nbstars"
+      },
+      "filter_nbstars": {
+        "kind": "parameter",
+        "name": "filter_nbstars"
+      },
+      "use_filter_quality": {
+        "kind": "parameter",
+        "name": "use_filter_quality"
+      },
+      "filter_quality": {
+        "kind": "parameter",
+        "name": "filter_quality"
+      },
+      "filter_unit": {
+        "kind": "parameter",
+        "name": "filter_unit"
+      },
+      "filter_included": {
+        "kind": "parameter",
+        "name": "filter_included"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

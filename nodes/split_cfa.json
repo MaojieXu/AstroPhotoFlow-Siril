@@ -1,0 +1,58 @@
+{
+  "definition_id": "c4a6009d-7f44-5fba-a41a-ebdf4757a320",
+  "source": "package",
+  "name": "Siril split cfa",
+  "description": "Splits the loaded CFA image into four distinct files (one for each channel) and saves them in files\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cfa0",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa1",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa2",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa3",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "split_cfa",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "cfa0": "cfa0",
+      "cfa1": "cfa1",
+      "cfa2": "cfa2",
+      "cfa3": "cfa3"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

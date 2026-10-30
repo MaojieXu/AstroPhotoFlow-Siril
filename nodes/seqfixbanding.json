@@ -1,0 +1,76 @@
+{
+  "definition_id": "267c05c2-48cc-52ad-8dbf-abcaecbbc2c5",
+  "source": "package",
+  "name": "Siril seqfixbanding",
+  "description": "Same command as FIXBANDING but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"unband_\" unless otherwise specified with -prefix= option\n\nLinks: fixbanding\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "amount",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "sigma",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "vertical",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqfixbanding",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "amount": {
+        "kind": "parameter",
+        "name": "amount"
+      },
+      "sigma": {
+        "kind": "parameter",
+        "name": "sigma"
+      },
+      "vertical": {
+        "kind": "parameter",
+        "name": "vertical"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

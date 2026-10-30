@@ -1,0 +1,150 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "light_curve",
+    "name": "light curve",
+    "description": "Analyses several stars with aperture photometry in a sequence of images and produces a light curve for one, calibrated by the others. The first coordinates, in pixels if -at= is used or in degrees if -wcs= is used, are for the star whose light will be plotted, the others for the comparison stars.\n\nAlternatively, a list of target and reference stars can be passed in the format of the NINA exoplanet plugin star list, with the -ninastars= option. Siril will verify that all reference stars can be used before actually using them. A data file is created in the current directory named light_curve.dat, Siril plots the result to a PNG image if available\n\nThe ring radii for the annulus can either be configured in the settings or set to a factor of the reference image's FWHM if -autoring is passed. These autoring sizes are 4.2 time and 6.3 times the FWHM for the inner and outer radii, respectively.\n\nSee also the setphot command to set the same way the aperture radius size.\n\nSee also SEQPSF for operations on single star\n\nLinks: seqpsf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "light_curve sequencename channel [-autoring] { -at=x,y | -wcs=ra,dec } { -refat=x,y | -refwcs=ra,dec } ...\nlight_curve sequencename channel [-autoring] -ninastars=file",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "nina_stars",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "fits",
+          "image"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "file"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      },
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "channel",
+        "kind": "int",
+        "default": 0,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 2
+      },
+      {
+        "name": "autoring",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "coordinate_type",
+        "kind": "choice",
+        "default": "pixel",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "pixel",
+          "wcs",
+          "nina"
+        ]
+      },
+      {
+        "name": "position",
+        "kind": "string",
+        "default": "64,64",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "reference_positions",
+        "kind": "string",
+        "default": "[]",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "reference_positions": "multiline",
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Analyses several stars with aperture photometry in a sequence of images and produces a light curve for one, calibrated by the others. The first coordinates, in pixels if -at= is used or in degrees if -wcs= is used, are for the star whose light will be plotted, the others for the comparison stars.\n\nAlternatively, a list of target and reference stars can be passed in the format of the NINA exoplanet plugin star list, with the -ninastars= option. Siril will verify that all reference stars can be used before actually using them. A data file is created in the current directory named light_curve.dat, Siril plots the result to a PNG image if available\n\nThe ring radii for the annulus can either be configured in the settings or set to a factor of the reference image's FWHM if -autoring is passed. These autoring sizes are 4.2 time and 6.3 times the FWHM for the inner and outer radii, respectively.\n\nSee also the setphot command to set the same way the aperture radius size.\n\nSee also SEQPSF for operations on single star\n\nLinks: seqpsf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "channel": 0,
+      "autoring": false,
+      "coordinate_type": "pixel",
+      "position": "64,64",
+      "reference_positions": "[]",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

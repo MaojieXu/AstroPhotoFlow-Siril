@@ -1,0 +1,82 @@
+{
+  "definition_id": "906737f8-efb5-506c-81ad-c5d1be72036f",
+  "source": "package",
+  "name": "Siril wavelet reconstruction",
+  "description": "Computes the wavelet transform of the loaded image on ( nbr_layers =1...n) layer(s) using linear ( type =1) or bspline ( type =2) version of the 'à trous' algorithm. The result is stored in a file as a structure containing the layers, ready for weighted reconstruction with WRECONS.\n\nSee also EXTRACT\n\nLinks: wrecons , extract\n\nReconstructs to current image from the layers previously computed with wavelets and weighted with coefficients c1 , c2 , ..., cn according to the number of layers used for wavelet transform, after the use of WAVELET\n\nLinks: wavelet\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "layers",
+      "kind": "int",
+      "default": 3,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1,
+      "maximum": 6
+    },
+    {
+      "name": "transform",
+      "kind": "choice",
+      "default": 2,
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "coefficients",
+      "kind": "string",
+      "default": "[1,1,1,1]",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "wavelet_reconstruction",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "layers": {
+        "kind": "parameter",
+        "name": "layers"
+      },
+      "transform": {
+        "kind": "parameter",
+        "name": "transform"
+      },
+      "coefficients": {
+        "kind": "parameter",
+        "name": "coefficients"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

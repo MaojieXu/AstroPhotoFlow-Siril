@@ -1,0 +1,43 @@
+{
+  "definition_id": "83a1bece-a256-562e-9cb7-d72fc4a92add",
+  "source": "package",
+  "name": "Siril seqextract Green",
+  "description": "Same command as EXTRACT_GREEN but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"Green_\" unless otherwise specified with option -prefix=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqextract_Green",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

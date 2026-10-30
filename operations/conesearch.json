@@ -1,0 +1,171 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "conesearch",
+    "name": "conesearch",
+    "description": "Displays stars from the local catalog by default for the loaded plate solved image, down to the provided limit_magnitude (13 by default for most catalogues, except 14.5 for aavso_chart, 20 for solsys, and omitted for pgc).\n\nAn alternate online catalog can be specified with -cat= , taking values\n\n- for stars: tycho2, nomad, gaia, localgaia, ppmxl, bsc, apass, gcvs, vsx, simbad, aavso_chart\n\n- for exoplanets: exo\n\n- for deep-sky: pgc\n\n- for solar system objects: solsys (closest IAU observatory code can be passed with the argument -obscode= for better position accuracy)\n\nFor stars catalogues containing photometric data, stars with no B-V information will be kept; they can be excluded by passing -phot\n\nThe argument -trix= can be passed instead of a catalogue followed by a number between 0 and 511 to plot stars contained in local catalogues trixel of level 3 (for dev usage mainly)\n\nSome catalogs (bsc, gcvs, pgc, exo, aavso_chart, varisum and solsys) will also display, by default, names alongside markers in the display (GUI only) and list them in the log. For others with larger number of objects, namely vsx and simbad, the information can also be shown but, as it may clutter the display, it is not activated by default. This behavior can be toggled on/off with the options -tag=on|off to display names alongside markers and -log=on|off to list the objects in the console log\n\nThe list of items that are present in the image can optionally saved to a csv file by passing the argument -out=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "conesearch [limit_magnitude] [-cat=] [-phot] [-obscode=] [-tag={on|off}] [-log={on|off}] [-trix=] [-out=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "use_magnitude_limit",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "magnitude_limit",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_catalogue",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "catalogue",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "photometry",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_observatory_code",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "observatory_code",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "tag",
+        "kind": "choice",
+        "default": "on",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "on",
+          "off"
+        ]
+      },
+      {
+        "name": "log",
+        "kind": "choice",
+        "default": "on",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "on",
+          "off"
+        ]
+      },
+      {
+        "name": "use_trixel",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "trixel",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Displays stars from the local catalog by default for the loaded plate solved image, down to the provided limit_magnitude (13 by default for most catalogues, except 14.5 for aavso_chart, 20 for solsys, and omitted for pgc).\n\nAn alternate online catalog can be specified with -cat= , taking values\n\n- for stars: tycho2, nomad, gaia, localgaia, ppmxl, bsc, apass, gcvs, vsx, simbad, aavso_chart\n\n- for exoplanets: exo\n\n- for deep-sky: pgc\n\n- for solar system objects: solsys (closest IAU observatory code can be passed with the argument -obscode= for better position accuracy)\n\nFor stars catalogues containing photometric data, stars with no B-V information will be kept; they can be excluded by passing -phot\n\nThe argument -trix= can be passed instead of a catalogue followed by a number between 0 and 511 to plot stars contained in local catalogues trixel of level 3 (for dev usage mainly)\n\nSome catalogs (bsc, gcvs, pgc, exo, aavso_chart, varisum and solsys) will also display, by default, names alongside markers in the display (GUI only) and list them in the log. For others with larger number of objects, namely vsx and simbad, the information can also be shown but, as it may clutter the display, it is not activated by default. This behavior can be toggled on/off with the options -tag=on|off to display names alongside markers and -log=on|off to list the objects in the console log\n\nThe list of items that are present in the image can optionally saved to a csv file by passing the argument -out=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "use_magnitude_limit": false,
+      "magnitude_limit": 0,
+      "use_catalogue": false,
+      "catalogue": "",
+      "photometry": false,
+      "use_observatory_code": false,
+      "observatory_code": "",
+      "tag": "on",
+      "log": "on",
+      "use_trixel": false,
+      "trixel": "",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

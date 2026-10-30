@@ -1,0 +1,98 @@
+{
+  "definition_id": "56efc7e6-4b71-523d-abf9-6d4293e7205f",
+  "source": "package",
+  "name": "Siril pm",
+  "description": "This command evaluates the expression given in argument as in PixelMath tool. The full expression must be between double quotes and variables (that are image names, without extension, located in the working directory in that case) must be surrounded by the token $, e.g. \"$image1$ * 0.5 + $image2$ * 0.5\". A maximum of 10 images can be used in the expression.\n\nImage can be rescaled with the option -rescale followed by low and high values in the range [0, 1]. If no low and high values are provided, default values are set to 0 and 1. Another optional argument, -nosum tells Siril not to sum exposure times. This impacts FITS keywords such as LIVETIME and STACKCNT\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "images",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "expression",
+      "kind": "string",
+      "default": "$0",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "rescale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "low",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "high",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "no_sum",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "pm",
+    "inputs": {
+      "images": "images"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "expression": {
+        "kind": "parameter",
+        "name": "expression"
+      },
+      "rescale": {
+        "kind": "parameter",
+        "name": "rescale"
+      },
+      "low": {
+        "kind": "parameter",
+        "name": "low"
+      },
+      "high": {
+        "kind": "parameter",
+        "name": "high"
+      },
+      "no_sum": {
+        "kind": "parameter",
+        "name": "no_sum"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

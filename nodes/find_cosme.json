@@ -1,0 +1,65 @@
+{
+  "definition_id": "d1e6f38e-5b13-531e-a32e-1ea773e55466",
+  "source": "package",
+  "name": "Siril find cosme",
+  "description": "Applies an automatic detection and replacement of cold and hot pixels in the loaded image, with the thresholds passed in arguments in sigma units\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "cold_sigma",
+      "kind": "float",
+      "default": 3,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "hot_sigma",
+      "kind": "float",
+      "default": 3,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "find_cosme",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "cold_sigma": {
+        "kind": "parameter",
+        "name": "cold_sigma"
+      },
+      "hot_sigma": {
+        "kind": "parameter",
+        "name": "hot_sigma"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

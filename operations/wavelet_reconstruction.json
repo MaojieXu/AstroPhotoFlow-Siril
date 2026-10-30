@@ -1,0 +1,97 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "wavelet_reconstruction",
+    "name": "wavelet reconstruction",
+    "description": "Computes the wavelet transform of the loaded image on ( nbr_layers =1...n) layer(s) using linear ( type =1) or bspline ( type =2) version of the 'à trous' algorithm. The result is stored in a file as a structure containing the layers, ready for weighted reconstruction with WRECONS.\n\nSee also EXTRACT\n\nLinks: wrecons , extract\n\nReconstructs to current image from the layers previously computed with wavelets and weighted with coefficients c1 , c2 , ..., cn according to the number of layers used for wavelet transform, after the use of WAVELET\n\nLinks: wavelet\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "wavelet nbr_layers type\nwrecons c1 c2 c3 ...",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "layers",
+        "kind": "int",
+        "default": 3,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1,
+        "maximum": 6
+      },
+      {
+        "name": "transform",
+        "kind": "choice",
+        "default": 2,
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          1,
+          2
+        ]
+      },
+      {
+        "name": "coefficients",
+        "kind": "string",
+        "default": "[1,1,1,1]",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "coefficients": "multiline",
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Computes the wavelet transform of the loaded image on ( nbr_layers =1...n) layer(s) using linear ( type =1) or bspline ( type =2) version of the 'à trous' algorithm. The result is stored in a file as a structure containing the layers, ready for weighted reconstruction with WRECONS.\n\nSee also EXTRACT\n\nLinks: wrecons , extract\n\nReconstructs to current image from the layers previously computed with wavelets and weighted with coefficients c1 , c2 , ..., cn according to the number of layers used for wavelet transform, after the use of WAVELET\n\nLinks: wavelet\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "layers": 3,
+      "transform": 2,
+      "coefficients": "[1,1,1,1]",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

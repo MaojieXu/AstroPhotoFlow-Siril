@@ -1,0 +1,71 @@
+{
+  "definition_id": "60cb1986-80ec-5823-8a96-c2ae4b41b993",
+  "source": "package",
+  "name": "Siril seqwiener",
+  "description": "The same as the WIENER command, but applies to a sequence which must be specified as the first argument\n\nLinks: wiener\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "psf",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "use_regularisation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "regularisation",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false,
+      "minimum": 0
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqwiener",
+    "inputs": {
+      "image": "image",
+      "psf": "psf"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "use_regularisation": {
+        "kind": "parameter",
+        "name": "use_regularisation"
+      },
+      "regularisation": {
+        "kind": "parameter",
+        "name": "regularisation"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

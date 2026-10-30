@@ -1,0 +1,104 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "update_key",
+    "name": "update key",
+    "description": "Updates FITS keyword. Please note that the validity of value is not checked. This verification is the responsibility of the user. It is also possible to delete a key with the -delete option in front of the name of the key to be deleted, or to modify the key with the -modify option. The latter must be followed by the key to be modified and the new key name. Finally, the -comment option, followed by text, adds a comment to the FITS header. Please note that any text containing spaces must be enclosed in double quotation marks\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "update_key key value [keycomment]\nupdate_key -delete key\nupdate_key -modify key newkey\nupdate_key -comment comment",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "action",
+        "kind": "choice",
+        "default": "set",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "set",
+          "delete",
+          "rename",
+          "comment"
+        ]
+      },
+      {
+        "name": "key",
+        "kind": "string",
+        "default": "",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "value",
+        "kind": "string",
+        "default": "",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "comment",
+        "kind": "string",
+        "default": "",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Updates FITS keyword. Please note that the validity of value is not checked. This verification is the responsibility of the user. It is also possible to delete a key with the -delete option in front of the name of the key to be deleted, or to modify the key with the -modify option. The latter must be followed by the key to be modified and the new key name. Finally, the -comment option, followed by text, adds a comment to the FITS header. Please note that any text containing spaces must be enclosed in double quotation marks\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "action": "set",
+      "key": "",
+      "value": "",
+      "comment": "",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

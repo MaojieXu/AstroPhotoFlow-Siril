@@ -1,0 +1,98 @@
+{
+  "definition_id": "186301de-9e27-5187-b6e8-524965c054cb",
+  "source": "package",
+  "name": "Siril unpurple",
+  "description": "Applies a cosmetic filter to reduce effects of purple fringing on stars.\n\nIf the -starmask parameter is given, a star mask will be used to identify areas of the image to affect. If a Dynamic PSF has already been run, this will be used for the starmask, otherwise one will be created automatically. The -mod= parameter should be given a value somewhere around 0.14 to reduce the amount of purple. The -thresh= will specify the size modifier for each star in the starmask and should be large enough to cause the stars to be entirely processed without remaining purple fringing. The value should between 0 and 1, typically around 0.5.\n\nIf the -starmask parameter is not given, the purple reduction will be applied across the entire image for any purple pixels with a luminance value higher than the given -thresh= . In this case, the -thresh= value should be reasonably low. This mode is useful for starmasks or other images without nebula or galaxy\n\nLinks: psf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "starmask",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_blue",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "blue",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_threshold",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "threshold",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "unpurple",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "starmask": {
+        "kind": "parameter",
+        "name": "starmask"
+      },
+      "use_blue": {
+        "kind": "parameter",
+        "name": "use_blue"
+      },
+      "blue": {
+        "kind": "parameter",
+        "name": "blue"
+      },
+      "use_threshold": {
+        "kind": "parameter",
+        "name": "use_threshold"
+      },
+      "threshold": {
+        "kind": "parameter",
+        "name": "threshold"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

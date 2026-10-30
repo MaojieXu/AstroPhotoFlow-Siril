@@ -1,0 +1,48 @@
+{
+  "definition_id": "50c3f53a-19e9-51fc-877f-63db08c29e4d",
+  "source": "package",
+  "name": "Siril imul",
+  "description": "Multiplies image filename by the loaded image.\n\nResult will be in 32 bits per channel if allowed in the preferences\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "operand",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "imul",
+    "inputs": {
+      "image": "image",
+      "operand": "operand"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "definition_id": "d0b35104-f7d5-59a4-9500-f84449dc99f8",
+  "source": "package",
+  "name": "Siril resample",
+  "description": "Resamples the loaded image, either with a factor factor or for the target width or height provided by either of -width= , -height= or -maxdim= . This is generally used to resize images: a factor of 0.5 divides size by 2. The -maxdim argument can be used to resize the longest dimension of the image to a set size, which can be useful for optimizing images for certain websites, e.g. social media websites.\n\nIn the graphical user interface, we can see that several interpolation algorithms are proposed.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "size_mode",
+      "kind": "choice",
+      "default": "factor",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "factor",
+        "width",
+        "height",
+        "maxdim"
+      ]
+    },
+    {
+      "name": "size",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "interpolation",
+      "kind": "choice",
+      "default": "lanczos4",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "lanczos4",
+        "nearest",
+        "cubic",
+        "linear",
+        "area"
+      ]
+    },
+    {
+      "name": "no_clamp",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "resample",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "size_mode": {
+        "kind": "parameter",
+        "name": "size_mode"
+      },
+      "size": {
+        "kind": "parameter",
+        "name": "size"
+      },
+      "interpolation": {
+        "kind": "parameter",
+        "name": "interpolation"
+      },
+      "no_clamp": {
+        "kind": "parameter",
+        "name": "no_clamp"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

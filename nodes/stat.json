@@ -1,0 +1,74 @@
+{
+  "definition_id": "d507b832-cd28-582e-ae15-ec080655c49b",
+  "source": "package",
+  "name": "Siril stat",
+  "description": "Returns statistics of the current image, the basic list by default or the main list if main is passed. If a selection is made, statistics are computed within the selection. If -cfa is passed and the image is CFA, statistics are made on per-filter extractions\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "cfa",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "statistics",
+      "kind": "choice",
+      "default": "basic",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "basic",
+        "main"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "stat",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "cfa": {
+        "kind": "parameter",
+        "name": "cfa"
+      },
+      "statistics": {
+        "kind": "parameter",
+        "name": "statistics"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

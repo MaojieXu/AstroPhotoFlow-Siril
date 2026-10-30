@@ -1,0 +1,70 @@
+{
+  "definition_id": "1191f19f-80e6-5ab1-a838-5cad8a700209",
+  "source": "package",
+  "name": "Siril split",
+  "description": "Splits the loaded color image into three distinct files (one for each color) and saves them in file1 .fit, file2 .fit and file3 .fit files. A last argument can optionally be supplied, -hsl , -hsv or lab to perform an HSL, HSV or CieLAB extraction. If no option are provided, the extraction is of RGB type, meaning no conversion is done\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "channel_1",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "channel_2",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "channel_3",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "colour_space",
+      "kind": "choice",
+      "default": "rgb",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "rgb",
+        "hsl",
+        "hsv",
+        "lab"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "split",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "channel_1": "channel_1",
+      "channel_2": "channel_2",
+      "channel_3": "channel_3"
+    },
+    "parameters": {
+      "colour_space": {
+        "kind": "parameter",
+        "name": "colour_space"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

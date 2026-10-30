@@ -1,0 +1,319 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "makepsf",
+    "name": "makepsf",
+    "description": "Generates a PSF for use with deconvolution, any of the three methods exposed by RL, SB or WIENER commands. One of the following must be given as the first argument: clear (clears the existing PSF), load (loads a PSF from a file), save (saves the current PSF), blind (blind estimate of tke PSF), stars (generates a PSF based on measured stars from the image) or manual (generates a PSF manually based on a function and parameters).\n\nNo additional arguments are required when using the clear argument.\n\nTo load a previously saved PSF the load argument requires the PSF filename as a second argument. This may be in any format that Siril has been compiled with support for, but it must be square and should ideally be odd.\n\nTo save a previously generated PSF the argument save is used. Optionally, a filename may be provided (this must have one of the extensions \".fit\", \".fits\", \".fts\" or \".tif\") but if none is provided the PSF will be named based on the name of the open file or sequence.\n\nFor blind , the following optional arguments may be provided: -l0 uses the l0 descent method, -si uses the spectral irregularity method, -multiscale configures the l0 method to do a multi-scale PSF estimate, -lambda= provides the regularization constant.\n\nFor PSF from detected stars the only optional parameter is -sym , which configures the PSF to be symmetric.\n\nFor a manual PSF, one of -gaussian , -moffat , -disc or -airy can be provided to specify the PSF function, Gaussian by default. For Gaussian or Moffat PSFs the optional arguments -fwhm= , -angle= and -ratio= may be provided. For Moffat PSFs the optional argument -beta= may also be provided. If these values are omitted, they default to the same values as in the deconvolution dialog. For disc PSFs only the argument -fwhm= is required, which for this function is used to set the diameter of the PSF. For Airy PSFs the following arguments may be provided: -dia= (sets the telescope diameter), -fl= (sets the telescope focal length), -wl= (sets the wavelength to calculate the Airy diffraction pattern for), -pixelsize= (sets the sensor pixel size), -obstruct= (sets the central obstruction as a percentage of the overall aperture area). If these parameters are not provided, wavelength will default to 525nm and central obstruction will default to 0%. Siril will attempt to read the others from the open image, but some imaging software may not provide all of them in which case you will get bad results, and note the metadata may not be populated for SER format videos. You will learn from experience which are safe to omit for your particular imaging setup.\n\nFor any of the above PSF generation options the optional argument -ks= may be provided to set the PSF dimension, and the optional argument -savepsf=filename may be used to save the generated PSF: a filename must be provided and the same filename extension requirements apply as for makepsf save filename\n\nLinks: psf , rl , sb , wiener\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "makepsf clear\nmakepsf load filename\nmakepsf save [filename]\nmakepsf blind [-l0] [-si] [-multiscale] [-lambda=] [-comp=] [-ks=] [-savepsf=]\nmakepsf stars [-sym] [-ks=] [-savepsf=]\nmakepsf manual { -gaussian | -moffat | -disc | -airy } [-fwhm=] [-angle=] [-ratio=] [-beta=] [-dia=] [-fl=] [-wl=] [-pixelsize=] [-obstruct=] [-ks=] [-savepsf=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "psf",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "method",
+        "kind": "choice",
+        "default": "manual",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "manual",
+          "blind",
+          "stars"
+        ]
+      },
+      {
+        "name": "function",
+        "kind": "choice",
+        "default": "gaussian",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "gaussian",
+          "moffat",
+          "disc",
+          "airy"
+        ]
+      },
+      {
+        "name": "l0",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "si",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "multiscale",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "symmetric",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_lambda",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "lambda",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_compensation",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "compensation",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_kernel_size",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "kernel_size",
+        "kind": "int",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_fwhm",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "fwhm",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_angle",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "angle",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_ratio",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "ratio",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_beta",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "beta",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_diameter",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "diameter",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_focal_length",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "focal_length",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_wavelength",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "wavelength",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_pixel_size",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "pixel_size",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_obstruction",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "obstruction",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Generates a PSF for use with deconvolution, any of the three methods exposed by RL, SB or WIENER commands. One of the following must be given as the first argument: clear (clears the existing PSF), load (loads a PSF from a file), save (saves the current PSF), blind (blind estimate of tke PSF), stars (generates a PSF based on measured stars from the image) or manual (generates a PSF manually based on a function and parameters).\n\nNo additional arguments are required when using the clear argument.\n\nTo load a previously saved PSF the load argument requires the PSF filename as a second argument. This may be in any format that Siril has been compiled with support for, but it must be square and should ideally be odd.\n\nTo save a previously generated PSF the argument save is used. Optionally, a filename may be provided (this must have one of the extensions \".fit\", \".fits\", \".fts\" or \".tif\") but if none is provided the PSF will be named based on the name of the open file or sequence.\n\nFor blind , the following optional arguments may be provided: -l0 uses the l0 descent method, -si uses the spectral irregularity method, -multiscale configures the l0 method to do a multi-scale PSF estimate, -lambda= provides the regularization constant.\n\nFor PSF from detected stars the only optional parameter is -sym , which configures the PSF to be symmetric.\n\nFor a manual PSF, one of -gaussian , -moffat , -disc or -airy can be provided to specify the PSF function, Gaussian by default. For Gaussian or Moffat PSFs the optional arguments -fwhm= , -angle= and -ratio= may be provided. For Moffat PSFs the optional argument -beta= may also be provided. If these values are omitted, they default to the same values as in the deconvolution dialog. For disc PSFs only the argument -fwhm= is required, which for this function is used to set the diameter of the PSF. For Airy PSFs the following arguments may be provided: -dia= (sets the telescope diameter), -fl= (sets the telescope focal length), -wl= (sets the wavelength to calculate the Airy diffraction pattern for), -pixelsize= (sets the sensor pixel size), -obstruct= (sets the central obstruction as a percentage of the overall aperture area). If these parameters are not provided, wavelength will default to 525nm and central obstruction will default to 0%. Siril will attempt to read the others from the open image, but some imaging software may not provide all of them in which case you will get bad results, and note the metadata may not be populated for SER format videos. You will learn from experience which are safe to omit for your particular imaging setup.\n\nFor any of the above PSF generation options the optional argument -ks= may be provided to set the PSF dimension, and the optional argument -savepsf=filename may be used to save the generated PSF: a filename must be provided and the same filename extension requirements apply as for makepsf save filename\n\nLinks: psf , rl , sb , wiener\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\nload/save/clear are mapped to fixed PSF input/output and a fresh per-call process.\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "method": "manual",
+      "function": "gaussian",
+      "l0": false,
+      "si": false,
+      "multiscale": false,
+      "symmetric": false,
+      "use_lambda": false,
+      "lambda": 0,
+      "use_compensation": false,
+      "compensation": 0,
+      "use_kernel_size": false,
+      "kernel_size": 0,
+      "use_fwhm": false,
+      "fwhm": 0,
+      "use_angle": false,
+      "angle": 0,
+      "use_ratio": false,
+      "ratio": 0,
+      "use_beta": false,
+      "beta": 0,
+      "use_diameter": false,
+      "diameter": 0,
+      "use_focal_length": false,
+      "focal_length": 0,
+      "use_wavelength": false,
+      "wavelength": 0,
+      "use_pixel_size": false,
+      "pixel_size": 0,
+      "use_obstruction": false,
+      "obstruction": 0,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [
+    "load/save/clear are mapped to fixed PSF input/output and a fresh per-call process."
+  ],
+  "dependencies": [],
+  "corrections": []
+}

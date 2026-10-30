@@ -1,0 +1,76 @@
+{
+  "definition_id": "6ebf438d-4a3b-50e9-9348-b6f8b30baadb",
+  "source": "package",
+  "name": "Siril icc convert to",
+  "description": "Converts the current image to the specified ICC profile.\n\nOne of the following special arguments may be provided to use the respective built-in profiles: sRGB , sRGBlinear , Rec2020 , Rec2020linear , graysrgb , grayrec2020 , graylinear or working to set the working mono or RGB color profile, (for mono images only) linear , or the path to an ICC profile file may be provided. If a built-in profile is specified with a monochrome image loaded, the Gray profile with the corresponding TRC will be used.\n\nA second argument may be provided to specify the color transform intent: this should be one of perceptual , relative (for relative colorimetric), saturation or absolute (for absolute colorimetric)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "icc_profile",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "profile",
+      "kind": "string",
+      "default": "sRGB",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "intent",
+      "kind": "choice",
+      "default": "perceptual",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "perceptual",
+        "relative",
+        "saturation",
+        "absolute"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "icc_convert_to",
+    "inputs": {
+      "image": "image",
+      "icc_profile": "icc_profile"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "profile": {
+        "kind": "parameter",
+        "name": "profile"
+      },
+      "intent": {
+        "kind": "parameter",
+        "name": "intent"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

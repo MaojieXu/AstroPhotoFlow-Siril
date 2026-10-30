@@ -1,0 +1,103 @@
+{
+  "definition_id": "502266ae-8432-584f-8aea-dedf50656cc7",
+  "source": "package",
+  "name": "Siril seqpsf",
+  "description": "Same command as PSF but runs on sequences. This is similar to the one-star registration, except results can be used for photometry analysis rather than aligning images and the coordinates of the star can be provided by options.\n\nThis command is what is called internally by the menu that appears on right click in the image, with the PSF for the sequence entry. If registration data already exist for the sequence, they will can be used to shift the search window in each image. If there is no registration data and if there is significant shift between images in the sequence, the default settings will fail to find stars in the initial position of the search area.\n\nThe follow star option can then be activated with the argument -followstar .\n\nResults will be displayed in the Plot tab, from which they can also be exported to a comma-separated values (CSV) file for external analysis.\n\nWhen creating a light curve, the first star for which seqpsf has been run, marked 'V' in the display, will be considered as the variable star. All others are averaged to create a reference light curve subtracted to the light curve of the variable star.\n\nCurrently, in headless operation, the command prints some analysed data in the console, another command allows several stars to be analysed and plotted as a light curve: LIGHT_CURVE. Arguments are mandatory: the sequence name must be provided (\".\" may be used to indicate the currently loaded sequence) and when headless it is mandatory to provide the coordinates of the star, with -at= allowing coordinates in pixels to be provided for the target star of -wcs= allowing J2000 equatorial coordinates to be provided\n\nLinks: psf , light_curve\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "channel",
+      "kind": "int",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 2
+    },
+    {
+      "name": "coordinate_type",
+      "kind": "choice",
+      "default": "pixel",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "pixel",
+        "wcs"
+      ]
+    },
+    {
+      "name": "position",
+      "kind": "string",
+      "default": "64,64",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "follow_star",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqpsf",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image",
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "channel": {
+        "kind": "parameter",
+        "name": "channel"
+      },
+      "coordinate_type": {
+        "kind": "parameter",
+        "name": "coordinate_type"
+      },
+      "position": {
+        "kind": "parameter",
+        "name": "position"
+      },
+      "follow_star": {
+        "kind": "parameter",
+        "name": "follow_star"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

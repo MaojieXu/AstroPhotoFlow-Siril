@@ -1,0 +1,48 @@
+{
+  "definition_id": "8cc1a125-1841-5d45-9335-5ee7a0a5befb",
+  "source": "package",
+  "name": "Siril idiv",
+  "description": "Divides the loaded image by the image filename .\n\nResult will be in 32 bits per channel if allowed in the preferences.\n\nSee also FDIV\n\nLinks: fdiv\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "operand",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "idiv",
+    "inputs": {
+      "image": "image",
+      "operand": "operand"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

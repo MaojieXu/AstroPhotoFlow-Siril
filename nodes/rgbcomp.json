@@ -1,0 +1,90 @@
+{
+  "definition_id": "7626d839-0a9e-5158-8101-e0f35c245490",
+  "source": "package",
+  "name": "Siril rgbcomp",
+  "description": "Creates an RGB composition using three independent images, or an LRGB composition using the optional luminance image and three monochrome images or a color image. Result image is called composed_rgb.fit or composed_lrgb.fit unless another name is provided in the optional argument. Another optional argument, -nosum tells Siril not to sum exposure times. This impacts FITS keywords such as LIVETIME and STACKCNT\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "red",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "green",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "blue",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "luminance",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "rgb",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "mode",
+      "kind": "choice",
+      "default": "rgb",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "rgb",
+        "lrgb",
+        "l_rgb"
+      ]
+    },
+    {
+      "name": "no_sum",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "rgbcomp",
+    "inputs": {
+      "red": "red",
+      "green": "green",
+      "blue": "blue",
+      "luminance": "luminance",
+      "rgb": "rgb"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "mode": {
+        "kind": "parameter",
+        "name": "mode"
+      },
+      "no_sum": {
+        "kind": "parameter",
+        "name": "no_sum"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

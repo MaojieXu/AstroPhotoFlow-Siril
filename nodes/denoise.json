@@ -1,0 +1,127 @@
+{
+  "definition_id": "fa20c061-24d4-5631-a834-ea1972123591",
+  "source": "package",
+  "name": "Siril denoise",
+  "description": "Denoises the image using the non-local Bayesian algorithm described by Lebrun, Buades and Morel .\n\nIt is strongly recommended to apply cosmetic correction to remove salt and pepper noise before running denoise, and by default this command will apply cosmetic correction automatically. However, if this has already been carried out earlier in the workflow it may be disabled here using the optional command -nocosmetic .\n\nAn optional argument -mod=m may be given, where 0 <= m <= 1. The output pixel is computed as : out=m x d + (1 − m) x in , where d is the denoised pixel value. A modulation value of 1 will apply no modulation. If the parameter is omitted, it defaults to 1.\n\nThe optional argument -vst can be used to apply the generalised Anscombe variance stabilising transform prior to NL-Bayes. This is useful with photon-starved images such as single subs, where the noise follows a Poisson or Poisson-Gaussian distribution rather than being primarily Gaussian. It cannot be used in conjunction with DA3D or SOS, and for denoising stacked images it is usually not beneficial.\n\nThe optional argument -da3d can be used to enable Data-Adaptive Dual Domain Denoising (DA3D) as a final stage denoising algorithm. This uses the output of BM3D as a guide image to refine the denoising. It improves detail and reduces staircasing artefacts.\n\nThe optional argument -sos=n can be used to enable Strengthen-Operate-Subtract (SOS) iterative denoise boosting, with the number of iterations specified by n. In particular, this booster may produce better results if the un-boosted NL-Bayes algorithm produces artefacts in background areas. If both -da3d and -sos=n are specified, the last to be specified will apply.\n\nThe optional argument -rho=r may be specified, where 0 < r < 1. This is used by the SOS booster to determine the amount of noisy image added in to the intermediate result between each iteration. If -sos=n is not specified then the parameter is ignored.\n\nThe default is not to apply DA3D or SOS, as the improvement in denoising is usually relatively small and these techniques requires additional processing time.\n\nIn very rare cases, blocky coloured artefacts may be found in the output when denoising colour images. The optional argument -indep can be used to prevent this by denoising each channel separately. This is slower but will eliminate artefacts\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "no_cosmetic",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "modulation",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "method",
+      "kind": "choice",
+      "default": "default",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "default",
+        "vst",
+        "da3d",
+        "sos"
+      ]
+    },
+    {
+      "name": "sos_iterations",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "use_rho",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "rho",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "independent",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "denoise",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "no_cosmetic": {
+        "kind": "parameter",
+        "name": "no_cosmetic"
+      },
+      "modulation": {
+        "kind": "parameter",
+        "name": "modulation"
+      },
+      "method": {
+        "kind": "parameter",
+        "name": "method"
+      },
+      "sos_iterations": {
+        "kind": "parameter",
+        "name": "sos_iterations"
+      },
+      "use_rho": {
+        "kind": "parameter",
+        "name": "use_rho"
+      },
+      "rho": {
+        "kind": "parameter",
+        "name": "rho"
+      },
+      "independent": {
+        "kind": "parameter",
+        "name": "independent"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

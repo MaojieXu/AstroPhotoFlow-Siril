@@ -1,0 +1,104 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "seqcrop",
+    "name": "seqcrop",
+    "description": "Crops the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe crop selection is specified by the upper left corner position x and y and the selection width and height , like for CROP.\n\nThe output sequence name starts with the prefix \"cropped_\" unless otherwise specified with -prefix= option\n\nLinks: crop\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "seqcrop sequencename x y width height [-prefix=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "x",
+        "kind": "int",
+        "default": 0,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0
+      },
+      {
+        "name": "y",
+        "kind": "int",
+        "default": 0,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0
+      },
+      {
+        "name": "width",
+        "kind": "int",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1
+      },
+      {
+        "name": "height",
+        "kind": "int",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Crops the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe crop selection is specified by the upper left corner position x and y and the selection width and height , like for CROP.\n\nThe output sequence name starts with the prefix \"cropped_\" unless otherwise specified with -prefix= option\n\nLinks: crop\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

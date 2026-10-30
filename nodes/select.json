@@ -1,0 +1,67 @@
+{
+  "definition_id": "6e085cd2-f757-5d94-a1e6-0df9ca1a9bcd",
+  "source": "package",
+  "name": "Siril select",
+  "description": "This command allows easy mass selection of images in the sequence sequencename (from from to to included). This is a selection for later processing.\n\nSee also UNSELECT\n\nLinks: unselect\n\nExamples:\n\nselect . 0 0\n\nselects the first of the currently loaded sequence\n\nselect sequencename 1000 1200\n\nselects 201 images starting from number 1000 in sequence named sequencename\n\nThe second number can be greater than the number of images to just go up to the end.\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "from_index",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "to_index",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "select",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "from_index": {
+        "kind": "parameter",
+        "name": "from_index"
+      },
+      "to_index": {
+        "kind": "parameter",
+        "name": "to_index"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

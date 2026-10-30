@@ -1,0 +1,91 @@
+{
+  "definition_id": "fe1be18d-43fd-5ade-9043-851968518101",
+  "source": "package",
+  "name": "Siril seqcrop",
+  "description": "Crops the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe crop selection is specified by the upper left corner position x and y and the selection width and height , like for CROP.\n\nThe output sequence name starts with the prefix \"cropped_\" unless otherwise specified with -prefix= option\n\nLinks: crop\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "x",
+      "kind": "int",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0
+    },
+    {
+      "name": "y",
+      "kind": "int",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0
+    },
+    {
+      "name": "width",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "height",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqcrop",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "x": {
+        "kind": "parameter",
+        "name": "x"
+      },
+      "y": {
+        "kind": "parameter",
+        "name": "y"
+      },
+      "width": {
+        "kind": "parameter",
+        "name": "width"
+      },
+      "height": {
+        "kind": "parameter",
+        "name": "height"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

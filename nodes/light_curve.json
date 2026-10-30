@@ -1,0 +1,120 @@
+{
+  "definition_id": "4331bd77-383a-5399-85b7-4571a886d253",
+  "source": "package",
+  "name": "Siril light curve",
+  "description": "Analyses several stars with aperture photometry in a sequence of images and produces a light curve for one, calibrated by the others. The first coordinates, in pixels if -at= is used or in degrees if -wcs= is used, are for the star whose light will be plotted, the others for the comparison stars.\n\nAlternatively, a list of target and reference stars can be passed in the format of the NINA exoplanet plugin star list, with the -ninastars= option. Siril will verify that all reference stars can be used before actually using them. A data file is created in the current directory named light_curve.dat, Siril plots the result to a PNG image if available\n\nThe ring radii for the annulus can either be configured in the settings or set to a factor of the reference image's FWHM if -autoring is passed. These autoring sizes are 4.2 time and 6.3 times the FWHM for the inner and outer radii, respectively.\n\nSee also the setphot command to set the same way the aperture radius size.\n\nSee also SEQPSF for operations on single star\n\nLinks: seqpsf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "nina_stars",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "channel",
+      "kind": "int",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 2
+    },
+    {
+      "name": "autoring",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "coordinate_type",
+      "kind": "choice",
+      "default": "pixel",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "pixel",
+        "wcs",
+        "nina"
+      ]
+    },
+    {
+      "name": "position",
+      "kind": "string",
+      "default": "64,64",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "reference_positions",
+      "kind": "string",
+      "default": "[]",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "light_curve",
+    "inputs": {
+      "image": "image",
+      "nina_stars": "nina_stars"
+    },
+    "outputs": {
+      "image": "image",
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "channel": {
+        "kind": "parameter",
+        "name": "channel"
+      },
+      "autoring": {
+        "kind": "parameter",
+        "name": "autoring"
+      },
+      "coordinate_type": {
+        "kind": "parameter",
+        "name": "coordinate_type"
+      },
+      "position": {
+        "kind": "parameter",
+        "name": "position"
+      },
+      "reference_positions": {
+        "kind": "parameter",
+        "name": "reference_positions"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

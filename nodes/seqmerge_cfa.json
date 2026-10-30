@@ -1,0 +1,75 @@
+{
+  "definition_id": "f8b2ebf3-afd5-53bf-bc6e-01bb56cf83b0",
+  "source": "package",
+  "name": "Siril seqmerge cfa",
+  "description": "Merges 4 sequences of images to recombine the Bayer pattern. The sequences are specified in the arguments sequencename0 , sequencename1 , sequencename2 and sequencename3 .\n\nThe Bayer pattern to be reconstructed must be provided as the second argument as one of RGGB, BGGR, GBRG or GRBG (the order of the Bayer channels must match the order of the specified sequences).\n\nNote: all 4 input sequences must be present and have the same dimensions, bit depth and number of images.\n\nThe output sequence name starts with the prefix \"mCFA_\" and a number unless otherwise specified with -prefixout= option\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "cfa0",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa1",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa2",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa3",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "bayer_pattern",
+      "kind": "choice",
+      "default": "RGGB",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "RGGB",
+        "BGGR",
+        "GRBG",
+        "GBRG"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqmerge_cfa",
+    "inputs": {
+      "cfa0": "cfa0",
+      "cfa1": "cfa1",
+      "cfa2": "cfa2",
+      "cfa3": "cfa3"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "bayer_pattern": {
+        "kind": "parameter",
+        "name": "bayer_pattern"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

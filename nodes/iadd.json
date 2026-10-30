@@ -1,0 +1,48 @@
+{
+  "definition_id": "d8fa486e-9c7c-577a-b43c-5cd1f8b976f9",
+  "source": "package",
+  "name": "Siril iadd",
+  "description": "Adds the image filename to the loaded image.\n\nResult will be in 32 bits per channel if allowed in the preferences\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "operand",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "iadd",
+    "inputs": {
+      "image": "image",
+      "operand": "operand"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

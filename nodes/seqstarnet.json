@@ -1,0 +1,103 @@
+{
+  "definition_id": "5b231370-051f-5728-b57c-e9d28f66562a",
+  "source": "package",
+  "name": "Siril seqstarnet",
+  "description": "This command calls Starnet++ to remove stars from the sequence sequencename . See STARNET\n\nLinks: starnet\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "stars",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "stretch",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "upscale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_stride",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "stride",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "no_starmask",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqstarnet",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image",
+      "stars": "stars"
+    },
+    "parameters": {
+      "stretch": {
+        "kind": "parameter",
+        "name": "stretch"
+      },
+      "upscale": {
+        "kind": "parameter",
+        "name": "upscale"
+      },
+      "use_stride": {
+        "kind": "parameter",
+        "name": "use_stride"
+      },
+      "stride": {
+        "kind": "parameter",
+        "name": "stride"
+      },
+      "no_starmask": {
+        "kind": "parameter",
+        "name": "no_starmask"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

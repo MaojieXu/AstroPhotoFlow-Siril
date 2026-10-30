@@ -1,0 +1,48 @@
+{
+  "definition_id": "5fc22dac-147b-5eba-9016-e7ef69b89b48",
+  "source": "package",
+  "name": "Siril cosme cfa",
+  "description": "Same function as COSME but applying to RAW CFA images\n\nLinks: cosme\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "bad_pixels",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "cosme_cfa",
+    "inputs": {
+      "image": "image",
+      "bad_pixels": "bad_pixels"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "definition_id": "9dfdd904-fb0c-5f26-87eb-1be80d06e9e5",
+  "source": "package",
+  "name": "Siril sequpdate key",
+  "description": "Same command as UPDATE_KEY but for the sequence sequencename . However, this command won't work on SER sequence\n\nLinks: update_key\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "action",
+      "kind": "choice",
+      "default": "set",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "set",
+        "delete",
+        "rename",
+        "comment"
+      ]
+    },
+    {
+      "name": "key",
+      "kind": "string",
+      "default": "",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "value",
+      "kind": "string",
+      "default": "",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "comment",
+      "kind": "string",
+      "default": "",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "sequpdate_key",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "action": {
+        "kind": "parameter",
+        "name": "action"
+      },
+      "key": {
+        "kind": "parameter",
+        "name": "key"
+      },
+      "value": {
+        "kind": "parameter",
+        "name": "value"
+      },
+      "comment": {
+        "kind": "parameter",
+        "name": "comment"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

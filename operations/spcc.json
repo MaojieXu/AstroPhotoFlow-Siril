@@ -1,0 +1,388 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "spcc",
+    "name": "spcc",
+    "description": "Run the Spectrophotometric Color Correction on the loaded platesolved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used for SPCC is always Gaia DR3: by default the local Gaia DR3 xp_sampled catalog will be used if available but this can be overridden with -catalog={gaia | localgaia} .\n\nThe names of sensors and filters can be specified using the following options: -monosensor= , -rfilter= , -gfilter= , -bfilter= or -oscsensor= , -oscfilter= , -osclpf= ; the name of the white reference can be specified using the -whiteref= option. In all cases the name must be provided exactly as it is in the combo boxes in the SPCC tool. Note that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\".\n\nNarrowband mode can be selected using the argument -narrowband , in which case the previous filter arguments are ignored and NB filter wavelengths and bandwidths can be provided using -rwl= , -rbw= , -gwl= , -gbw= , -bwl= and -bbw= .\n\nIf one of the spectral data argument is omitted, the previously used value will be used.\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0.\n\nAtmospheric correction can be applied by passing -atmos . In this case the following optional arguments apply: -obsheight= specifies the observer's height above sea level in metres (default 10), -pressure= specifies local atmospheric pressure at the observing site in hPa, or -slp= specifies sea-level atmospheric pressure in hPa (default pressure is 1013.25 hPa at sea level)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "spcc [-limitmag=[+-]] [ { -monosensor= [ -rfilter= ] [-gfilter=] [-bfilter=] | -oscsensor= [-oscfilter=] [-osclpf=] } ] [-whiteref=] [ -narrowband [-rwl=] [-gwl=] [-bwl=] [-rbw=] [-gbw=] [-bbw=] ] [-bgtol=lower,upper] [ -atmos [-obsheight=] { [-pressure=] | [-slp=] } ]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "use_magnitude_limit",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "magnitude_limit",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_background_tolerance",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "background_tolerance",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_mono_sensor",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "mono_sensor",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_red_filter",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "red_filter",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_green_filter",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "green_filter",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_blue_filter",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "blue_filter",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_osc_sensor",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "osc_sensor",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_osc_filter",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "osc_filter",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_osc_low_pass",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "osc_low_pass",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_white_reference",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "white_reference",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "narrowband",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "atmosphere",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_red_wavelength",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "red_wavelength",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_green_wavelength",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "green_wavelength",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_blue_wavelength",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "blue_wavelength",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_red_bandwidth",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "red_bandwidth",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_green_bandwidth",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "green_bandwidth",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_blue_bandwidth",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "blue_bandwidth",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_observatory_height",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "observatory_height",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_pressure",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "pressure",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_sea_level_pressure",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "sea_level_pressure",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Run the Spectrophotometric Color Correction on the loaded platesolved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used for SPCC is always Gaia DR3: by default the local Gaia DR3 xp_sampled catalog will be used if available but this can be overridden with -catalog={gaia | localgaia} .\n\nThe names of sensors and filters can be specified using the following options: -monosensor= , -rfilter= , -gfilter= , -bfilter= or -oscsensor= , -oscfilter= , -osclpf= ; the name of the white reference can be specified using the -whiteref= option. In all cases the name must be provided exactly as it is in the combo boxes in the SPCC tool. Note that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\".\n\nNarrowband mode can be selected using the argument -narrowband , in which case the previous filter arguments are ignored and NB filter wavelengths and bandwidths can be provided using -rwl= , -rbw= , -gwl= , -gbw= , -bwl= and -bbw= .\n\nIf one of the spectral data argument is omitted, the previously used value will be used.\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0.\n\nAtmospheric correction can be applied by passing -atmos . In this case the following optional arguments apply: -obsheight= specifies the observer's height above sea level in metres (default 10), -pressure= specifies local atmospheric pressure at the observing site in hPa, or -slp= specifies sea-level atmospheric pressure in hPa (default pressure is 1013.25 hPa at sea level)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\nPlate-solved input and the catalogue/response data selected in the isolated settings.\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "use_magnitude_limit": false,
+      "magnitude_limit": "",
+      "use_background_tolerance": false,
+      "background_tolerance": "",
+      "use_mono_sensor": false,
+      "mono_sensor": "",
+      "use_red_filter": false,
+      "red_filter": "",
+      "use_green_filter": false,
+      "green_filter": "",
+      "use_blue_filter": false,
+      "blue_filter": "",
+      "use_osc_sensor": false,
+      "osc_sensor": "",
+      "use_osc_filter": false,
+      "osc_filter": "",
+      "use_osc_low_pass": false,
+      "osc_low_pass": "",
+      "use_white_reference": false,
+      "white_reference": "",
+      "narrowband": false,
+      "atmosphere": false,
+      "use_red_wavelength": false,
+      "red_wavelength": 0,
+      "use_green_wavelength": false,
+      "green_wavelength": 0,
+      "use_blue_wavelength": false,
+      "blue_wavelength": 0,
+      "use_red_bandwidth": false,
+      "red_bandwidth": 0,
+      "use_green_bandwidth": false,
+      "green_bandwidth": 0,
+      "use_blue_bandwidth": false,
+      "blue_bandwidth": 0,
+      "use_observatory_height": false,
+      "observatory_height": 0,
+      "use_pressure": false,
+      "pressure": 0,
+      "use_sea_level_pressure": false,
+      "sea_level_pressure": 0,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [
+    "Plate-solved input and the catalogue/response data selected in the isolated settings."
+  ],
+  "corrections": []
+}

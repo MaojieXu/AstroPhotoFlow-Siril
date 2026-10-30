@@ -1,0 +1,65 @@
+{
+  "definition_id": "722ea601-082d-5aa2-a58c-5637a76cee79",
+  "source": "package",
+  "name": "Siril seqfind cosme",
+  "description": "Same command as FIND_COSME but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"cc_\" unless otherwise specified with -prefix= option\n\nLinks: find_cosme\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "cold_sigma",
+      "kind": "float",
+      "default": 3,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "hot_sigma",
+      "kind": "float",
+      "default": 3,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqfind_cosme",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "cold_sigma": {
+        "kind": "parameter",
+        "name": "cold_sigma"
+      },
+      "hot_sigma": {
+        "kind": "parameter",
+        "name": "hot_sigma"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

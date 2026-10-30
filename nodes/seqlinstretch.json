@@ -1,0 +1,104 @@
+{
+  "definition_id": "776aa6b1-ccb3-5dfa-ae21-60f77940e3d5",
+  "source": "package",
+  "name": "Siril seqlinstretch",
+  "description": "Same command as LINSTRETCH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: linstretch\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "black_point",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "clipmode",
+      "kind": "choice",
+      "default": "rgbblend",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "rgbblend",
+        "clip",
+        "rescale",
+        "globalrescale"
+      ]
+    },
+    {
+      "name": "channels",
+      "kind": "choice",
+      "default": "RGB",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "RGB",
+        "R",
+        "G",
+        "B",
+        "RG",
+        "RB",
+        "GB"
+      ]
+    },
+    {
+      "name": "saturation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqlinstretch",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "black_point": {
+        "kind": "parameter",
+        "name": "black_point"
+      },
+      "clipmode": {
+        "kind": "parameter",
+        "name": "clipmode"
+      },
+      "channels": {
+        "kind": "parameter",
+        "name": "channels"
+      },
+      "saturation": {
+        "kind": "parameter",
+        "name": "saturation"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

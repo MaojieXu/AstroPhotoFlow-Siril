@@ -1,0 +1,132 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "findcompstars",
+    "name": "findcompstars",
+    "description": "Automatically finds comparison stars in the field of the plate solved loaded image, for photometric analysis of a star's light curve according to\n\n- the provided name of the star\n\n- the field of view of the image, reduced to a diameter of its height if -narrow is passed, avoiding stars in the corners\n\n- the chosen catalog (APASS by default), can be changed with -catalog={NOMAD|APASS}\n\n- the difference in visual magnitude from the variable star, in the range [0, 6] with a default of 3, changed with -dvmag=\n\n- the difference in color with the variable star, in the range [0.0, 0.7] of their B-V indices with a default of 0.5, changed with -dbv=\n\n- the maximum allowed error on Vmag in the range [0.0, 0.1] with a default of 0.03, changed with -emag= .\n\nThe list can optionally be saved as a CSV file compatible with the NINA comparison stars list, specifying the file name with -out= . If the provided name is the special value auto , it is generated using the input parameters\n\nSee also LIGHT_CURVE\n\nLinks: light_curve\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "findcompstars star_name [-narrow|-wide] [-catalog={nomad|apass}] [-dvmag=3] [-dbv=0.5] [-emag=0.03] [-out=nina_file.csv]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "star_name",
+        "kind": "string",
+        "default": "",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "search_width",
+        "kind": "choice",
+        "default": "default",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "default",
+          "narrow",
+          "wide"
+        ]
+      },
+      {
+        "name": "catalogue",
+        "kind": "choice",
+        "default": "nomad",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "nomad",
+          "apass"
+        ]
+      },
+      {
+        "name": "magnitude_difference",
+        "kind": "float",
+        "default": 3,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "colour_difference",
+        "kind": "float",
+        "default": 0.5,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "magnitude_error",
+        "kind": "float",
+        "default": 0.03,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Automatically finds comparison stars in the field of the plate solved loaded image, for photometric analysis of a star's light curve according to\n\n- the provided name of the star\n\n- the field of view of the image, reduced to a diameter of its height if -narrow is passed, avoiding stars in the corners\n\n- the chosen catalog (APASS by default), can be changed with -catalog={NOMAD|APASS}\n\n- the difference in visual magnitude from the variable star, in the range [0, 6] with a default of 3, changed with -dvmag=\n\n- the difference in color with the variable star, in the range [0.0, 0.7] of their B-V indices with a default of 0.5, changed with -dbv=\n\n- the maximum allowed error on Vmag in the range [0.0, 0.1] with a default of 0.03, changed with -emag= .\n\nThe list can optionally be saved as a CSV file compatible with the NINA comparison stars list, specifying the file name with -out= . If the provided name is the special value auto , it is generated using the input parameters\n\nSee also LIGHT_CURVE\n\nLinks: light_curve\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "star_name": "",
+      "search_width": "default",
+      "catalogue": "nomad",
+      "magnitude_difference": 3,
+      "colour_difference": 0.5,
+      "magnitude_error": 0.03,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

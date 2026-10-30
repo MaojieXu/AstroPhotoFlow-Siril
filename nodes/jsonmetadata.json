@@ -1,0 +1,70 @@
+{
+  "definition_id": "c43627e0-09ad-5877-96c9-1d5a52815357",
+  "source": "package",
+  "name": "Siril jsonmetadata",
+  "description": "Dumps metadata and statistics of the currently loaded image in JSON form. The file name is required, even if the image is already loaded. Image data may not be read from the file if it is the current loaded image and if the -stats_from_loaded option is passed. Statistics can be disabled by providing the -nostats option. A file containing the JSON data is created with default file name '$(FITS_file_without_ext).json' and can be changed with the -out= option\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "statistics_from_loaded",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "no_statistics",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "jsonmetadata",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "statistics_from_loaded": {
+        "kind": "parameter",
+        "name": "statistics_from_loaded"
+      },
+      "no_statistics": {
+        "kind": "parameter",
+        "name": "no_statistics"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

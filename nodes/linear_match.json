@@ -1,0 +1,70 @@
+{
+  "definition_id": "66d0696d-92bb-5a5d-abd7-d90725309c14",
+  "source": "package",
+  "name": "Siril linear match",
+  "description": "Computes and applies a linear function between a reference image and the loaded image.\n\nThe algorithm will ignore all reference pixels whose values are outside of the [ low , high ] range\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "reference",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "low",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "high",
+      "kind": "float",
+      "default": 0.9,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "linear_match",
+    "inputs": {
+      "image": "image",
+      "reference": "reference"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "low": {
+        "kind": "parameter",
+        "name": "low"
+      },
+      "high": {
+        "kind": "parameter",
+        "name": "high"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

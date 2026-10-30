@@ -1,0 +1,76 @@
+{
+  "definition_id": "bca535c4-4b04-5ca0-be14-3d23ce6cf81e",
+  "source": "package",
+  "name": "Siril fixbanding",
+  "description": "Tries to remove the horizontal or vertical banding in the loaded image.\n\namount defines the amount of correction, between 0 and 4.\n\nsigma defines the highlight protection level of the algorithm, higher sigma gives higher protection, between 0 and 5. Values of 1 and 1 are often good enough.\n\n-vertical option enables to perform vertical banding removal, horizontal is the default\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "amount",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "sigma",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "vertical",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "fixbanding",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "amount": {
+        "kind": "parameter",
+        "name": "amount"
+      },
+      "sigma": {
+        "kind": "parameter",
+        "name": "sigma"
+      },
+      "vertical": {
+        "kind": "parameter",
+        "name": "vertical"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

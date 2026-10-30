@@ -1,0 +1,260 @@
+{
+  "definition_id": "101781dd-4e63-59af-b067-cf05fa018e10",
+  "source": "package",
+  "name": "Siril stackall",
+  "description": "Opens all sequences in the current directory and stacks them with the optionally specified stacking type and filtering or with sum stacking. See STACK command for options description\n\nLinks: stack\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "sequences",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "rejection_maps",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "method",
+      "kind": "choice",
+      "default": "mean",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "mean",
+        "sum",
+        "min",
+        "max",
+        "median"
+      ]
+    },
+    {
+      "name": "rejection",
+      "kind": "choice",
+      "default": "winsorized",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "none",
+        "percentile",
+        "sigma",
+        "mad",
+        "median",
+        "winsorized",
+        "linear",
+        "generalized"
+      ]
+    },
+    {
+      "name": "sigma_low",
+      "kind": "float",
+      "default": 3,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "sigma_high",
+      "kind": "float",
+      "default": 3,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "normalisation",
+      "kind": "choice",
+      "default": "none",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "none",
+        "add",
+        "mul",
+        "addscale",
+        "mulscale"
+      ]
+    },
+    {
+      "name": "fast_normalisation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "rgb_equal",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "output_normalisation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "overlap_normalisation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "weight",
+      "kind": "choice",
+      "default": "none",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "none",
+        "noise",
+        "wfwhm",
+        "nbstars",
+        "nbstack"
+      ]
+    },
+    {
+      "name": "use_feather",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "feather",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "maximise",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "upscale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "force_32bit",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "rejection_maps",
+      "kind": "choice",
+      "default": "none",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "none",
+        "combined",
+        "separate"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "stackall",
+    "inputs": {
+      "sequences": "sequences"
+    },
+    "outputs": {
+      "image": "image",
+      "rejection_maps": "rejection_maps"
+    },
+    "parameters": {
+      "method": {
+        "kind": "parameter",
+        "name": "method"
+      },
+      "rejection": {
+        "kind": "parameter",
+        "name": "rejection"
+      },
+      "sigma_low": {
+        "kind": "parameter",
+        "name": "sigma_low"
+      },
+      "sigma_high": {
+        "kind": "parameter",
+        "name": "sigma_high"
+      },
+      "normalisation": {
+        "kind": "parameter",
+        "name": "normalisation"
+      },
+      "fast_normalisation": {
+        "kind": "parameter",
+        "name": "fast_normalisation"
+      },
+      "rgb_equal": {
+        "kind": "parameter",
+        "name": "rgb_equal"
+      },
+      "output_normalisation": {
+        "kind": "parameter",
+        "name": "output_normalisation"
+      },
+      "overlap_normalisation": {
+        "kind": "parameter",
+        "name": "overlap_normalisation"
+      },
+      "weight": {
+        "kind": "parameter",
+        "name": "weight"
+      },
+      "use_feather": {
+        "kind": "parameter",
+        "name": "use_feather"
+      },
+      "feather": {
+        "kind": "parameter",
+        "name": "feather"
+      },
+      "maximise": {
+        "kind": "parameter",
+        "name": "maximise"
+      },
+      "upscale": {
+        "kind": "parameter",
+        "name": "upscale"
+      },
+      "force_32bit": {
+        "kind": "parameter",
+        "name": "force_32bit"
+      },
+      "rejection_maps": {
+        "kind": "parameter",
+        "name": "rejection_maps"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}
