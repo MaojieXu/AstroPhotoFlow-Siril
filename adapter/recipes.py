@@ -267,7 +267,7 @@ for command in ['convert', 'convertraw', 'link']:
 FILTERS = [number('filter_' + name, 0, token='-filter-' + name + '=', optional=True)
            for name in ['fwhm', 'wfwhm', 'round', 'bkg', 'nbstars', 'quality']]
 FILTERS += [choice('filter_unit', ['absolute', 'percent', 'sigma'], token='filter_unit'), flag('filter_included', '-filter-included')]
-REGISTER = [number('scale', 1, token='-scale=', optional=True), choice('layer', ['red', 'green', 'blue', 'lum', 'col'], token='-layer=', optional=True),
+REGISTER = [number('scale', 1, token='-scale=', optional=True), number('layer', 0, integer=True, minimum=0, maximum=2, token='-layer=', optional=True),
             choice('interpolation', INTERPOLATION, token='-interp='), flag('no_clamp', '-noclamp'), flag('drizzle'),
             number('pixel_fraction', 1, token='-pixfrac=', optional=True), text('kernel', token='-kernel=', optional=True)]
 add('register', 'registration', flag('two_pass', '-2pass'), flag('selected'), *REGISTER,

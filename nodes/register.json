@@ -61,17 +61,12 @@
     },
     {
       "name": "layer",
-      "kind": "choice",
-      "default": "red",
+      "kind": "int",
+      "default": 0,
       "advanced": true,
       "nullable": false,
-      "choices": [
-        "red",
-        "green",
-        "blue",
-        "lum",
-        "col"
-      ]
+      "minimum": 0,
+      "maximum": 2
     },
     {
       "name": "interpolation",

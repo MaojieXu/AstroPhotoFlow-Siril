@@ -251,3 +251,11 @@ def test_sequence_statistics_tsv_preserves_columns_zero_and_unavailable(tmp_path
 def test_stat_rejects_the_fixed_cli_combination_that_ignores_cfa_and_main(tmp_path):
     with pytest.raises(ValueError, match='CFA.*main'):
         build(tmp_path, 'stat', values={'cfa': True, 'statistics': 'main'})
+
+
+@pytest.mark.parametrize('operation', ['register', 'seqapplyreg'])
+def test_registration_layer_remains_a_numeric_cli_channel(tmp_path, operation):
+    parameter = next(item['schema'] for item in adapter.RECIPES[operation]['parameters'] if item['schema']['name'] == 'layer')
+    ParameterDefinition.model_validate({**parameter, 'default': 0})
+    text = script(build(tmp_path, operation, values={'use_layer': True, 'layer': 0}))
+    assert '"-layer=0"' in text
