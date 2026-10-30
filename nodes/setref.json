@@ -1,0 +1,55 @@
+{
+  "definition_id": "75706b94-13d7-5507-bfee-a7d8c7c9dc83",
+  "source": "package",
+  "name": "Siril setref",
+  "description": "Sets the reference image of the sequence given in first argument. image_number is the sequential number of the image in the sequence, not the number in the filename, starting at 1\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "image_number",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "setref",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "image_number": {
+        "kind": "parameter",
+        "name": "image_number"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

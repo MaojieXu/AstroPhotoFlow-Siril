@@ -1,0 +1,119 @@
+{
+  "definition_id": "828ae6a6-0622-515b-b63f-83c970a9d2d6",
+  "source": "package",
+  "name": "Siril subsky",
+  "description": "Computes a synthetic background gradient using either the polynomial function model of degree degrees or the RBF model (if -rbf is provided instead) and subtracts it from the image.\n\nThe number of samples per horizontal line and the tolerance to exclude brighter areas can be adjusted with the optional arguments. Tolerance is in MAD units: median + tolerance * mad.\n\nDithering, required for low dynamic gradients, can be enabled with -dither .\n\nFor RBF, the additional smoothing parameter is also available. To use pre-existing background samples (e.g. if you have set background samples using a Python script) the -existing argument must be used\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "model",
+      "kind": "choice",
+      "default": "polynomial",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "polynomial",
+        "rbf"
+      ]
+    },
+    {
+      "name": "degree",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1,
+      "maximum": 4
+    },
+    {
+      "name": "dither",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "samples",
+      "kind": "int",
+      "default": 20,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 2
+    },
+    {
+      "name": "tolerance",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0
+    },
+    {
+      "name": "smooth",
+      "kind": "float",
+      "default": 0.5,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "subsky",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "model": {
+        "kind": "parameter",
+        "name": "model"
+      },
+      "degree": {
+        "kind": "parameter",
+        "name": "degree"
+      },
+      "dither": {
+        "kind": "parameter",
+        "name": "dither"
+      },
+      "samples": {
+        "kind": "parameter",
+        "name": "samples"
+      },
+      "tolerance": {
+        "kind": "parameter",
+        "name": "tolerance"
+      },
+      "smooth": {
+        "kind": "parameter",
+        "name": "smooth"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

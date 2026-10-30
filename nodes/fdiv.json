@@ -1,0 +1,59 @@
+{
+  "definition_id": "e1bc07b5-06dd-5f04-b2a5-57f7b8ccc8a2",
+  "source": "package",
+  "name": "Siril fdiv",
+  "description": "Divides the loaded image by the image given in argument. The resulting image is multiplied by the value of the scalar argument. See also IDIV\n\nLinks: idiv\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "operand",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "scalar",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "fdiv",
+    "inputs": {
+      "image": "image",
+      "operand": "operand"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "scalar": {
+        "kind": "parameter",
+        "name": "scalar"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

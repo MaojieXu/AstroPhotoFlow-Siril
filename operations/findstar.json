@@ -1,0 +1,110 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "findstar",
+    "name": "findstar",
+    "description": "Detects stars in the currently loaded image, having a level greater than a threshold computed by Siril.\n\nAfter that, a PSF is applied and Siril rejects all detected structures that don't fulfill a set of prescribed detection criteria, that can be tuned with command SETFINDSTAR.\n\nFinally, an ellipse is drawn around detected stars.\n\nOptional parameter -out= allows the results to be saved to the given path.\n\nOption -layer= specifies the layer onto which the detection is performed (for color images only).\n\nYou can also limit the maximum number of stars detected by passing a value to option -maxstars= .\n\nSee also CLEARSTAR\n\nLinks: psf , setfindstar , clearstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "findstar [-out=] [-layer=] [-maxstars=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "use_layer",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "layer",
+        "kind": "int",
+        "default": 0,
+        "advanced": true,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 2
+      },
+      {
+        "name": "use_maximum_stars",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "maximum_stars",
+        "kind": "int",
+        "default": 0,
+        "advanced": true,
+        "nullable": false,
+        "minimum": 0
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Detects stars in the currently loaded image, having a level greater than a threshold computed by Siril.\n\nAfter that, a PSF is applied and Siril rejects all detected structures that don't fulfill a set of prescribed detection criteria, that can be tuned with command SETFINDSTAR.\n\nFinally, an ellipse is drawn around detected stars.\n\nOptional parameter -out= allows the results to be saved to the given path.\n\nOption -layer= specifies the layer onto which the detection is performed (for color images only).\n\nYou can also limit the maximum number of stars detected by passing a value to option -maxstars= .\n\nSee also CLEARSTAR\n\nLinks: psf , setfindstar , clearstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "use_layer": false,
+      "layer": 0,
+      "use_maximum_stars": false,
+      "maximum_stars": 0,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

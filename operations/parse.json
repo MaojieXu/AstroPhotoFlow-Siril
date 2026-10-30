@@ -1,0 +1,92 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "parse",
+    "name": "parse",
+    "description": "Parses the string str using the information contained in the header of the image currently loaded. Main purpose of this command is to debug path parsing of header keys which can be used in other commands.\n\nOption -r specifies the string is to be interpreted in read mode. In read mode, all wildcards defined in string str are used to find a file name matching the pattern. Otherwise, default mode is write mode and wildcards, if any, are removed from the string to be parsed.\n\nIf str starts with $def prefix, it will be recognized as a reserved keyword and looked for in the strings stored in gui_prepro.dark_lib, gui_prepro.flat_lib, gui_prepro.bias_lib or gui_prepro.stack_default for $defdark , $defflat , $defbias or $defstack respectively.\n\nThe keyword $seqname$ can also be used when a sequence is loaded\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "parse str [-r]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "expression",
+        "kind": "string",
+        "default": "",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "read_mode",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "expression": "multiline",
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Parses the string str using the information contained in the header of the image currently loaded. Main purpose of this command is to debug path parsing of header keys which can be used in other commands.\n\nOption -r specifies the string is to be interpreted in read mode. In read mode, all wildcards defined in string str are used to find a file name matching the pattern. Otherwise, default mode is write mode and wildcards, if any, are removed from the string to be parsed.\n\nIf str starts with $def prefix, it will be recognized as a reserved keyword and looked for in the strings stored in gui_prepro.dark_lib, gui_prepro.flat_lib, gui_prepro.bias_lib or gui_prepro.stack_default for $defdark , $defflat , $defbias or $defstack respectively.\n\nThe keyword $seqname$ can also be used when a sequence is loaded\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "expression": "",
+      "read_mode": false,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

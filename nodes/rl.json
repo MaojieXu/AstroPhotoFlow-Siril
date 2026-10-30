@@ -1,0 +1,171 @@
+{
+  "definition_id": "bd39dd92-4375-5c58-ae5c-d99bfc4e0015",
+  "source": "package",
+  "name": "Siril rl",
+  "description": "Restores an image using the Richardson-Lucy method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename (created with MAKEPSF).\n\nThe number of iterations is provide by -iters (the default is 10).\n\nThe type of regularization can be set with -tv for Total Variation, or -fh for the Frobenius norm of the Hessian matrix (the default is none) and -alpha= provides the regularization strength (lower value = more regularization, default = 3000).\n\nBy default the gradient descent method is used with a default step size of 0.0005, however the multiplicative method may be specified with -mul .\n\nThe stopping criterion may be activated by specifying a stopping limit with -stop=\n\nLinks: psf , makepsf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "psf",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "use_regularisation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "regularisation",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false,
+      "minimum": 0
+    },
+    {
+      "name": "use_iterations",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "iterations",
+      "kind": "int",
+      "default": 1,
+      "advanced": true,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "use_stop",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "stop",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_gradient_step",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "gradient_step",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "total_variation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "frequency_filter",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "multiplicative",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "rl",
+    "inputs": {
+      "image": "image",
+      "psf": "psf"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "use_regularisation": {
+        "kind": "parameter",
+        "name": "use_regularisation"
+      },
+      "regularisation": {
+        "kind": "parameter",
+        "name": "regularisation"
+      },
+      "use_iterations": {
+        "kind": "parameter",
+        "name": "use_iterations"
+      },
+      "iterations": {
+        "kind": "parameter",
+        "name": "iterations"
+      },
+      "use_stop": {
+        "kind": "parameter",
+        "name": "use_stop"
+      },
+      "stop": {
+        "kind": "parameter",
+        "name": "stop"
+      },
+      "use_gradient_step": {
+        "kind": "parameter",
+        "name": "use_gradient_step"
+      },
+      "gradient_step": {
+        "kind": "parameter",
+        "name": "gradient_step"
+      },
+      "total_variation": {
+        "kind": "parameter",
+        "name": "total_variation"
+      },
+      "frequency_filter": {
+        "kind": "parameter",
+        "name": "frequency_filter"
+      },
+      "multiplicative": {
+        "kind": "parameter",
+        "name": "multiplicative"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

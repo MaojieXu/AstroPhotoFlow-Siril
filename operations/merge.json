@@ -1,0 +1,68 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "merge",
+    "name": "merge",
+    "description": "Merges several sequences of the same type (FITS images, FITS sequence or SER) and same image properties into a new sequence with base name newseq created in the current working directory, with the same type. The input sequences can be in different directories, can specified either in absolute or relative path, with the exact .seq name or with only the base name with or without the trailing '_'\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "merge sequence1 sequence2 [sequence3 ...] output_sequence",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "sequences",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": true,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Merges several sequences of the same type (FITS images, FITS sequence or SER) and same image properties into a new sequence with base name newseq created in the current working directory, with the same type. The input sequences can be in different directories, can specified either in absolute or relative path, with the exact .seq name or with only the base name with or without the trailing '_'\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

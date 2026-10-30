@@ -1,0 +1,48 @@
+{
+  "definition_id": "74ea85a6-dc78-5e35-b935-6c515d3c639a",
+  "source": "package",
+  "name": "Siril ffti",
+  "description": "Retrieves corrected image applying an inverse transformation. The modulus and phase arguments are the input file names, the result will be the new loaded image\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "modulus",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "phase",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "ffti",
+    "inputs": {
+      "modulus": "modulus",
+      "phase": "phase"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "definition_id": "e074f0d1-5eed-5e1c-b369-814f4a8a4c23",
+  "source": "package",
+  "name": "Siril register",
+  "description": "Finds and optionally performs geometric transforms on images of the sequence given in argument so that they may be superimposed on the reference image. Using stars for registration, this algorithm only works with deep sky images. Star detection options can be changed using SETFINDSTAR or the Dynamic PSF dialog.\n\nAll images of the sequence will be registered unless the option -selected is passed, in that case the excluded images will not be processed.\n\nThe -2pass option will only compute the transforms but not generate the transformed images, -2pass adds a preliminary pass to the algorithm to find a good reference image before computing the transforms, based on image quality and framing. To generate transformed images after this pass, use SEQAPPLYREG.\n\nIf created, the output sequence name will start with the prefix \"r_\" unless otherwise specified with -prefix= option. The output images can be rescaled by passing a -scale= argument with a float value between 0.1 and 3.\n\nImage transformation options:\n\nThe detection is done on the green layer for colour images, unless specified by the -layer= option with an argument ranging from 0 to 2 for red to blue.\n\n-transf= specifies the use of either shift , similarity , affine or homography (default) transformations respectively.\n\n-minpairs= will specify the minimum number of star pairs a frame must have with the reference frame, otherwise the frame will be dropped and excluded from the sequence.\n\n-maxstars= will specify the maximum number of stars to find within each frame (must be between 100 and 2000). With more stars, a more accurate registration can be computed, but will take more time to run.\n\n-nostarlist disables saving the star lists to disk.\n\n-disto= uses distortion terms from a previous platesolve solution (with a SIP order > 1). It takes as parameter either image to use the solution contained in the currently loaded image, file followed by the path to the image containing the solution or master to load automatically the matching distortion master corresponding to each image. When using this option, the polynomials are used both to correct star positions before computing the transformation and to undistort the images when output images are exported.\n\nImage interpolation options:\n\nBy default, transformations are applied to register the images by using interpolation.\n\nThe pixel interpolation method can be specified with the -interp= argument followed by one of the methods in the list no [ne], ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}. If none is passed, the transformation is forced to shift and a pixel-wise shift is applied to each image without any interpolation.\n\nClamping of the bicubic and lanczos4 interpolation methods is the default, to avoid artefacts, but can be disabled with the -noclamp argument.\n\nImage drizzle options:\n\nOtherwise, the images can be exported using HST drizzle algorithm by passing the argument -drizzle which can take the additional options:\n\n-pixfrac= sets the pixel fraction (default = 1.0).\n\nThe -kernel= argument sets the drizzle kernel and must be followed by one of point , turbo , square , gaussian , lanczos2 or lanczos3 . The default is square .\n\nThe -flat= argument specifies a master flat to weight the drizzled input pixels (default is no flat).\n\nNote: when using -drizzle on images taken with a color camera, the input images must not be debayered. In that case, star detection will always occur on the green pixels\n\nLinks: setfindstar , psf , seqapplyreg\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "flat",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "distortion",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "two_pass",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "selected",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_scale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "scale",
+      "kind": "float",
+      "default": 1,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_layer",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "layer",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "interpolation",
+      "kind": "choice",
+      "default": "lanczos4",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "lanczos4",
+        "nearest",
+        "cubic",
+        "linear",
+        "area"
+      ]
+    },
+    {
+      "name": "no_clamp",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "drizzle",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_pixel_fraction",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "pixel_fraction",
+      "kind": "float",
+      "default": 1,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_kernel",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "kernel",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_transformation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "transformation",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_minimum_pairs",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "minimum_pairs",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_maximum_stars",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "maximum_stars",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "no_star_list",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "register",
+    "inputs": {
+      "image": "image",
+      "flat": "flat",
+      "distortion": "distortion"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "two_pass": {
+        "kind": "parameter",
+        "name": "two_pass"
+      },
+      "selected": {
+        "kind": "parameter",
+        "name": "selected"
+      },
+      "use_scale": {
+        "kind": "parameter",
+        "name": "use_scale"
+      },
+      "scale": {
+        "kind": "parameter",
+        "name": "scale"
+      },
+      "use_layer": {
+        "kind": "parameter",
+        "name": "use_layer"
+      },
+      "layer": {
+        "kind": "parameter",
+        "name": "layer"
+      },
+      "interpolation": {
+        "kind": "parameter",
+        "name": "interpolation"
+      },
+      "no_clamp": {
+        "kind": "parameter",
+        "name": "no_clamp"
+      },
+      "drizzle": {
+        "kind": "parameter",
+        "name": "drizzle"
+      },
+      "use_pixel_fraction": {
+        "kind": "parameter",
+        "name": "use_pixel_fraction"
+      },
+      "pixel_fraction": {
+        "kind": "parameter",
+        "name": "pixel_fraction"
+      },
+      "use_kernel": {
+        "kind": "parameter",
+        "name": "use_kernel"
+      },
+      "kernel": {
+        "kind": "parameter",
+        "name": "kernel"
+      },
+      "use_transformation": {
+        "kind": "parameter",
+        "name": "use_transformation"
+      },
+      "transformation": {
+        "kind": "parameter",
+        "name": "transformation"
+      },
+      "use_minimum_pairs": {
+        "kind": "parameter",
+        "name": "use_minimum_pairs"
+      },
+      "minimum_pairs": {
+        "kind": "parameter",
+        "name": "minimum_pairs"
+      },
+      "use_maximum_stars": {
+        "kind": "parameter",
+        "name": "use_maximum_stars"
+      },
+      "maximum_stars": {
+        "kind": "parameter",
+        "name": "maximum_stars"
+      },
+      "no_star_list": {
+        "kind": "parameter",
+        "name": "no_star_list"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

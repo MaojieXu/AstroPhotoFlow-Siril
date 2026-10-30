@@ -1,0 +1,106 @@
+{
+  "definition_id": "b690fde1-d040-5e85-83ef-44901bbbe9a0",
+  "source": "package",
+  "name": "Siril asinh",
+  "description": "Stretches the image to show faint objects using an hyperbolic arcsin transformation. The mandatory argument stretch , typically between 1 and 1000, will give the strength of the stretch. The black point can be offset by providing an optional offset argument in the normalized pixel value of [0, 1]. Finally the option -human enables using human eye luminous efficiency weights to compute the luminance used to compute the stretch value for each pixel, instead of the simple mean of the channels pixel values. This stretch method preserves lightness from the L*a*b* color space. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "human",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "stretch",
+      "kind": "float",
+      "default": 100,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_offset",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "offset",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "clipmode",
+      "kind": "choice",
+      "default": "rgbblend",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "rgbblend",
+        "clip",
+        "rescale",
+        "globalrescale"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "asinh",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "human": {
+        "kind": "parameter",
+        "name": "human"
+      },
+      "stretch": {
+        "kind": "parameter",
+        "name": "stretch"
+      },
+      "use_offset": {
+        "kind": "parameter",
+        "name": "use_offset"
+      },
+      "offset": {
+        "kind": "parameter",
+        "name": "offset"
+      },
+      "clipmode": {
+        "kind": "parameter",
+        "name": "clipmode"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

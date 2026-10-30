@@ -1,0 +1,118 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "asinh",
+    "name": "asinh",
+    "description": "Stretches the image to show faint objects using an hyperbolic arcsin transformation. The mandatory argument stretch , typically between 1 and 1000, will give the strength of the stretch. The black point can be offset by providing an optional offset argument in the normalized pixel value of [0, 1]. Finally the option -human enables using human eye luminous efficiency weights to compute the luminance used to compute the stretch value for each pixel, instead of the simple mean of the channels pixel values. This stretch method preserves lightness from the L*a*b* color space. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "asinh [-human] stretch { [offset] [-clipmode=] }",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "human",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "stretch",
+        "kind": "float",
+        "default": 100,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_offset",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "offset",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "clipmode",
+        "kind": "choice",
+        "default": "rgbblend",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "rgbblend",
+          "clip",
+          "rescale",
+          "globalrescale"
+        ]
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": {
+    "kind": "science-image",
+    "input": "image",
+    "max_edge": 1024
+  },
+  "output_display": "direct",
+  "help": "Siril 1.4.4. Stretches the image to show faint objects using an hyperbolic arcsin transformation. The mandatory argument stretch , typically between 1 and 1000, will give the strength of the stretch. The black point can be offset by providing an optional offset argument in the normalized pixel value of [0, 1]. Finally the option -human enables using human eye luminous efficiency weights to compute the luminance used to compute the stretch value for each pixel, instead of the simple mean of the channels pixel values. This stretch method preserves lightness from the L*a*b* color space. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "human": false,
+      "stretch": 100,
+      "use_offset": false,
+      "offset": 0,
+      "clipmode": "rgbblend",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

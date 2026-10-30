@@ -1,0 +1,48 @@
+{
+  "definition_id": "22aefa8e-7103-5940-8264-1271239ad5e0",
+  "source": "package",
+  "name": "Siril fftd",
+  "description": "Applies a Fast Fourier Transform to the loaded image. modulus and phase given in argument are the names of the saved in FITS files\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "modulus",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "phase",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "fftd",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "modulus": "modulus",
+      "phase": "phase"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

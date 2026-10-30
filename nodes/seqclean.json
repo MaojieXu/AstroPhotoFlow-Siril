@@ -1,0 +1,76 @@
+{
+  "definition_id": "ba64e558-e235-5c80-8d2c-f5957a28bc8b",
+  "source": "package",
+  "name": "Siril seqclean",
+  "description": "This command clears selection, registration and/or statistics data stored for the sequence sequencename .\n\nYou can specify to clear only registration, statistics and/or selection with -reg , -stat and -sel options respectively. All are cleared if no option is passed\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "registration",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "statistics",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "selection",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqclean",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "registration": {
+        "kind": "parameter",
+        "name": "registration"
+      },
+      "statistics": {
+        "kind": "parameter",
+        "name": "statistics"
+      },
+      "selection": {
+        "kind": "parameter",
+        "name": "selection"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

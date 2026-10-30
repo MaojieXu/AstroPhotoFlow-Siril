@@ -1,0 +1,67 @@
+{
+  "definition_id": "542b4e00-4179-5d2b-8889-c13566b005e3",
+  "source": "package",
+  "name": "Siril unselect",
+  "description": "Allows easy mass unselection of images in the sequence sequencename (from from to to included). See SELECT\n\nLinks: select\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "from_index",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "to_index",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "unselect",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "from_index": {
+        "kind": "parameter",
+        "name": "from_index"
+      },
+      "to_index": {
+        "kind": "parameter",
+        "name": "to_index"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

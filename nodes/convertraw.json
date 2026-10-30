@@ -1,0 +1,82 @@
+{
+  "definition_id": "8665f1ce-722e-5575-b778-1079b9261931",
+  "source": "package",
+  "name": "Siril convertraw",
+  "description": "Same as CONVERT but converts only DSLR RAW files found in the current working directory\n\nLinks: convert\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "start_index",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "debayer",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "sequence_format",
+      "kind": "choice",
+      "default": "images",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "images",
+        "fitseq",
+        "ser"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "convertraw",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "start_index": {
+        "kind": "parameter",
+        "name": "start_index"
+      },
+      "debayer": {
+        "kind": "parameter",
+        "name": "debayer"
+      },
+      "sequence_format": {
+        "kind": "parameter",
+        "name": "sequence_format"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

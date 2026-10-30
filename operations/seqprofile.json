@@ -1,0 +1,300 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "seqprofile",
+    "name": "seqprofile",
+    "description": "Generates an intensity profile plot between 2 points in each image in the sequence. After the mandatory first argument stating the sequence to process, the other arguments are the same as for the profile command. If processing a sequence and it is desired to have the current image number and total number of images displayed in the format \"My Sequence (1 / 5)\", the given title should end with () (e.g. \"My Sequence ()\" and the numbers will be populated automatically)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "seqprofile sequence -from=x,y -to=x,y [-tri] [-cfa] [-arcsec] [-savedat] [-layer=] [-width=] [-spacing=] [ {-xaxis=wavelength | -xaxis=wavenumber } ] [{-wavenumber1= | -wavelength1=} -wn1at=x,y {-wavenumber2= | -wavelength2=} -wn2at=x,y] [\"-title=My Plot\"]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      },
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "from_pixel",
+        "kind": "string",
+        "default": "0,0",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "to_pixel",
+        "kind": "string",
+        "default": "1,1",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "tri",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "cfa",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "arcsec",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_layer",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "layer",
+        "kind": "int",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_width",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "width",
+        "kind": "float",
+        "default": 1,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_spacing",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "spacing",
+        "kind": "float",
+        "default": 1,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_title",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "title",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "x_axis",
+        "kind": "choice",
+        "default": "distance",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "distance",
+          "wavelength",
+          "wavenumber"
+        ]
+      },
+      {
+        "name": "use_wavenumber1",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "wavenumber1",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_wavenumber2",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "wavenumber2",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_wavelength1",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "wavelength1",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_wavelength2",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "wavelength2",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_first_reference_pixel",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "first_reference_pixel",
+        "kind": "string",
+        "default": "0,0",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_second_reference_pixel",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "second_reference_pixel",
+        "kind": "string",
+        "default": "1,1",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Generates an intensity profile plot between 2 points in each image in the sequence. After the mandatory first argument stating the sequence to process, the other arguments are the same as for the profile command. If processing a sequence and it is desired to have the current image number and total number of images displayed in the format \"My Sequence (1 / 5)\", the given title should end with () (e.g. \"My Sequence ()\" and the numbers will be populated automatically)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "from_pixel": "0,0",
+      "to_pixel": "1,1",
+      "tri": false,
+      "cfa": false,
+      "arcsec": false,
+      "use_layer": false,
+      "layer": 0,
+      "use_width": false,
+      "width": 1,
+      "use_spacing": false,
+      "spacing": 1,
+      "use_title": false,
+      "title": "",
+      "x_axis": "distance",
+      "use_wavenumber1": false,
+      "wavenumber1": 0,
+      "use_wavenumber2": false,
+      "wavenumber2": 0,
+      "use_wavelength1": false,
+      "wavelength1": 0,
+      "use_wavelength2": false,
+      "wavelength2": 0,
+      "use_first_reference_pixel": false,
+      "first_reference_pixel": "0,0",
+      "use_second_reference_pixel": false,
+      "second_reference_pixel": "1,1",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

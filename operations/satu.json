@@ -1,0 +1,92 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "satu",
+    "name": "satu",
+    "description": "Enhances the color saturation of the loaded image. Try iteratively to obtain best results.\n\namount can be a positive number to increase color saturation, negative to decrease it, 0 would do nothing, 1 would increase it by 100%\n\nbackground_factor is a factor to (median + sigma) used to set a threshold for which only pixels above it would be modified. This allows background noise to not be color saturated, if chosen carefully. Defaults to 1. Setting 0 disables the threshold.\n\nhue_range_index can be [0, 6], meaning: 0 for pink to orange, 1 for orange to yellow, 2 for yellow to cyan, 3 for cyan, 4 for cyan to magenta, 5 for magenta to pink, 6 for all (default)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "satu amount [background_factor [hue_range_index]]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "amount",
+        "kind": "float",
+        "default": 0.2,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "background_factor",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "hue_range",
+        "kind": "int",
+        "default": 6,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 6
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Enhances the color saturation of the loaded image. Try iteratively to obtain best results.\n\namount can be a positive number to increase color saturation, negative to decrease it, 0 would do nothing, 1 would increase it by 100%\n\nbackground_factor is a factor to (median + sigma) used to set a threshold for which only pixels above it would be modified. This allows background noise to not be color saturated, if chosen carefully. Defaults to 1. Setting 0 disables the threshold.\n\nhue_range_index can be [0, 6], meaning: 0 for pink to orange, 1 for orange to yellow, 2 for yellow to cyan, 3 for cyan, 4 for cyan to magenta, 5 for magenta to pink, 6 for all (default)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "amount": 0.2,
+      "background_factor": 1,
+      "hue_range": 6,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

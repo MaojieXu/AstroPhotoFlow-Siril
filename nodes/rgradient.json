@@ -1,0 +1,87 @@
+{
+  "definition_id": "e1497054-915f-5412-9abc-f6c2041853ab",
+  "source": "package",
+  "name": "Siril rgradient",
+  "description": "Creates two images, with a radial shift ( dR in pixels) and a rotational shift ( dalpha in degrees) with respect to the point ( xc , yc ).\n\nBetween these two images, the shifts have the same amplitude, but an opposite sign. The two images are then added to create the final image. This process is also called Larson Sekanina filter\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "centre_x",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "centre_y",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "radial_step",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "angular_step",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "rgradient",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "centre_x": {
+        "kind": "parameter",
+        "name": "centre_x"
+      },
+      "centre_y": {
+        "kind": "parameter",
+        "name": "centre_y"
+      },
+      "radial_step": {
+        "kind": "parameter",
+        "name": "radial_step"
+      },
+      "angular_step": {
+        "kind": "parameter",
+        "name": "angular_step"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "definition_id": "f7b7d067-a3b3-573f-b6f0-7dc392fd843d",
+  "source": "package",
+  "name": "Siril starnet",
+  "description": "Calls StarNet to remove stars from the loaded image.\n\nPrerequisite: StarNet is an external program, with no affiliation with Siril, and must be installed correctly prior the first use of this command, with the path to its CLI version installation correctly set in Preferences / Miscellaneous.\n\nThe starless image is loaded on completion, and a star mask image is created in the working directory unless the optional parameter -nostarmask is provided.\n\nOptionally, parameters may be passed to the command:\n\n- The option -stretch is for use with linear images and will apply a pre-stretch before running StarNet and the inverse stretch to the generated starless and starmask images.\n\n- To improve star removal on images with very tight stars, the parameter -upscale may be provided. This will upsample the image by a factor of 2 prior to StarNet processing and rescale it to the original size afterwards, at the expense of more processing time.\n\n- The optional parameter -stride=value may be provided, however the author of StarNet strongly recommends that the default stride of 256 be used\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "stars",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "stretch",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "upscale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_stride",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "stride",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "no_starmask",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "starnet",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image",
+      "stars": "stars"
+    },
+    "parameters": {
+      "stretch": {
+        "kind": "parameter",
+        "name": "stretch"
+      },
+      "upscale": {
+        "kind": "parameter",
+        "name": "upscale"
+      },
+      "use_stride": {
+        "kind": "parameter",
+        "name": "use_stride"
+      },
+      "stride": {
+        "kind": "parameter",
+        "name": "stride"
+      },
+      "no_starmask": {
+        "kind": "parameter",
+        "name": "no_starmask"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

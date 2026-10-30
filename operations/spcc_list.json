@@ -1,0 +1,75 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "spcc_list",
+    "name": "spcc list",
+    "description": "Print a list of SPCC names available for use to define sensors, filters or white references using the spcc command. This command requires an argument to set which list is printed: the options are oscsensor , monosensor , redfilter , greenfilter , bluefilter , oscfilter , osclpf or whiteref .\n\nNote that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\"\n\nLinks: spcc\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "spcc_list { oscsensor | monosensor | redfilter | greenfilter | bluefilter | oscfilter | osclpf | whiteref }",
+    "scriptable": true,
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "category",
+        "kind": "choice",
+        "default": "oscsensor",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "oscsensor",
+          "monosensor",
+          "redfilter",
+          "greenfilter",
+          "bluefilter",
+          "oscfilter",
+          "osclpf",
+          "whiteref"
+        ]
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Print a list of SPCC names available for use to define sensors, filters or white references using the spcc command. This command requires an argument to set which list is printed: the options are oscsensor , monosensor , redfilter , greenfilter , bluefilter , oscfilter , osclpf or whiteref .\n\nNote that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\"\n\nLinks: spcc\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "category": "oscsensor",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

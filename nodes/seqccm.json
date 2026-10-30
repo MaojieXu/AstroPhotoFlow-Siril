@@ -1,0 +1,155 @@
+{
+  "definition_id": "9dd628de-8a8d-5326-a507-0d723ad91ea6",
+  "source": "package",
+  "name": "Siril seqccm",
+  "description": "Same command as CCM but for the the sequence sequencename . Only selected images in the sequence are processed.\n\nThe output sequence name starts with the prefix \"ccm\" unless otherwise specified with option -prefix=\n\nLinks: ccm\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "m00",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m01",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m02",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m10",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m11",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m12",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m20",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m21",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m22",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "gamma",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 10
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqccm",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "m00": {
+        "kind": "parameter",
+        "name": "m00"
+      },
+      "m01": {
+        "kind": "parameter",
+        "name": "m01"
+      },
+      "m02": {
+        "kind": "parameter",
+        "name": "m02"
+      },
+      "m10": {
+        "kind": "parameter",
+        "name": "m10"
+      },
+      "m11": {
+        "kind": "parameter",
+        "name": "m11"
+      },
+      "m12": {
+        "kind": "parameter",
+        "name": "m12"
+      },
+      "m20": {
+        "kind": "parameter",
+        "name": "m20"
+      },
+      "m21": {
+        "kind": "parameter",
+        "name": "m21"
+      },
+      "m22": {
+        "kind": "parameter",
+        "name": "m22"
+      },
+      "gamma": {
+        "kind": "parameter",
+        "name": "gamma"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

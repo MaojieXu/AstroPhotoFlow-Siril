@@ -1,0 +1,483 @@
+{
+  "definition_id": "123ac642-707f-5d87-bef3-6a02e46eed3a",
+  "source": "package",
+  "name": "Siril spcc",
+  "description": "Run the Spectrophotometric Color Correction on the loaded platesolved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used for SPCC is always Gaia DR3: by default the local Gaia DR3 xp_sampled catalog will be used if available but this can be overridden with -catalog={gaia | localgaia} .\n\nThe names of sensors and filters can be specified using the following options: -monosensor= , -rfilter= , -gfilter= , -bfilter= or -oscsensor= , -oscfilter= , -osclpf= ; the name of the white reference can be specified using the -whiteref= option. In all cases the name must be provided exactly as it is in the combo boxes in the SPCC tool. Note that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\".\n\nNarrowband mode can be selected using the argument -narrowband , in which case the previous filter arguments are ignored and NB filter wavelengths and bandwidths can be provided using -rwl= , -rbw= , -gwl= , -gbw= , -bwl= and -bbw= .\n\nIf one of the spectral data argument is omitted, the previously used value will be used.\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0.\n\nAtmospheric correction can be applied by passing -atmos . In this case the following optional arguments apply: -obsheight= specifies the observer's height above sea level in metres (default 10), -pressure= specifies local atmospheric pressure at the observing site in hPa, or -slp= specifies sea-level atmospheric pressure in hPa (default pressure is 1013.25 hPa at sea level)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "use_magnitude_limit",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "magnitude_limit",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_background_tolerance",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "background_tolerance",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_mono_sensor",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "mono_sensor",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_red_filter",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "red_filter",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_green_filter",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "green_filter",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_blue_filter",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "blue_filter",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_osc_sensor",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "osc_sensor",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_osc_filter",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "osc_filter",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_osc_low_pass",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "osc_low_pass",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_white_reference",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "white_reference",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "narrowband",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "atmosphere",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_red_wavelength",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "red_wavelength",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_green_wavelength",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "green_wavelength",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_blue_wavelength",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "blue_wavelength",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_red_bandwidth",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "red_bandwidth",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_green_bandwidth",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "green_bandwidth",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_blue_bandwidth",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "blue_bandwidth",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_observatory_height",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "observatory_height",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_pressure",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "pressure",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_sea_level_pressure",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "sea_level_pressure",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "spcc",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "use_magnitude_limit": {
+        "kind": "parameter",
+        "name": "use_magnitude_limit"
+      },
+      "magnitude_limit": {
+        "kind": "parameter",
+        "name": "magnitude_limit"
+      },
+      "use_background_tolerance": {
+        "kind": "parameter",
+        "name": "use_background_tolerance"
+      },
+      "background_tolerance": {
+        "kind": "parameter",
+        "name": "background_tolerance"
+      },
+      "use_mono_sensor": {
+        "kind": "parameter",
+        "name": "use_mono_sensor"
+      },
+      "mono_sensor": {
+        "kind": "parameter",
+        "name": "mono_sensor"
+      },
+      "use_red_filter": {
+        "kind": "parameter",
+        "name": "use_red_filter"
+      },
+      "red_filter": {
+        "kind": "parameter",
+        "name": "red_filter"
+      },
+      "use_green_filter": {
+        "kind": "parameter",
+        "name": "use_green_filter"
+      },
+      "green_filter": {
+        "kind": "parameter",
+        "name": "green_filter"
+      },
+      "use_blue_filter": {
+        "kind": "parameter",
+        "name": "use_blue_filter"
+      },
+      "blue_filter": {
+        "kind": "parameter",
+        "name": "blue_filter"
+      },
+      "use_osc_sensor": {
+        "kind": "parameter",
+        "name": "use_osc_sensor"
+      },
+      "osc_sensor": {
+        "kind": "parameter",
+        "name": "osc_sensor"
+      },
+      "use_osc_filter": {
+        "kind": "parameter",
+        "name": "use_osc_filter"
+      },
+      "osc_filter": {
+        "kind": "parameter",
+        "name": "osc_filter"
+      },
+      "use_osc_low_pass": {
+        "kind": "parameter",
+        "name": "use_osc_low_pass"
+      },
+      "osc_low_pass": {
+        "kind": "parameter",
+        "name": "osc_low_pass"
+      },
+      "use_white_reference": {
+        "kind": "parameter",
+        "name": "use_white_reference"
+      },
+      "white_reference": {
+        "kind": "parameter",
+        "name": "white_reference"
+      },
+      "narrowband": {
+        "kind": "parameter",
+        "name": "narrowband"
+      },
+      "atmosphere": {
+        "kind": "parameter",
+        "name": "atmosphere"
+      },
+      "use_red_wavelength": {
+        "kind": "parameter",
+        "name": "use_red_wavelength"
+      },
+      "red_wavelength": {
+        "kind": "parameter",
+        "name": "red_wavelength"
+      },
+      "use_green_wavelength": {
+        "kind": "parameter",
+        "name": "use_green_wavelength"
+      },
+      "green_wavelength": {
+        "kind": "parameter",
+        "name": "green_wavelength"
+      },
+      "use_blue_wavelength": {
+        "kind": "parameter",
+        "name": "use_blue_wavelength"
+      },
+      "blue_wavelength": {
+        "kind": "parameter",
+        "name": "blue_wavelength"
+      },
+      "use_red_bandwidth": {
+        "kind": "parameter",
+        "name": "use_red_bandwidth"
+      },
+      "red_bandwidth": {
+        "kind": "parameter",
+        "name": "red_bandwidth"
+      },
+      "use_green_bandwidth": {
+        "kind": "parameter",
+        "name": "use_green_bandwidth"
+      },
+      "green_bandwidth": {
+        "kind": "parameter",
+        "name": "green_bandwidth"
+      },
+      "use_blue_bandwidth": {
+        "kind": "parameter",
+        "name": "use_blue_bandwidth"
+      },
+      "blue_bandwidth": {
+        "kind": "parameter",
+        "name": "blue_bandwidth"
+      },
+      "use_observatory_height": {
+        "kind": "parameter",
+        "name": "use_observatory_height"
+      },
+      "observatory_height": {
+        "kind": "parameter",
+        "name": "observatory_height"
+      },
+      "use_pressure": {
+        "kind": "parameter",
+        "name": "use_pressure"
+      },
+      "pressure": {
+        "kind": "parameter",
+        "name": "pressure"
+      },
+      "use_sea_level_pressure": {
+        "kind": "parameter",
+        "name": "use_sea_level_pressure"
+      },
+      "sea_level_pressure": {
+        "kind": "parameter",
+        "name": "sea_level_pressure"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

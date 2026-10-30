@@ -1,0 +1,241 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "stackall",
+    "name": "stackall",
+    "description": "Opens all sequences in the current directory and stacks them with the optionally specified stacking type and filtering or with sum stacking. See STACK command for options description\n\nLinks: stack\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "stackall\nstackall { sum | min | max } [-maximize] [-upscale] [-32b]\nstackall { med | median } [-nonorm, norm=] [-32b]\nstackall { rej | mean } [rejection type] [sigma_low sigma_high] [-nonorm, norm=] [-overlap_norm] [-weight={noise|wfwhm|nbstars|nbstack}] [-feather=] [-rgb_equal] [-out=filename] [-maximize] [-upscale] [-32b]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "sequences",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": true,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      },
+      {
+        "name": "rejection_maps",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": false,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "method",
+        "kind": "choice",
+        "default": "mean",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "mean",
+          "sum",
+          "min",
+          "max",
+          "median"
+        ]
+      },
+      {
+        "name": "rejection",
+        "kind": "choice",
+        "default": "winsorized",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "percentile",
+          "sigma",
+          "mad",
+          "median",
+          "winsorized",
+          "linear",
+          "generalized"
+        ]
+      },
+      {
+        "name": "sigma_low",
+        "kind": "float",
+        "default": 3,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "sigma_high",
+        "kind": "float",
+        "default": 3,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "normalisation",
+        "kind": "choice",
+        "default": "none",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "add",
+          "mul",
+          "addscale",
+          "mulscale"
+        ]
+      },
+      {
+        "name": "fast_normalisation",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "rgb_equal",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "output_normalisation",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "overlap_normalisation",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "weight",
+        "kind": "choice",
+        "default": "none",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "noise",
+          "wfwhm",
+          "nbstars",
+          "nbstack"
+        ]
+      },
+      {
+        "name": "use_feather",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "feather",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "maximise",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "upscale",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "force_32bit",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "rejection_maps",
+        "kind": "choice",
+        "default": "none",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "combined",
+          "separate"
+        ]
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Opens all sequences in the current directory and stacks them with the optionally specified stacking type and filtering or with sum stacking. See STACK command for options description\n\nLinks: stack\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "method": "mean",
+      "rejection": "winsorized",
+      "sigma_low": 3,
+      "sigma_high": 3,
+      "normalisation": "none",
+      "fast_normalisation": false,
+      "rgb_equal": false,
+      "output_normalisation": false,
+      "overlap_normalisation": false,
+      "weight": "none",
+      "use_feather": false,
+      "feather": 0,
+      "maximise": false,
+      "upscale": false,
+      "force_32bit": false,
+      "rejection_maps": "none",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

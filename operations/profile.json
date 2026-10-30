@@ -1,0 +1,179 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "profile",
+    "name": "profile",
+    "description": "Generates an intensity profile plot between 2 points in the image, also known as a cut . The arguments may be provided in any order. The arguments -to=x,y and -from=x,y are mandatory.\n\nThe argument -layer={red | green | blue | lum | col} specifies which channel (or luminance or colour) to plot if the image is color. It may also be used with the -tri option, which generates 3 parallel equispaced profiles each separated by -spacing= pixels, but note that for tri profiles the col option will be treated the same as lum .\n\nThe option -cfa selects CFA mode, which generates 4 profiles: 1 for each CFA channel in a Bayer patterned image. This option cannot be used with color images or mono images with no Bayer pattern, and cannot be used at the same time as the -tri option.\n\nThe option -arcsec causes the x axis to display distance in arcsec, if the necessary metadata is available. If not provided or if metadata is not available, distance will be shown in pixel units.\n\nThe argument -savedat will cause the data files to be saved: the filename will be written to the log. Alternatively the argument -filename= can be used to specify a filename to write the data file to. (The -filename= option implies -savedat .)\n\nThe argument \"-title=My Title\" sets a custom title \"My Title\"\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "profile -from=x,y -to=x,y [-tri] [-cfa] [-arcsec] { [-savedat] | [-filename=] } [-layer=] [-width=] [-spacing=] [\"-title=My Plot\"]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "image"
+        ],
+        "cardinality": "many",
+        "required": false
+      }
+    ],
+    "parameters": [
+      {
+        "name": "from_pixel",
+        "kind": "string",
+        "default": "0,0",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "to_pixel",
+        "kind": "string",
+        "default": "1,1",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "tri",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "cfa",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "arcsec",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_layer",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "layer",
+        "kind": "int",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_width",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "width",
+        "kind": "float",
+        "default": 1,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_spacing",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "spacing",
+        "kind": "float",
+        "default": 1,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_title",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "title",
+        "kind": "string",
+        "default": "",
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Generates an intensity profile plot between 2 points in the image, also known as a cut . The arguments may be provided in any order. The arguments -to=x,y and -from=x,y are mandatory.\n\nThe argument -layer={red | green | blue | lum | col} specifies which channel (or luminance or colour) to plot if the image is color. It may also be used with the -tri option, which generates 3 parallel equispaced profiles each separated by -spacing= pixels, but note that for tri profiles the col option will be treated the same as lum .\n\nThe option -cfa selects CFA mode, which generates 4 profiles: 1 for each CFA channel in a Bayer patterned image. This option cannot be used with color images or mono images with no Bayer pattern, and cannot be used at the same time as the -tri option.\n\nThe option -arcsec causes the x axis to display distance in arcsec, if the necessary metadata is available. If not provided or if metadata is not available, distance will be shown in pixel units.\n\nThe argument -savedat will cause the data files to be saved: the filename will be written to the log. Alternatively the argument -filename= can be used to specify a filename to write the data file to. (The -filename= option implies -savedat .)\n\nThe argument \"-title=My Title\" sets a custom title \"My Title\"\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "from_pixel": "0,0",
+      "to_pixel": "1,1",
+      "tri": false,
+      "cfa": false,
+      "arcsec": false,
+      "use_layer": false,
+      "layer": 0,
+      "use_width": false,
+      "width": 1,
+      "use_spacing": false,
+      "spacing": 1,
+      "use_title": false,
+      "title": "",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

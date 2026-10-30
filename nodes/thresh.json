@@ -1,0 +1,65 @@
+{
+  "definition_id": "fd53ab68-78b2-5cd2-b6df-65bf97ad842f",
+  "source": "package",
+  "name": "Siril thresh",
+  "description": "Replaces values below level in the loaded image with level\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "low",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "high",
+      "kind": "float",
+      "default": 65535,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "thresh",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "low": {
+        "kind": "parameter",
+        "name": "low"
+      },
+      "high": {
+        "kind": "parameter",
+        "name": "high"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

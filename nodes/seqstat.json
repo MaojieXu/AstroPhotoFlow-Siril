@@ -1,0 +1,80 @@
+{
+  "definition_id": "08b05167-1898-5a2e-812c-bc48041bf2e2",
+  "source": "package",
+  "name": "Siril seqstat",
+  "description": "Same command as STAT for sequence sequencename .\n\nData is saved as a csv file output_file .\n\nThe optional parameter defines the number of statistical values computed: basic , main (default) or full (more detailed but longer to compute).\n\n\\t basic includes mean, median, sigma, bgnoise, min and max\n\n\\t main includes basic with the addition of avgDev, MAD and the square root of BWMV\n\n\\t full includes main with the addition of location and scale.\n\nIf -cfa is passed and the images are CFA, statistics are made on per-filter extractions\n\nLinks: stat\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "statistics",
+      "kind": "choice",
+      "default": "main",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "basic",
+        "main",
+        "full"
+      ]
+    },
+    {
+      "name": "cfa",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqstat",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image",
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "statistics": {
+        "kind": "parameter",
+        "name": "statistics"
+      },
+      "cfa": {
+        "kind": "parameter",
+        "name": "cfa"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

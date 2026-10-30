@@ -1,0 +1,105 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "seqresample",
+    "name": "seqresample",
+    "description": "Scales the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe scale factor is specified either by the -scale= argument or by setting the output width, height or maximum dimension using the -width= , -height= or -maxdim= options.\n\nAn interpolation method may be specified using the -interp= argument followed by one of the methods in the list ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}.. Clamping is applied for cubic and lanczos interpolation.\n\nThe output sequence name starts with the prefix \"scaled_\" unless otherwise specified with -prefix= option\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "seqresample sequencename { -scale= | -width= | -height= } [-interp=] [-prefix=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "size_mode",
+        "kind": "choice",
+        "default": "scale",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "scale",
+          "width",
+          "height",
+          "maxdim"
+        ]
+      },
+      {
+        "name": "size",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "interpolation",
+        "kind": "choice",
+        "default": "lanczos4",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "lanczos4",
+          "nearest",
+          "cubic",
+          "linear",
+          "area"
+        ]
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Scales the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe scale factor is specified either by the -scale= argument or by setting the output width, height or maximum dimension using the -width= , -height= or -maxdim= options.\n\nAn interpolation method may be specified using the -interp= argument followed by one of the methods in the list ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}.. Clamping is applied for cubic and lanczos interpolation.\n\nThe output sequence name starts with the prefix \"scaled_\" unless otherwise specified with -prefix= option\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "size_mode": "scale",
+      "size": 1,
+      "interpolation": "lanczos4",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

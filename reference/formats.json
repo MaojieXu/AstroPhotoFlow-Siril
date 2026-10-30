@@ -1,0 +1,71 @@
+{
+  "software_version": "1.4.4",
+  "platform": "windows-x86_64",
+  "executable_sha256": "132c735ecb623559a945c43a617811da84c19c43988c8a234861f903dd362e0b",
+  "source": "Observed siril-cli.exe -o -i isolated-siril.ini --format; movie/SER files are not enumerated by the convert command.",
+  "static_extensions": {
+    "fits": [
+      ".fit",
+      ".fits",
+      ".fts"
+    ],
+    "image": [
+      ".bmp",
+      ".ppm",
+      ".pgm",
+      ".pnm",
+      ".pic",
+      ".tif",
+      ".tiff",
+      ".jpg",
+      ".jpeg",
+      ".jxl",
+      ".png",
+      ".heic",
+      ".heif",
+      ".avif"
+    ],
+    "raw": [
+      ".dng",
+      ".mos",
+      ".cr2",
+      ".crw",
+      ".cr3",
+      ".bay",
+      ".erf",
+      ".raf",
+      ".3fr",
+      ".kdc",
+      ".dcr",
+      ".mef",
+      ".mrw",
+      ".nef",
+      ".nrw",
+      ".orf",
+      ".raw",
+      ".rw2",
+      ".pef",
+      ".ptx",
+      ".x3f",
+      ".srw",
+      ".arw"
+    ],
+    "xisf": [
+      ".xisf"
+    ]
+  },
+  "compressed_fits_extensions": [
+    ".fit.fz",
+    ".fits.fz",
+    ".fts.fz"
+  ],
+  "video_extensions": [
+    ".avi",
+    ".mpg",
+    ".mpeg",
+    ".mov",
+    ".mp4",
+    ".webm"
+  ],
+  "video_source": "Siril 1.4.4 io/films.c supported_film[] and seqfile.c TA reader; supported codecs remain those of the fixed FFMS2 build."
+}

@@ -1,0 +1,109 @@
+{
+  "definition_id": "d5b70708-ed25-549c-9b87-e5bf1017e0f9",
+  "source": "package",
+  "name": "Siril pcc",
+  "description": "Run the Photometric Color Correction on the loaded plate-solved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used is NOMAD by default, it can be changed by providing -catalog=apass , -catalog=localgaia or -catalog=gaia . If installed locally, the remote NOMAD (the complete version) can be forced by providing -catalog=nomad\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "use_magnitude_limit",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "magnitude_limit",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_background_tolerance",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "background_tolerance",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_catalogue",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "catalogue",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "pcc",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "use_magnitude_limit": {
+        "kind": "parameter",
+        "name": "use_magnitude_limit"
+      },
+      "magnitude_limit": {
+        "kind": "parameter",
+        "name": "magnitude_limit"
+      },
+      "use_background_tolerance": {
+        "kind": "parameter",
+        "name": "use_background_tolerance"
+      },
+      "background_tolerance": {
+        "kind": "parameter",
+        "name": "background_tolerance"
+      },
+      "use_catalogue": {
+        "kind": "parameter",
+        "name": "use_catalogue"
+      },
+      "catalogue": {
+        "kind": "parameter",
+        "name": "catalogue"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

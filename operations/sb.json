@@ -1,0 +1,117 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "sb",
+    "name": "sb",
+    "description": "Restores an image using the Split Bregman method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename .\n\nThe number of iterations is provide by -iters (the default is 1).\n\nThe regularization factor -alpha= provides the regularization strength (lower value = more regularization, default = 3000)\n\nLinks: psf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "sb [-loadpsf=] [-alpha=] [-iters=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "psf",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "one",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "use_regularisation",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "regularisation",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false,
+        "minimum": 0
+      },
+      {
+        "name": "use_iterations",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "iterations",
+        "kind": "int",
+        "default": 1,
+        "advanced": true,
+        "nullable": false,
+        "minimum": 1
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Restores an image using the Split Bregman method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename .\n\nThe number of iterations is provide by -iters (the default is 1).\n\nThe regularization factor -alpha= provides the regularization strength (lower value = more regularization, default = 3000)\n\nLinks: psf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "use_regularisation": false,
+      "regularisation": 0,
+      "use_iterations": false,
+      "iterations": 1,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

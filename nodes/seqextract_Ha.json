@@ -1,0 +1,54 @@
+{
+  "definition_id": "4b06fd99-3191-5fcb-9d04-fb4c2d8344a4",
+  "source": "package",
+  "name": "Siril seqextract Ha",
+  "description": "Same command as EXTRACT_HA but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"Ha_\" unless otherwise specified with option -prefix=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "upscale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqextract_Ha",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "upscale": {
+        "kind": "parameter",
+        "name": "upscale"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

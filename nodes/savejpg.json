@@ -1,0 +1,56 @@
+{
+  "definition_id": "a729c590-90df-561b-97dd-438343164277",
+  "source": "package",
+  "name": "Siril savejpg",
+  "description": "Saves current image into a JPG file: filename .jpg.\n\nThe compression quality can be adjusted using the optional quality value, 100 being the best and default, while a lower value increases the compression ratio\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "file",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "quality",
+      "kind": "int",
+      "default": 95,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 100
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "savejpg",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "file": "file"
+    },
+    "parameters": {
+      "quality": {
+        "kind": "parameter",
+        "name": "quality"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

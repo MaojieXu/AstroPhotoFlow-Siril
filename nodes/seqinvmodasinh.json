@@ -1,0 +1,149 @@
+{
+  "definition_id": "fa08a4fe-691e-5ccc-b2a2-22be41bcb74e",
+  "source": "package",
+  "name": "Siril seqinvmodasinh",
+  "description": "Same command as INVMODASINH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: invmodasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "stretch",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 10
+    },
+    {
+      "name": "low_protection",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "symmetry_point",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "high_protection",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "clipmode",
+      "kind": "choice",
+      "default": "rgbblend",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "rgbblend",
+        "clip",
+        "rescale",
+        "globalrescale"
+      ]
+    },
+    {
+      "name": "channels",
+      "kind": "choice",
+      "default": "RGB",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "RGB",
+        "R",
+        "G",
+        "B",
+        "RG",
+        "RB",
+        "GB"
+      ]
+    },
+    {
+      "name": "colour_model",
+      "kind": "choice",
+      "default": "independent",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "independent",
+        "human",
+        "even",
+        "sat"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqinvmodasinh",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "stretch": {
+        "kind": "parameter",
+        "name": "stretch"
+      },
+      "low_protection": {
+        "kind": "parameter",
+        "name": "low_protection"
+      },
+      "symmetry_point": {
+        "kind": "parameter",
+        "name": "symmetry_point"
+      },
+      "high_protection": {
+        "kind": "parameter",
+        "name": "high_protection"
+      },
+      "clipmode": {
+        "kind": "parameter",
+        "name": "clipmode"
+      },
+      "channels": {
+        "kind": "parameter",
+        "name": "channels"
+      },
+      "colour_model": {
+        "kind": "parameter",
+        "name": "colour_model"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

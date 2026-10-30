@@ -1,0 +1,43 @@
+{
+  "definition_id": "ef3cded6-113e-5907-8dcf-39ea156378a3",
+  "source": "package",
+  "name": "Siril savepng",
+  "description": "Saves current image into a PNG file: filename .png, with 16 bits per channel if the loaded image is 16 or 32 bits, and 8 bits per channel if the loaded image is 8 bits\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "file",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "savepng",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "file": "file"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

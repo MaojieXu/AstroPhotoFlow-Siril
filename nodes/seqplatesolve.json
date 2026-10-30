@@ -1,0 +1,290 @@
+{
+  "definition_id": "3ffa0a37-d65c-5e69-aea6-2f3fec44b377",
+  "source": "package",
+  "name": "Siril seqplatesolve",
+  "description": "Plate solve a sequence. A new sequence will be created with the prefix \"ps_\" if the input sequence is SER, otherwise, the images headers will be updated. In case of SER, providing the metadata is mandatory and the output sequence will be in the FITS cube format, as SER cannot store WCS data.\n\nIf WCS or other image metadata are erroneous or missing, arguments must be passed:\n\nthe approximate image center coordinates can be provided in decimal degrees or degree/hour minute second values (J2000 with colon separators), with right ascension and declination values separated by a comma or a space (not mandatory for astrometry.net).\n\nfocal length and pixel size can be passed with -focal= (in mm) and -pixelsize= (in microns), overriding values from images and settings. See also options to solve blindly with local Astrometry.net\n\nFor faster star detection in big images, downsampling the image is possible with -downscale .\n\nThe solve can account for distortions using SIP convention with polynomials up to order 5. Default value is taken form the astrometry preferences. This can be changed with the option -order= giving a value between 1 and 5.\n\nWhen using Siril solver local catalogues or with local Astrometry.net, if the initial solve is not successful, the solver will search for a solution within a cone of radius specified with -radius= option. If no value is passed, the search radius is taken from the astrometry preferences. Siril near search can be disabled by passing a value of 0. (cannot be disabled for Astrometry.net).\n\nImages already solved will be skipped by default. This can be disabled by passing the option -force .\n\nUsing this command will update registration data unless the option -noreg is passed.\n\nYou can save the current solution as a distortion file with the option -disto= .\n\nImages can be either plate solved by Siril using a star catalogue and the global registration algorithm or by astrometry.net's local solve-field command (enabled with -localasnet ).\n\nSiril platesolver options:\n\nThe limit magnitude of stars used for plate solving is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe choice of the star catalog is automatic unless the -catalog= option is passed: if local catalogs are installed, they are used, otherwise the choice is based on the field of view and limit magnitude. If the option is passed, it forces the use of the remote catalog given in argument, with possible values: tycho2, nomad, gaia, ppmxl, brightstars, apass.\n\nIf the computed field of view is larger than 5 degrees, star detection will be bounded to a cropped area around the center of the image unless -nocrop option is passed.\n\nWhen using online catalogues, a single catalogue extraction will be done for the entire sequence. If there is a lot of drift or different sampling, that may not succeed for all images. This can be disabled by passing the argument -nocache , in which case metadata from each image will be used (except for the forced values like center coordinates, pixel size and/or focal length).\n\nAstrometry.net solver options:\n\nPassing options -blindpos and/or -blindres enables to solve blindly for position and for resolution respectively. You can use these when solving an image with a completely unknown location and sampling\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "distortion",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "force",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_centre_coordinates",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "centre_coordinates",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_focal_length",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "focal_length",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_pixel_size",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "pixel_size",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "downscale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_order",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "order",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_radius",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "radius",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_magnitude_limit",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "magnitude_limit",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_catalogue",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "catalogue",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "no_crop",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "local_solver",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "blind_position",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "blind_resolution",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "no_registration",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "no_cache",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqplatesolve",
+    "inputs": {
+      "image": "image",
+      "distortion": "distortion"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "force": {
+        "kind": "parameter",
+        "name": "force"
+      },
+      "use_centre_coordinates": {
+        "kind": "parameter",
+        "name": "use_centre_coordinates"
+      },
+      "centre_coordinates": {
+        "kind": "parameter",
+        "name": "centre_coordinates"
+      },
+      "use_focal_length": {
+        "kind": "parameter",
+        "name": "use_focal_length"
+      },
+      "focal_length": {
+        "kind": "parameter",
+        "name": "focal_length"
+      },
+      "use_pixel_size": {
+        "kind": "parameter",
+        "name": "use_pixel_size"
+      },
+      "pixel_size": {
+        "kind": "parameter",
+        "name": "pixel_size"
+      },
+      "downscale": {
+        "kind": "parameter",
+        "name": "downscale"
+      },
+      "use_order": {
+        "kind": "parameter",
+        "name": "use_order"
+      },
+      "order": {
+        "kind": "parameter",
+        "name": "order"
+      },
+      "use_radius": {
+        "kind": "parameter",
+        "name": "use_radius"
+      },
+      "radius": {
+        "kind": "parameter",
+        "name": "radius"
+      },
+      "use_magnitude_limit": {
+        "kind": "parameter",
+        "name": "use_magnitude_limit"
+      },
+      "magnitude_limit": {
+        "kind": "parameter",
+        "name": "magnitude_limit"
+      },
+      "use_catalogue": {
+        "kind": "parameter",
+        "name": "use_catalogue"
+      },
+      "catalogue": {
+        "kind": "parameter",
+        "name": "catalogue"
+      },
+      "no_crop": {
+        "kind": "parameter",
+        "name": "no_crop"
+      },
+      "local_solver": {
+        "kind": "parameter",
+        "name": "local_solver"
+      },
+      "blind_position": {
+        "kind": "parameter",
+        "name": "blind_position"
+      },
+      "blind_resolution": {
+        "kind": "parameter",
+        "name": "blind_resolution"
+      },
+      "no_registration": {
+        "kind": "parameter",
+        "name": "no_registration"
+      },
+      "no_cache": {
+        "kind": "parameter",
+        "name": "no_cache"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

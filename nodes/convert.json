@@ -1,0 +1,82 @@
+{
+  "definition_id": "439fda2d-333b-5e11-a31c-08c482d1ad00",
+  "source": "package",
+  "name": "Siril convert",
+  "description": "Converts all images of the current working directory that are in a supported format into Siril's sequence of FITS images (several files) or a FITS sequence (single file) if -fitseq is provided or a SER sequence (single file) if -ser is provided. The argument basename is the base name of the new sequence, numbers and the extension will be put behind it.\n\nFor FITS images, Siril will try to make a symbolic link; if not possible, files will be copied. The option -debayer applies demosaicing to CFA input images; in this case no symbolic link is done.\n\n-start=index sets the starting index number, useful to continue an existing sequence (not used with -fitseq or -ser ; make sure you remove or clear the target .seq if it exists in that case).\n\nThe -out= option changes the output directory to the provided argument.\n\nSee also CONVERTRAW and LINK\n\nLinks: convertraw , link\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "start_index",
+      "kind": "int",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "debayer",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "sequence_format",
+      "kind": "choice",
+      "default": "images",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "images",
+        "fitseq",
+        "ser"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "convert",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "start_index": {
+        "kind": "parameter",
+        "name": "start_index"
+      },
+      "debayer": {
+        "kind": "parameter",
+        "name": "debayer"
+      },
+      "sequence_format": {
+        "kind": "parameter",
+        "name": "sequence_format"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

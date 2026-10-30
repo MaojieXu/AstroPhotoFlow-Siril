@@ -1,0 +1,43 @@
+{
+  "definition_id": "9d2e70a7-700e-5cbe-ae1c-e404dd91116b",
+  "source": "package",
+  "name": "Siril savepnm",
+  "description": "Saves current image under the form of a NetPBM file format with 16-bit per channel.\n\nThe extension of the output will be filename .ppm for RGB image and filename .pgm for gray-level image\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "file",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "savepnm",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "file": "file"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

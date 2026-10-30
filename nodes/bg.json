@@ -1,0 +1,48 @@
+{
+  "definition_id": "d69a4f70-1744-59bd-a3d0-fddb69bdfd1a",
+  "source": "package",
+  "name": "Siril bg",
+  "description": "Returns the background level of the loaded image\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "bg",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

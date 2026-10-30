@@ -1,0 +1,86 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "select",
+    "name": "select",
+    "description": "This command allows easy mass selection of images in the sequence sequencename (from from to to included). This is a selection for later processing.\n\nSee also UNSELECT\n\nLinks: unselect\n\nExamples:\n\nselect . 0 0\n\nselects the first of the currently loaded sequence\n\nselect sequencename 1000 1200\n\nselects 201 images starting from number 1000 in sequence named sequencename\n\nThe second number can be greater than the number of images to just go up to the end.\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "select sequencename from to",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "from_index",
+        "kind": "int",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1
+      },
+      {
+        "name": "to_index",
+        "kind": "int",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. This command allows easy mass selection of images in the sequence sequencename (from from to to included). This is a selection for later processing.\n\nSee also UNSELECT\n\nLinks: unselect\n\nExamples:\n\nselect . 0 0\n\nselects the first of the currently loaded sequence\n\nselect sequencename 1000 1200\n\nselects 201 images starting from number 1000 in sequence named sequencename\n\nThe second number can be greater than the number of images to just go up to the end.\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "from_index": 1,
+      "to_index": 1,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

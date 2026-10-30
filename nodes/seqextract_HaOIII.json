@@ -1,0 +1,74 @@
+{
+  "definition_id": "2a735772-db93-52dc-80fb-7de1d0c1a117",
+  "source": "package",
+  "name": "Siril seqextract HaOIII",
+  "description": "Same command as EXTRACT_HAOIII but for the sequence sequencename .\n\nThe output sequences names start with the prefixes \"Ha_\" and \"OIII_\"\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "ha",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "oiii",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "use_resample",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "resample",
+      "kind": "choice",
+      "default": "ha",
+      "advanced": true,
+      "nullable": false,
+      "choices": [
+        "ha",
+        "oiii"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqextract_HaOIII",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "ha": "ha",
+      "oiii": "oiii"
+    },
+    "parameters": {
+      "use_resample": {
+        "kind": "parameter",
+        "name": "use_resample"
+      },
+      "resample": {
+        "kind": "parameter",
+        "name": "resample"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

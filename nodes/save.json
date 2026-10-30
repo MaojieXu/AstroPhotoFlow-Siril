@@ -1,0 +1,54 @@
+{
+  "definition_id": "64d5c9d3-9d71-5c40-bc3f-fb7eee05d610",
+  "source": "package",
+  "name": "Siril save",
+  "description": "Saves current image to filename .fit (or .fits, depending on your preferences, see SETEXT) in the current working directory. The image remains loaded. filename can contain a path as long as the directory already exists. The -chksum option stores checksum keywords (CHECKSUM and DATASUM) in the FITS header\n\nLinks: setext\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "checksum",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "save",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "checksum": {
+        "kind": "parameter",
+        "name": "checksum"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

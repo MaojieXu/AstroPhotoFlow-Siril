@@ -2,7 +2,7 @@
   "definition_id": "169de083-7f81-4cde-a329-5541ecacf463",
   "source": "package",
   "name": "Siril Auto Stretch",
-  "description": "Siril 1.4.4 Auto Stretch; processes fixed static images or an ordered group and writes new FITS files.",
+  "description": "Auto-stretches the currently loaded image, with different parameters for each channel (unlinked) unless -linked is passed. Arguments are optional, shadowclip is the shadows clipping point, measured in sigma units from the main histogram peak (default is -2.8), targetbg is the target background value, giving a final brightness to the image, range [0, 1], default is 0.25. The default values are those used in the Auto-stretch rendering from the GUI.\n\nDo not use the unlinked version after color calibration, it will alter the white balance\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -15,10 +15,45 @@
       "type": "APF_SCIENCE"
     }
   ],
+  "parameters": [
+    {
+      "name": "linked",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "shadowsclip",
+      "kind": "float",
+      "default": -2.8,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "targetbg",
+      "kind": "float",
+      "default": 0.25,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
   "execution": {
     "package_id": "siril",
     "operation_id": "autostretch",
     "inputs": {
+      "image": "image"
+    },
+    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -33,10 +68,11 @@
       "targetbg": {
         "kind": "parameter",
         "name": "targetbg"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
       }
-    },
-    "outputs": {
-      "image": "image"
     }
   }
 }

@@ -1,0 +1,66 @@
+{
+  "definition_id": "eadddcff-aeae-5465-9d49-30ed30fbd09c",
+  "source": "package",
+  "name": "Siril fmedian",
+  "description": "Performs a median filter of size ksize x ksize ( ksize MUST be odd) to the loaded image with a modulation parameter modulation .\n\nThe output pixel is computed as : out=mod x m + (1 − mod) x in, where m is the median-filtered pixel value. A modulation's value of 1 will apply no modulation\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "kernel_size",
+      "kind": "int",
+      "default": 3,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 1
+    },
+    {
+      "name": "modulation",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "fmedian",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "kernel_size": {
+        "kind": "parameter",
+        "name": "kernel_size"
+      },
+      "modulation": {
+        "kind": "parameter",
+        "name": "modulation"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

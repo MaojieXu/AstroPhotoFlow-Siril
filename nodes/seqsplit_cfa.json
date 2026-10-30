@@ -1,0 +1,58 @@
+{
+  "definition_id": "8db972e5-a78d-5ada-9880-8ae86ef34878",
+  "source": "package",
+  "name": "Siril seqsplit cfa",
+  "description": "Same command as SPLIT_CFA but for the sequence sequencename .\n\nThe output sequences names start with the prefix \"CFA_\" and a number unless otherwise specified with -prefix= option.\n\nLimitation: the sequence always outputs a sequence of FITS files, no matter the type of input sequence\n\nLinks: split_cfa\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cfa0",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa1",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa2",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "cfa3",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqsplit_cfa",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "cfa0": "cfa0",
+      "cfa1": "cfa1",
+      "cfa2": "cfa2",
+      "cfa3": "cfa3"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

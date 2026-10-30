@@ -1,0 +1,59 @@
+{
+  "definition_id": "e910fb5c-4a7c-547d-968e-2a28203ba6a1",
+  "source": "package",
+  "name": "Siril catsearch",
+  "description": "Searches an object by name and adds it to the user annotation catalog. The object is first searched in the annotation catalogs, if not found a request is made to SIMBAD.\n\nThe object can be a solar system object, in which case a prefix, 'a:' for asteroid, 'p:' for planet, 'c:' for comet, 'dp:' for dwarf planet or 's:' for natural satellite, is required before the object name. The search is done for the date, time and observing location found in the image header, using the IMCCE Miriade service\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "object_name",
+      "kind": "string",
+      "default": "",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "catsearch",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "object_name": {
+        "kind": "parameter",
+        "name": "object_name"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "definition_id": "2618da2c-5ea1-5d79-8b91-d0b4f0d5b84b",
+  "source": "package",
+  "name": "Siril profile",
+  "description": "Generates an intensity profile plot between 2 points in the image, also known as a cut . The arguments may be provided in any order. The arguments -to=x,y and -from=x,y are mandatory.\n\nThe argument -layer={red | green | blue | lum | col} specifies which channel (or luminance or colour) to plot if the image is color. It may also be used with the -tri option, which generates 3 parallel equispaced profiles each separated by -spacing= pixels, but note that for tri profiles the col option will be treated the same as lum .\n\nThe option -cfa selects CFA mode, which generates 4 profiles: 1 for each CFA channel in a Bayer patterned image. This option cannot be used with color images or mono images with no Bayer pattern, and cannot be used at the same time as the -tri option.\n\nThe option -arcsec causes the x axis to display distance in arcsec, if the necessary metadata is available. If not provided or if metadata is not available, distance will be shown in pixel units.\n\nThe argument -savedat will cause the data files to be saved: the filename will be written to the log. Alternatively the argument -filename= can be used to specify a filename to write the data file to. (The -filename= option implies -savedat .)\n\nThe argument \"-title=My Title\" sets a custom title \"My Title\"\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "from_pixel",
+      "kind": "string",
+      "default": "0,0",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "to_pixel",
+      "kind": "string",
+      "default": "1,1",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "tri",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "cfa",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "arcsec",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_layer",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "layer",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_width",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "width",
+      "kind": "float",
+      "default": 1,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_spacing",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "spacing",
+      "kind": "float",
+      "default": 1,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_title",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "kind": "string",
+      "default": "",
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "profile",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "from_pixel": {
+        "kind": "parameter",
+        "name": "from_pixel"
+      },
+      "to_pixel": {
+        "kind": "parameter",
+        "name": "to_pixel"
+      },
+      "tri": {
+        "kind": "parameter",
+        "name": "tri"
+      },
+      "cfa": {
+        "kind": "parameter",
+        "name": "cfa"
+      },
+      "arcsec": {
+        "kind": "parameter",
+        "name": "arcsec"
+      },
+      "use_layer": {
+        "kind": "parameter",
+        "name": "use_layer"
+      },
+      "layer": {
+        "kind": "parameter",
+        "name": "layer"
+      },
+      "use_width": {
+        "kind": "parameter",
+        "name": "use_width"
+      },
+      "width": {
+        "kind": "parameter",
+        "name": "width"
+      },
+      "use_spacing": {
+        "kind": "parameter",
+        "name": "use_spacing"
+      },
+      "spacing": {
+        "kind": "parameter",
+        "name": "spacing"
+      },
+      "use_title": {
+        "kind": "parameter",
+        "name": "use_title"
+      },
+      "title": {
+        "kind": "parameter",
+        "name": "title"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

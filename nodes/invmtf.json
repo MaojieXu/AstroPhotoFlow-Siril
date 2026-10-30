@@ -1,0 +1,102 @@
+{
+  "definition_id": "69357a92-ed10-5cc8-ab13-1a10f7a48e58",
+  "source": "package",
+  "name": "Siril invmtf",
+  "description": "Inverts a midtones transfer function. It provides the inverse transformation of MTF, if provided with the same parameters, undoes a MTF command, possibly returning to a linear image. It can also work the same way as MTF but for images in negative\n\nLinks: mtf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "low",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "mid",
+      "kind": "float",
+      "default": 0.5,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "high",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "channels",
+      "kind": "choice",
+      "default": "RGB",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "RGB",
+        "R",
+        "G",
+        "B",
+        "RG",
+        "RB",
+        "GB"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "invmtf",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "low": {
+        "kind": "parameter",
+        "name": "low"
+      },
+      "mid": {
+        "kind": "parameter",
+        "name": "mid"
+      },
+      "high": {
+        "kind": "parameter",
+        "name": "high"
+      },
+      "channels": {
+        "kind": "parameter",
+        "name": "channels"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

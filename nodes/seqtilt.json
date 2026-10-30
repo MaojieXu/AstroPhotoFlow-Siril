@@ -1,0 +1,53 @@
+{
+  "definition_id": "c1c23269-287d-53ab-b12b-492ca0f6106e",
+  "source": "package",
+  "name": "Siril seqtilt",
+  "description": "Same command as TILT but for the sequence sequencename . It generally gives better results\n\nLinks: tilt\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqtilt",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image",
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "definition_id": "1627afd9-c8a3-5cf3-a542-564f8902bcb8",
+  "source": "package",
+  "name": "Siril ccm",
+  "description": "Applies a color conversion matrix to the current image.\n\nThere are 9 mandatory arguments corresponding to the 9 matrix elements:\n\nm00, m01, m02\n\nm10, m11, m12\n\nm20, m21, m22\n\nAn additional tenth argument [gamma] can be provided: if it is omitted, it defaults to 1.0.\n\nThese are applied to each pixel according to the following formulae:\n\nr' = (m00 * r + m01 * g + m02 * b)^(-1/gamma)\n\ng' = (m10 * r + m11 * g + m12 * b)^(-1/gamma)\n\nb' = (m20 * r + m21 * g + m22 * b)^(-1/gamma)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "m00",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m01",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m02",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m10",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m11",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m12",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m20",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m21",
+      "kind": "float",
+      "default": 0,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "m22",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "gamma",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false,
+      "minimum": 0,
+      "maximum": 10
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "ccm",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "m00": {
+        "kind": "parameter",
+        "name": "m00"
+      },
+      "m01": {
+        "kind": "parameter",
+        "name": "m01"
+      },
+      "m02": {
+        "kind": "parameter",
+        "name": "m02"
+      },
+      "m10": {
+        "kind": "parameter",
+        "name": "m10"
+      },
+      "m11": {
+        "kind": "parameter",
+        "name": "m11"
+      },
+      "m12": {
+        "kind": "parameter",
+        "name": "m12"
+      },
+      "m20": {
+        "kind": "parameter",
+        "name": "m20"
+      },
+      "m21": {
+        "kind": "parameter",
+        "name": "m21"
+      },
+      "m22": {
+        "kind": "parameter",
+        "name": "m22"
+      },
+      "gamma": {
+        "kind": "parameter",
+        "name": "gamma"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

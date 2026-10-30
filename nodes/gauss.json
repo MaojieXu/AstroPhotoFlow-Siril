@@ -1,0 +1,54 @@
+{
+  "definition_id": "4c0f2183-8aa2-519f-9d1f-cab39c41c80d",
+  "source": "package",
+  "name": "Siril gauss",
+  "description": "Applies to the loaded image a Gaussian blur with the given sigma .\n\nSee also UNSHARP, the same with a blending parameter\n\nLinks: unsharp\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "sigma",
+      "kind": "float",
+      "default": 1,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "gauss",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "sigma": {
+        "kind": "parameter",
+        "name": "sigma"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

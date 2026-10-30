@@ -1,0 +1,384 @@
+{
+  "definition_id": "610dbd67-7e3e-5fff-947d-d293eafba365",
+  "source": "package",
+  "name": "Siril makepsf",
+  "description": "Generates a PSF for use with deconvolution, any of the three methods exposed by RL, SB or WIENER commands. One of the following must be given as the first argument: clear (clears the existing PSF), load (loads a PSF from a file), save (saves the current PSF), blind (blind estimate of tke PSF), stars (generates a PSF based on measured stars from the image) or manual (generates a PSF manually based on a function and parameters).\n\nNo additional arguments are required when using the clear argument.\n\nTo load a previously saved PSF the load argument requires the PSF filename as a second argument. This may be in any format that Siril has been compiled with support for, but it must be square and should ideally be odd.\n\nTo save a previously generated PSF the argument save is used. Optionally, a filename may be provided (this must have one of the extensions \".fit\", \".fits\", \".fts\" or \".tif\") but if none is provided the PSF will be named based on the name of the open file or sequence.\n\nFor blind , the following optional arguments may be provided: -l0 uses the l0 descent method, -si uses the spectral irregularity method, -multiscale configures the l0 method to do a multi-scale PSF estimate, -lambda= provides the regularization constant.\n\nFor PSF from detected stars the only optional parameter is -sym , which configures the PSF to be symmetric.\n\nFor a manual PSF, one of -gaussian , -moffat , -disc or -airy can be provided to specify the PSF function, Gaussian by default. For Gaussian or Moffat PSFs the optional arguments -fwhm= , -angle= and -ratio= may be provided. For Moffat PSFs the optional argument -beta= may also be provided. If these values are omitted, they default to the same values as in the deconvolution dialog. For disc PSFs only the argument -fwhm= is required, which for this function is used to set the diameter of the PSF. For Airy PSFs the following arguments may be provided: -dia= (sets the telescope diameter), -fl= (sets the telescope focal length), -wl= (sets the wavelength to calculate the Airy diffraction pattern for), -pixelsize= (sets the sensor pixel size), -obstruct= (sets the central obstruction as a percentage of the overall aperture area). If these parameters are not provided, wavelength will default to 525nm and central obstruction will default to 0%. Siril will attempt to read the others from the open image, but some imaging software may not provide all of them in which case you will get bad results, and note the metadata may not be populated for SER format videos. You will learn from experience which are safe to omit for your particular imaging setup.\n\nFor any of the above PSF generation options the optional argument -ks= may be provided to set the PSF dimension, and the optional argument -savepsf=filename may be used to save the generated PSF: a filename must be provided and the same filename extension requirements apply as for makepsf save filename\n\nLinks: psf , rl , sb , wiener\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "psf",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "method",
+      "kind": "choice",
+      "default": "manual",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "manual",
+        "blind",
+        "stars"
+      ]
+    },
+    {
+      "name": "function",
+      "kind": "choice",
+      "default": "gaussian",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "gaussian",
+        "moffat",
+        "disc",
+        "airy"
+      ]
+    },
+    {
+      "name": "l0",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "si",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "multiscale",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "symmetric",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "use_lambda",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "lambda",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_compensation",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "compensation",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_kernel_size",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "kernel_size",
+      "kind": "int",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_fwhm",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "fwhm",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_angle",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "angle",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_ratio",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "ratio",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_beta",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "beta",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_diameter",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "diameter",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_focal_length",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "focal_length",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_wavelength",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "wavelength",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_pixel_size",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "pixel_size",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "use_obstruction",
+      "kind": "boolean",
+      "default": false,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "obstruction",
+      "kind": "float",
+      "default": 0,
+      "advanced": true,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "makepsf",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "psf": "psf"
+    },
+    "parameters": {
+      "method": {
+        "kind": "parameter",
+        "name": "method"
+      },
+      "function": {
+        "kind": "parameter",
+        "name": "function"
+      },
+      "l0": {
+        "kind": "parameter",
+        "name": "l0"
+      },
+      "si": {
+        "kind": "parameter",
+        "name": "si"
+      },
+      "multiscale": {
+        "kind": "parameter",
+        "name": "multiscale"
+      },
+      "symmetric": {
+        "kind": "parameter",
+        "name": "symmetric"
+      },
+      "use_lambda": {
+        "kind": "parameter",
+        "name": "use_lambda"
+      },
+      "lambda": {
+        "kind": "parameter",
+        "name": "lambda"
+      },
+      "use_compensation": {
+        "kind": "parameter",
+        "name": "use_compensation"
+      },
+      "compensation": {
+        "kind": "parameter",
+        "name": "compensation"
+      },
+      "use_kernel_size": {
+        "kind": "parameter",
+        "name": "use_kernel_size"
+      },
+      "kernel_size": {
+        "kind": "parameter",
+        "name": "kernel_size"
+      },
+      "use_fwhm": {
+        "kind": "parameter",
+        "name": "use_fwhm"
+      },
+      "fwhm": {
+        "kind": "parameter",
+        "name": "fwhm"
+      },
+      "use_angle": {
+        "kind": "parameter",
+        "name": "use_angle"
+      },
+      "angle": {
+        "kind": "parameter",
+        "name": "angle"
+      },
+      "use_ratio": {
+        "kind": "parameter",
+        "name": "use_ratio"
+      },
+      "ratio": {
+        "kind": "parameter",
+        "name": "ratio"
+      },
+      "use_beta": {
+        "kind": "parameter",
+        "name": "use_beta"
+      },
+      "beta": {
+        "kind": "parameter",
+        "name": "beta"
+      },
+      "use_diameter": {
+        "kind": "parameter",
+        "name": "use_diameter"
+      },
+      "diameter": {
+        "kind": "parameter",
+        "name": "diameter"
+      },
+      "use_focal_length": {
+        "kind": "parameter",
+        "name": "use_focal_length"
+      },
+      "focal_length": {
+        "kind": "parameter",
+        "name": "focal_length"
+      },
+      "use_wavelength": {
+        "kind": "parameter",
+        "name": "use_wavelength"
+      },
+      "wavelength": {
+        "kind": "parameter",
+        "name": "wavelength"
+      },
+      "use_pixel_size": {
+        "kind": "parameter",
+        "name": "use_pixel_size"
+      },
+      "pixel_size": {
+        "kind": "parameter",
+        "name": "pixel_size"
+      },
+      "use_obstruction": {
+        "kind": "parameter",
+        "name": "use_obstruction"
+      },
+      "obstruction": {
+        "kind": "parameter",
+        "name": "obstruction"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

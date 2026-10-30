@@ -1,0 +1,126 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "subsky",
+    "name": "subsky",
+    "description": "Computes a synthetic background gradient using either the polynomial function model of degree degrees or the RBF model (if -rbf is provided instead) and subtracts it from the image.\n\nThe number of samples per horizontal line and the tolerance to exclude brighter areas can be adjusted with the optional arguments. Tolerance is in MAD units: median + tolerance * mad.\n\nDithering, required for low dynamic gradients, can be enabled with -dither .\n\nFor RBF, the additional smoothing parameter is also available. To use pre-existing background samples (e.g. if you have set background samples using a Python script) the -existing argument must be used\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "subsky { -rbf | degree } [-dither] [-samples=20] [-tolerance=1.0] [-smooth=0.5] [-existing]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "model",
+        "kind": "choice",
+        "default": "polynomial",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "polynomial",
+          "rbf"
+        ]
+      },
+      {
+        "name": "degree",
+        "kind": "int",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1,
+        "maximum": 4
+      },
+      {
+        "name": "dither",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "samples",
+        "kind": "int",
+        "default": 20,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 2
+      },
+      {
+        "name": "tolerance",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0
+      },
+      {
+        "name": "smooth",
+        "kind": "float",
+        "default": 0.5,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Computes a synthetic background gradient using either the polynomial function model of degree degrees or the RBF model (if -rbf is provided instead) and subtracts it from the image.\n\nThe number of samples per horizontal line and the tolerance to exclude brighter areas can be adjusted with the optional arguments. Tolerance is in MAD units: median + tolerance * mad.\n\nDithering, required for low dynamic gradients, can be enabled with -dither .\n\nFor RBF, the additional smoothing parameter is also available. To use pre-existing background samples (e.g. if you have set background samples using a Python script) the -existing argument must be used\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n-existing needs GUI background samples; this stateless operation creates samples from the fixed input.\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "model": "polynomial",
+      "degree": 1,
+      "dither": false,
+      "samples": 20,
+      "tolerance": 1,
+      "smooth": 0.5,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [
+    "-existing needs GUI background samples; this stateless operation creates samples from the fixed input."
+  ],
+  "dependencies": [],
+  "corrections": []
+}

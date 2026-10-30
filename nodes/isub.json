@@ -1,0 +1,48 @@
+{
+  "definition_id": "e11f0e11-765a-5500-84a5-e50d7a928bbd",
+  "source": "package",
+  "name": "Siril isub",
+  "description": "Subtracts the loaded image by the image filename .\n\nResult will be in 32 bits per channel if allowed in the preferences, so capable of storing negative values. To clip negative value, use 16 bit mode or use the THRESHLO command\n\nLinks: threshlo\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "operand",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "isub",
+    "inputs": {
+      "image": "image",
+      "operand": "operand"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "definition_id": "b63290c3-0f17-5c90-b7aa-5f7f2506b4c7",
+  "source": "package",
+  "name": "Siril seqheader",
+  "description": "Prints the FITS header value corresponding to the given keys for all images in the sequence. You can write several keys in a row, separated by a space. The -out= option, followed by a file name, allows you to print the output in a csv file. The -sel option limits the output to the images selected in the sequence\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "keywords",
+      "kind": "string",
+      "default": "[\"DATE-OBS\",\"EXPTIME\"]",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "selected",
+      "kind": "boolean",
+      "default": false,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "seqheader",
+    "inputs": {
+      "image": "image"
+    },
+    "outputs": {
+      "image": "image",
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "keywords": {
+        "kind": "parameter",
+        "name": "keywords"
+      },
+      "selected": {
+        "kind": "parameter",
+        "name": "selected"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

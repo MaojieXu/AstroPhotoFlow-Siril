@@ -1,0 +1,232 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "calibrate_single",
+    "name": "calibrate single",
+    "description": "Calibrates the image imagename using bias, dark and flat given in argument.\n\nFor bias, a uniform level can be specified instead of an image, by entering a quoted expression starting with an = sign, such as -bias=\"=256\" or -bias=\"=64*$OFFSET\".\n\nBy default, cosmetic correction is not activated. If you wish to apply some, you will need to specify it with -cc= option.\n\nYou can use -cc=dark to detect hot and cold pixels from the masterdark (a masterdark must be given with the -dark= option), optionally followed by siglo and sighi for cold and hot pixels respectively. A value of 0 deactivates the correction. If sigmas are not provided, only hot pixels detection with a sigma of 3 will be applied.\n\nAlternatively, you can use -cc=bpm followed by the path to your Bad Pixel Map to specify which pixels must be corrected. An example file can be obtained with a find_hot command on a masterdark.\n\nThree options apply to color images (in CFA format): -cfa for cosmetic correction purposes, -debayer to demosaic images before saving them, and -equalize_cfa to equalize the mean intensity of RGB layers of the master flat, to avoid tinting the calibrated image.\n\nThe -fix_xtrans option is dedicated to X-Trans images by applying a correction on darks and biases to remove a rectangle pattern caused by autofocus.\n\nIt's also possible to optimize dark subtraction with -opt , which requires the supply of bias and dark masters, and automatically calculates the coefficient to be applied to dark, or calculates the coefficient thanks to the exposure keyword with -opt=exp\n\nThe output filename starts with the prefix \"pp_\" unless otherwise specified with option -prefix=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "calibrate_single imagename [-bias=filename] [-dark=filename] [-flat=filename] [-cc=dark [siglo sighi] || -cc=bpm bpmfile] [-cfa] [-debayer] [-fix_xtrans] [-equalize_cfa] [-opt[=exp]] [-prefix=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "bias",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "dark",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "flat",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "bad_pixels",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "fits",
+          "image"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "file"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "bias_mode",
+        "kind": "choice",
+        "default": "none",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "image",
+          "expression"
+        ]
+      },
+      {
+        "name": "bias_expression",
+        "kind": "string",
+        "default": "=0",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "cosmetic",
+        "kind": "choice",
+        "default": "none",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "dark",
+          "bpm"
+        ]
+      },
+      {
+        "name": "cosmetic_sigmas",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "cold_sigma",
+        "kind": "float",
+        "default": 0,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "hot_sigma",
+        "kind": "float",
+        "default": 3,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "cfa",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "debayer",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "fix_xtrans",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "equalize_cfa",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "dark_optimisation",
+        "kind": "choice",
+        "default": "none",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "none",
+          "optimise",
+          "exposure"
+        ]
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Calibrates the image imagename using bias, dark and flat given in argument.\n\nFor bias, a uniform level can be specified instead of an image, by entering a quoted expression starting with an = sign, such as -bias=\"=256\" or -bias=\"=64*$OFFSET\".\n\nBy default, cosmetic correction is not activated. If you wish to apply some, you will need to specify it with -cc= option.\n\nYou can use -cc=dark to detect hot and cold pixels from the masterdark (a masterdark must be given with the -dark= option), optionally followed by siglo and sighi for cold and hot pixels respectively. A value of 0 deactivates the correction. If sigmas are not provided, only hot pixels detection with a sigma of 3 will be applied.\n\nAlternatively, you can use -cc=bpm followed by the path to your Bad Pixel Map to specify which pixels must be corrected. An example file can be obtained with a find_hot command on a masterdark.\n\nThree options apply to color images (in CFA format): -cfa for cosmetic correction purposes, -debayer to demosaic images before saving them, and -equalize_cfa to equalize the mean intensity of RGB layers of the master flat, to avoid tinting the calibrated image.\n\nThe -fix_xtrans option is dedicated to X-Trans images by applying a correction on darks and biases to remove a rectangle pattern caused by autofocus.\n\nIt's also possible to optimize dark subtraction with -opt , which requires the supply of bias and dark masters, and automatically calculates the coefficient to be applied to dark, or calculates the coefficient thanks to the exposure keyword with -opt=exp\n\nThe output filename starts with the prefix \"pp_\" unless otherwise specified with option -prefix=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "bias_mode": "none",
+      "bias_expression": "=0",
+      "cosmetic": "none",
+      "cosmetic_sigmas": false,
+      "cold_sigma": 0,
+      "hot_sigma": 3,
+      "cfa": false,
+      "debayer": false,
+      "fix_xtrans": false,
+      "equalize_cfa": false,
+      "dark_optimisation": "none",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

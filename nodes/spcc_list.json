@@ -1,0 +1,62 @@
+{
+  "definition_id": "e6ee9ac8-1ecf-5365-a8bc-2db15e0fee08",
+  "source": "package",
+  "name": "Siril spcc list",
+  "description": "Print a list of SPCC names available for use to define sensors, filters or white references using the spcc command. This command requires an argument to set which list is printed: the options are oscsensor , monosensor , redfilter , greenfilter , bluefilter , oscfilter , osclpf or whiteref .\n\nNote that sensor, filter and white reference names may contain spaces: in this case when using them as arguments to the spcc command, the entire argument must be enclosed in quotation marks, for example \"-whiteref=Average Spiral Galaxy\"\n\nLinks: spcc\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [],
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "category",
+      "kind": "choice",
+      "default": "oscsensor",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "oscsensor",
+        "monosensor",
+        "redfilter",
+        "greenfilter",
+        "bluefilter",
+        "oscfilter",
+        "osclpf",
+        "whiteref"
+      ]
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "spcc_list",
+    "inputs": {},
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
+    },
+    "parameters": {
+      "category": {
+        "kind": "parameter",
+        "name": "category"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

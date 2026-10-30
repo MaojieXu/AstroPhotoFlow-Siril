@@ -1,0 +1,117 @@
+{
+  "definition_id": "88afbabc-d8b9-5249-a374-bb3ec1f0cecd",
+  "source": "package",
+  "name": "Siril pyscript",
+  "description": "Executes a Siril python script\n\nAn optional argument -async may be provided. If it is provided it must be the first argument. This allows the script launched by pyscript to run in the background without blocking a script that calls it. This is expected to be useful for launcher-type scripts. The default is for the script to block until completion if pyscript is run as part of a script, but not to block if run from the GUI command entry (so the -async argument makes no difference when running like that).\n\nThe script name must be provided next (or first, if -async is not provided). If it is not found in the current working directory, the user-defined script paths specified in Preferences and the local siril-scripts repository will be searched. All subsequent arguments will be treated as script arguments and passed to the script as its argument vector. Note that the specific script must incorporate support for reading input from the argument vector\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "script_file",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "files",
+      "type": "APF_FILE"
+    },
+    {
+      "name": "analysis",
+      "type": "APF_ANALYSIS"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "script_source",
+      "kind": "choice",
+      "default": "inline",
+      "advanced": false,
+      "nullable": false,
+      "choices": [
+        "inline",
+        "file"
+      ]
+    },
+    {
+      "name": "load_image",
+      "kind": "boolean",
+      "default": true,
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "script",
+      "kind": "string",
+      "default": "print(\"Siril Python script\")",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "arguments",
+      "kind": "string",
+      "default": "[]",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "output_files",
+      "kind": "string",
+      "default": "[]",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "pyscript",
+    "inputs": {
+      "image": "image",
+      "script_file": "script_file"
+    },
+    "outputs": {
+      "image": "image",
+      "files": "files",
+      "analysis": "analysis"
+    },
+    "parameters": {
+      "script_source": {
+        "kind": "parameter",
+        "name": "script_source"
+      },
+      "load_image": {
+        "kind": "parameter",
+        "name": "load_image"
+      },
+      "script": {
+        "kind": "parameter",
+        "name": "script"
+      },
+      "arguments": {
+        "kind": "parameter",
+        "name": "arguments"
+      },
+      "output_files": {
+        "kind": "parameter",
+        "name": "output_files"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

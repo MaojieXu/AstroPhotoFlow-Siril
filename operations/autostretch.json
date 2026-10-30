@@ -3,8 +3,8 @@
     "package_id": "siril",
     "version": "1.4.4",
     "operation_id": "autostretch",
-    "name": "Auto Stretch",
-    "description": "Applies Auto Stretch to each static image in fixed order using Siril. Linked mode preserves channel balance. Writes new FITS files; originals remain unchanged.",
+    "name": "autostretch",
+    "description": "Auto-stretches the currently loaded image, with different parameters for each channel (unlinked) unless -linked is passed. Arguments are optional, shadowclip is the shadows clipping point, measured in sigma units from the main histogram peak (default is -2.8), targetbg is the target background value, giving a final brightness to the image, range [0, 1], default is 0.25. The default values are those used in the Auto-stretch rendering from the GUI.\n\nDo not use the unlinked version after color calibration, it will alter the white balance\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
     "syntax": "autostretch [-linked] [shadowsclip [targetbg]]",
     "scriptable": true,
     "inputs": [
@@ -20,7 +20,10 @@
         "cardinality": "many",
         "required": true,
         "supports_hdu": false,
-        "supports_slice": false
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
       }
     ],
     "outputs": [
@@ -30,7 +33,9 @@
         "formats": [
           "fits"
         ],
-        "cardinality": "many"
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
       }
     ],
     "parameters": [
@@ -38,10 +43,6 @@
         "name": "linked",
         "kind": "boolean",
         "default": false,
-        "minimum": null,
-        "maximum": null,
-        "step": null,
-        "choices": null,
         "advanced": false,
         "nullable": false
       },
@@ -49,10 +50,6 @@
         "name": "shadowsclip",
         "kind": "float",
         "default": -2.8,
-        "minimum": null,
-        "maximum": null,
-        "step": null,
-        "choices": null,
         "advanced": false,
         "nullable": false
       },
@@ -60,27 +57,40 @@
         "name": "targetbg",
         "kind": "float",
         "default": 0.25,
-        "minimum": 0.0,
-        "maximum": 1.0,
-        "step": null,
-        "choices": null,
         "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
         "nullable": false
       }
     ],
-    "cancel_supported": null
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
   },
   "preview": {
     "kind": "science-image",
     "input": "image",
     "max_edge": 1024
   },
-  "help": "Connect an APF_SCIENCE fixed image or ordered group to image. Adjust linked, shadowsclip and targetbg. Live preview uses a 1024px sample; Run processes originals and writes new FITS. Output previews must not be auto-stretched again. Agent flow: list_nodes/get_node, list_canvas_pages/get_canvas, then edit_canvas(add_node, set_parameter, connect) with fresh target tokens. Unknown results must be queried, not replayed. See examples/agent.md in the bundle.",
+  "output_display": "direct",
+  "help": "Siril 1.4.4. Auto-stretches the currently loaded image, with different parameters for each channel (unlinked) unless -linked is passed. Arguments are optional, shadowclip is the shadows clipping point, measured in sigma units from the main histogram peak (default is -2.8), targetbg is the target background value, giving a final brightness to the image, range [0, 1], default is 0.25. The default values are those used in the Auto-stretch rendering from the GUI.\n\nDo not use the unlinked version after color calibration, it will alter the white balance\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
   "examples": [
     {
       "linked": false,
       "shadowsclip": -2.8,
-      "targetbg": 0.25
+      "targetbg": 0.25,
+      "runtime": "{}"
     }
-  ]
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
 }

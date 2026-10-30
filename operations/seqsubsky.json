@@ -1,0 +1,126 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "seqsubsky",
+    "name": "seqsubsky",
+    "description": "Same command as SUBSKY but for the sequence sequencename .\n\nDithering, required for low dynamic gradients, can be disabled with -nodither . Note that the -existing option is not available for sequence background removal, as the frames of a sequence are not necessarily always aligned.\n\nThe output sequence name starts with the prefix \"bkg_\" unless otherwise specified with -prefix= option. Only selected images in the sequence are processed\n\nLinks: subsky\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "seqsubsky sequencename { -rbf | degree } [-nodither] [-samples=20] [-tolerance=1.0] [-smooth=0.5] [-prefix=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "sequence",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "video"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "model",
+        "kind": "choice",
+        "default": "polynomial",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "polynomial",
+          "rbf"
+        ]
+      },
+      {
+        "name": "degree",
+        "kind": "int",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 1,
+        "maximum": 4
+      },
+      {
+        "name": "no_dither",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "samples",
+        "kind": "int",
+        "default": 20,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 2
+      },
+      {
+        "name": "tolerance",
+        "kind": "float",
+        "default": 1,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0
+      },
+      {
+        "name": "smooth",
+        "kind": "float",
+        "default": 0.5,
+        "advanced": false,
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Same command as SUBSKY but for the sequence sequencename .\n\nDithering, required for low dynamic gradients, can be disabled with -nodither . Note that the -existing option is not available for sequence background removal, as the frames of a sequence are not necessarily always aligned.\n\nThe output sequence name starts with the prefix \"bkg_\" unless otherwise specified with -prefix= option. Only selected images in the sequence are processed\n\nLinks: subsky\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "model": "polynomial",
+      "degree": 1,
+      "no_dither": false,
+      "samples": 20,
+      "tolerance": 1,
+      "smooth": 0.5,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

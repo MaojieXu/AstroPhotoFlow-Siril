@@ -1,0 +1,155 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "epf",
+    "name": "epf",
+    "description": "Applies an edge preserving filter. By default a bilateral filter is applied; a guided filter can be specified using the argument -guided . The filter diameter defaults to 3 and can be set using -d= . Be careful with values of d greater than 20 as the algorithm can be computationally expensive.\n\nThe intensity filtering sigma value can be set using -si= and the spatial sigma value can be set using -ss= . Sigma values represent the difference in pixel values over which the filter acts strongly: for 32-bit images the value should be between 0 and 1.0, whereas for 16-bit images it should be between 0 and 65535. The defaults if not specified are for both to be set to 11. If -d=0 is set then the filter diameter will be set automatically based on the value of -ss . Note that when applying a guided filter, only -sc applies.\n\nWhen specifying a guided filter, a guide image may be set using -guideimage= . The default if no guide image is specified is to perform a self-guided filter. Note: the guide image must have the same dimensions as the image to be filtered!\n\nThe strength of the filter can be modulated using the -mod= argument. If mod = 1.0 the full effect of the filter will be applied; for mod less than 1.0 a proportion of the original image will be mixed with the result, and for mod = 0.0 no filtering will be applied\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "epf [-guided] [-d=] [-si=] [-ss=] [-mod=] [-guideimage=]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      },
+      {
+        "name": "guide",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "image",
+        "colour_layout": "planar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits"
+        ],
+        "cardinality": "many",
+        "required": true,
+        "colour_layout": "planar"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "guided",
+        "kind": "boolean",
+        "default": false,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "use_diameter",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "diameter",
+        "kind": "int",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_intensity_sigma",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "intensity_sigma",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_spatial_sigma",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "spatial_sigma",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "use_modulation",
+        "kind": "boolean",
+        "default": false,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "modulation",
+        "kind": "float",
+        "default": 0,
+        "advanced": true,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Applies an edge preserving filter. By default a bilateral filter is applied; a guided filter can be specified using the argument -guided . The filter diameter defaults to 3 and can be set using -d= . Be careful with values of d greater than 20 as the algorithm can be computationally expensive.\n\nThe intensity filtering sigma value can be set using -si= and the spatial sigma value can be set using -ss= . Sigma values represent the difference in pixel values over which the filter acts strongly: for 32-bit images the value should be between 0 and 1.0, whereas for 16-bit images it should be between 0 and 65535. The defaults if not specified are for both to be set to 11. If -d=0 is set then the filter diameter will be set automatically based on the value of -ss . Note that when applying a guided filter, only -sc applies.\n\nWhen specifying a guided filter, a guide image may be set using -guideimage= . The default if no guide image is specified is to perform a self-guided filter. Note: the guide image must have the same dimensions as the image to be filtered!\n\nThe strength of the filter can be modulated using the -mod= argument. If mod = 1.0 the full effect of the filter will be applied; for mod less than 1.0 a proportion of the original image will be mixed with the result, and for mod = 0.0 no filtering will be applied\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\n\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "guided": false,
+      "use_diameter": false,
+      "diameter": 0,
+      "use_intensity_sigma": false,
+      "intensity_sigma": 0,
+      "use_spatial_sigma": false,
+      "spatial_sigma": 0,
+      "use_modulation": false,
+      "modulation": 0,
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [],
+  "dependencies": [],
+  "corrections": []
+}

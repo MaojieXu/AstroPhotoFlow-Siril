@@ -1,0 +1,159 @@
+{
+  "operation": {
+    "package_id": "siril",
+    "version": "1.4.4",
+    "operation_id": "pyscript",
+    "name": "pyscript",
+    "description": "Executes a Siril python script\n\nAn optional argument -async may be provided. If it is provided it must be the first argument. This allows the script launched by pyscript to run in the background without blocking a script that calls it. This is expected to be useful for launcher-type scripts. The default is for the script to block until completion if pyscript is run as part of a script, but not to block if run from the GUI command entry (so the -async argument makes no difference when running like that).\n\nThe script name must be provided next (or first, if -async is not provided). If it is not found in the current working directory, the user-defined script paths specified in Preferences and the local siril-scripts repository will be searched. All subsequent arguments will be treated as script arguments and passed to the script as its argument vector. Note that the specific script must incorporate support for reading input from the argument vector\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+    "syntax": "pyscript [-async] scriptname.py [script_argv]",
+    "scriptable": true,
+    "inputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw"
+        ],
+        "cardinality": "many",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "file"
+      },
+      {
+        "name": "script_file",
+        "type": "APF_FILE",
+        "formats": [
+          "other",
+          "fits",
+          "image"
+        ],
+        "cardinality": "one",
+        "required": false,
+        "supports_hdu": false,
+        "supports_slice": false,
+        "multiple_connections": false,
+        "data_kind": "file"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "type": "APF_SCIENCE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video",
+          "numpy",
+          "other"
+        ],
+        "cardinality": "many",
+        "required": false
+      },
+      {
+        "name": "files",
+        "type": "APF_FILE",
+        "formats": [
+          "fits",
+          "xisf",
+          "image",
+          "raw",
+          "video",
+          "numpy",
+          "other"
+        ],
+        "cardinality": "many",
+        "required": false
+      },
+      {
+        "name": "analysis",
+        "type": "APF_ANALYSIS",
+        "formats": [
+          "other"
+        ],
+        "cardinality": "many",
+        "required": true
+      }
+    ],
+    "parameters": [
+      {
+        "name": "script_source",
+        "kind": "choice",
+        "default": "inline",
+        "advanced": false,
+        "nullable": false,
+        "choices": [
+          "inline",
+          "file"
+        ]
+      },
+      {
+        "name": "load_image",
+        "kind": "boolean",
+        "default": true,
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "script",
+        "kind": "string",
+        "default": "print(\"Siril Python script\")",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "arguments",
+        "kind": "string",
+        "default": "[]",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "output_files",
+        "kind": "string",
+        "default": "[]",
+        "advanced": false,
+        "nullable": false
+      },
+      {
+        "name": "runtime",
+        "kind": "string",
+        "default": "{}",
+        "advanced": true,
+        "nullable": false
+      }
+    ],
+    "cancel_supported": true,
+    "parameter_widgets": {
+      "script": "multiline",
+      "arguments": "multiline",
+      "output_files": "multiline",
+      "runtime": "multiline"
+    }
+  },
+  "preview": null,
+  "output_display": "auto",
+  "help": "Siril 1.4.4. Executes a Siril python script\n\nAn optional argument -async may be provided. If it is provided it must be the first argument. This allows the script launched by pyscript to run in the background without blocking a script that calls it. This is expected to be useful for launcher-type scripts. The default is for the script to block until completion if pyscript is run as part of a script, but not to block if run from the GUI command entry (so the -async argument makes no difference when running like that).\n\nThe script name must be provided next (or first, if -async is not provided). If it is not found in the current working directory, the user-defined script paths specified in Preferences and the local siril-scripts repository will be searched. All subsequent arguments will be treated as script arguments and passed to the script as its argument vector. Note that the specific script must incorporate support for reading input from the argument vector\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.\n\nRuns synchronously so completion and cancellation remain observable; -async is not exposed as a fire-and-forget node. User scripts execute with local user permissions.\nInput bytes are copied unchanged into the call directory. load_image loads the first staged input as the Siril image context; turn it off for non-image scientific containers. Argument placeholders {input0}, {input1}, … address the fixed staged files.\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.",
+  "examples": [
+    {
+      "script_source": "inline",
+      "load_image": true,
+      "script": "print(\"Siril Python script\")",
+      "arguments": "[]",
+      "output_files": "[]",
+      "runtime": "{}"
+    }
+  ],
+  "limitations": [
+    "Runs synchronously so completion and cancellation remain observable; -async is not exposed as a fire-and-forget node. User scripts execute with local user permissions.",
+    "Input bytes are copied unchanged into the call directory. load_image loads the first staged input as the Siril image context; turn it off for non-image scientific containers. Argument placeholders {input0}, {input1}, … address the fixed staged files."
+  ],
+  "dependencies": [],
+  "corrections": []
+}

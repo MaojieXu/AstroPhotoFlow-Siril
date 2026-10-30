@@ -1,0 +1,59 @@
+{
+  "definition_id": "35182b53-5ce6-56cb-b306-c18101b49c9b",
+  "source": "package",
+  "name": "Siril icc assign",
+  "description": "Assigns the ICC profile specified in the argument to the current image.\n\nOne of the following special arguments may be provided to use the respective built-in profiles: sRGB , sRGBlinear , Rec2020 , Rec2020linear , working to set the working mono or RGB color profile, (for mono images only) linear , or the path to an ICC profile file may be provided. If a built-in profile is specified with a monochrome image loaded, the Gray profile with the corresponding TRC will be used\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
+  "inputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    },
+    {
+      "name": "icc_profile",
+      "type": "APF_FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image",
+      "type": "APF_SCIENCE"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "profile",
+      "kind": "string",
+      "default": "sRGB",
+      "advanced": false,
+      "nullable": false
+    },
+    {
+      "name": "runtime",
+      "kind": "string",
+      "default": "{}",
+      "advanced": true,
+      "nullable": false
+    }
+  ],
+  "execution": {
+    "package_id": "siril",
+    "operation_id": "icc_assign",
+    "inputs": {
+      "image": "image",
+      "icc_profile": "icc_profile"
+    },
+    "outputs": {
+      "image": "image"
+    },
+    "parameters": {
+      "profile": {
+        "kind": "parameter",
+        "name": "profile"
+      },
+      "runtime": {
+        "kind": "parameter",
+        "name": "runtime"
+      }
+    }
+  }
+}

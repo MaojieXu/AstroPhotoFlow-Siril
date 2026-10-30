@@ -1,10 +1,14 @@
 # AstroPhotoFlow Siril Bundle
 
-Bundle 0.1.2-dev.1 / Siril 1.4.4 / Windows x86_64 / host API 1.
+Bundle 0.2.0-dev.1 / Siril 1.4.4 / Windows x86_64 / host API 2.
 
-Install through AstroPhotoFlow using the release tag and pinned Git commit. The app directory is tracked with ordinary Git, not LFS. Only Auto Stretch is an executable node; the 199 reference commands are documentation.
+This is an unreleased Feature candidate. Install through AstroPhotoFlow using a new development tag and its pinned Git commit after local commit authorization. The app directory is tracked with ordinary Git, not LFS; the Siril 1.4.4 runtime is unchanged.
 
-The adapter imports only the platform contracts SDK and standard library. It writes process scripts; the host owns process launch, cancellation, science references, caches and canvas authority. Run tests with `python -m pytest tests` in an environment containing AstroPhotoFlow.
+The candidate implements 160 typed operations covering all 181 scriptable reference commands through executable nodes, per-call runtime/IO settings and explicit combined operations. All 199 indexed entries are accounted for in [coverage](reference/coverage.json). The fixed Windows executable provides 198 entries: 181 scriptable, 17 non-scriptable; `ls` is unavailable on Windows, which uses `dir`. Non-scriptable/GUI/session display commands are documented without fake executable nodes, as agreed with the owner.
+
+Declarations and process-plan compilation are not runtime acceptance. Current recipe tests are written but have not been executed; native loading, scientific processing combinations and visual acceptance remain to be verified. See [usage](docs/usage.md) and the retained prior evidence in `reference/assessments.json`.
+
+The adapter imports only the platform contracts SDK and standard library. It writes invocation-owned scripts and parses actual files/logs into normalized analysis artifacts; the host owns process launch, progress, observed process-tree cancellation, fixed references, scientific checks, caches and canvas authority. Build declarations with `python tools/build_catalog.py`. Integration-stage tests use `python -m pytest tests` in an environment containing SDK v2; Feature development does not run the test suite by default.
 
 Siril is GPL-3.0-or-later. Distributed runtime license notices remain under app; upstream corresponding source: https://gitlab.com/free-astro/siril/-/tree/1.4.4 . Do not remove dependency notices.
 
