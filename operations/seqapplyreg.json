@@ -81,10 +81,17 @@
       },
       {
         "name": "layer",
-        "kind": "int",
-        "default": 0,
+        "kind": "choice",
+        "default": "red",
         "advanced": true,
-        "nullable": false
+        "nullable": false,
+        "choices": [
+          "red",
+          "green",
+          "blue",
+          "lum",
+          "col"
+        ]
       },
       {
         "name": "interpolation",
@@ -280,7 +287,7 @@
       "use_scale": false,
       "scale": 1,
       "use_layer": false,
-      "layer": 0,
+      "layer": "red",
       "interpolation": "lanczos4",
       "no_clamp": false,
       "drizzle": false,

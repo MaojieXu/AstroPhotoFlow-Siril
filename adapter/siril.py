@@ -108,6 +108,8 @@ def _tokens(recipe, values, *, skip=()):
         elif values['method'] == 'sos':
             result.append('-sos=' + str(values['sos_iterations']))
     if 'statistics' in values and recipe['command'] == 'stat' and values['statistics'] == 'main':
+        if values['cfa']:
+            raise ValueError('Siril 1.4.4 cannot combine CFA statistics with main; choose one mode.')
         result.append('main')
     if recipe['command'] in {'platesolve', 'seqplatesolve'} and values['use_centre_coordinates']:
         coordinates = values['centre_coordinates']
@@ -343,7 +345,10 @@ def _image_arguments(recipe, values, sources):
         arguments.insert(0, token(profile))
     for name, option in [('guide', '-guideimage='), ('psf', '-loadpsf='), ('distortion', '-disto=')]:
         if name in sources:
-            arguments.append(token(option + sources[name][0].as_posix()))
+            if name == 'distortion' and command == 'register':
+                arguments.extend(['-disto=file', quoted(sources[name][0])])
+            else:
+                arguments.append(token(option + sources[name][0].as_posix()))
     if command in {'ght', 'invght', 'modasinh', 'invmodasinh'} and values['stretch'] <= 0:
         raise ValueError('Generalised stretch D must be greater than zero.')
     if command in {'mtf', 'invmtf', 'seqmtf'} and not (0 <= values['low'] < values['high'] <= 1 and 0 < values['mid'] < 1):
@@ -845,7 +850,7 @@ def _table(path, command):
     rows, columns, count = [], [], 0
     with path.open('r', encoding='utf-8', errors='replace', newline='') as stream:
         content = (line for line in stream if line.strip() and not line.lstrip().startswith('#'))
-        records = csv.reader(content) if path.suffix.lower() == '.csv' else (line.split() for line in content)
+        records = csv.reader(content, delimiter='\t' if command == 'seqstat' else ',') if path.suffix.lower() == '.csv' else (line.split() for line in content)
         for record in records:
             values = [_cell(value) for value in record]
             if not columns:

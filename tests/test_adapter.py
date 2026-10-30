@@ -3,6 +3,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+from astrophotoflow.contracts.software import ParameterDefinition
+
 import pytest
 
 
@@ -211,3 +213,41 @@ def test_full_index_is_accounted_for_without_non_scriptable_placeholder_nodes():
     assert 0 < len(manifest['output_nodes']) < len(definitions)
     gauss = next(node for node in definitions if node['execution']['operation_id'] == 'gauss')
     assert gauss['definition_id'] not in manifest['output_nodes']
+
+
+@pytest.mark.parametrize('operation,values,expected', [
+    ('icc_convert_to', {'intent': 'perceptual'}, 'icc_convert_to "sRGB" "perceptual"'),
+    ('limit', {'method': 'clip'}, 'limit "-clip"'),
+    ('limit', {'method': 'posrescale'}, 'limit "-posrescale"'),
+    ('limit', {'method': 'rescale'}, 'limit "-rescale"'),
+    ('profile', {'use_layer': True, 'layer': 'lum'}, '"-layer=lum"'),
+    ('seqprofile', {'use_layer': True, 'layer': 'red'}, '"-layer=red"'),
+])
+def test_fixed_cli_parameter_spellings(tmp_path, operation, values, expected):
+    for name, value in values.items():
+        parameter = next(item["schema"] for item in adapter.RECIPES[operation]["parameters"] if item["schema"]["name"] == name)
+        ParameterDefinition.model_validate({**parameter, "default": value})
+    assert expected in script(build(tmp_path, operation, values=values))
+
+
+def test_register_uses_the_fixed_file_distortion_syntax(tmp_path):
+    image, distortion = tmp_path/'source.fit', tmp_path/'distortion.wcs'
+    image.write_bytes(b'fixed image')
+    distortion.write_bytes(b'fixed distortion')
+    plan = build(tmp_path, 'register', sources={'image': [image], 'distortion': [distortion]})
+    text = script(plan)
+    assert '-disto=file ' in text
+    assert '-disto=' + distortion.as_posix() not in text
+
+
+def test_sequence_statistics_tsv_preserves_columns_zero_and_unavailable(tmp_path):
+    path = tmp_path/'statistics.csv'
+    path.write_text('image\tchannel\tmean\tnoise\n1\t0\t0.25\tnan\n', encoding='utf-8')
+    result = adapter._table(path, 'seqstat')
+    assert result.columns == ['image', 'channel', 'mean', 'noise']
+    assert result.rows == [[1, 0, 0.25, None]]
+
+
+def test_stat_rejects_the_fixed_cli_combination_that_ignores_cfa_and_main(tmp_path):
+    with pytest.raises(ValueError, match='CFA.*main'):
+        build(tmp_path, 'stat', values={'cfa': True, 'statistics': 'main'})

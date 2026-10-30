@@ -39,3 +39,10 @@ Python scripts run through Siril's `pyscript`, synchronously. Choose inline cont
 - StarNet requires a compatible executable/weights. Local astrometry.net, local/online catalogs, SPCC responses and embedded Python must be available for the selected operation. No proprietary dependency, login or global configuration is silently installed. Missing requirements produce the real CLI failure and log.
 
 No current operation is claimed as runtime-verified merely because its declaration compiles. Integration must exercise the meaningful image, calibration, registration, stacking, movie/container, multi-output, analysis, dependency-error and cancellation combinations on synthetic data, then distinguish those results from user visual acceptance.
+
+
+## Current Windows integration limits
+
+The current Windows integration did not pass `seqprofile`: Siril wrote DAT files, then attempted its embedded Python/plot environment and exited with `0xC0000005`. This is a failed runtime check, not an accepted node result. A working Siril Python/plot environment must be separately validated before relying on this operation. The host preserves the actual failure and full log. StarNet without a configured executable also returned its actual missing-dependency error; no dependency was installed by the host.
+
+Siril 1.4.4 silently ignores both requested modes for `stat -cfa main`; this combination is rejected rather than publishing B&W/basic statistics as CFA/main. Use the separate supported CFA or main mode.

@@ -132,7 +132,7 @@ for command in ['cosme', 'cosme_cfa']:
 for command in ['icc_assign', 'icc_convert_to']:
     params = [text('profile', 'sRGB', token='profile')]
     if command == 'icc_convert_to':
-        params.append(number('intent', 0, minimum=0, maximum=3, integer=True))
+        params.append(choice('intent', ['perceptual', 'relative', 'saturation', 'absolute']))
     add(command, 'image', *params, inputs=[port(), port('icc_profile', one=True, file=True, required=False)])
 
 add('subsky', 'image', choice('model', ['polynomial', 'rbf'], token='background_model'),
@@ -152,7 +152,7 @@ add('findstar', 'analysis', number('layer', 0, minimum=0, maximum=2, integer=Tru
 add('find_hot', 'analysis', number('cold_sigma', 3), number('hot_sigma', 3))
 add('psf', 'analysis', number('channel', 0, minimum=0, maximum=2, integer=True), text('selection', '[0,0,32,32]', token='selection'))
 add('profile', 'analysis', text('from_pixel', '0,0', token='-from='), text('to_pixel', '1,1', token='-to='), flag('tri'), flag('cfa'),
-    flag('arcsec'), number('layer', 0, integer=True, token='-layer=', optional=True), number('width', 1, token='-width=', optional=True),
+    flag('arcsec'), choice('layer', ['red', 'green', 'blue', 'lum', 'col'], token='-layer=', optional=True), number('width', 1, token='-width=', optional=True),
     number('spacing', 1, token='-spacing=', optional=True), text('title', token='-title=', optional=True))
 
 add('split', 'split', choice('colour_space', ['rgb', 'hsl', 'hsv', 'lab'], token='split_mode'))
@@ -267,7 +267,7 @@ for command in ['convert', 'convertraw', 'link']:
 FILTERS = [number('filter_' + name, 0, token='-filter-' + name + '=', optional=True)
            for name in ['fwhm', 'wfwhm', 'round', 'bkg', 'nbstars', 'quality']]
 FILTERS += [choice('filter_unit', ['absolute', 'percent', 'sigma'], token='filter_unit'), flag('filter_included', '-filter-included')]
-REGISTER = [number('scale', 1, token='-scale=', optional=True), number('layer', 0, integer=True, token='-layer=', optional=True),
+REGISTER = [number('scale', 1, token='-scale=', optional=True), choice('layer', ['red', 'green', 'blue', 'lum', 'col'], token='-layer=', optional=True),
             choice('interpolation', INTERPOLATION, token='-interp='), flag('no_clamp', '-noclamp'), flag('drizzle'),
             number('pixel_fraction', 1, token='-pixfrac=', optional=True), text('kernel', token='-kernel=', optional=True)]
 add('register', 'registration', flag('two_pass', '-2pass'), flag('selected'), *REGISTER,
@@ -345,7 +345,7 @@ add('findcompstars', 'analysis', text('star_name'), choice('search_width', ['def
 
 add('pm', 'pixel_math', text('expression', '$0'), flag('rescale'), number('low', 0), number('high', 1), flag('no_sum', '-nosum'),
     inputs=[port('images', multiple=True)], limitations=['Filenames in expressions are replaced by explicit $0, $1, … fixed image inputs; arbitrary disk paths are rejected.'])
-add('limit', 'image', choice('method', ['clip', 'posrescale', 'rescale'], token='limit_mode'))
+add('limit', 'image', choice('method', ['clip', 'posrescale', 'rescale'], token='-'))
 add('live_stack', 'live_stack', flag('rotate'), flag('force_32bit', '-32bits'),
     inputs=[port(), port('dark', one=True, required=False), port('flat', one=True, required=False)],
     covers=['start_ls', 'livestack', 'stop_ls'], limitations=['A finite fixed group is consumed in order; GUI file watching is not provided by Siril headless.'])

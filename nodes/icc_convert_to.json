@@ -29,12 +29,16 @@
     },
     {
       "name": "intent",
-      "kind": "int",
-      "default": 0,
+      "kind": "choice",
+      "default": "perceptual",
       "advanced": false,
       "nullable": false,
-      "minimum": 0,
-      "maximum": 3
+      "choices": [
+        "perceptual",
+        "relative",
+        "saturation",
+        "absolute"
+      ]
     },
     {
       "name": "runtime",

@@ -92,10 +92,17 @@
       },
       {
         "name": "layer",
-        "kind": "int",
-        "default": 0,
+        "kind": "choice",
+        "default": "red",
         "advanced": true,
-        "nullable": false
+        "nullable": false,
+        "choices": [
+          "red",
+          "green",
+          "blue",
+          "lum",
+          "col"
+        ]
       },
       {
         "name": "use_width",
@@ -163,7 +170,7 @@
       "cfa": false,
       "arcsec": false,
       "use_layer": false,
-      "layer": 0,
+      "layer": "red",
       "use_width": false,
       "width": 1,
       "use_spacing": false,

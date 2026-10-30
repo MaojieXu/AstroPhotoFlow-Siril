@@ -68,10 +68,17 @@
     },
     {
       "name": "layer",
-      "kind": "int",
-      "default": 0,
+      "kind": "choice",
+      "default": "red",
       "advanced": true,
-      "nullable": false
+      "nullable": false,
+      "choices": [
+        "red",
+        "green",
+        "blue",
+        "lum",
+        "col"
+      ]
     },
     {
       "name": "use_width",
