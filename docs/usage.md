@@ -56,3 +56,8 @@ No current operation is claimed as runtime-verified merely because its declarati
 The current Windows integration did not pass `seqprofile`: Siril wrote DAT files, then attempted its embedded Python/plot environment and exited with `0xC0000005`. This is a failed runtime check, not an accepted node result. A working Siril Python/plot environment must be separately validated before relying on this operation. The host preserves the actual failure and full log. StarNet without a configured executable also returned its actual missing-dependency error; no dependency was installed by the host.
 
 Siril 1.4.4 silently ignores both requested modes for `stat -cfa main`; this combination is rejected rather than publishing B&W/basic statistics as CFA/main. Use the separate supported CFA or main mode.
+
+
+## 2026-10-31 集成验证
+
+本轮候选 `cdf952c14ae160e86add8dcc2142b16c39719936` 经独立审查后修复单帧输出压缩描述与格式依赖热加载；完整 Bundle 回归 51 项通过。平台配套产品提交 `2a1b98cdb9dd26c39d79886525a567e1a7456b63` 已验证双分支共享上游、分析输出、跨运行签名及原件保护；详细结果见平台 `docs/development/test-matrix.md#node-ui-bundle-integration`。本轮仍为开发源码候选，不修改已发布 tag，不表示 160 项操作全部科学验收。
