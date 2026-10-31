@@ -148,7 +148,8 @@ def main():
     if set(coverage) != set(commands):
         raise ValueError('Coverage does not match the full reference index.')
     manifest = json.loads((ROOT / 'bundle.json').read_text(encoding='utf-8'))
-    manifest.update(bundle_version='0.2.0-dev.1', host_api=2, operations=operation_paths, nodes=node_paths, output_nodes=endpoints)
+    manifest.update(bundle_version='0.2.0-dev.2', host_api=2, operations=operation_paths, nodes=node_paths, output_nodes=endpoints,
+                    locales={'en': 'locales/en.json', 'zh': 'locales/zh.json'})
     write(ROOT / 'bundle.json', manifest)
     write(ROOT / 'reference/coverage.json', dict(software_version='1.4.4', platform='windows-x86_64', indexed_commands=len(commands),
                                                executable_operations=len(RECIPES), commands=[coverage[item['command']] for item in reference]))
@@ -182,6 +183,7 @@ def main():
             if item.get('view_alternative'):
                 assessment['node_definition_reason'] += ' ' + item['view_alternative']
     write(ROOT / 'reference/assessments.json', assessments)
+    runpy.run_path(str(ROOT / 'tools/build_locales.py'))['main']()
     print(json.dumps(dict(operations=len(RECIPES), indexed_commands=len(coverage), endpoints=len(endpoints))))
 
 

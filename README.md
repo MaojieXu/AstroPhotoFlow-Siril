@@ -1,8 +1,10 @@
 # AstroPhotoFlow Siril Bundle
 
-Bundle 0.2.0-dev.1 / Siril 1.4.4 / Windows x86_64 / host API 2.
+Bundle 0.2.0-dev.2 / Siril 1.4.4 / Windows x86_64 / host API 2.
 
-This is an unreleased Feature candidate. Install through AstroPhotoFlow using a new development tag and its pinned Git commit after local commit authorization. The app directory is tracked with ordinary Git, not LFS; the Siril 1.4.4 runtime is unchanged.
+Install this development release through AstroPhotoFlow using tag `v0.2.0-dev.2` and its pinned Git commit. The app directory is tracked with ordinary Git, not LFS; the Siril 1.4.4 runtime is unchanged.
+
+English and Simplified Chinese display catalogs cover all 160 declared operations/nodes, parameters and ports. They require a platform that supports the optional `locales` Bundle metadata. Authored Chinese text lives in `locales/source.zh.json`; `python tools/build_catalog.py` rebuilds declarations and both display catalogs. `python tools/build_locales.py` rebuilds display catalogs alone without modifying executable declarations. Labels never rename command, parameter, node or port identities. Original Siril logs remain unchanged.
 
 The candidate implements 160 typed operations covering all 181 scriptable reference commands through executable nodes, per-call runtime/IO settings and explicit combined operations. All 199 indexed entries are accounted for in [coverage](reference/coverage.json). The fixed Windows executable provides 198 entries: 181 scriptable, 17 non-scriptable; `ls` is unavailable on Windows, which uses `dir`. Non-scriptable/GUI/session display commands are documented without fake executable nodes, as agreed with the owner.
 
