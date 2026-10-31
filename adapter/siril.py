@@ -1023,8 +1023,18 @@ def parse_result(operation_id, directory, plan, log_path):
         files = [folder / (stem + suffix) for suffix in ['.fit', '.fits', '.fts', '.fit.fz', '.fits.fz', '.fts.fz'] if (folder / (stem + suffix)).is_file()]
         if len(files) != 1:
             raise ValueError('The single sequence frame is missing or ambiguous.')
-        if not (folder / (single['base'] + '.seq')).exists():
+        descriptor = folder / (single['base'] + '.seq')
+        if not descriptor.exists():
             _write_single_sequence(folder, single['base'], single['member'], single['selected'], single['fixed'], compressed=files[0].name.endswith('.fz'))
+        elif _sequence_descriptor(descriptor)['frames'] == 1:
+            lines = descriptor.read_text(encoding='utf-8').splitlines()
+            for index, line in enumerate(lines):
+                if line.startswith("S '"):
+                    fields = line.rsplit(' ', 4)
+                    if len(fields) == 5:
+                        fields[-2] = str(int(files[0].name.endswith('.fz')))
+                        lines[index] = ' '.join(fields)
+            descriptor.write_text('\n'.join(lines) + '\n', encoding='utf-8')
     for output in plan.outputs.values():
         descriptors = [path for pattern in output.supporting_patterns if pattern.pattern.endswith('*.seq')
                        for path in directory.glob(pattern.pattern)]

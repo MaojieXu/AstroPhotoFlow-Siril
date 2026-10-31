@@ -29,7 +29,7 @@ def test_single_static_frame_gets_an_explicit_one_member_sequence(tmp_path):
     assert descriptor['frames'] == descriptor['selected'] == 1
     assert descriptor['members'] == [(1, 1)]
     assert len([command for command in commands if command.startswith('load ')]) == 1
-    assert commands[-1] == 'getref input_'
+    assert commands[-1] == 'getref "input_"'
     assert source.read_bytes() == b'untouched source'
 
 
@@ -40,8 +40,8 @@ def test_single_frame_result_is_collected_without_siril_directory_discovery(tmp_
     work.mkdir()
     plan = adapter.build_plan('seqsubsky', {'image': [source]}, defaults('seqsubsky'), work)
     script = (work / 'operation.ssf').read_text(encoding='utf-8')
-    assert 'seqsubsky input_' in script
-    assert 'getref result_input_' not in script
+    assert 'seqsubsky "input_"' in script
+    assert 'getref "result_input_"' not in script
     sequence = work / 'sequence'
     (sequence / 'result_input_00001.fit').write_bytes(b'produced frame')
     (sequence / 'result_input_.seq').unlink(missing_ok=True)
@@ -294,3 +294,26 @@ def test_registration_layer_remains_a_numeric_cli_channel(tmp_path, operation):
     ParameterDefinition.model_validate({**parameter, 'default': 0})
     text = script(build(tmp_path, operation, values={'use_layer': True, 'layer': 0}))
     assert '"-layer=0"' in text
+
+
+def test_single_compressed_result_descriptor_tracks_actual_frame(tmp_path):
+    source = tmp_path / 'single.fit'
+    source.write_bytes(b'original')
+    work = tmp_path / 'work'
+    work.mkdir()
+    plan = adapter.build_plan('seqsubsky', {'image': [source]}, defaults('seqsubsky'), work)
+    sequence = work / 'sequence'
+    (sequence / 'result_input_00001.fit.fz').write_bytes(b'compressed result')
+    descriptor = sequence / 'result_input_.seq'
+    assert descriptor.is_file()
+    log = work / 'siril.log'
+    log.write_text('Sequence processing succeeded.\nScript execution finished successfully.\n', encoding='utf-8')
+    adapter.parse_result('seqsubsky', work, plan, log)
+    assert descriptor.read_text().splitlines()[0].split()[-2] == '1'
+    assert adapter._sequence_descriptor(descriptor)['members'] == [(1, 1)]
+    assert source.read_bytes() == b'original'
+
+
+def test_development_watch_covers_adapter_format_dependency():
+    configuration = json.loads((ROOT / 'development.json').read_text())
+    assert any(ROOT / 'reference/formats.json' in ROOT.glob(pattern) for pattern in configuration['watch'])
