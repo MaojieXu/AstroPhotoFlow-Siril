@@ -1,7 +1,11 @@
 {
   "definition_id": "addb514c-5cdd-5e77-9c53-e77301258f21",
   "source": "package",
-  "name": "Siril crop",
+  "name": "Crop Image (crop)",
+  "category": [
+    "geometry-channels",
+    "crop-scale"
+  ],
   "description": "Crops to a selected area of the loaded image.\n\nIf a selection is active, no further arguments are required. Otherwise, or in scripts, arguments have to be given, with x and y being the coordinates of the top left corner, and width and height the size of the selection. Alternatively, the selection can be made using the BOXSELECT command\n\nLinks: boxselect\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

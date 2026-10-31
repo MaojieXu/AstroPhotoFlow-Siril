@@ -1,7 +1,11 @@
 {
   "definition_id": "856a9e98-68bf-573e-b821-d5e79ce6fbe7",
   "source": "package",
-  "name": "Siril seqsb",
+  "name": "Sequence Split Bregman Deconvolution (seqsb)",
+  "category": [
+    "background-filters",
+    "deconvolution"
+  ],
   "description": "The same as the SB command, but applies to a sequence which must be specified as the first argument\n\nLinks: sb\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "4c0f2183-8aa2-519f-9d1f-cab39c41c80d",
   "source": "package",
-  "name": "Siril gauss",
+  "name": "Gaussian Blur (gauss)",
+  "category": [
+    "background-filters",
+    "noise-banding"
+  ],
   "description": "Applies to the loaded image a Gaussian blur with the given sigma .\n\nSee also UNSHARP, the same with a blending parameter\n\nLinks: unsharp\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

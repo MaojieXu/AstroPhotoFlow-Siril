@@ -1,7 +1,11 @@
 {
   "definition_id": "1ee5542b-c7aa-58c3-8358-c8e48e066a68",
   "source": "package",
-  "name": "Siril rotatePi",
+  "name": "Rotate 180 Degrees (rotatePi)",
+  "category": [
+    "geometry-channels",
+    "rotate-flip"
+  ],
   "description": "Rotates the loaded image of an angle of 180° around its center. This is equivalent to the command \"ROTATE 180\" or \"ROTATE -180\"\n\nLinks: rotate\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

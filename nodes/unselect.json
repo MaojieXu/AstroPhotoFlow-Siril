@@ -1,7 +1,11 @@
 {
   "definition_id": "542b4e00-4179-5d2b-8889-c13566b005e3",
   "source": "package",
-  "name": "Siril unselect",
+  "name": "Deselect Sequence Frames (unselect)",
+  "category": [
+    "files-sequences",
+    "sequence-management"
+  ],
   "description": "Allows easy mass unselection of images in the sequence sequencename (from from to to included). See SELECT\n\nLinks: select\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

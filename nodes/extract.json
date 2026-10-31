@@ -1,7 +1,11 @@
 {
   "definition_id": "1bce86cf-de0f-5f0b-8868-21d8dfd2f126",
   "source": "package",
-  "name": "Siril extract",
+  "name": "Extract Wavelet Layers (extract)",
+  "category": [
+    "background-filters",
+    "frequency-wavelets"
+  ],
   "description": "Extracts NbPlans planes of wavelet domain of the loaded image.\n\nSee also WAVELET and WRECONS. For color extraction, see SPLIT\n\nLinks: wavelet , wrecons , split\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

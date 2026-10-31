@@ -1,7 +1,11 @@
 {
   "definition_id": "35464861-1217-50b4-a095-13ff58ed5e71",
   "source": "package",
-  "name": "Siril seqcosme",
+  "name": "Sequence Cosmetic Correction (seqcosme)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Same command as COSME but for the the sequence sequencename . Only selected images in the sequence are processed.\n\nThe output sequence name starts with the prefix \"cosme_\" unless otherwise specified with option -prefix=\n\nLinks: cosme\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

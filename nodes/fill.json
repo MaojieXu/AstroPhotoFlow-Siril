@@ -1,7 +1,11 @@
 {
   "definition_id": "a0ef0d58-ef58-5ced-812a-6285035a35c8",
   "source": "package",
-  "name": "Siril fill",
+  "name": "Fill Pixels (fill)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "Fills the loaded image entirely or only the selection if there is one with pixels having the value intensity expressed in ADU\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

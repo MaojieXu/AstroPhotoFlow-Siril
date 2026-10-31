@@ -1,7 +1,11 @@
 {
   "definition_id": "d01ab197-f226-586c-8b7b-ff066e81b0ca",
   "source": "package",
-  "name": "Siril savetif",
+  "name": "Export 16-bit TIFF (savetif)",
+  "category": [
+    "files-sequences",
+    "export"
+  ],
   "description": "Saves current image under the form of a uncompressed TIFF file with 16-bit per channel: filename .tif. The option -astro allows saving in Astro-TIFF format, while -deflate enables compression.\n\nSee also SAVETIF32 and SAVETIF8\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

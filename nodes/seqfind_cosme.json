@@ -1,7 +1,11 @@
 {
   "definition_id": "722ea601-082d-5aa2-a58c-5637a76cee79",
   "source": "package",
-  "name": "Siril seqfind cosme",
+  "name": "Sequence Automatic Cosmetic Correction (seqfind_cosme)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Same command as FIND_COSME but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"cc_\" unless otherwise specified with -prefix= option\n\nLinks: find_cosme\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "4fe093a2-4627-5330-b28a-270df6ddbee3",
   "source": "package",
-  "name": "Siril binxy",
+  "name": "Pixel Binning (binxy)",
+  "category": [
+    "geometry-channels",
+    "crop-scale"
+  ],
   "description": "Computes the numerical binning of the in-memory image (sum of the pixels 2x2, 3x3..., like the analogic binning of CCD camera). If the optional argument -sum is passed, then the sum of pixels is computed, while it is the average when no optional argument is provided\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

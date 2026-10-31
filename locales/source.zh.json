@@ -2,643 +2,1603 @@
   "operations": {
     "autostretch": {
       "name": "自动拉伸",
-      "description": "自动拉伸当前图像。默认分别处理各颜色通道，启用 linked 时关联通道；颜色校准后应使用关联模式，避免改变白平衡。shadowsclip 以直方图主峰的标准差为单位，targetbg 为目标背景亮度。"
+      "description": "自动拉伸当前图像。默认分别处理各颜色通道，启用 linked 时关联通道；颜色校准后应使用关联模式，避免改变白平衡。shadowsclip 以直方图主峰的标准差为单位，targetbg 为目标背景亮度。",
+      "category": [
+        "stretch-color",
+        "automatic-stretch"
+      ],
+      "name_en": "Auto Stretch",
+      "automatic_result_preview": true
     },
     "asinh": {
       "name": "反双曲正弦拉伸",
-      "description": "使用反双曲正弦变换显示暗弱目标。stretch 控制拉伸强度；可选黑点偏移仅在启用对应控制后发送。"
+      "description": "使用反双曲正弦变换显示暗弱目标。stretch 控制拉伸强度；可选黑点偏移仅在启用对应控制后发送。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Asinh Stretch",
+      "automatic_result_preview": true
     },
     "autoghs": {
       "name": "自动广义双曲拉伸",
-      "description": "根据各通道中位数和标准差确定对称点并应用广义双曲拉伸。关联通道与强度设置按所选参数执行。"
+      "description": "根据各通道中位数和标准差确定对称点并应用广义双曲拉伸。关联通道与强度设置按所选参数执行。",
+      "category": [
+        "stretch-color",
+        "automatic-stretch"
+      ],
+      "name_en": "Automatic Generalized Hyperbolic Stretch",
+      "automatic_result_preview": true
     },
     "ght": {
       "name": "广义双曲拉伸",
-      "description": "对图像应用广义双曲拉伸；通过对称点、局部强度及高低端保护控制变换。"
+      "description": "对图像应用广义双曲拉伸；通过对称点、局部强度及高低端保护控制变换。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Generalized Hyperbolic Stretch",
+      "automatic_result_preview": true
     },
     "invght": {
       "name": "逆广义双曲拉伸",
-      "description": "应用广义双曲拉伸的逆变换。只有使用与原变换一致的参数且数据未丢失时，才可能恢复原线性图像。"
+      "description": "应用广义双曲拉伸的逆变换。只有使用与原变换一致的参数且数据未丢失时，才可能恢复原线性图像。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Inverse Generalized Hyperbolic Stretch",
+      "automatic_result_preview": true
     },
     "modasinh": {
       "name": "改进反双曲正弦拉伸",
-      "description": "应用改进的反双曲正弦拉伸，支持对称点及高低端保护控制。"
+      "description": "应用改进的反双曲正弦拉伸，支持对称点及高低端保护控制。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Modified Asinh Stretch",
+      "automatic_result_preview": true
     },
     "invmodasinh": {
       "name": "逆改进反双曲正弦拉伸",
-      "description": "应用改进反双曲正弦拉伸的逆变换。恢复效果依赖原变换参数与数据是否保留。"
+      "description": "应用改进反双曲正弦拉伸的逆变换。恢复效果依赖原变换参数与数据是否保留。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Inverse Modified Asinh Stretch",
+      "automatic_result_preview": true
     },
     "linstretch": {
       "name": "线性拉伸",
-      "description": "线性拉伸图像至新的黑点，按所选通道及保护参数处理。"
+      "description": "线性拉伸图像至新的黑点，按所选通道及保护参数处理。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Linear Stretch",
+      "automatic_result_preview": true
     },
     "mtf": {
       "name": "中间调传递函数",
-      "description": "对当前图像应用中间调传递函数，由低端、中间调和高端参数控制。"
+      "description": "对当前图像应用中间调传递函数，由低端、中间调和高端参数控制。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Midtones Transfer Function",
+      "automatic_result_preview": true
     },
     "invmtf": {
       "name": "逆中间调传递函数",
-      "description": "应用中间调传递函数的逆变换。使用相同参数时可撤回相应变换，但不能恢复已被裁掉的信息。"
+      "description": "应用中间调传递函数的逆变换。使用相同参数时可撤回相应变换，但不能恢复已被裁掉的信息。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Inverse Midtones Transfer Function",
+      "automatic_result_preview": true
     },
     "fix_xtrans": {
       "name": "修复 X-Trans 对焦像素",
-      "description": "修复富士 X-Trans 图像中的自动对焦像素；输入须适用于该 CFA 处理。"
+      "description": "修复富士 X-Trans 图像中的自动对焦像素；输入须适用于该 CFA 处理。",
+      "category": [
+        "preprocessing",
+        "calibration"
+      ],
+      "name_en": "Fix X-Trans Autofocus Pixels",
+      "automatic_result_preview": true
     },
     "grey_flat": {
       "name": "均衡 CFA 平场",
-      "description": "均衡 CFA 图像不同颜色子通道的平均强度，与校准中的 equalize CFA 处理对应。"
+      "description": "均衡 CFA 图像不同颜色子通道的平均强度，与校准中的 equalize CFA 处理对应。",
+      "category": [
+        "preprocessing",
+        "calibration"
+      ],
+      "name_en": "Equalize CFA Flat",
+      "automatic_result_preview": true
     },
     "mirrory": {
       "name": "沿垂直轴翻转",
-      "description": "沿垂直轴翻转图像。"
+      "description": "沿垂直轴翻转图像。",
+      "category": [
+        "geometry-channels",
+        "rotate-flip"
+      ],
+      "name_en": "Flip about Vertical Axis",
+      "automatic_result_preview": true
     },
     "rotatePi": {
       "name": "旋转 180°",
-      "description": "围绕图像中心旋转 180°，等价于旋转正或负 180°。"
+      "description": "围绕图像中心旋转 180°，等价于旋转正或负 180°。",
+      "category": [
+        "geometry-channels",
+        "rotate-flip"
+      ],
+      "name_en": "Rotate 180 Degrees",
+      "automatic_result_preview": true
     },
     "neg": {
       "name": "像素取反",
-      "description": "对实际像素值取反；32 位图像使用 1−value，16 位图像使用 65535−value。这不是只改变显示模式。"
+      "description": "对实际像素值取反；32 位图像使用 1−value，16 位图像使用 65535−value。这不是只改变显示模式。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Invert Pixels",
+      "automatic_result_preview": true
     },
     "log": {
       "name": "对数变换",
-      "description": "对图像应用 Siril 定义的对数变换，各通道按其最小和最大像素值归一化。"
+      "description": "对图像应用 Siril 定义的对数变换，各通道按其最小和最大像素值归一化。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Logarithmic Transformation",
+      "automatic_result_preview": true
     },
     "icc_remove": {
       "name": "移除 ICC 配置",
-      "description": "移除当前图像携带的 ICC 色彩配置，不表示已进行色彩空间转换。"
+      "description": "移除当前图像携带的 ICC 色彩配置，不表示已进行色彩空间转换。",
+      "category": [
+        "stretch-color",
+        "color-management"
+      ],
+      "name_en": "Remove ICC Profile",
+      "automatic_result_preview": true
     },
     "unclipstars": {
       "name": "修复饱和恒星",
-      "description": "重建被截断的恒星轮廓以降低其饱和色，并缩放输出，使像素值不超过 1。"
+      "description": "重建被截断的恒星轮廓以降低其饱和色，并缩放输出，使像素值不超过 1。",
+      "category": [
+        "stars",
+        "star-reconstruction"
+      ],
+      "name_en": "Reconstruct Saturated Stars",
+      "automatic_result_preview": true
     },
     "binxy": {
       "name": "数值合并像素",
-      "description": "按指定系数合并像素。默认计算平均值；启用 sum 时计算总和。两者的科学数值语义不同。"
+      "description": "按指定系数合并像素。默认计算平均值；启用 sum 时计算总和。两者的科学数值语义不同。",
+      "category": [
+        "geometry-channels",
+        "crop-scale"
+      ],
+      "name_en": "Pixel Binning",
+      "automatic_result_preview": true
     },
     "clahe": {
       "name": "局部直方图均衡",
-      "description": "使用限制对比度的自适应直方图均衡增强图像局部对比度。"
+      "description": "使用限制对比度的自适应直方图均衡增强图像局部对比度。",
+      "category": [
+        "background-filters",
+        "detail-enhancement"
+      ],
+      "name_en": "Contrast Limited Adaptive Histogram Equalization",
+      "automatic_result_preview": true
     },
     "fixbanding": {
       "name": "条带修正",
-      "description": "尝试移除图像的水平或垂直条带，按所选方向和强度参数处理。"
+      "description": "尝试移除图像的水平或垂直条带，按所选方向和强度参数处理。",
+      "category": [
+        "background-filters",
+        "noise-banding"
+      ],
+      "name_en": "Banding Reduction",
+      "automatic_result_preview": true
     },
     "fmedian": {
       "name": "中值滤波",
-      "description": "使用方形核进行中值滤波，核大小必须为奇数；modulation 控制混合强度。"
+      "description": "使用方形核进行中值滤波，核大小必须为奇数；modulation 控制混合强度。",
+      "category": [
+        "background-filters",
+        "noise-banding"
+      ],
+      "name_en": "Median Filter",
+      "automatic_result_preview": true
     },
     "fmul": {
       "name": "乘标量",
-      "description": "将当前图像像素乘以指定标量。"
+      "description": "将当前图像像素乘以指定标量。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Multiply by Scalar",
+      "automatic_result_preview": true
     },
     "gauss": {
       "name": "高斯模糊",
-      "description": "按指定 sigma 对图像应用高斯模糊。"
+      "description": "按指定 sigma 对图像应用高斯模糊。",
+      "category": [
+        "background-filters",
+        "noise-banding"
+      ],
+      "name_en": "Gaussian Blur",
+      "automatic_result_preview": true
     },
     "mirrorx": {
       "name": "沿水平轴翻转",
-      "description": "沿水平轴翻转图像；bottomup 模式只在图像尚未按底部向上排列时翻转。"
+      "description": "沿水平轴翻转图像；bottomup 模式只在图像尚未按底部向上排列时翻转。",
+      "category": [
+        "geometry-channels",
+        "rotate-flip"
+      ],
+      "name_en": "Flip about Horizontal Axis",
+      "automatic_result_preview": true
     },
     "nozero": {
       "name": "替换零像素",
-      "description": "将零像素替换为指定值，适用于除法前处理；不会自动替换其他异常数值。"
+      "description": "将零像素替换为指定值，适用于除法前处理；不会自动替换其他异常数值。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Replace Zero Pixels",
+      "automatic_result_preview": true
     },
     "offset": {
       "name": "增加像素偏移",
-      "description": "给图像加上以 ADU 表示的常量，允许负值。"
+      "description": "给图像加上以 ADU 表示的常量，允许负值。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Pixel Offset",
+      "automatic_result_preview": true
     },
     "threshlo": {
       "name": "限制低端像素",
-      "description": "将低于指定阈值的像素替换为阈值。"
+      "description": "将低于指定阈值的像素替换为阈值。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Lower Pixel Limit",
+      "automatic_result_preview": true
     },
     "threshhi": {
       "name": "限制高端像素",
-      "description": "将高于指定阈值的像素替换为阈值。"
+      "description": "将高于指定阈值的像素替换为阈值。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Upper Pixel Limit",
+      "automatic_result_preview": true
     },
     "thresh": {
       "name": "低端阈值处理",
-      "description": "将低于指定阈值的像素替换为阈值；该操作保留原 Siril 命令映射。"
+      "description": "将低于指定阈值的像素替换为阈值；该操作保留原 Siril 命令映射。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Lower Threshold",
+      "automatic_result_preview": true
     },
     "unsharp": {
       "name": "反锐化蒙版",
-      "description": "使用高斯模糊结果构建反锐化蒙版；sigma 控制尺度，amount 控制混合强度。"
+      "description": "使用高斯模糊结果构建反锐化蒙版；sigma 控制尺度，amount 控制混合强度。",
+      "category": [
+        "background-filters",
+        "detail-enhancement"
+      ],
+      "name_en": "Unsharp Mask",
+      "automatic_result_preview": true
     },
     "rgradient": {
       "name": "径向梯度滤波",
-      "description": "相对于指定中心进行径向与角向偏移，用于径向梯度处理；径向步长以像素表示，角向步长以度表示。"
+      "description": "相对于指定中心进行径向与角向偏移，用于径向梯度处理；径向步长以像素表示，角向步长以度表示。",
+      "category": [
+        "background-filters",
+        "detail-enhancement"
+      ],
+      "name_en": "Rotational Gradient Filter",
+      "automatic_result_preview": true
     },
     "rmgreen": {
       "name": "抑制绿色噪声",
-      "description": "应用类似 SCNR 的色度噪声抑制以减弱绿色偏色，按所选方法和强度处理。"
+      "description": "应用类似 SCNR 的色度噪声抑制以减弱绿色偏色，按所选方法和强度处理。",
+      "category": [
+        "stretch-color",
+        "color-adjustment"
+      ],
+      "name_en": "Remove Green Noise",
+      "automatic_result_preview": true
     },
     "satu": {
       "name": "调整色彩饱和度",
-      "description": "增强或调整图像色彩饱和度，可限定色相范围；建议逐步调整并检查结果。"
+      "description": "增强或调整图像色彩饱和度，可限定色相范围；建议逐步调整并检查结果。",
+      "category": [
+        "stretch-color",
+        "color-adjustment"
+      ],
+      "name_en": "Color Saturation",
+      "automatic_result_preview": true
     },
     "unpurple": {
       "name": "抑制恒星紫边",
-      "description": "应用修饰滤波以减轻恒星周围的紫色色边。"
+      "description": "应用修饰滤波以减轻恒星周围的紫色色边。",
+      "category": [
+        "stretch-color",
+        "color-adjustment"
+      ],
+      "name_en": "Remove Purple Star Halos",
+      "automatic_result_preview": true
     },
     "denoise": {
       "name": "非局部贝叶斯降噪",
-      "description": "应用 Siril 的非局部贝叶斯降噪，使用所选噪声与迭代参数；不承诺保留所有微弱结构。"
+      "description": "应用 Siril 的非局部贝叶斯降噪，使用所选噪声与迭代参数；不承诺保留所有微弱结构。",
+      "category": [
+        "background-filters",
+        "noise-banding"
+      ],
+      "name_en": "Non-local Bayesian Denoise",
+      "automatic_result_preview": true
     },
     "epf": {
       "name": "保边滤波",
-      "description": "默认使用双边滤波，可选择引导滤波。较大的滤波直径可能增加耗时并改变细节。"
+      "description": "默认使用双边滤波，可选择引导滤波。较大的滤波直径可能增加耗时并改变细节。",
+      "category": [
+        "background-filters",
+        "noise-banding"
+      ],
+      "name_en": "Edge Preserving Filter",
+      "automatic_result_preview": true
     },
     "find_cosme": {
       "name": "自动冷热像素修正",
-      "description": "按以标准差为单位的冷、热像素阈值自动检测并替换异常像素。"
+      "description": "按以标准差为单位的冷、热像素阈值自动检测并替换异常像素。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Automatic Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "find_cosme_cfa": {
       "name": "CFA 自动冷热像素修正",
-      "description": "对 CFA 图像应用自动冷热像素修正，保留相应颜色阵列处理语义。"
+      "description": "对 CFA 图像应用自动冷热像素修正，保留相应颜色阵列处理语义。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Automatic CFA Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "fill": {
       "name": "填充像素",
-      "description": "用以 ADU 表示的指定强度填充整幅图像或明确的选择区域。"
+      "description": "用以 ADU 表示的指定强度填充整幅图像或明确的选择区域。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Fill Pixels",
+      "automatic_result_preview": true
     },
     "ffill": {
       "name": "FFT 对称填充",
-      "description": "对指定区域执行对称填充，适用于傅里叶变换域图像。"
+      "description": "对指定区域执行对称填充，适用于傅里叶变换域图像。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "FFT Symmetric Fill",
+      "automatic_result_preview": true
     },
     "crop": {
       "name": "裁切图像",
-      "description": "按明确的矩形区域裁切图像；坐标与尺寸使用像素单位。"
+      "description": "按明确的矩形区域裁切图像；坐标与尺寸使用像素单位。",
+      "category": [
+        "geometry-channels",
+        "crop-scale"
+      ],
+      "name_en": "Crop Image",
+      "automatic_result_preview": true
     },
     "resample": {
       "name": "重采样图像",
-      "description": "按缩放系数、目标宽高或最长边尺寸重采样。插值、范围约束及几何变化按所选参数执行。"
+      "description": "按缩放系数、目标宽高或最长边尺寸重采样。插值、范围约束及几何变化按所选参数执行。",
+      "category": [
+        "geometry-channels",
+        "crop-scale"
+      ],
+      "name_en": "Resample Image",
+      "automatic_result_preview": true
     },
     "rotate": {
       "name": "旋转图像",
-      "description": "围绕中心按度数旋转图像；启用 no_crop 可保留旋转后范围并补充黑色边缘。"
+      "description": "围绕中心按度数旋转图像；启用 no_crop 可保留旋转后范围并补充黑色边缘。",
+      "category": [
+        "geometry-channels",
+        "rotate-flip"
+      ],
+      "name_en": "Rotate Image",
+      "automatic_result_preview": true
     },
     "ccm": {
       "name": "颜色转换矩阵",
-      "description": "使用九个系数定义的 3×3 颜色矩阵变换图像，可附带 gamma 参数。"
+      "description": "使用九个系数定义的 3×3 颜色矩阵变换图像，可附带 gamma 参数。",
+      "category": [
+        "stretch-color",
+        "color-adjustment"
+      ],
+      "name_en": "Color Conversion Matrix",
+      "automatic_result_preview": true
     },
     "iadd": {
       "name": "图像相加",
-      "description": "将明确连接的另一幅图像与当前图像相加。"
+      "description": "将明确连接的另一幅图像与当前图像相加。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Add Images",
+      "automatic_result_preview": true
     },
     "idiv": {
       "name": "图像相除",
-      "description": "用明确连接的除数图像对当前图像做除法；输入数值及零值处理由实际命令决定。"
+      "description": "用明确连接的除数图像对当前图像做除法；输入数值及零值处理由实际命令决定。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Divide Images",
+      "automatic_result_preview": true
     },
     "imul": {
       "name": "图像相乘",
-      "description": "将当前图像与明确连接的另一幅图像逐像素相乘。"
+      "description": "将当前图像与明确连接的另一幅图像逐像素相乘。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Multiply Images",
+      "automatic_result_preview": true
     },
     "isub": {
       "name": "图像相减",
-      "description": "从当前图像减去明确连接的另一幅图像。"
+      "description": "从当前图像减去明确连接的另一幅图像。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Subtract Images",
+      "automatic_result_preview": true
     },
     "fdiv": {
       "name": "带缩放图像相除",
-      "description": "当前图像除以明确连接的图像，再乘以指定标量。"
+      "description": "当前图像除以明确连接的图像，再乘以指定标量。",
+      "category": [
+        "pixel-math",
+        "image-arithmetic"
+      ],
+      "name_en": "Scaled Image Division",
+      "automatic_result_preview": true
     },
     "linear_match": {
       "name": "线性匹配",
-      "description": "计算并应用参考图像与当前图像之间的线性关系。"
+      "description": "计算并应用参考图像与当前图像之间的线性关系。",
+      "category": [
+        "stretch-color",
+        "color-adjustment"
+      ],
+      "name_en": "Linear Match",
+      "automatic_result_preview": true
     },
     "cosme": {
       "name": "坏点列表修正",
-      "description": "使用明确提供的坏点列表，对指定像素应用局部均值修正。"
+      "description": "使用明确提供的坏点列表，对指定像素应用局部均值修正。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "cosme_cfa": {
       "name": "CFA 坏点列表修正",
-      "description": "针对 RAW CFA 图像，使用明确提供的坏点列表执行修饰校正。"
+      "description": "针对 RAW CFA 图像，使用明确提供的坏点列表执行修饰校正。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "CFA Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "icc_assign": {
       "name": "指定 ICC 配置",
-      "description": "为图像指定 ICC 配置；指定配置不等于转换像素所处的色彩空间。"
+      "description": "为图像指定 ICC 配置；指定配置不等于转换像素所处的色彩空间。",
+      "category": [
+        "stretch-color",
+        "color-management"
+      ],
+      "name_en": "Assign ICC Profile",
+      "automatic_result_preview": true
     },
     "icc_convert_to": {
       "name": "转换 ICC 色彩空间",
-      "description": "将图像转换至指定 ICC 色彩配置，并使用所选渲染意图。"
+      "description": "将图像转换至指定 ICC 色彩配置，并使用所选渲染意图。",
+      "category": [
+        "stretch-color",
+        "color-management"
+      ],
+      "name_en": "Convert ICC Color Space",
+      "automatic_result_preview": true
     },
     "subsky": {
       "name": "移除背景梯度",
-      "description": "使用指定阶数的多项式或 RBF 模型估计背景梯度并减去，样本从固定输入生成。"
+      "description": "使用指定阶数的多项式或 RBF 模型估计背景梯度并减去，样本从固定输入生成。",
+      "category": [
+        "background-filters",
+        "background-extraction"
+      ],
+      "name_en": "Background Extraction",
+      "automatic_result_preview": true
     },
     "bg": {
       "name": "测量背景水平",
-      "description": "返回图像背景水平的实际测量结果。"
+      "description": "返回图像背景水平的实际测量结果。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Background Level",
+      "automatic_result_preview": true
     },
     "bgnoise": {
       "name": "测量背景噪声",
-      "description": "返回图像背景噪声的实际测量结果；该单一指标不代表完整图像质量。"
+      "description": "返回图像背景噪声的实际测量结果；该单一指标不代表完整图像质量。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Background Noise",
+      "automatic_result_preview": true
     },
     "entropy": {
       "name": "测量图像熵",
-      "description": "在所选通道及区域内计算图像熵；无区域选择时使用整幅图像。"
+      "description": "在所选通道及区域内计算图像熵；无区域选择时使用整幅图像。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Image Entropy",
+      "automatic_result_preview": true
     },
     "cdg": {
       "name": "测量图像重心",
-      "description": "按 Siril 的亮度阈值及邻域条件计算重心，条件不足时不产生有效重心。"
+      "description": "按 Siril 的亮度阈值及邻域条件计算重心，条件不足时不产生有效重心。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Image Center of Gravity",
+      "automatic_result_preview": true
     },
     "dumpheader": {
       "name": "读取 FITS 头",
-      "description": "将图像 FITS 头信息输出为分析结果，不修改头字段。"
+      "description": "将图像 FITS 头信息输出为分析结果，不修改头字段。",
+      "category": [
+        "tools",
+        "metadata"
+      ],
+      "name_en": "Read FITS Header",
+      "automatic_result_preview": false
     },
     "stat": {
       "name": "图像统计",
-      "description": "计算图像或选择区域的统计量，可选择基本或主要统计及 CFA 分通道统计。"
+      "description": "计算图像或选择区域的统计量，可选择基本或主要统计及 CFA 分通道统计。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Image Statistics",
+      "automatic_result_preview": true
     },
     "histo": {
       "name": "图像直方图",
-      "description": "计算指定通道的直方图，并保留实际直方图数据及分析结果。"
+      "description": "计算指定通道的直方图，并保留实际直方图数据及分析结果。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Image Histogram",
+      "automatic_result_preview": true
     },
     "jsonmetadata": {
       "name": "JSON 元数据与统计",
-      "description": "读取当前图像的元数据和所选统计量，输出结构化 JSON 分析结果。"
+      "description": "读取当前图像的元数据和所选统计量，输出结构化 JSON 分析结果。",
+      "category": [
+        "tools",
+        "metadata"
+      ],
+      "name_en": "JSON Metadata and Statistics",
+      "automatic_result_preview": false
     },
     "findstar": {
       "name": "检测恒星",
-      "description": "根据 Siril 的阈值与星点测量设置检测恒星，返回实际检测结果。"
+      "description": "根据 Siril 的阈值与星点测量设置检测恒星，返回实际检测结果。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Find Stars",
+      "automatic_result_preview": true
     },
     "find_hot": {
       "name": "导出冷热像素列表",
-      "description": "按冷、热阈值检测异常像素，并输出可供修饰校正使用的坐标列表。"
+      "description": "按冷、热阈值检测异常像素，并输出可供修饰校正使用的坐标列表。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Export Hot and Cold Pixel List",
+      "automatic_result_preview": false
     },
     "psf": {
       "name": "恒星 PSF 测量",
-      "description": "对明确选择的恒星区域进行点扩散函数拟合，并返回所选通道的实际测量结果。"
+      "description": "对明确选择的恒星区域进行点扩散函数拟合，并返回所选通道的实际测量结果。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Stellar PSF Measurement",
+      "automatic_result_preview": true
     },
     "profile": {
       "name": "图像强度剖面",
-      "description": "在明确的起点与终点之间生成强度剖面，可使用距离或波长相关坐标设置。"
+      "description": "在明确的起点与终点之间生成强度剖面，可使用距离或波长相关坐标设置。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Image Intensity Profile",
+      "automatic_result_preview": true
     },
     "split": {
       "name": "拆分颜色通道",
-      "description": "将颜色图像拆为三个输出，默认 RGB；可按声明的颜色空间选择其他拆分方式。"
+      "description": "将颜色图像拆为三个输出，默认 RGB；可按声明的颜色空间选择其他拆分方式。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Split Color Channels",
+      "automatic_result_preview": true
     },
     "split_cfa": {
       "name": "拆分 CFA 子通道",
-      "description": "将 CFA 图像拆成四个独立子通道，输出仍按固定端口顺序关联。"
+      "description": "将 CFA 图像拆成四个独立子通道，输出仍按固定端口顺序关联。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Split CFA Channels",
+      "automatic_result_preview": true
     },
     "extract": {
       "name": "提取小波层",
-      "description": "从图像的小波分解中提取所选层数，返回实际产生的图像层。"
+      "description": "从图像的小波分解中提取所选层数，返回实际产生的图像层。",
+      "category": [
+        "background-filters",
+        "frequency-wavelets"
+      ],
+      "name_en": "Extract Wavelet Layers",
+      "automatic_result_preview": true
     },
     "extract_Green": {
       "name": "提取 CFA 绿色信号",
-      "description": "根据拜耳阵列提取并平均绿色像素，输出半尺寸 FITS 图像。"
+      "description": "根据拜耳阵列提取并平均绿色像素，输出半尺寸 FITS 图像。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Extract CFA Green",
+      "automatic_result_preview": true
     },
     "extract_Ha": {
       "name": "提取 CFA Hα 信号",
-      "description": "从拜耳 CFA 红色像素提取 Hα 信号，默认输出半尺寸图像，可按参数放大。"
+      "description": "从拜耳 CFA 红色像素提取 Hα 信号，默认输出半尺寸图像，可按参数放大。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Extract CFA H-alpha",
+      "automatic_result_preview": true
     },
     "extract_HaOIII": {
       "name": "提取 CFA Hα 与 OIII",
-      "description": "从 CFA 图像分别提取 Hα 和 OIII 信号，使用独立具名输出端口。"
+      "description": "从 CFA 图像分别提取 Hα 和 OIII 信号，使用独立具名输出端口。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Extract CFA H-alpha and OIII",
+      "automatic_result_preview": true
     },
     "fftd": {
       "name": "快速傅里叶变换",
-      "description": "对图像执行 FFT，分别输出 FITS 格式的模与相位。"
+      "description": "对图像执行 FFT，分别输出 FITS 格式的模与相位。",
+      "category": [
+        "background-filters",
+        "frequency-wavelets"
+      ],
+      "name_en": "Forward Fourier Transform",
+      "automatic_result_preview": true
     },
     "ffti": {
       "name": "逆傅里叶变换",
-      "description": "使用明确连接的模和相位图像进行逆变换，得到重建图像。"
+      "description": "使用明确连接的模和相位图像进行逆变换，得到重建图像。",
+      "category": [
+        "background-filters",
+        "frequency-wavelets"
+      ],
+      "name_en": "Inverse Fourier Transform",
+      "automatic_result_preview": true
     },
     "rgbcomp": {
       "name": "RGB／LRGB 合成",
-      "description": "使用明确连接的红、绿、蓝图像合成 RGB，可另接亮度图像形成 LRGB。"
+      "description": "使用明确连接的红、绿、蓝图像合成 RGB，可另接亮度图像形成 LRGB。",
+      "category": [
+        "geometry-channels",
+        "channel-composition"
+      ],
+      "name_en": "RGB and LRGB Composition",
+      "automatic_result_preview": true
     },
     "merge_cfa": {
       "name": "合并 CFA 子通道",
-      "description": "根据所选拜耳排列，将四幅子通道图像合并为 CFA 图像。"
+      "description": "根据所选拜耳排列，将四幅子通道图像合并为 CFA 图像。",
+      "category": [
+        "geometry-channels",
+        "channel-composition"
+      ],
+      "name_en": "Merge CFA Channels",
+      "automatic_result_preview": true
     },
     "save": {
       "name": "导出 FITS",
-      "description": "将完整图像导出为 FITS，可选择校验和等声明参数；这与把结果登记进素材库是独立操作。"
+      "description": "将完整图像导出为 FITS，可选择校验和等声明参数；这与把结果登记进素材库是独立操作。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export FITS",
+      "automatic_result_preview": false
     },
     "savebmp": {
       "name": "导出 BMP",
-      "description": "导出每通道 8 位的 BMP 图像，可能降低科学数值精度。"
+      "description": "导出每通道 8 位的 BMP 图像，可能降低科学数值精度。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export BMP",
+      "automatic_result_preview": false
     },
     "savejpg": {
       "name": "导出 JPEG",
-      "description": "按所选质量导出 JPEG；有损压缩结果不替代高精度科学原件。"
+      "description": "按所选质量导出 JPEG；有损压缩结果不替代高精度科学原件。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export JPEG",
+      "automatic_result_preview": false
     },
     "savejxl": {
       "name": "导出 JPEG XL",
-      "description": "按所选质量和编码努力参数导出 JPEG XL，精度与压缩行为以实际参数为准。"
+      "description": "按所选质量和编码努力参数导出 JPEG XL，精度与压缩行为以实际参数为准。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export JPEG XL",
+      "automatic_result_preview": false
     },
     "savepng": {
       "name": "导出 PNG",
-      "description": "导出 PNG；按实际输入及所选参数使用受支持位深，32 位输入不表示输出仍为浮点格式。"
+      "description": "导出 PNG；按实际输入及所选参数使用受支持位深，32 位输入不表示输出仍为浮点格式。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export PNG",
+      "automatic_result_preview": false
     },
     "savepnm": {
       "name": "导出 NetPBM",
-      "description": "导出每通道 16 位的 NetPBM 图像。"
+      "description": "导出每通道 16 位的 NetPBM 图像。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export NetPBM",
+      "automatic_result_preview": false
     },
     "savetif": {
       "name": "导出 16 位 TIFF",
-      "description": "导出每通道 16 位 TIFF，可选择 Astro-TIFF 或 Deflate 压缩。"
+      "description": "导出每通道 16 位 TIFF，可选择 Astro-TIFF 或 Deflate 压缩。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export 16-bit TIFF",
+      "automatic_result_preview": false
     },
     "savetif32": {
       "name": "导出 32 位 TIFF",
-      "description": "导出每通道 32 位 TIFF，可选择 Astro-TIFF 或 Deflate 压缩。"
+      "description": "导出每通道 32 位 TIFF，可选择 Astro-TIFF 或 Deflate 压缩。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export 32-bit TIFF",
+      "automatic_result_preview": false
     },
     "savetif8": {
       "name": "导出 8 位 TIFF",
-      "description": "导出每通道 8 位 TIFF，可选择 Astro-TIFF 或 Deflate 压缩；请注意精度损失。"
+      "description": "导出每通道 8 位 TIFF，可选择 Astro-TIFF 或 Deflate 压缩；请注意精度损失。",
+      "category": [
+        "files-sequences",
+        "export"
+      ],
+      "name_en": "Export 8-bit TIFF",
+      "automatic_result_preview": false
     },
     "update_key": {
       "name": "更新 FITS 头字段",
-      "description": "更新或删除明确指定的 FITS 头字段。Siril 不检查字段值的科学有效性，用户须确认其含义。"
+      "description": "更新或删除明确指定的 FITS 头字段。Siril 不检查字段值的科学有效性，用户须确认其含义。",
+      "category": [
+        "tools",
+        "metadata"
+      ],
+      "name_en": "Update FITS Keywords",
+      "automatic_result_preview": false
     },
     "sequpdate_key": {
-      "name": "更新序列 FITS 头字段",
-      "description": "对序列更新或删除指定 FITS 头字段；该命令不支持 SER 序列。"
+      "name": "序列更新 FITS 头字段",
+      "description": "对序列更新或删除指定 FITS 头字段；该命令不支持 SER 序列。",
+      "category": [
+        "tools",
+        "metadata"
+      ],
+      "name_en": "Sequence Update FITS Keywords",
+      "automatic_result_preview": false
     },
     "wavelet_reconstruction": {
       "name": "小波分解与重建",
-      "description": "使用线性或 B 样条 à trous 小波变换分解图像，并按明确的层系数重建。"
+      "description": "使用线性或 B 样条 à trous 小波变换分解图像，并按明确的层系数重建。",
+      "category": [
+        "background-filters",
+        "frequency-wavelets"
+      ],
+      "name_en": "Wavelet Decomposition and Reconstruction",
+      "automatic_result_preview": true
     },
     "rl": {
       "name": "Richardson–Lucy 反卷积",
-      "description": "使用明确的 PSF 及所选迭代／正则化参数执行 Richardson–Lucy 图像恢复。"
+      "description": "使用明确的 PSF 及所选迭代／正则化参数执行 Richardson–Lucy 图像恢复。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Richardson-Lucy Deconvolution",
+      "automatic_result_preview": true
     },
     "sb": {
       "name": "Split Bregman 反卷积",
-      "description": "使用明确的 PSF 和所选参数执行 Split Bregman 图像恢复。"
+      "description": "使用明确的 PSF 和所选参数执行 Split Bregman 图像恢复。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Split Bregman Deconvolution",
+      "automatic_result_preview": true
     },
     "wiener": {
       "name": "Wiener 反卷积",
-      "description": "使用明确的 PSF 和所选参数执行 Wiener 反卷积。"
+      "description": "使用明确的 PSF 和所选参数执行 Wiener 反卷积。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Wiener Deconvolution",
+      "automatic_result_preview": true
     },
     "seqrl": {
-      "name": "序列 Richardson–Lucy 反卷积",
-      "description": "对固定有序序列执行 Richardson–Lucy 恢复，具体算法参数与单图操作一致。"
+      "name": "序列Richardson–Lucy 反卷积",
+      "description": "对固定有序序列执行 Richardson–Lucy 恢复，具体算法参数与单图操作一致。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Sequence Richardson-Lucy Deconvolution",
+      "automatic_result_preview": true
     },
     "seqsb": {
-      "name": "序列 Split Bregman 反卷积",
-      "description": "对固定有序序列执行 Split Bregman 恢复。"
+      "name": "序列Split Bregman 反卷积",
+      "description": "对固定有序序列执行 Split Bregman 恢复。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Sequence Split Bregman Deconvolution",
+      "automatic_result_preview": true
     },
     "seqwiener": {
-      "name": "序列 Wiener 反卷积",
-      "description": "对固定有序序列执行 Wiener 反卷积。"
+      "name": "序列Wiener 反卷积",
+      "description": "对固定有序序列执行 Wiener 反卷积。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Sequence Wiener Deconvolution",
+      "automatic_result_preview": true
     },
     "makepsf": {
       "name": "生成 PSF",
-      "description": "按所选动作生成、载入或清除供反卷积使用的 PSF；每次调用使用独立进程及固定输入输出。"
+      "description": "按所选动作生成、载入或清除供反卷积使用的 PSF；每次调用使用独立进程及固定输入输出。",
+      "category": [
+        "background-filters",
+        "deconvolution"
+      ],
+      "name_en": "Generate PSF",
+      "automatic_result_preview": true
     },
     "starnet": {
       "name": "移除恒星",
-      "description": "调用已在隔离设置中配置的 StarNet 程序和权重移除恒星，可保留星层输出；缺少依赖时明确失败。"
+      "description": "调用已在隔离设置中配置的 StarNet 程序和权重移除恒星，可保留星层输出；缺少依赖时明确失败。",
+      "category": [
+        "stars",
+        "star-removal"
+      ],
+      "name_en": "Star Removal",
+      "automatic_result_preview": true
     },
     "seqstarnet": {
       "name": "序列移除恒星",
-      "description": "对固定序列调用 StarNet 移除恒星，需要已配置且兼容的程序及权重。"
+      "description": "对固定序列调用 StarNet 移除恒星，需要已配置且兼容的程序及权重。",
+      "category": [
+        "stars",
+        "star-removal"
+      ],
+      "name_en": "Sequence Star Removal",
+      "automatic_result_preview": true
     },
     "synthstar": {
       "name": "重建恒星轮廓",
-      "description": "先在固定图像上执行恒星检测，再按 Siril 测量结果合成恒星轮廓，以修正可检测恒星的形状。"
+      "description": "先在固定图像上执行恒星检测，再按 Siril 测量结果合成恒星轮廓，以修正可检测恒星的形状。",
+      "category": [
+        "stars",
+        "star-reconstruction"
+      ],
+      "name_en": "Reconstruct Star Profiles",
+      "automatic_result_preview": true
     },
     "mirrorx_single": {
       "name": "按文件方向翻转",
-      "description": "仅在需要时修正图像的水平翻转方向；处理使用调用内副本，不覆盖科学原件。"
+      "description": "仅在需要时修正图像的水平翻转方向；处理使用调用内副本，不覆盖科学原件。",
+      "category": [
+        "geometry-channels",
+        "rotate-flip"
+      ],
+      "name_en": "Flip Image File Orientation",
+      "automatic_result_preview": true
     },
     "seqccm": {
       "name": "序列颜色转换矩阵",
-      "description": "对固定序列中的选中图像应用九系数颜色矩阵及可选 gamma。"
+      "description": "对固定序列中的选中图像应用九系数颜色矩阵及可选 gamma。",
+      "category": [
+        "stretch-color",
+        "color-adjustment"
+      ],
+      "name_en": "Sequence Color Conversion Matrix",
+      "automatic_result_preview": true
     },
     "seqcrop": {
-      "name": "裁切序列",
-      "description": "按明确矩形区域裁切固定序列中选中的图像。"
+      "name": "序列裁切图像",
+      "description": "按明确矩形区域裁切固定序列中选中的图像。",
+      "category": [
+        "geometry-channels",
+        "crop-scale"
+      ],
+      "name_en": "Sequence Crop",
+      "automatic_result_preview": true
     },
     "seqextract_Green": {
-      "name": "序列提取绿色信号",
-      "description": "对固定 CFA 序列逐帧提取绿色信号。"
+      "name": "序列提取 CFA 绿色信号",
+      "description": "对固定 CFA 序列逐帧提取绿色信号。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Sequence Extract CFA Green",
+      "automatic_result_preview": true
     },
     "seqextract_Ha": {
-      "name": "序列提取 Hα",
-      "description": "对固定 CFA 序列逐帧提取 Hα 信号。"
+      "name": "序列提取 CFA Hα 信号",
+      "description": "对固定 CFA 序列逐帧提取 Hα 信号。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Sequence Extract CFA H-alpha",
+      "automatic_result_preview": true
     },
     "seqextract_HaOIII": {
-      "name": "序列提取 Hα 与 OIII",
-      "description": "对固定 CFA 序列逐帧提取 Hα 和 OIII，分别返回具名输出。"
+      "name": "序列提取 CFA Hα 与 OIII",
+      "description": "对固定 CFA 序列逐帧提取 Hα 和 OIII，分别返回具名输出。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Sequence Extract CFA H-alpha and OIII",
+      "automatic_result_preview": true
     },
     "seqfind_cosme": {
-      "name": "序列自动坏点修正",
-      "description": "对固定序列中的选中图像按冷、热阈值执行自动坏点修正。"
+      "name": "序列自动冷热像素修正",
+      "description": "对固定序列中的选中图像按冷、热阈值执行自动坏点修正。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Sequence Automatic Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "seqfind_cosme_cfa": {
-      "name": "CFA 序列自动坏点修正",
-      "description": "对固定 CFA 序列执行保留阵列语义的自动冷热像素修正。"
+      "name": "序列CFA 自动冷热像素修正",
+      "description": "对固定 CFA 序列执行保留阵列语义的自动冷热像素修正。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Sequence Automatic CFA Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "seqfixbanding": {
       "name": "序列条带修正",
-      "description": "按所选方向及强度修正固定序列中的条带。"
+      "description": "按所选方向及强度修正固定序列中的条带。",
+      "category": [
+        "background-filters",
+        "noise-banding"
+      ],
+      "name_en": "Sequence Banding Reduction",
+      "automatic_result_preview": true
     },
     "seqght": {
       "name": "序列广义双曲拉伸",
-      "description": "对固定序列应用广义双曲拉伸及对应保护参数。"
+      "description": "对固定序列应用广义双曲拉伸及对应保护参数。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Sequence Generalized Hyperbolic Stretch",
+      "automatic_result_preview": true
     },
     "seqinvght": {
       "name": "序列逆广义双曲拉伸",
-      "description": "对固定序列应用广义双曲拉伸逆变换，恢复受原参数和数据保留情况限制。"
+      "description": "对固定序列应用广义双曲拉伸逆变换，恢复受原参数和数据保留情况限制。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Sequence Inverse Generalized Hyperbolic Stretch",
+      "automatic_result_preview": true
     },
     "seqinvmodasinh": {
       "name": "序列逆改进反双曲正弦拉伸",
-      "description": "对固定序列应用改进反双曲正弦拉伸的逆变换。"
+      "description": "对固定序列应用改进反双曲正弦拉伸的逆变换。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Sequence Inverse Modified Asinh Stretch",
+      "automatic_result_preview": true
     },
     "seqlinstretch": {
       "name": "序列线性拉伸",
-      "description": "对固定序列应用指定黑点的线性拉伸。"
+      "description": "对固定序列应用指定黑点的线性拉伸。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Sequence Linear Stretch",
+      "automatic_result_preview": true
     },
     "seqmodasinh": {
       "name": "序列改进反双曲正弦拉伸",
-      "description": "对固定序列应用改进反双曲正弦拉伸。"
+      "description": "对固定序列应用改进反双曲正弦拉伸。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Sequence Modified Asinh Stretch",
+      "automatic_result_preview": true
     },
     "seqmtf": {
       "name": "序列中间调传递函数",
-      "description": "对固定序列应用中间调传递函数。"
+      "description": "对固定序列应用中间调传递函数。",
+      "category": [
+        "stretch-color",
+        "stretch-transforms"
+      ],
+      "name_en": "Sequence Midtones Transfer Function",
+      "automatic_result_preview": true
     },
     "seqcosme": {
       "name": "序列坏点列表修正",
-      "description": "使用固定坏点列表，对序列中选中的图像进行修饰校正。"
+      "description": "使用固定坏点列表，对序列中选中的图像进行修饰校正。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Sequence Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "seqcosme_cfa": {
-      "name": "CFA 序列坏点列表修正",
-      "description": "使用固定坏点列表，对 CFA 序列进行修饰校正。"
+      "name": "序列CFA 坏点列表修正",
+      "description": "使用固定坏点列表，对 CFA 序列进行修饰校正。",
+      "category": [
+        "preprocessing",
+        "cosmetic-correction"
+      ],
+      "name_en": "Sequence CFA Cosmetic Correction",
+      "automatic_result_preview": true
     },
     "seqsplit_cfa": {
-      "name": "拆分 CFA 序列",
-      "description": "将固定 CFA 序列拆为四个子通道序列。"
+      "name": "序列拆分 CFA 子通道",
+      "description": "将固定 CFA 序列拆为四个子通道序列。",
+      "category": [
+        "geometry-channels",
+        "channel-extraction"
+      ],
+      "name_en": "Sequence Split CFA Channels",
+      "automatic_result_preview": true
     },
     "seqmerge_cfa": {
-      "name": "合并 CFA 子通道序列",
-      "description": "将四个对应子通道序列按拜耳排列合并，成员和顺序必须明确对应。"
+      "name": "序列合并 CFA 子通道",
+      "description": "将四个对应子通道序列按拜耳排列合并，成员和顺序必须明确对应。",
+      "category": [
+        "geometry-channels",
+        "channel-composition"
+      ],
+      "name_en": "Sequence Merge CFA Channels",
+      "automatic_result_preview": true
     },
     "seqresample": {
-      "name": "重采样序列",
-      "description": "对固定序列中选中的图像执行缩放和重采样。"
+      "name": "序列重采样图像",
+      "description": "对固定序列中选中的图像执行缩放和重采样。",
+      "category": [
+        "geometry-channels",
+        "crop-scale"
+      ],
+      "name_en": "Sequence Resample",
+      "automatic_result_preview": true
     },
     "seqsubsky": {
       "name": "序列移除背景梯度",
-      "description": "对固定序列应用多项式或 RBF 背景梯度建模与减除。"
+      "description": "对固定序列应用多项式或 RBF 背景梯度建模与减除。",
+      "category": [
+        "background-filters",
+        "background-extraction"
+      ],
+      "name_en": "Sequence Background Extraction",
+      "automatic_result_preview": true
     },
     "calibrate": {
       "name": "序列校准",
-      "description": "使用明确提供的偏置、暗场和平场输入校准固定序列；校准绑定本身不等于执行本操作。"
+      "description": "使用明确提供的偏置、暗场和平场输入校准固定序列；校准绑定本身不等于执行本操作。",
+      "category": [
+        "preprocessing",
+        "calibration"
+      ],
+      "name_en": "Sequence Calibration",
+      "automatic_result_preview": true
     },
     "calibrate_single": {
       "name": "单图校准",
-      "description": "使用明确提供的偏置、暗场和平场输入校准单幅图像。"
+      "description": "使用明确提供的偏置、暗场和平场输入校准单幅图像。",
+      "category": [
+        "preprocessing",
+        "calibration"
+      ],
+      "name_en": "Single Image Calibration",
+      "automatic_result_preview": true
     },
     "convert": {
       "name": "转换图像为序列",
-      "description": "将调用内固定输入转换为所选 Siril 序列格式，不扫描任意宿主目录。"
+      "description": "将调用内固定输入转换为所选 Siril 序列格式，不扫描任意宿主目录。",
+      "category": [
+        "files-sequences",
+        "conversion"
+      ],
+      "name_en": "Convert Images to Sequence",
+      "automatic_result_preview": true
     },
     "convertraw": {
       "name": "转换 RAW 为序列",
-      "description": "将固定输入中的 DSLR RAW 图像转换为所选序列格式。"
+      "description": "将固定输入中的 DSLR RAW 图像转换为所选序列格式。",
+      "category": [
+        "files-sequences",
+        "conversion"
+      ],
+      "name_en": "Convert RAW Images to Sequence",
+      "automatic_result_preview": true
     },
     "link": {
       "name": "建立 FITS 序列",
-      "description": "从明确的 FITS 输入建立序列，可按拍摄日期排序；处理限于调用内固定输入。"
+      "description": "从明确的 FITS 输入建立序列，可按拍摄日期排序；处理限于调用内固定输入。",
+      "category": [
+        "files-sequences",
+        "conversion"
+      ],
+      "name_en": "Create FITS Sequence",
+      "automatic_result_preview": true
     },
     "register": {
       "name": "序列配准",
-      "description": "检测固定深空序列的恒星，计算并按参数执行对参考图像的几何配准。并非任意场景都适用恒星配准。"
+      "description": "检测固定深空序列的恒星，计算并按参数执行对参考图像的几何配准。并非任意场景都适用恒星配准。",
+      "category": [
+        "preprocessing",
+        "registration"
+      ],
+      "name_en": "Sequence Registration",
+      "automatic_result_preview": true
     },
     "seqapplyreg": {
-      "name": "应用序列配准",
-      "description": "使用已计算的配准数据，对固定序列应用几何变换。"
+      "name": "序列应用配准",
+      "description": "使用已计算的配准数据，对固定序列应用几何变换。",
+      "category": [
+        "preprocessing",
+        "registration"
+      ],
+      "name_en": "Apply Sequence Registration",
+      "automatic_result_preview": true
     },
     "stack": {
       "name": "叠加序列",
-      "description": "按所选叠加方法、剔除、归一化、权重及筛选条件叠加固定序列。"
+      "description": "按所选叠加方法、剔除、归一化、权重及筛选条件叠加固定序列。",
+      "category": [
+        "preprocessing",
+        "stacking"
+      ],
+      "name_en": "Stack Sequence",
+      "automatic_result_preview": true
     },
     "stackall": {
       "name": "叠加调用内各序列",
-      "description": "按相同叠加配置处理调用目录内明确准备的各序列，不扫描其他宿主目录。"
+      "description": "按相同叠加配置处理调用目录内明确准备的各序列，不扫描其他宿主目录。",
+      "category": [
+        "preprocessing",
+        "stacking"
+      ],
+      "name_en": "Stack Invocation Sequences",
+      "automatic_result_preview": true
     },
     "merge": {
       "name": "合并序列",
-      "description": "将图像属性一致、类型相同的多个固定序列合并为同类型的新序列。"
+      "description": "将图像属性一致、类型相同的多个固定序列合并为同类型的新序列。",
+      "category": [
+        "files-sequences",
+        "sequence-management"
+      ],
+      "name_en": "Merge Sequences",
+      "automatic_result_preview": true
     },
     "select": {
       "name": "选择序列成员",
-      "description": "按包含端点的序号范围标记序列成员，供后续处理采用。"
+      "description": "按包含端点的序号范围标记序列成员，供后续处理采用。",
+      "category": [
+        "files-sequences",
+        "sequence-management"
+      ],
+      "name_en": "Select Sequence Frames",
+      "automatic_result_preview": false
     },
     "unselect": {
       "name": "取消选择序列成员",
-      "description": "按包含端点的序号范围取消序列成员选择。"
+      "description": "按包含端点的序号范围取消序列成员选择。",
+      "category": [
+        "files-sequences",
+        "sequence-management"
+      ],
+      "name_en": "Deselect Sequence Frames",
+      "automatic_result_preview": false
     },
     "setref": {
       "name": "设置序列参考图",
-      "description": "设置序列参考图；image_number 是从 1 开始的序列序号，不是文件名中的数字。"
+      "description": "设置序列参考图；image_number 是从 1 开始的序列序号，不是文件名中的数字。",
+      "category": [
+        "files-sequences",
+        "sequence-management"
+      ],
+      "name_en": "Set Sequence Reference",
+      "automatic_result_preview": false
     },
     "getref": {
       "name": "读取序列参考图",
-      "description": "读取序列参考图信息。Siril 返回的首张图索引为 0，勿与 setref 的序号混淆。"
+      "description": "读取序列参考图信息。Siril 返回的首张图索引为 0，勿与 setref 的序号混淆。",
+      "category": [
+        "files-sequences",
+        "sequence-management"
+      ],
+      "name_en": "Read Sequence Reference",
+      "automatic_result_preview": true
     },
     "seqclean": {
-      "name": "清理序列附属状态",
-      "description": "清除所选序列选择、配准或统计信息，具体范围由参数决定。"
+      "name": "序列清理附属状态",
+      "description": "清除所选序列选择、配准或统计信息，具体范围由参数决定。",
+      "category": [
+        "files-sequences",
+        "sequence-management"
+      ],
+      "name_en": "Clear Sequence Auxiliary Data",
+      "automatic_result_preview": false
     },
     "seqstat": {
-      "name": "序列统计",
-      "description": "对固定序列计算实际统计结果，并保留成员归属及输出表格。"
+      "name": "序列图像统计",
+      "description": "对固定序列计算实际统计结果，并保留成员归属及输出表格。",
+      "category": [
+        "analysis",
+        "statistics"
+      ],
+      "name_en": "Sequence Statistics",
+      "automatic_result_preview": true
     },
     "seqheader": {
-      "name": "读取序列头字段",
-      "description": "读取固定序列各图像指定 FITS 头字段，返回实际值及分析文件。"
+      "name": "序列读取头字段",
+      "description": "读取固定序列各图像指定 FITS 头字段，返回实际值及分析文件。",
+      "category": [
+        "tools",
+        "metadata"
+      ],
+      "name_en": "Read Sequence Header Fields",
+      "automatic_result_preview": false
     },
     "seqfindstar": {
-      "name": "序列恒星检测",
-      "description": "对固定序列执行恒星检测并输出实际测量结果。"
+      "name": "序列检测恒星",
+      "description": "对固定序列执行恒星检测并输出实际测量结果。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Sequence Find Stars",
+      "automatic_result_preview": true
     },
     "seqtilt": {
       "name": "序列倾斜分析",
-      "description": "对固定序列进行 Siril 图像倾斜分析，结果适用性取决于实际恒星测量。"
+      "description": "对固定序列进行 Siril 图像倾斜分析，结果适用性取决于实际恒星测量。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Sequence Tilt Analysis",
+      "automatic_result_preview": true
     },
     "seqpsf": {
       "name": "序列恒星 PSF 测量",
-      "description": "在固定序列上测量指定恒星 PSF，支持为测光而跟踪其位置；不等同于执行图像配准。"
+      "description": "在固定序列上测量指定恒星 PSF，支持为测光而跟踪其位置；不等同于执行图像配准。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Sequence Stellar PSF Measurement",
+      "automatic_result_preview": true
     },
     "light_curve": {
       "name": "生成光变曲线",
-      "description": "使用明确的目标星和比较星位置，对固定序列执行孔径测光并生成校准光变曲线。"
+      "description": "使用明确的目标星和比较星位置，对固定序列执行孔径测光并生成校准光变曲线。",
+      "category": [
+        "analysis",
+        "photometry"
+      ],
+      "name_en": "Generate Light Curve",
+      "automatic_result_preview": true
     },
     "seqprofile": {
-      "name": "序列强度剖面",
-      "description": "沿指定两点读取序列各帧强度剖面。当前 Windows Siril 的后续 Python 绘图准备存在已知崩溃限制，不能据此宣称运行已通过。"
+      "name": "序列图像强度剖面",
+      "description": "沿指定两点读取序列各帧强度剖面。当前 Windows Siril 的后续 Python 绘图准备存在已知崩溃限制，不能据此宣称运行已通过。",
+      "category": [
+        "analysis",
+        "star-optics"
+      ],
+      "name_en": "Sequence Intensity Profile",
+      "automatic_result_preview": true
     },
     "platesolve": {
       "name": "单图天文定位",
-      "description": "对图像执行天文定位，依赖已配置的星表服务、本地星表或 astrometry.net 求解器；联网需显式启用。"
+      "description": "对图像执行天文定位，依赖已配置的星表服务、本地星表或 astrometry.net 求解器；联网需显式启用。",
+      "category": [
+        "analysis",
+        "astrometry"
+      ],
+      "name_en": "Image Plate Solver",
+      "automatic_result_preview": true
     },
     "seqplatesolve": {
       "name": "序列天文定位",
-      "description": "对固定序列执行天文定位；SER 输入需要明确元数据，并按实际程序规则生成带定位信息的新序列。"
+      "description": "对固定序列执行天文定位；SER 输入需要明确元数据，并按实际程序规则生成带定位信息的新序列。",
+      "category": [
+        "analysis",
+        "astrometry"
+      ],
+      "name_en": "Sequence Plate Solver",
+      "automatic_result_preview": true
     },
     "pcc": {
       "name": "测光颜色校准",
-      "description": "对已天文定位的图像执行测光颜色校准，依赖隔离设置中明确选择的星表数据。"
+      "description": "对已天文定位的图像执行测光颜色校准，依赖隔离设置中明确选择的星表数据。",
+      "category": [
+        "stretch-color",
+        "color-calibration"
+      ],
+      "name_en": "Photometric Color Calibration",
+      "automatic_result_preview": true
     },
     "spcc": {
       "name": "光谱测光颜色校准",
-      "description": "对已天文定位图像执行光谱测光颜色校准，需选择传感器、滤镜及白参考响应资料。"
+      "description": "对已天文定位图像执行光谱测光颜色校准，需选择传感器、滤镜及白参考响应资料。",
+      "category": [
+        "stretch-color",
+        "color-calibration"
+      ],
+      "name_en": "Spectrophotometric Color Calibration",
+      "automatic_result_preview": true
     },
     "spcc_list": {
       "name": "列出 SPCC 响应名称",
-      "description": "读取可用于 SPCC 的传感器、滤镜或白参考名称，按所选类别返回实际列表。"
+      "description": "读取可用于 SPCC 的传感器、滤镜或白参考名称，按所选类别返回实际列表。",
+      "category": [
+        "stretch-color",
+        "color-calibration"
+      ],
+      "name_en": "List SPCC Response Names",
+      "automatic_result_preview": false
     },
     "conesearch": {
       "name": "视场星表锥形检索",
-      "description": "在已天文定位图像的视场中检索指定星表对象，可限定星等；星表和联网依赖必须明确。"
+      "description": "在已天文定位图像的视场中检索指定星表对象，可限定星等；星表和联网依赖必须明确。",
+      "category": [
+        "analysis",
+        "astrometry"
+      ],
+      "name_en": "Catalog Cone Search",
+      "automatic_result_preview": false
     },
     "catsearch": {
       "name": "按名称查询天体",
-      "description": "先在注记星表中按名称查找对象，未找到时可能查询 SIMBAD；联网必须显式启用。"
+      "description": "先在注记星表中按名称查找对象，未找到时可能查询 SIMBAD；联网必须显式启用。",
+      "category": [
+        "analysis",
+        "astrometry"
+      ],
+      "name_en": "Object Name Search",
+      "automatic_result_preview": false
     },
     "trixel": {
       "name": "星表网格开发查询",
-      "description": "执行 Siril 为开发用途提供的 trixel 查询，按原始命令参数返回实际结果。"
+      "description": "执行 Siril 为开发用途提供的 trixel 查询，按原始命令参数返回实际结果。",
+      "category": [
+        "analysis",
+        "astrometry"
+      ],
+      "name_en": "Catalog Trixel Developer Query",
+      "automatic_result_preview": false
     },
     "findcompstars": {
       "name": "寻找测光比较星",
-      "description": "在已天文定位图像的视场内，根据目标星、星等及颜色等条件寻找可用于光变测量的比较星。"
+      "description": "在已天文定位图像的视场内，根据目标星、星等及颜色等条件寻找可用于光变测量的比较星。",
+      "category": [
+        "analysis",
+        "photometry"
+      ],
+      "name_en": "Find Photometric Comparison Stars",
+      "automatic_result_preview": false
     },
     "pm": {
       "name": "PixelMath 像素运算",
-      "description": "计算明确提供的 PixelMath 表达式。图像引用通过 $0、$1 等固定输入占位符提供，拒绝任意磁盘路径。"
+      "description": "计算明确提供的 PixelMath 表达式。图像引用通过 $0、$1 等固定输入占位符提供，拒绝任意磁盘路径。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "PixelMath",
+      "automatic_result_preview": true
     },
     "limit": {
       "name": "限制像素范围",
-      "description": "按所选模式将 32 位图像像素限制到 0–1 范围；16 位图像本身没有相同的越界值语义。"
+      "description": "按所选模式将 32 位图像像素限制到 0–1 范围；16 位图像本身没有相同的越界值语义。",
+      "category": [
+        "pixel-math",
+        "pixel-editing"
+      ],
+      "name_en": "Limit Pixel Range",
+      "automatic_result_preview": true
     },
     "live_stack": {
       "name": "有限输入实时叠加",
-      "description": "按固定顺序处理有限输入组，使用明确的校准与配准配置；无头 Siril 不提供 GUI 文件监视。"
+      "description": "按固定顺序处理有限输入组，使用明确的校准与配准配置；无头 Siril 不提供 GUI 文件监视。",
+      "category": [
+        "preprocessing",
+        "stacking"
+      ],
+      "name_en": "Finite Input Live Stacking",
+      "automatic_result_preview": true
     },
     "capabilities": {
       "name": "读取 Siril 能力",
-      "description": "查询实际程序编译选项和运行时支持的能力，不将目录声明当作运行证明。"
+      "description": "查询实际程序编译选项和运行时支持的能力，不将目录声明当作运行证明。",
+      "category": [
+        "tools",
+        "runtime-queries"
+      ],
+      "name_en": "Siril Capabilities",
+      "automatic_result_preview": false
     },
     "help": {
       "name": "读取命令帮助",
-      "description": "读取实际 Siril 命令列表或指定命令的帮助，命令参考不等于已声明的可执行节点。"
+      "description": "读取实际 Siril 命令列表或指定命令的帮助，命令参考不等于已声明的可执行节点。",
+      "category": [
+        "tools",
+        "runtime-queries"
+      ],
+      "name_en": "Command Help",
+      "automatic_result_preview": false
     },
     "get": {
       "name": "读取 Siril 设置",
-      "description": "按明确名称读取设置，或按模式列出设置；不修改配置。"
+      "description": "按明确名称读取设置，或按模式列出设置；不修改配置。",
+      "category": [
+        "tools",
+        "runtime-queries"
+      ],
+      "name_en": "Read Siril Settings",
+      "automatic_result_preview": false
     },
     "parse": {
       "name": "调试头字段路径解析",
-      "description": "使用当前图像头字段解析指定字符串，主要用于核对路径模板；不读取任意外部文件。"
+      "description": "使用当前图像头字段解析指定字符串，主要用于核对路径模板；不读取任意外部文件。",
+      "category": [
+        "tools",
+        "runtime-queries"
+      ],
+      "name_en": "Debug Header Path Parsing",
+      "automatic_result_preview": false
     },
     "pyscript": {
       "name": "执行 Siril Python 脚本",
-      "description": "同步执行明确提供的 Siril Python 脚本，保留可观测的完成和取消状态；脚本拥有本机用户权限，不视为安全沙箱。"
+      "description": "同步执行明确提供的 Siril Python 脚本，保留可观测的完成和取消状态；脚本拥有本机用户权限，不视为安全沙箱。",
+      "category": [
+        "tools",
+        "scripting"
+      ],
+      "name_en": "Run Siril Python Script",
+      "automatic_result_preview": false
     }
   },
   "parameters": {
@@ -948,5 +1908,171 @@
     "A compatible StarNet executable and weights configured in the isolated Siril settings.": "需要在隔离 Siril 设置中配置兼容的 StarNet 程序和权重。",
     "-existing needs GUI background samples; this stateless operation creates samples from the fixed input.": "-existing 需要 GUI 背景样本；本无状态操作从固定输入生成样本。",
     "Siril star measurements are prepared with findstar on the fixed image before synthstar.": "synthstar 前会在固定图像上使用 findstar 准备恒星测量。"
+  },
+  "categories": {
+    "files-sequences": {
+      "en": "Files and Sequences",
+      "zh": "文件与序列"
+    },
+    "preprocessing": {
+      "en": "Preprocessing",
+      "zh": "预处理"
+    },
+    "stretch-color": {
+      "en": "Stretch and Color",
+      "zh": "拉伸与色彩"
+    },
+    "background-filters": {
+      "en": "Background and Filters",
+      "zh": "背景与滤镜"
+    },
+    "geometry-channels": {
+      "en": "Geometry and Channels",
+      "zh": "几何与通道"
+    },
+    "stars": {
+      "en": "Star Processing",
+      "zh": "恒星处理"
+    },
+    "pixel-math": {
+      "en": "Pixel Operations",
+      "zh": "像素运算"
+    },
+    "analysis": {
+      "en": "Analysis and Measurement",
+      "zh": "分析与测量"
+    },
+    "tools": {
+      "en": "Tools",
+      "zh": "工具"
+    },
+    "conversion": {
+      "en": "Format Conversion",
+      "zh": "格式转换"
+    },
+    "export": {
+      "en": "File Export",
+      "zh": "文件导出"
+    },
+    "sequence-management": {
+      "en": "Sequence Management",
+      "zh": "序列管理"
+    },
+    "calibration": {
+      "en": "Image Calibration",
+      "zh": "图像校准"
+    },
+    "cosmetic-correction": {
+      "en": "Cosmetic Correction",
+      "zh": "坏点修复"
+    },
+    "registration": {
+      "en": "Registration",
+      "zh": "配准对齐"
+    },
+    "stacking": {
+      "en": "Stacking",
+      "zh": "堆叠合成"
+    },
+    "automatic-stretch": {
+      "en": "Automatic Stretch",
+      "zh": "自动拉伸"
+    },
+    "stretch-transforms": {
+      "en": "Stretch Transforms",
+      "zh": "拉伸变换"
+    },
+    "color-calibration": {
+      "en": "Color Calibration",
+      "zh": "颜色校准"
+    },
+    "color-adjustment": {
+      "en": "Color Adjustment",
+      "zh": "颜色调整"
+    },
+    "color-management": {
+      "en": "Color Management",
+      "zh": "色彩管理"
+    },
+    "background-extraction": {
+      "en": "Background Extraction",
+      "zh": "背景提取"
+    },
+    "noise-banding": {
+      "en": "Noise and Banding Reduction",
+      "zh": "降噪与条纹"
+    },
+    "detail-enhancement": {
+      "en": "Detail Enhancement",
+      "zh": "细节增强"
+    },
+    "deconvolution": {
+      "en": "Deconvolution",
+      "zh": "反卷积"
+    },
+    "frequency-wavelets": {
+      "en": "Frequency and Wavelets",
+      "zh": "频域与小波"
+    },
+    "crop-scale": {
+      "en": "Crop and Scale",
+      "zh": "裁剪与缩放"
+    },
+    "rotate-flip": {
+      "en": "Rotate and Flip",
+      "zh": "旋转与翻转"
+    },
+    "channel-extraction": {
+      "en": "Channel Extraction",
+      "zh": "通道提取"
+    },
+    "channel-composition": {
+      "en": "Channel Composition",
+      "zh": "通道合成"
+    },
+    "star-removal": {
+      "en": "Star Removal",
+      "zh": "恒星分离"
+    },
+    "star-reconstruction": {
+      "en": "Star Reconstruction",
+      "zh": "恒星重建"
+    },
+    "image-arithmetic": {
+      "en": "Image Arithmetic",
+      "zh": "图像算术"
+    },
+    "pixel-editing": {
+      "en": "Pixel Editing",
+      "zh": "像素编辑"
+    },
+    "statistics": {
+      "en": "Image Statistics",
+      "zh": "图像统计"
+    },
+    "star-optics": {
+      "en": "Star and Optical Analysis",
+      "zh": "恒星与光学分析"
+    },
+    "astrometry": {
+      "en": "Astrometry",
+      "zh": "天体测量"
+    },
+    "photometry": {
+      "en": "Photometry",
+      "zh": "测光分析"
+    },
+    "metadata": {
+      "en": "Metadata",
+      "zh": "元数据"
+    },
+    "runtime-queries": {
+      "en": "Runtime Queries",
+      "zh": "运行查询"
+    },
+    "scripting": {
+      "en": "Scripting",
+      "zh": "脚本执行"
+    }
   }
 }

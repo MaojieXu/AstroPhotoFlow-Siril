@@ -1,7 +1,11 @@
 {
   "definition_id": "60cb1986-80ec-5823-8a96-c2ae4b41b993",
   "source": "package",
-  "name": "Siril seqwiener",
+  "name": "Sequence Wiener Deconvolution (seqwiener)",
+  "category": [
+    "background-filters",
+    "deconvolution"
+  ],
   "description": "The same as the WIENER command, but applies to a sequence which must be specified as the first argument\n\nLinks: wiener\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

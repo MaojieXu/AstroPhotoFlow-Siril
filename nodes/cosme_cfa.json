@@ -1,7 +1,11 @@
 {
   "definition_id": "5fc22dac-147b-5eba-9016-e7ef69b89b48",
   "source": "package",
-  "name": "Siril cosme cfa",
+  "name": "CFA Cosmetic Correction (cosme_cfa)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Same function as COSME but applying to RAW CFA images\n\nLinks: cosme\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

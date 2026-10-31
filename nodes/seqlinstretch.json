@@ -1,7 +1,11 @@
 {
   "definition_id": "776aa6b1-ccb3-5dfa-ae21-60f77940e3d5",
   "source": "package",
-  "name": "Siril seqlinstretch",
+  "name": "Sequence Linear Stretch (seqlinstretch)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Same command as LINSTRETCH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: linstretch\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

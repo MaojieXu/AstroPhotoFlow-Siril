@@ -1,7 +1,11 @@
 {
   "definition_id": "8db972e5-a78d-5ada-9880-8ae86ef34878",
   "source": "package",
-  "name": "Siril seqsplit cfa",
+  "name": "Sequence Split CFA Channels (seqsplit_cfa)",
+  "category": [
+    "geometry-channels",
+    "channel-extraction"
+  ],
   "description": "Same command as SPLIT_CFA but for the sequence sequencename .\n\nThe output sequences names start with the prefix \"CFA_\" and a number unless otherwise specified with -prefix= option.\n\nLimitation: the sequence always outputs a sequence of FITS files, no matter the type of input sequence\n\nLinks: split_cfa\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

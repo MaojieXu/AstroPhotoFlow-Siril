@@ -1,7 +1,11 @@
 {
   "definition_id": "57b87fd9-c942-5236-ac5c-806393a94e08",
   "source": "package",
-  "name": "Siril threshhi",
+  "name": "Upper Pixel Limit (threshhi)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "Replaces values above level in the loaded image with level\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

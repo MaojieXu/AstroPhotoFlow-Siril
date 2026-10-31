@@ -1,7 +1,11 @@
 {
   "definition_id": "85548f39-233b-5f79-b330-cf93cc66561c",
   "source": "package",
-  "name": "Siril fmul",
+  "name": "Multiply by Scalar (fmul)",
+  "category": [
+    "pixel-math",
+    "image-arithmetic"
+  ],
   "description": "Multiplies the loaded image by the scalar given in argument\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

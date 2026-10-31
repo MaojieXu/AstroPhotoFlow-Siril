@@ -1,7 +1,11 @@
 {
   "definition_id": "4cec5ffb-4d2a-51a0-a1f8-8f7e43918122",
   "source": "package",
-  "name": "Siril log",
+  "name": "Logarithmic Transformation (log)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Computes and applies a logarithmic scale to the loaded image, using the following formula: log(1 - (value - min) / (max - min)), with min and max being the minimum and maximum pixel value for the channel\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

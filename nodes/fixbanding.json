@@ -1,7 +1,11 @@
 {
   "definition_id": "bca535c4-4b04-5ca0-be14-3d23ce6cf81e",
   "source": "package",
-  "name": "Siril fixbanding",
+  "name": "Banding Reduction (fixbanding)",
+  "category": [
+    "background-filters",
+    "noise-banding"
+  ],
   "description": "Tries to remove the horizontal or vertical banding in the loaded image.\n\namount defines the amount of correction, between 0 and 4.\n\nsigma defines the highlight protection level of the algorithm, higher sigma gives higher protection, between 0 and 5. Values of 1 and 1 are often good enough.\n\n-vertical option enables to perform vertical banding removal, horizontal is the default\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

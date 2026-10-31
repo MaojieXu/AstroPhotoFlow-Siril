@@ -1,7 +1,11 @@
 {
   "definition_id": "bce6cd7d-bf9a-52e6-bf34-ca5f4e9b1abf",
   "source": "package",
-  "name": "Siril ffill",
+  "name": "FFT Symmetric Fill (ffill)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "Same command as FILL but this is a symmetric fill of a region defined by the mouse or with BOXSELECT. Used to process an image in the Fourier (FFT) domain\n\nLinks: fill , boxselect\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

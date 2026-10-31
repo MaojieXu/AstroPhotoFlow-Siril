@@ -1,7 +1,11 @@
 {
   "definition_id": "9d0bef9b-48ae-5fb8-a5e9-8d0ccc517ca0",
   "source": "package",
-  "name": "Siril findstar",
+  "name": "Find Stars (findstar)",
+  "category": [
+    "analysis",
+    "star-optics"
+  ],
   "description": "Detects stars in the currently loaded image, having a level greater than a threshold computed by Siril.\n\nAfter that, a PSF is applied and Siril rejects all detected structures that don't fulfill a set of prescribed detection criteria, that can be tuned with command SETFINDSTAR.\n\nFinally, an ellipse is drawn around detected stars.\n\nOptional parameter -out= allows the results to be saved to the given path.\n\nOption -layer= specifies the layer onto which the detection is performed (for color images only).\n\nYou can also limit the maximum number of stars detected by passing a value to option -maxstars= .\n\nSee also CLEARSTAR\n\nLinks: psf , setfindstar , clearstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

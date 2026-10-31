@@ -1,7 +1,11 @@
 {
   "definition_id": "8e7481d0-e074-58ae-bede-bc26d3b5d518",
   "source": "package",
-  "name": "Siril psf",
+  "name": "Stellar PSF Measurement (psf)",
+  "category": [
+    "analysis",
+    "star-optics"
+  ],
   "description": "Performs a PSF (Point Spread Function) on the selected star and display the results. For headless operation, the selection can be given in pixels using BOXSELECT. If provided, the channel argument selects the image channel on which the star will be analyzed. It can be omitted for monochrome images or when run from the GUI with one of the channels active in the view\n\nLinks: boxselect\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

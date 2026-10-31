@@ -1,7 +1,11 @@
 {
   "definition_id": "5b231370-051f-5728-b57c-e9d28f66562a",
   "source": "package",
-  "name": "Siril seqstarnet",
+  "name": "Sequence Star Removal (seqstarnet)",
+  "category": [
+    "stars",
+    "star-removal"
+  ],
   "description": "This command calls Starnet++ to remove stars from the sequence sequencename . See STARNET\n\nLinks: starnet\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

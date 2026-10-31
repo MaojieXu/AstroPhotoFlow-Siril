@@ -1,7 +1,11 @@
 {
   "definition_id": "1d5f8c7b-1ee0-515e-b3d0-e8b3d193718d",
   "source": "package",
-  "name": "Siril merge cfa",
+  "name": "Merge CFA Channels (merge_cfa)",
+  "category": [
+    "geometry-channels",
+    "channel-composition"
+  ],
   "description": "Builds a Bayer masked color image from 4 separate images containing the data from Bayer subchannels CFA0, CFA1, CFA2 and CFA3. (The corresponding command to split the CFA pattern into subchannels is split_cfa .) This function can be used as part of a workflow applying some processing to the individual Bayer subchannels prior to demosaicing. The fifth parameter bayerpattern specifies the Bayer matrix pattern to recreate: bayerpattern should be one of 'RGGB', 'BGGR', 'GRBG' or 'GBRG'\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "2a735772-db93-52dc-80fb-7de1d0c1a117",
   "source": "package",
-  "name": "Siril seqextract HaOIII",
+  "name": "Sequence Extract CFA H-alpha and OIII (seqextract_HaOIII)",
+  "category": [
+    "geometry-channels",
+    "channel-extraction"
+  ],
   "description": "Same command as EXTRACT_HAOIII but for the sequence sequencename .\n\nThe output sequences names start with the prefixes \"Ha_\" and \"OIII_\"\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

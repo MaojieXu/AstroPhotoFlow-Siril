@@ -1,7 +1,11 @@
 {
   "definition_id": "8665f1ce-722e-5575-b778-1079b9261931",
   "source": "package",
-  "name": "Siril convertraw",
+  "name": "Convert RAW Images to Sequence (convertraw)",
+  "category": [
+    "files-sequences",
+    "conversion"
+  ],
   "description": "Same as CONVERT but converts only DSLR RAW files found in the current working directory\n\nLinks: convert\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

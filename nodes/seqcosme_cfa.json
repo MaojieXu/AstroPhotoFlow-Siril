@@ -1,7 +1,11 @@
 {
   "definition_id": "722f664a-a001-50e1-ac42-51ab4022b370",
   "source": "package",
-  "name": "Siril seqcosme cfa",
+  "name": "Sequence CFA Cosmetic Correction (seqcosme_cfa)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Same command as COSME_CFA but for the the sequence sequencename . Only selected images in the sequence are processed.\n\nThe output sequence name starts with the prefix \"cosme_\" unless otherwise specified with option -prefix=\n\nLinks: cosme_cfa\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

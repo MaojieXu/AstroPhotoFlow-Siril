@@ -1,7 +1,11 @@
 {
   "definition_id": "1191f19f-80e6-5ab1-a838-5cad8a700209",
   "source": "package",
-  "name": "Siril split",
+  "name": "Split Color Channels (split)",
+  "category": [
+    "geometry-channels",
+    "channel-extraction"
+  ],
   "description": "Splits the loaded color image into three distinct files (one for each color) and saves them in file1 .fit, file2 .fit and file3 .fit files. A last argument can optionally be supplied, -hsl , -hsv or lab to perform an HSL, HSV or CieLAB extraction. If no option are provided, the extraction is of RGB type, meaning no conversion is done\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

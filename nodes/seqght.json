@@ -1,7 +1,11 @@
 {
   "definition_id": "c97740f3-4ce9-5095-a923-3aaf9ebfc906",
   "source": "package",
-  "name": "Siril seqght",
+  "name": "Sequence Generalized Hyperbolic Stretch (seqght)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Same command as GHT but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: ght\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

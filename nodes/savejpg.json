@@ -1,7 +1,11 @@
 {
   "definition_id": "a729c590-90df-561b-97dd-438343164277",
   "source": "package",
-  "name": "Siril savejpg",
+  "name": "Export JPEG (savejpg)",
+  "category": [
+    "files-sequences",
+    "export"
+  ],
   "description": "Saves current image into a JPG file: filename .jpg.\n\nThe compression quality can be adjusted using the optional quality value, 100 being the best and default, while a lower value increases the compression ratio\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

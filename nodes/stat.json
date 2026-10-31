@@ -1,7 +1,11 @@
 {
   "definition_id": "d507b832-cd28-582e-ae15-ec080655c49b",
   "source": "package",
-  "name": "Siril stat",
+  "name": "Image Statistics (stat)",
+  "category": [
+    "analysis",
+    "statistics"
+  ],
   "description": "Returns statistics of the current image, the basic list by default or the main list if main is passed. If a selection is made, statistics are computed within the selection. If -cfa is passed and the image is CFA, statistics are made on per-filter extractions\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

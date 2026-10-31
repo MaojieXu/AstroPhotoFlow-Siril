@@ -1,7 +1,11 @@
 {
   "definition_id": "5bd48381-4cc5-564d-990e-3ba4fabc279a",
   "source": "package",
-  "name": "Siril grey flat",
+  "name": "Equalize CFA Flat (grey_flat)",
+  "category": [
+    "preprocessing",
+    "calibration"
+  ],
   "description": "Equalizes the mean intensity of RGB layers in the loaded CFA image. This is the same process used on flats during calibration when the option equalize CFA is used\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "fd53ab68-78b2-5cd2-b6df-65bf97ad842f",
   "source": "package",
-  "name": "Siril thresh",
+  "name": "Lower Threshold (thresh)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "Replaces values below level in the loaded image with level\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

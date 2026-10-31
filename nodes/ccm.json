@@ -1,7 +1,11 @@
 {
   "definition_id": "1627afd9-c8a3-5cf3-a542-564f8902bcb8",
   "source": "package",
-  "name": "Siril ccm",
+  "name": "Color Conversion Matrix (ccm)",
+  "category": [
+    "stretch-color",
+    "color-adjustment"
+  ],
   "description": "Applies a color conversion matrix to the current image.\n\nThere are 9 mandatory arguments corresponding to the 9 matrix elements:\n\nm00, m01, m02\n\nm10, m11, m12\n\nm20, m21, m22\n\nAn additional tenth argument [gamma] can be provided: if it is omitted, it defaults to 1.0.\n\nThese are applied to each pixel according to the following formulae:\n\nr' = (m00 * r + m01 * g + m02 * b)^(-1/gamma)\n\ng' = (m10 * r + m11 * g + m12 * b)^(-1/gamma)\n\nb' = (m20 * r + m21 * g + m22 * b)^(-1/gamma)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

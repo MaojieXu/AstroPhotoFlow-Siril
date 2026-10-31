@@ -1,7 +1,11 @@
 {
   "definition_id": "d8fa486e-9c7c-577a-b43c-5cd1f8b976f9",
   "source": "package",
-  "name": "Siril iadd",
+  "name": "Add Images (iadd)",
+  "category": [
+    "pixel-math",
+    "image-arithmetic"
+  ],
   "description": "Adds the image filename to the loaded image.\n\nResult will be in 32 bits per channel if allowed in the preferences\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "abc61c2d-7157-56fb-ae60-d2a46501a708",
   "source": "package",
-  "name": "Siril clahe",
+  "name": "Contrast Limited Adaptive Histogram Equalization (clahe)",
+  "category": [
+    "background-filters",
+    "detail-enhancement"
+  ],
   "description": "Equalizes the histogram of an image using Contrast Limited Adaptive Histogram Equalization.\n\ncliplimit sets the threshold for contrast limiting.\n\ntilesize sets the size of grid for histogram equalization. Input image will be divided into equally sized rectangular tiles\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

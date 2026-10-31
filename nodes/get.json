@@ -1,7 +1,11 @@
 {
   "definition_id": "afda5ea6-0a76-5ed7-ad94-f63b49f572de",
   "source": "package",
-  "name": "Siril get",
+  "name": "Read Siril Settings (get)",
+  "category": [
+    "tools",
+    "runtime-queries"
+  ],
   "description": "Gets a value from the settings using its name, or list all with -a (name and value list) or with -A (detailed list)\n\nSee also SET to update values\n\nLinks: set\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [],
   "outputs": [

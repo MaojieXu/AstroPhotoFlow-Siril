@@ -1,7 +1,11 @@
 {
   "definition_id": "6a25e307-345e-56e4-8270-de348cef6bb4",
   "source": "package",
-  "name": "Siril find hot",
+  "name": "Export Hot and Cold Pixel List (find_hot)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Saves a list file filename (text format) in the working directory which contains the coordinates of the pixels which have an intensity hot_sigma times higher and cold_sigma lower than standard deviation, extracted from the loaded image. We generally use this command on a master-dark file. The COSME command can apply this list of bad pixels to a loaded image, see also SEQCOSME to apply it to a sequence\n\nLinks: cosme , seqcosme\n\nLines P x y type will fix the pixel at coordinates (x, y) type is an optional character (C or H) specifying to Siril if the current pixel is cold or hot. This line is created by the command FIND_HOT but you also can add some lines manually:\n\nLines C x 0 type will fix the bad column at coordinates x.\n\nLines L y 0 type will fix the bad line at coordinates y.\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

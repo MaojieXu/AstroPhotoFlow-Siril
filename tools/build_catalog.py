@@ -9,6 +9,7 @@ from astrophotoflow.contracts.software import SoftwareOperation
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PRESENTATION = runpy.run_path(str(Path(__file__).with_name('presentation.py')))
 NAMESPACE = runpy.run_path(str(ROOT / 'adapter/recipes.py'))
 RECIPES, SESSION_COMMANDS = NAMESPACE['RECIPES'], NAMESPACE['SESSION_COMMANDS']
 
@@ -56,6 +57,7 @@ def write(path, value):
 
 
 def main():
+    presentation = PRESENTATION['load_presentation'](ROOT, list(RECIPES))
     reference = json.loads((ROOT / 'reference/commands.json').read_text(encoding='utf-8'))
     commands = {item['command']: item for item in reference}
     cli = json.loads((ROOT / 'reference/cli-help.json').read_text(encoding='utf-8'))
@@ -95,7 +97,9 @@ def main():
             operation['syntax'] = 'threshhi level'
         SoftwareOperation.model_validate(dict(operation, content_token='', ready=False, reason=None))
         definition_id = '169de083-7f81-4cde-a329-5541ecacf463' if name == 'autostretch' else str(uuid5(NAMESPACE_URL, 'https://astrophotoflow.local/siril/' + name))
-        node = dict(definition_id=definition_id, source='package', name='Siril ' + ('Auto Stretch' if name == 'autostretch' else name.replace('_', ' ')),
+        node = dict(definition_id=definition_id, source='package',
+                    name=PRESENTATION['node_name'](presentation['operations'][name], name, 'en'),
+                    category=presentation['operations'][name]['category'],
                     description=description, inputs=[dict(name=item['name'], type=item['type']) for item in operation['inputs']],
                     outputs=[dict(name=item['name'], type=item['type']) for item in operation['outputs']],
                     parameters=parameters,
@@ -108,9 +112,10 @@ def main():
                      '\n'.join(recipe.get('limitations', []) + recipe.get('dependencies', []) + recipe.get('corrections', [])) +
                      '\n\nruntime is a JSON object. Supported keys: ini, settings, threads, memory_ratio, output_bits, compression, online, selection, findstar, photometry. Networking starts offline and must be enabled explicitly. '
                      'Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. '
-                     'Connect transforms to an explicit export, stacking, or analysis endpoint. Only requested dependencies are executed; previews do not make other branches endpoints. '
+                     'Automatic complete-result calculation can target explicitly opted-in processing and analysis operations without an export node. Manual execution retains explicit export, stacking, or analysis endpoints. Only requested dependencies are executed. '
                      'Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.')
         entry = dict(operation=operation, preview=dict(kind='science-image', input='image', max_edge=1024) if recipe['live'] else None,
+                     automatic_result_preview=presentation['operations'][name]['automatic_result_preview'],
                      output_display=recipe['display'], help=help_text,
                      examples=[{item['name']: item['default'] for item in parameters}],
                      limitations=recipe.get('limitations', []), dependencies=recipe.get('dependencies', []), corrections=recipe.get('corrections', []))

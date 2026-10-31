@@ -1,5 +1,13 @@
 # Siril 1.4.4 candidate
 
+## Node names and categories
+
+For source development, bind this checkout with the platform bootstrap `--bundle-source siril=<checkout>`. `development.json` declares the Python builder and watched author files. The platform uses its private development interpreter, regenerates and validates declarations before native reload, and invalidates adapters and previews when Python helpers change. A failed generation blocks new uses until corrected. `--clear-bundle-source siril` restores the installed release without overwriting it. Development provenance includes the real checkout HEAD, dirty state and content fingerprint; it does not require a tag or installation.
+
+The 160 node titles use a functional name followed by the original command or composite operation identifier. English and Chinese labels follow the workbench language. The directory has a Siril root followed by two functional category levels; single-image and sequence variants share the same functional category.
+
+Authored names and category assignments live in `locales/source.zh.json`, including English names and bilingual category labels. `tools/build_catalog.py` and `tools/build_locales.py` consume the same mapping and reject incomplete coverage or categories without two levels. Regenerate declarations through `tools/build_catalog.py`; it also rebuilds both locales. Node UUIDs, port names and execution bindings remain stable.
+
 This candidate covers commands by their actual capability, not by assuming 199 commands equal 199 canvas nodes. `reference/coverage.json` is the complete mapping. `reference/cli-help.json` records help from the fixed executable; `reference/formats.json` records static extensions and the six movie extensions declared by the fixed source. Definitions are built from explicit recipes in `adapter/recipes.py`, backed by process construction and parsing in `adapter/siril.py`.
 
 The host must support Bundle SDK v2 in `astrophotoflow.contracts.bundles`. No unmerged hot-reload Feature is required. The current default platform catalog may still point to the previously released Auto Stretch Bundle; this candidate has not been published and cannot be represented by that old SHA.
@@ -10,7 +18,9 @@ Use library references to fixed asset/group versions. Scientific images use `APF
 
 Single-image operations process an ordered static group without taking only the first member. Sequence operations retain the `.seq` descriptor and supporting registration/star/index files across nodes. Writable sequence descriptors are rebound to the new invocation; no hard link exposes an old scientific file to in-place changes. Packed FITS/SER/movie containers stay complete; several packed containers require separate Merge inputs rather than silently taking their first frames.
 
-Merge and Stack All use native growing inputs. Export, stacking and analysis nodes are explicit execution endpoints. Auto Stretch retains its existing endpoint identity. Other transforms are connected to an endpoint; the Bundle does not mark every node as a terminal or execute unrelated branches to obtain previews.
+A single static image is staged with an explicit version-6 one-member `.seq` descriptor. Siril's directory scan does not discover this case automatically; the operation still executes its original sequence command with exactly one frame. Commands requiring additional frames can still reject that input themselves.
+
+Merge and Stack All use native growing inputs. Export, stacking and analysis nodes remain manual execution endpoints, and Auto Stretch retains its endpoint identity. Authored `automatic_result_preview` booleans explicitly cover all 160 operations: 131 processing/analysis operations allow automatic complete-result calculation, while 29 export, script, metadata and query/management operations require manual execution. The host selects eligible targets and validates the entire dependency chain without marking every node as a terminal. Automatic calculations accept unnamed drafts and retain immutable per-run graph/signature snapshots rather than asking users to save an engineering workflow. The existing ten fast sample previews remain optional and collapsed initially.
 
 Output references identify checked complete files by run, node, output and fixed member. The host checks format, containment, content identity and FITS/SER frame counts. Movie sequence counts come from Siril's fixed FFMS2 reader and descriptor; codec-specific execution remains unverified. Completion images, file browsing, HDU/frame viewing, metrics, tables and histogram display use the platform's shared structures. Opening a view does not register a material or change canvas control.
 
@@ -46,3 +56,8 @@ No current operation is claimed as runtime-verified merely because its declarati
 The current Windows integration did not pass `seqprofile`: Siril wrote DAT files, then attempted its embedded Python/plot environment and exited with `0xC0000005`. This is a failed runtime check, not an accepted node result. A working Siril Python/plot environment must be separately validated before relying on this operation. The host preserves the actual failure and full log. StarNet without a configured executable also returned its actual missing-dependency error; no dependency was installed by the host.
 
 Siril 1.4.4 silently ignores both requested modes for `stat -cfa main`; this combination is rejected rather than publishing B&W/basic statistics as CFA/main. Use the separate supported CFA or main mode.
+
+
+## 2026-10-31 集成验证
+
+本轮候选 `cdf952c14ae160e86add8dcc2142b16c39719936` 经独立审查后修复单帧输出压缩描述与格式依赖热加载；完整 Bundle 回归 51 项通过。平台配套产品提交 `2a1b98cdb9dd26c39d79886525a567e1a7456b63` 已验证双分支共享上游、分析输出、跨运行签名及原件保护；详细结果见平台 `docs/development/test-matrix.md#node-ui-bundle-integration`。本轮仍为开发源码候选，不修改已发布 tag，不表示 160 项操作全部科学验收。

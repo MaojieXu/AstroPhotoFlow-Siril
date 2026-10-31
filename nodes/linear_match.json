@@ -1,7 +1,11 @@
 {
   "definition_id": "66d0696d-92bb-5a5d-abd7-d90725309c14",
   "source": "package",
-  "name": "Siril linear match",
+  "name": "Linear Match (linear_match)",
+  "category": [
+    "stretch-color",
+    "color-adjustment"
+  ],
   "description": "Computes and applies a linear function between a reference image and the loaded image.\n\nThe algorithm will ignore all reference pixels whose values are outside of the [ low , high ] range\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

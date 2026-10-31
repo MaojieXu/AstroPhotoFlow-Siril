@@ -1,7 +1,11 @@
 {
   "definition_id": "11d878aa-0f47-5b81-81ec-9841a04e7485",
   "source": "package",
-  "name": "Siril seqresample",
+  "name": "Sequence Resample (seqresample)",
+  "category": [
+    "geometry-channels",
+    "crop-scale"
+  ],
   "description": "Scales the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe scale factor is specified either by the -scale= argument or by setting the output width, height or maximum dimension using the -width= , -height= or -maxdim= options.\n\nAn interpolation method may be specified using the -interp= argument followed by one of the methods in the list ne [arest], cu [bic], la [nczos4], li [near], ar [ea]}.. Clamping is applied for cubic and lanczos interpolation.\n\nThe output sequence name starts with the prefix \"scaled_\" unless otherwise specified with -prefix= option\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

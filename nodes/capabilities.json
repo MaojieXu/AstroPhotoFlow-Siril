@@ -1,7 +1,11 @@
 {
   "definition_id": "797b6594-b137-5c48-b8db-a8b19003963c",
   "source": "package",
-  "name": "Siril capabilities",
+  "name": "Siril Capabilities (capabilities)",
+  "category": [
+    "tools",
+    "runtime-queries"
+  ],
   "description": "Lists Siril capabilities, based on compilation options and runtime\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [],
   "outputs": [

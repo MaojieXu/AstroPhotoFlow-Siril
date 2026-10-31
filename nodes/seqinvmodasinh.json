@@ -1,7 +1,11 @@
 {
   "definition_id": "fa08a4fe-691e-5ccc-b2a2-22be41bcb74e",
   "source": "package",
-  "name": "Siril seqinvmodasinh",
+  "name": "Sequence Inverse Modified Asinh Stretch (seqinvmodasinh)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Same command as INVMODASINH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: invmodasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
