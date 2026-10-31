@@ -1,7 +1,11 @@
 {
   "definition_id": "1119216b-326c-57ec-9dd8-8e4145010339",
   "source": "package",
-  "name": "Siril find cosme cfa",
+  "name": "Automatic CFA Cosmetic Correction (find_cosme_cfa)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Same command as FIND_COSME but for CFA images\n\nLinks: find_cosme\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

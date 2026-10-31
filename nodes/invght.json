@@ -1,7 +1,11 @@
 {
   "definition_id": "c520d3a2-7f85-5b31-ac54-b1033021ac74",
   "source": "package",
-  "name": "Siril invght",
+  "name": "Inverse Generalized Hyperbolic Stretch (invght)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Inverts a generalised hyperbolic stretch. It provides the inverse transformation of GHT, if provided with the same parameters, undoes a GHT command, possibly returning to a linear image. It can also work the same way as GHT but for images in negative\n\nLinks: ght\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

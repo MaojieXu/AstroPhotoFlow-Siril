@@ -1,7 +1,11 @@
 {
   "definition_id": "eaf566b7-fcaa-526b-886c-0a126609fe31",
   "source": "package",
-  "name": "Siril entropy",
+  "name": "Image Entropy (entropy)",
+  "category": [
+    "analysis",
+    "statistics"
+  ],
   "description": "Computes the entropy of the loaded image on the displayed layer, only in the selected area if one has been selected or in the whole image. The entropy is one way of measuring the noise or the details in an image\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

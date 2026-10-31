@@ -1,7 +1,11 @@
 {
   "definition_id": "ba64e558-e235-5c80-8d2c-f5957a28bc8b",
   "source": "package",
-  "name": "Siril seqclean",
+  "name": "Clear Sequence Auxiliary Data (seqclean)",
+  "category": [
+    "files-sequences",
+    "sequence-management"
+  ],
   "description": "This command clears selection, registration and/or statistics data stored for the sequence sequencename .\n\nYou can specify to clear only registration, statistics and/or selection with -reg , -stat and -sel options respectively. All are cleared if no option is passed\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "300f5e96-0258-5cac-8bfe-201f9120d55b",
   "source": "package",
-  "name": "Siril nozero",
+  "name": "Replace Zero Pixels (nozero)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "Replaces null values by level values. Useful before an idiv or fdiv operation, mostly for 16-bit images\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

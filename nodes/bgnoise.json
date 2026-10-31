@@ -1,7 +1,11 @@
 {
   "definition_id": "0cf1ab3c-9e09-5841-8e77-c29cd2400384",
   "source": "package",
-  "name": "Siril bgnoise",
+  "name": "Background Noise (bgnoise)",
+  "category": [
+    "analysis",
+    "statistics"
+  ],
   "description": "Returns the background noise level of the loaded image\n\nFor more information, see the statistics documentation\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

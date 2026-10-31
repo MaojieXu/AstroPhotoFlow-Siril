@@ -1,7 +1,11 @@
 {
   "definition_id": "831a58f4-7c2d-5f0d-85b7-168dc276c365",
   "source": "package",
-  "name": "Siril help",
+  "name": "Command Help (help)",
+  "category": [
+    "tools",
+    "runtime-queries"
+  ],
   "description": "Lists the available commands or help for one command\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [],
   "outputs": [

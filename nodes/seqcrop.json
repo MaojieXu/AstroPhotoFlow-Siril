@@ -1,7 +1,11 @@
 {
   "definition_id": "fe1be18d-43fd-5ade-9043-851968518101",
   "source": "package",
-  "name": "Siril seqcrop",
+  "name": "Sequence Crop (seqcrop)",
+  "category": [
+    "geometry-channels",
+    "crop-scale"
+  ],
   "description": "Crops the sequence given in argument sequencename . Only selected images in the sequence are processed.\n\nThe crop selection is specified by the upper left corner position x and y and the selection width and height , like for CROP.\n\nThe output sequence name starts with the prefix \"cropped_\" unless otherwise specified with -prefix= option\n\nLinks: crop\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

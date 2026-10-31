@@ -1,7 +1,11 @@
 {
   "definition_id": "96431f00-400a-5975-a788-90b7a206bb2d",
   "source": "package",
-  "name": "Siril conesearch",
+  "name": "Catalog Cone Search (conesearch)",
+  "category": [
+    "analysis",
+    "astrometry"
+  ],
   "description": "Displays stars from the local catalog by default for the loaded plate solved image, down to the provided limit_magnitude (13 by default for most catalogues, except 14.5 for aavso_chart, 20 for solsys, and omitted for pgc).\n\nAn alternate online catalog can be specified with -cat= , taking values\n\n- for stars: tycho2, nomad, gaia, localgaia, ppmxl, bsc, apass, gcvs, vsx, simbad, aavso_chart\n\n- for exoplanets: exo\n\n- for deep-sky: pgc\n\n- for solar system objects: solsys (closest IAU observatory code can be passed with the argument -obscode= for better position accuracy)\n\nFor stars catalogues containing photometric data, stars with no B-V information will be kept; they can be excluded by passing -phot\n\nThe argument -trix= can be passed instead of a catalogue followed by a number between 0 and 511 to plot stars contained in local catalogues trixel of level 3 (for dev usage mainly)\n\nSome catalogs (bsc, gcvs, pgc, exo, aavso_chart, varisum and solsys) will also display, by default, names alongside markers in the display (GUI only) and list them in the log. For others with larger number of objects, namely vsx and simbad, the information can also be shown but, as it may clutter the display, it is not activated by default. This behavior can be toggled on/off with the options -tag=on|off to display names alongside markers and -log=on|off to list the objects in the console log\n\nThe list of items that are present in the image can optionally saved to a csv file by passing the argument -out=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

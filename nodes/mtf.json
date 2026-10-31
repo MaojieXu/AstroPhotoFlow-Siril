@@ -1,7 +1,11 @@
 {
   "definition_id": "b1eaaf58-1fec-5a97-8191-d64742249600",
   "source": "package",
-  "name": "Siril mtf",
+  "name": "Midtones Transfer Function (mtf)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Applies midtones transfer function to the current loaded image.\n\nThree parameters are needed, low , midtones and high where midtones balance parameter defines a nonlinear histogram stretch in the [0,1] range. For an automatic determination of the parameters, see AUTOSTRETCH.\n\nOptionally the parameter [channels] may be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels\n\nLinks: autostretch\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

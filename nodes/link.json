@@ -1,7 +1,11 @@
 {
   "definition_id": "42bfe720-08b8-55bb-8168-9a383976e30a",
   "source": "package",
-  "name": "Siril link",
+  "name": "Create FITS Sequence (link)",
+  "category": [
+    "files-sequences",
+    "conversion"
+  ],
   "description": "Same as CONVERT but converts only FITS files found in the current working directory. This is useful to avoid conversions of JPEG results or other files that may end up in the directory. The additional argument -date enables sorting files with their DATE-OBS value instead of with their name alphanumerically\n\nLinks: convert\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

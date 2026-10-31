@@ -1,7 +1,11 @@
 {
   "definition_id": "2e321334-9e29-59b3-af0c-427508df9120",
   "source": "package",
-  "name": "Siril invmodasinh",
+  "name": "Inverse Modified Asinh Stretch (invmodasinh)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Inverts a modified arcsinh stretch. It provides the inverse transformation of MODASINH, if provided with the same parameters, undoes a MODASINH command, possibly returning to a linear image. It can also work the same way as MODASINH but for images in negative\n\nLinks: modasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

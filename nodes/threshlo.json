@@ -1,7 +1,11 @@
 {
   "definition_id": "177f3615-b198-555c-8a9e-02577a853f34",
   "source": "package",
-  "name": "Siril threshlo",
+  "name": "Lower Pixel Limit (threshlo)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "Replaces values below level in the loaded image with level\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

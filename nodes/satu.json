@@ -1,7 +1,11 @@
 {
   "definition_id": "347beb65-39a4-5137-a24e-dc91609edc6f",
   "source": "package",
-  "name": "Siril satu",
+  "name": "Color Saturation (satu)",
+  "category": [
+    "stretch-color",
+    "color-adjustment"
+  ],
   "description": "Enhances the color saturation of the loaded image. Try iteratively to obtain best results.\n\namount can be a positive number to increase color saturation, negative to decrease it, 0 would do nothing, 1 would increase it by 100%\n\nbackground_factor is a factor to (median + sigma) used to set a threshold for which only pixels above it would be modified. This allows background noise to not be color saturated, if chosen carefully. Defaults to 1. Setting 0 disables the threshold.\n\nhue_range_index can be [0, 6], meaning: 0 for pink to orange, 1 for orange to yellow, 2 for yellow to cyan, 3 for cyan, 4 for cyan to magenta, 5 for magenta to pink, 6 for all (default)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

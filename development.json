@@ -1,0 +1,10 @@
+{
+  "build": "tools/build_catalog.py",
+  "watch": [
+    "adapter/**/*.py",
+    "tools/**/*.py",
+    "locales/source.zh.json",
+    "reference/commands.json",
+    "reference/cli-help.json"
+  ]
+}

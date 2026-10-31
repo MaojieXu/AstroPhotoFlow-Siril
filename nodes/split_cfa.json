@@ -1,7 +1,11 @@
 {
   "definition_id": "c4a6009d-7f44-5fba-a41a-ebdf4757a320",
   "source": "package",
-  "name": "Siril split cfa",
+  "name": "Split CFA Channels (split_cfa)",
+  "category": [
+    "geometry-channels",
+    "channel-extraction"
+  ],
   "description": "Splits the loaded CFA image into four distinct files (one for each channel) and saves them in files\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

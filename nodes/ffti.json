@@ -1,7 +1,11 @@
 {
   "definition_id": "74ea85a6-dc78-5e35-b935-6c515d3c639a",
   "source": "package",
-  "name": "Siril ffti",
+  "name": "Inverse Fourier Transform (ffti)",
+  "category": [
+    "background-filters",
+    "frequency-wavelets"
+  ],
   "description": "Retrieves corrected image applying an inverse transformation. The modulus and phase arguments are the input file names, the result will be the new loaded image\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

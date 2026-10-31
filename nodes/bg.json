@@ -1,7 +1,11 @@
 {
   "definition_id": "d69a4f70-1744-59bd-a3d0-fddb69bdfd1a",
   "source": "package",
-  "name": "Siril bg",
+  "name": "Background Level (bg)",
+  "category": [
+    "analysis",
+    "statistics"
+  ],
   "description": "Returns the background level of the loaded image\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

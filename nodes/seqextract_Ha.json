@@ -1,7 +1,11 @@
 {
   "definition_id": "4b06fd99-3191-5fcb-9d04-fb4c2d8344a4",
   "source": "package",
-  "name": "Siril seqextract Ha",
+  "name": "Sequence Extract CFA H-alpha (seqextract_Ha)",
+  "category": [
+    "geometry-channels",
+    "channel-extraction"
+  ],
   "description": "Same command as EXTRACT_HA but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"Ha_\" unless otherwise specified with option -prefix=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

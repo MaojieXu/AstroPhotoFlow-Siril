@@ -1,7 +1,11 @@
 {
   "definition_id": "22aefa8e-7103-5940-8264-1271239ad5e0",
   "source": "package",
-  "name": "Siril fftd",
+  "name": "Forward Fourier Transform (fftd)",
+  "category": [
+    "background-filters",
+    "frequency-wavelets"
+  ],
   "description": "Applies a Fast Fourier Transform to the loaded image. modulus and phase given in argument are the names of the saved in FITS files\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

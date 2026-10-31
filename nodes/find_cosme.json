@@ -1,7 +1,11 @@
 {
   "definition_id": "d1e6f38e-5b13-531e-a32e-1ea773e55466",
   "source": "package",
-  "name": "Siril find cosme",
+  "name": "Automatic Cosmetic Correction (find_cosme)",
+  "category": [
+    "preprocessing",
+    "cosmetic-correction"
+  ],
   "description": "Applies an automatic detection and replacement of cold and hot pixels in the loaded image, with the thresholds passed in arguments in sigma units\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

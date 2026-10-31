@@ -1,7 +1,11 @@
 {
   "definition_id": "3fb50f4e-51a0-5b30-8a08-dea1dadaf0a7",
   "source": "package",
-  "name": "Siril seqfindstar",
+  "name": "Sequence Find Stars (seqfindstar)",
+  "category": [
+    "analysis",
+    "star-optics"
+  ],
   "description": "Same command as FINDSTAR but for the sequence sequencename .\n\nThe option -out= is not available for this process as all the star list files are saved with the default name seqname_seqnb.lst\n\nLinks: findstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "e1bc07b5-06dd-5f04-b2a5-57f7b8ccc8a2",
   "source": "package",
-  "name": "Siril fdiv",
+  "name": "Scaled Image Division (fdiv)",
+  "category": [
+    "pixel-math",
+    "image-arithmetic"
+  ],
   "description": "Divides the loaded image by the image given in argument. The resulting image is multiplied by the value of the scalar argument. See also IDIV\n\nLinks: idiv\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

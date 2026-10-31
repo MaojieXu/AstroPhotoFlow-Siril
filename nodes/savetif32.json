@@ -1,7 +1,11 @@
 {
   "definition_id": "b3afdcfa-b1fb-5294-9471-5527f84ce84e",
   "source": "package",
-  "name": "Siril savetif32",
+  "name": "Export 32-bit TIFF (savetif32)",
+  "category": [
+    "files-sequences",
+    "export"
+  ],
   "description": "Same command as SAVETIF but the output file is saved in 32-bit per channel: filename .tif. The option -astro allows saving in Astro-TIFF format, while -deflate enables compression\n\nLinks: savetif\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

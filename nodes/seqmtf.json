@@ -1,7 +1,11 @@
 {
   "definition_id": "fff9ee71-350c-5bc5-8742-38650fc7cf1a",
   "source": "package",
-  "name": "Siril seqmtf",
+  "name": "Sequence Midtones Transfer Function (seqmtf)",
+  "category": [
+    "stretch-color",
+    "stretch-transforms"
+  ],
   "description": "Same command as MTF but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"mtf_\" unless otherwise specified with -prefix= option\n\nLinks: mtf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

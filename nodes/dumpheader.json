@@ -1,7 +1,11 @@
 {
   "definition_id": "5363801f-54b7-582d-bdb3-4d66fb84bbcf",
   "source": "package",
-  "name": "Siril dumpheader",
+  "name": "Read FITS Header (dumpheader)",
+  "category": [
+    "tools",
+    "metadata"
+  ],
   "description": "Dumps the FITS header of the loaded image in the console\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

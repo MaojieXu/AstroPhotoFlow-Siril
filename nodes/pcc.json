@@ -1,7 +1,11 @@
 {
   "definition_id": "d5b70708-ed25-549c-9b87-e5bf1017e0f9",
   "source": "package",
-  "name": "Siril pcc",
+  "name": "Photometric Color Calibration (pcc)",
+  "category": [
+    "stretch-color",
+    "color-calibration"
+  ],
   "description": "Run the Photometric Color Correction on the loaded plate-solved image.\n\nThe limit magnitude of stars is automatically computed from the size of the field of view, but can be altered by passing a +offset or -offset value to -limitmag= , or simply an absolute positive value for the limit magnitude.\n\nThe star catalog used is NOMAD by default, it can be changed by providing -catalog=apass , -catalog=localgaia or -catalog=gaia . If installed locally, the remote NOMAD (the complete version) can be forced by providing -catalog=nomad\n\nBackground reference outlier tolerance can be specified in sigma units using -bgtol=lower,upper : these default to -2.8 and +2.0\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

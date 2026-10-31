@@ -1,7 +1,11 @@
 {
   "definition_id": "e516d447-86a1-5713-be3e-c8f3517cf6b6",
   "source": "package",
-  "name": "Siril calibrate single",
+  "name": "Single Image Calibration (calibrate_single)",
+  "category": [
+    "preprocessing",
+    "calibration"
+  ],
   "description": "Calibrates the image imagename using bias, dark and flat given in argument.\n\nFor bias, a uniform level can be specified instead of an image, by entering a quoted expression starting with an = sign, such as -bias=\"=256\" or -bias=\"=64*$OFFSET\".\n\nBy default, cosmetic correction is not activated. If you wish to apply some, you will need to specify it with -cc= option.\n\nYou can use -cc=dark to detect hot and cold pixels from the masterdark (a masterdark must be given with the -dark= option), optionally followed by siglo and sighi for cold and hot pixels respectively. A value of 0 deactivates the correction. If sigmas are not provided, only hot pixels detection with a sigma of 3 will be applied.\n\nAlternatively, you can use -cc=bpm followed by the path to your Bad Pixel Map to specify which pixels must be corrected. An example file can be obtained with a find_hot command on a masterdark.\n\nThree options apply to color images (in CFA format): -cfa for cosmetic correction purposes, -debayer to demosaic images before saving them, and -equalize_cfa to equalize the mean intensity of RGB layers of the master flat, to avoid tinting the calibrated image.\n\nThe -fix_xtrans option is dedicated to X-Trans images by applying a correction on darks and biases to remove a rectangle pattern caused by autofocus.\n\nIt's also possible to optimize dark subtraction with -opt , which requires the supply of bias and dark masters, and automatically calculates the coefficient to be applied to dark, or calculates the coefficient thanks to the exposure keyword with -opt=exp\n\nThe output filename starts with the prefix \"pp_\" unless otherwise specified with option -prefix=\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

@@ -1,7 +1,11 @@
 {
   "definition_id": "56efc7e6-4b71-523d-abf9-6d4293e7205f",
   "source": "package",
-  "name": "Siril pm",
+  "name": "PixelMath (pm)",
+  "category": [
+    "pixel-math",
+    "pixel-editing"
+  ],
   "description": "This command evaluates the expression given in argument as in PixelMath tool. The full expression must be between double quotes and variables (that are image names, without extension, located in the working directory in that case) must be surrounded by the token $, e.g. \"$image1$ * 0.5 + $image2$ * 0.5\". A maximum of 10 images can be used in the expression.\n\nImage can be rescaled with the option -rescale followed by low and high values in the range [0, 1]. If no low and high values are provided, default values are set to 0 and 1. Another optional argument, -nosum tells Siril not to sum exposure times. This impacts FITS keywords such as LIVETIME and STACKCNT\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

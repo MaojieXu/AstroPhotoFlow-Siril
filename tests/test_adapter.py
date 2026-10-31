@@ -19,6 +19,41 @@ def defaults(operation):
     return {**values, 'runtime': '{}'}
 
 
+def test_single_static_frame_gets_an_explicit_one_member_sequence(tmp_path):
+    source = tmp_path / 'single.fit'
+    source.write_bytes(b'untouched source')
+    folder = tmp_path / 'sequence'
+    commands = []
+    base = adapter._stage_sequence(commands, [source], [], folder)
+    descriptor = adapter._sequence_descriptor(folder / (base + '.seq'))
+    assert descriptor['frames'] == descriptor['selected'] == 1
+    assert descriptor['members'] == [(1, 1)]
+    assert len([command for command in commands if command.startswith('load ')]) == 1
+    assert commands[-1] == 'getref input_'
+    assert source.read_bytes() == b'untouched source'
+
+
+def test_single_frame_result_is_collected_without_siril_directory_discovery(tmp_path):
+    source = tmp_path / 'single.fit'
+    source.write_bytes(b'untouched source')
+    work = tmp_path / 'work'
+    work.mkdir()
+    plan = adapter.build_plan('seqsubsky', {'image': [source]}, defaults('seqsubsky'), work)
+    script = (work / 'operation.ssf').read_text(encoding='utf-8')
+    assert 'seqsubsky input_' in script
+    assert 'getref result_input_' not in script
+    sequence = work / 'sequence'
+    (sequence / 'result_input_00001.fit').write_bytes(b'produced frame')
+    (sequence / 'result_input_.seq').unlink(missing_ok=True)
+    log = work / 'siril.log'
+    log.write_text('Sequence processing succeeded.\nScript execution finished successfully.\n', encoding='utf-8')
+    adapter.parse_result('seqsubsky', work, plan, log)
+    output = adapter._sequence_descriptor(sequence / 'result_input_.seq')
+    assert output['members'] == [(1, 1)]
+    assert output['frames'] == 1
+    assert source.read_bytes() == b'untouched source'
+
+
 def build(tmp_path, operation, *, sources=None, values=None, **options):
     work = tmp_path / 'work'
     work.mkdir(exist_ok=True)

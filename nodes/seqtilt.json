@@ -1,7 +1,11 @@
 {
   "definition_id": "c1c23269-287d-53ab-b12b-492ca0f6106e",
   "source": "package",
-  "name": "Siril seqtilt",
+  "name": "Sequence Tilt Analysis (seqtilt)",
+  "category": [
+    "analysis",
+    "star-optics"
+  ],
   "description": "Same command as TILT but for the sequence sequencename . It generally gives better results\n\nLinks: tilt\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

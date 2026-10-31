@@ -1,7 +1,11 @@
 {
   "definition_id": "316575c1-4b9b-52d0-b7ef-450b164228fe",
   "source": "package",
-  "name": "Siril mirrorx single",
+  "name": "Flip Image File Orientation (mirrorx_single)",
+  "category": [
+    "geometry-channels",
+    "rotate-flip"
+  ],
   "description": "Flips the image about the horizontal axis, only if needed (if it's not already bottom-up). It takes the image file name as argument, allowing it to avoid reading image data entirely if no flip is required. Image is overwritten if a flip is made\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

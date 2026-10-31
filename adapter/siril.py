@@ -240,7 +240,12 @@ def _fits_copy(commands, source, target):
     return target
 
 
-def _stage_sequence(commands, sources, supporting, folder, base_hint=None, metadata=()):
+def _write_single_sequence(folder, base, member=1, selected=1, fixed=5, compressed=False):
+    (folder / (base + '.seq')).write_text(
+        f"S '{base}' {member} 1 {selected} {fixed} -1 6 0 {int(compressed)} 0\nL -1\nI {member} {selected}\n", encoding='utf-8')
+
+
+def _stage_sequence(commands, sources, supporting, folder, base_hint=None, metadata=(), compressed=False):
     folder.mkdir(parents=True, exist_ok=True)
     sequence_files = [path for path in supporting if path.suffix.lower() == '.seq']
     containers = [item for item in metadata if item.selection.kind == 'whole_file' and (item.scientific_metadata or {}).get('frame_count', 1) is not None and (item.scientific_metadata or {}).get('frame_count', 1) > 1]
@@ -281,11 +286,16 @@ def _stage_sequence(commands, sources, supporting, folder, base_hint=None, metad
             if source.suffix.lower() in {'.ser', '.mkv', *FORMATS['video_extensions']}:
                 raise ValueError('A video sequence must be provided alone with a fixed-build supported extension; movies are not a static-image group.')
             _fits_copy(commands, source, folder / f'{base}{index:05d}.fit')
+        if len(sources) == 1:
+            _write_single_sequence(folder, base, compressed=compressed)
     commands.extend(['cd ' + quoted(folder), 'getref ' + token(base)])
     return base
 
 
-def _sequence_output(outputs, name, directory, folder, base):
+def _sequence_output(outputs, name, directory, folder, base, single_frame=None):
+    if single_frame is not None and not (folder / (base + '.seq')).exists():
+        member, selected = single_frame['members'][0]
+        _write_single_sequence(folder, base, member, selected, single_frame['fixed'])
     for suffix, format in [('*.fit', 'fits'), ('*.fit.fz', 'fits'), ('*.ser', 'video'), *[('*' + extension, 'video') for extension in FORMATS['video_extensions']]]:
         _add_pattern(outputs, name, directory, folder, base + suffix, format, minimum=0)
     _add_pattern(outputs, name, directory, folder, base + '*.seq', 'other', supporting=True)
@@ -429,7 +439,11 @@ def _sequence_analysis(command, recipe, values, sources, base, folder):
 def _build_sequence(recipe, sources, values, directory, commands, outputs, runtime, supporting_sources, source_metadata, layout):
     command, mode = recipe['command'], recipe['mode']
     folder = directory / 'sequence'
-    base = _stage_sequence(commands, sources['image'], supporting_sources.get('image', []), folder, metadata=source_metadata.get('image', []))
+    base = _stage_sequence(commands, sources['image'], supporting_sources.get('image', []), folder, metadata=source_metadata.get('image', []), compressed=runtime.get('compression', {}).get('enabled', False))
+    descriptor = folder / (base + '.seq')
+    single_frame = _sequence_descriptor(descriptor) if descriptor.is_file() else None
+    if single_frame and (single_frame['frames'] != 1 or single_frame['type'] != 'R'):
+        single_frame = None
     layout['sequences'].append({'folder': 'sequence', 'input_base': base, 'output_base': base})
     if runtime.get('selection') is not None:
         commands.append('load ' + quoted(sources['image'][0]))
@@ -438,7 +452,7 @@ def _build_sequence(recipe, sources, values, directory, commands, outputs, runti
     output_base = 'result_' + base
     if mode == 'sequence_analysis':
         commands.append(_sequence_analysis(command, recipe, values, sources, base, folder))
-        _sequence_output(outputs, 'image', directory, folder, base)
+        _sequence_output(outputs, 'image', directory, folder, base, single_frame)
         _add_file(outputs, 'analysis', folder / 'analysis.json', 'other')
         outputs.setdefault('files', ProcessOutput())
         for pattern in {'seqstat': ['statistics.csv'], 'seqheader': ['headers.csv'], 'seqfindstar': ['*.lst'],
@@ -479,14 +493,14 @@ def _build_sequence(recipe, sources, values, directory, commands, outputs, runti
     elif mode == 'sequence_split_cfa':
         commands.append('seqsplit_cfa ' + token(base))
         for index in range(4):
-            _sequence_output(outputs, 'cfa' + str(index), directory, folder, f'CFA{index}_' + base)
+            _sequence_output(outputs, 'cfa' + str(index), directory, folder, f'CFA{index}_' + base, single_frame)
         return
     elif mode == 'sequence_starnet':
         commands.append(command + ' ' + token(base) + ' ' + ' '.join(arguments))
-        _sequence_output(outputs, 'image', directory, folder, 'starless_' + base)
+        _sequence_output(outputs, 'image', directory, folder, 'starless_' + base, single_frame)
         outputs.setdefault('stars', ProcessOutput())
         if not values['no_starmask']:
-            _sequence_output(outputs, 'stars', directory, folder, 'starmask_' + base)
+            _sequence_output(outputs, 'stars', directory, folder, 'starmask_' + base, single_frame)
         return
     elif mode == 'sequence_transform':
         if 'bad_pixels' in sources:
@@ -494,7 +508,7 @@ def _build_sequence(recipe, sources, values, directory, commands, outputs, runti
         if command == 'seqextract_HaOIII':
             commands.append(command + ' ' + token(base) + ' ' + ' '.join(arguments))
             for name, prefix in [('ha', 'Ha_'), ('oiii', 'OIII_')]:
-                _sequence_output(outputs, name, directory, folder, prefix + base)
+                _sequence_output(outputs, name, directory, folder, prefix + base, single_frame)
             return
         if command in {'seqrl', 'seqsb', 'seqwiener'}:
             output_base = 'dec_' + base
@@ -504,7 +518,7 @@ def _build_sequence(recipe, sources, values, directory, commands, outputs, runti
     else:
         raise ValueError('Unsupported sequence execution mode: ' + mode)
     layout['sequences'][-1]['output_base'] = output_base
-    _sequence_output(outputs, 'image', directory, folder, output_base)
+    _sequence_output(outputs, 'image', directory, folder, output_base, single_frame)
 
 
 def _build_non_image(recipe, sources, values, directory, commands, outputs, runtime,
@@ -818,7 +832,12 @@ def build_plan(operation_id, sources, parameters, directory, *, preview=False, p
                 prefix = directory / pattern.pattern.removesuffix('*.seq')
                 query = str(prefix)
                 if query not in sequence_queries:
-                    commands.extend(['cd ' + quoted(prefix.parent), 'getref ' + token(prefix.name)])
+                    descriptor = Path(str(prefix) + '.seq')
+                    single = _sequence_descriptor(descriptor) if descriptor.is_file() else None
+                    if single and single['frames'] == 1 and single['type'] == 'R':
+                        layout.setdefault('single_sequences', []).append({'folder': prefix.parent.relative_to(directory).as_posix(), 'base': prefix.name, 'member': single['members'][0][0], 'selected': single['members'][0][1], 'fixed': single['fixed']})
+                    else:
+                        commands.extend(['cd ' + quoted(prefix.parent), 'getref ' + token(prefix.name)])
                     sequence_queries.add(query)
     script = directory / 'operation.ssf'
     script.write_text('\n'.join(_compressed_paths(commands, outputs, runtime)) + '\n', encoding='utf-8')
@@ -998,6 +1017,14 @@ def parse_result(operation_id, directory, plan, log_path):
     values = json.loads((directory / 'parameters.json').read_text(encoding='utf-8'))
     if re.search(r'(?im)^(?:log: )?(?:Script execution failed|Sequence processing failed|Error in line\s+\d+)', log):
         raise ValueError(parse_failure(log_path))
+    for single in layout.get('single_sequences', []):
+        folder = inside(directory, directory / single['folder'])
+        stem = single['base'] + format(single['member'], '0' + str(single['fixed']) + 'd')
+        files = [folder / (stem + suffix) for suffix in ['.fit', '.fits', '.fts', '.fit.fz', '.fits.fz', '.fts.fz'] if (folder / (stem + suffix)).is_file()]
+        if len(files) != 1:
+            raise ValueError('The single sequence frame is missing or ambiguous.')
+        if not (folder / (single['base'] + '.seq')).exists():
+            _write_single_sequence(folder, single['base'], single['member'], single['selected'], single['fixed'], compressed=files[0].name.endswith('.fz'))
     for output in plan.outputs.values():
         descriptors = [path for pattern in output.supporting_patterns if pattern.pattern.endswith('*.seq')
                        for path in directory.glob(pattern.pattern)]

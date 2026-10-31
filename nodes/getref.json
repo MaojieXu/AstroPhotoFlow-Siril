@@ -1,7 +1,11 @@
 {
   "definition_id": "f02ae0f3-7d54-53d5-8b08-3d9d1e19f7a5",
   "source": "package",
-  "name": "Siril getref",
+  "name": "Read Sequence Reference (getref)",
+  "category": [
+    "files-sequences",
+    "sequence-management"
+  ],
   "description": "Prints information about the reference image of the sequence given in argument. First image has index 0\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {

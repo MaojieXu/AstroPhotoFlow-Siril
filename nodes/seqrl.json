@@ -1,7 +1,11 @@
 {
   "definition_id": "8fd6c6d9-0089-5cfe-8611-e60bb8dfe532",
   "source": "package",
-  "name": "Siril seqrl",
+  "name": "Sequence Richardson-Lucy Deconvolution (seqrl)",
+  "category": [
+    "background-filters",
+    "deconvolution"
+  ],
   "description": "The same as the RL command, but applies to a sequence which must be specified as the first argument\n\nLinks: rl\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
