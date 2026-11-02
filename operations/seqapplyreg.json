@@ -83,24 +83,24 @@
         "name": "layer",
         "kind": "int",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 2.0,
         "advanced": true,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 2
+        "nullable": false
       },
       {
         "name": "interpolation",
         "kind": "choice",
         "default": "lanczos4",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "lanczos4",
           "nearest",
           "cubic",
           "linear",
           "area"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "no_clamp",
@@ -246,13 +246,13 @@
         "name": "filter_unit",
         "kind": "choice",
         "default": "absolute",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "absolute",
           "percent",
           "sigma"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "filter_included",
@@ -269,10 +269,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

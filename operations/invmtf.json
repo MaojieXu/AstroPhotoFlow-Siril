@@ -43,35 +43,33 @@
         "name": "low",
         "kind": "float",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "mid",
         "kind": "float",
         "default": 0.5,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "high",
         "kind": "float",
         "default": 1,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "channels",
         "kind": "choice",
         "default": "RGB",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "RGB",
           "R",
@@ -80,7 +78,9 @@
           "RG",
           "RB",
           "GB"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -90,10 +90,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": {
     "kind": "science-image",

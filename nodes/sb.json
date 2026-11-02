@@ -2,11 +2,11 @@
   "definition_id": "5d46a8a4-89d0-5514-b5fd-005efe1bdeb9",
   "source": "package",
   "name": "Split Bregman Deconvolution (sb)",
+  "description": "Restores an image using the Split Bregman method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename .\n\nThe number of iterations is provide by -iters (the default is 1).\n\nThe regularization factor -alpha= provides the regularization strength (lower value = more regularization, default = 3000)\n\nLinks: psf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "background-filters",
     "deconvolution"
   ],
-  "description": "Restores an image using the Split Bregman method.\n\nOptionally, a PSF may be loaded using the argument -loadpsf=filename .\n\nThe number of iterations is provide by -iters (the default is 1).\n\nThe regularization factor -alpha= provides the regularization strength (lower value = more regularization, default = 3000)\n\nLinks: psf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -35,9 +35,9 @@
       "name": "regularisation",
       "kind": "float",
       "default": 0,
+      "minimum": 0.0,
       "advanced": true,
-      "nullable": false,
-      "minimum": 0
+      "nullable": false
     },
     {
       "name": "use_iterations",
@@ -50,9 +50,9 @@
       "name": "iterations",
       "kind": "int",
       "default": 1,
+      "minimum": 1.0,
       "advanced": true,
-      "nullable": false,
-      "minimum": 1
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -68,9 +68,6 @@
     "inputs": {
       "image": "image",
       "psf": "psf"
-    },
-    "outputs": {
-      "image": "image"
     },
     "parameters": {
       "use_regularisation": {
@@ -93,6 +90,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

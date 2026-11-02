@@ -43,26 +43,26 @@
         "name": "method",
         "kind": "choice",
         "default": "manual",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "manual",
           "blind",
           "stars"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "function",
         "kind": "choice",
         "default": "gaussian",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "gaussian",
           "moffat",
           "disc",
           "airy"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "l0",
@@ -268,10 +268,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

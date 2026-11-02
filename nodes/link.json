@@ -2,11 +2,11 @@
   "definition_id": "42bfe720-08b8-55bb-8168-9a383976e30a",
   "source": "package",
   "name": "Create FITS Sequence (link)",
+  "description": "Same as CONVERT but converts only FITS files found in the current working directory. This is useful to avoid conversions of JPEG results or other files that may end up in the directory. The additional argument -date enables sorting files with their DATE-OBS value instead of with their name alphanumerically\n\nLinks: convert\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "files-sequences",
     "conversion"
   ],
-  "description": "Same as CONVERT but converts only FITS files found in the current working directory. This is useful to avoid conversions of JPEG results or other files that may end up in the directory. The additional argument -date enables sorting files with their DATE-OBS value instead of with their name alphanumerically\n\nLinks: convert\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -24,9 +24,9 @@
       "name": "start_index",
       "kind": "int",
       "default": 1,
+      "minimum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 1
+      "nullable": false
     },
     {
       "name": "date",
@@ -49,9 +49,6 @@
     "inputs": {
       "image": "image"
     },
-    "outputs": {
-      "image": "image"
-    },
     "parameters": {
       "start_index": {
         "kind": "parameter",
@@ -65,6 +62,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

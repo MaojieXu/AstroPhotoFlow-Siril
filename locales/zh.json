@@ -18,7 +18,7 @@
       },
       "targetbg": {
         "label": "目标背景亮度",
-        "description": "类型：float · 控件初值：0.25 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0.25 · 最小值: 0.0 · 最大值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -61,7 +61,7 @@
       },
       "offset": {
         "label": "偏移量",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -151,23 +151,23 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "local_intensity": {
         "label": "局部强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 15"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 15.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -210,23 +210,23 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "local_intensity": {
         "label": "局部强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 15"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 15.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -269,19 +269,19 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -324,19 +324,19 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -379,7 +379,7 @@
     "parameters": {
       "black_point": {
         "label": "黑点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -422,15 +422,15 @@
     "parameters": {
       "low": {
         "label": "低端值",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "mid": {
         "label": "中间调",
-        "description": "类型：float · 控件初值：0.5 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0.5 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high": {
         "label": "高端值",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "channels": {
         "label": "处理通道",
@@ -465,15 +465,15 @@
     "parameters": {
       "low": {
         "label": "低端值",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "mid": {
         "label": "中间调",
-        "description": "类型：float · 控件初值：0.5 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0.5 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high": {
         "label": "高端值",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "channels": {
         "label": "处理通道",
@@ -724,7 +724,7 @@
     "parameters": {
       "coefficient": {
         "label": "合并系数",
-        "description": "类型：int · 控件初值：2 · 最小值: 1"
+        "description": "类型：int · 控件初值：2 · 最小值: 1.0"
       },
       "sum": {
         "label": "使用求和而非平均",
@@ -833,7 +833,7 @@
     "parameters": {
       "kernel_size": {
         "label": "核大小",
-        "description": "类型：int · 控件初值：3 · 最小值: 1"
+        "description": "类型：int · 控件初值：3 · 最小值: 1.0"
       },
       "modulation": {
         "label": "调制强度",
@@ -1202,11 +1202,11 @@
       },
       "method": {
         "label": "方法",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 3"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 3.0"
       },
       "amount": {
         "label": "处理强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -1245,7 +1245,7 @@
       },
       "hue_range": {
         "label": "色相范围",
-        "description": "类型：int · 控件初值：6 · 最小值: 0 · 最大值: 6"
+        "description": "类型：int · 控件初值：6 · 最小值: 0.0 · 最大值: 6.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -1335,7 +1335,7 @@
       },
       "sos_iterations": {
         "label": "SOS 迭代次数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "use_rho": {
         "label": "启用rho 参数",
@@ -1523,19 +1523,19 @@
       },
       "x": {
         "label": "X 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "y": {
         "label": "Y 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "width": {
         "label": "宽度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "height": {
         "label": "高度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -1574,19 +1574,19 @@
       },
       "x": {
         "label": "X 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "y": {
         "label": "Y 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "width": {
         "label": "宽度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "height": {
         "label": "高度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -1621,19 +1621,19 @@
       },
       "x": {
         "label": "X 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "y": {
         "label": "Y 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "width": {
         "label": "宽度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "height": {
         "label": "高度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -1786,7 +1786,7 @@
       },
       "gamma": {
         "label": "Gamma",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -2155,7 +2155,7 @@
       },
       "degree": {
         "label": "多项式阶数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1 · 最大值: 4"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0 · 最大值: 4.0"
       },
       "dither": {
         "label": "抖动处理",
@@ -2163,15 +2163,15 @@
       },
       "samples": {
         "label": "样本数量",
-        "description": "类型：int · 控件初值：20 · 最小值: 2"
+        "description": "类型：int · 控件初值：20 · 最小值: 2.0"
       },
       "tolerance": {
         "label": "容差",
-        "description": "类型：float · 控件初值：1 · 最小值: 0"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0"
       },
       "smooth": {
         "label": "平滑程度",
-        "description": "类型：float · 控件初值：0.5 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0.5 · 最小值: 0.0 · 最大值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -2396,7 +2396,7 @@
     "parameters": {
       "channel": {
         "label": "通道",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -2474,7 +2474,7 @@
       },
       "layer": {
         "label": "图层",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "use_maximum_stars": {
         "label": "启用最大恒星数",
@@ -2482,7 +2482,7 @@
       },
       "maximum_stars": {
         "label": "最大恒星数",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -2556,7 +2556,7 @@
     "parameters": {
       "channel": {
         "label": "通道",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "selection": {
         "label": "选择区域",
@@ -2756,7 +2756,7 @@
     "parameters": {
       "layers": {
         "label": "小波层数",
-        "description": "类型：int · 控件初值：3 · 最小值: 1"
+        "description": "类型：int · 控件初值：3 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -3098,7 +3098,7 @@
     "parameters": {
       "quality": {
         "label": "输出质量",
-        "description": "类型：int · 控件初值：95 · 最小值: 0 · 最大值: 100"
+        "description": "类型：int · 控件初值：95 · 最小值: 0.0 · 最大值: 100.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -3129,11 +3129,11 @@
     "parameters": {
       "effort": {
         "label": "编码努力程度",
-        "description": "类型：int · 控件初值：7 · 最小值: 1 · 最大值: 9"
+        "description": "类型：int · 控件初值：7 · 最小值: 1.0 · 最大值: 9.0"
       },
       "quality": {
         "label": "输出质量",
-        "description": "类型：float · 控件初值：100 · 最小值: 0 · 最大值: 100"
+        "description": "类型：float · 控件初值：100 · 最小值: 0.0 · 最大值: 100.0"
       },
       "eight_bit": {
         "label": "8 位输出",
@@ -3413,7 +3413,7 @@
     "parameters": {
       "layers": {
         "label": "小波层数",
-        "description": "类型：int · 控件初值：3 · 最小值: 1 · 最大值: 6"
+        "description": "类型：int · 控件初值：3 · 最小值: 1.0 · 最大值: 6.0"
       },
       "transform": {
         "label": "小波变换类型",
@@ -3456,7 +3456,7 @@
       },
       "regularisation": {
         "label": "正则化强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0"
       },
       "use_iterations": {
         "label": "启用迭代次数",
@@ -3464,7 +3464,7 @@
       },
       "iterations": {
         "label": "迭代次数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "use_stop": {
         "label": "启用停止阈值",
@@ -3531,7 +3531,7 @@
       },
       "regularisation": {
         "label": "正则化强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0"
       },
       "use_iterations": {
         "label": "启用迭代次数",
@@ -3539,7 +3539,7 @@
       },
       "iterations": {
         "label": "迭代次数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -3578,7 +3578,7 @@
       },
       "regularisation": {
         "label": "正则化强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -3617,7 +3617,7 @@
       },
       "regularisation": {
         "label": "正则化强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0"
       },
       "use_iterations": {
         "label": "启用迭代次数",
@@ -3625,7 +3625,7 @@
       },
       "iterations": {
         "label": "迭代次数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "use_stop": {
         "label": "启用停止阈值",
@@ -3692,7 +3692,7 @@
       },
       "regularisation": {
         "label": "正则化强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0"
       },
       "use_iterations": {
         "label": "启用迭代次数",
@@ -3700,7 +3700,7 @@
       },
       "iterations": {
         "label": "迭代次数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -3739,7 +3739,7 @@
       },
       "regularisation": {
         "label": "正则化强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -4113,7 +4113,7 @@
       },
       "gamma": {
         "label": "Gamma",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -4144,19 +4144,19 @@
     "parameters": {
       "x": {
         "label": "X 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "y": {
         "label": "Y 坐标",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "width": {
         "label": "宽度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "height": {
         "label": "高度（像素）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -4393,23 +4393,23 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "local_intensity": {
         "label": "局部强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 15"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 15.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -4452,23 +4452,23 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "local_intensity": {
         "label": "局部强度",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 15"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 15.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -4511,19 +4511,19 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -4566,7 +4566,7 @@
     "parameters": {
       "black_point": {
         "label": "黑点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -4609,19 +4609,19 @@
     "parameters": {
       "stretch": {
         "label": "拉伸强度",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 10"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 10.0"
       },
       "low_protection": {
         "label": "低端保护",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "symmetry_point": {
         "label": "对称点",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high_protection": {
         "label": "高端保护",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "clipmode": {
         "label": "裁切模式",
@@ -4664,15 +4664,15 @@
     "parameters": {
       "low": {
         "label": "低端值",
-        "description": "类型：float · 控件初值：0 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0 · 最小值: 0.0 · 最大值: 1.0"
       },
       "mid": {
         "label": "中间调",
-        "description": "类型：float · 控件初值：0.5 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0.5 · 最小值: 0.0 · 最大值: 1.0"
       },
       "high": {
         "label": "高端值",
-        "description": "类型：float · 控件初值：1 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0 · 最大值: 1.0"
       },
       "channels": {
         "label": "处理通道",
@@ -4894,7 +4894,7 @@
       },
       "degree": {
         "label": "多项式阶数",
-        "description": "类型：int · 控件初值：1 · 最小值: 1 · 最大值: 4"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0 · 最大值: 4.0"
       },
       "no_dither": {
         "label": "停用抖动处理",
@@ -4902,15 +4902,15 @@
       },
       "samples": {
         "label": "样本数量",
-        "description": "类型：int · 控件初值：20 · 最小值: 2"
+        "description": "类型：int · 控件初值：20 · 最小值: 2.0"
       },
       "tolerance": {
         "label": "容差",
-        "description": "类型：float · 控件初值：1 · 最小值: 0"
+        "description": "类型：float · 控件初值：1 · 最小值: 0.0"
       },
       "smooth": {
         "label": "平滑程度",
-        "description": "类型：float · 控件初值：0.5 · 最小值: 0 · 最大值: 1"
+        "description": "类型：float · 控件初值：0.5 · 最小值: 0.0 · 最大值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -5123,7 +5123,7 @@
     "parameters": {
       "start_index": {
         "label": "起始索引",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "debayer": {
         "label": "去马赛克",
@@ -5162,7 +5162,7 @@
     "parameters": {
       "start_index": {
         "label": "起始索引",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "debayer": {
         "label": "去马赛克",
@@ -5201,7 +5201,7 @@
     "parameters": {
       "start_index": {
         "label": "起始索引",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "date": {
         "label": "按拍摄日期排序",
@@ -5256,7 +5256,7 @@
       },
       "layer": {
         "label": "图层",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "interpolation": {
         "label": "插值方法",
@@ -5363,7 +5363,7 @@
       },
       "layer": {
         "label": "图层",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "interpolation": {
         "label": "插值方法",
@@ -5763,11 +5763,11 @@
     "parameters": {
       "from_index": {
         "label": "起始序号",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "to_index": {
         "label": "结束序号",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -5798,11 +5798,11 @@
     "parameters": {
       "from_index": {
         "label": "起始序号",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "to_index": {
         "label": "结束序号",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -5833,7 +5833,7 @@
     "parameters": {
       "image_number": {
         "label": "图像序号（从 1 开始）",
-        "description": "类型：int · 控件初值：1 · 最小值: 1"
+        "description": "类型：int · 控件初值：1 · 最小值: 1.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -6028,7 +6028,7 @@
       },
       "layer": {
         "label": "图层",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "use_maximum_stars": {
         "label": "启用最大恒星数",
@@ -6036,7 +6036,7 @@
       },
       "maximum_stars": {
         "label": "最大恒星数",
-        "description": "类型：int · 控件初值：0 · 最小值: 0"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0"
       },
       "runtime": {
         "label": "运行配置 JSON",
@@ -6110,7 +6110,7 @@
     "parameters": {
       "channel": {
         "label": "通道",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "coordinate_type": {
         "label": "坐标类型",
@@ -6161,7 +6161,7 @@
     "parameters": {
       "channel": {
         "label": "通道",
-        "description": "类型：int · 控件初值：0 · 最小值: 0 · 最大值: 2"
+        "description": "类型：int · 控件初值：0 · 最小值: 0.0 · 最大值: 2.0"
       },
       "autoring": {
         "label": "自动环形背景",

@@ -106,15 +106,15 @@
         "name": "layer",
         "kind": "choice",
         "default": "red",
-        "advanced": true,
-        "nullable": false,
         "choices": [
           "red",
           "green",
           "blue",
           "lum",
           "col"
-        ]
+        ],
+        "advanced": true,
+        "nullable": false
       },
       {
         "name": "use_width",
@@ -162,13 +162,13 @@
         "name": "x_axis",
         "kind": "choice",
         "default": "distance",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "distance",
           "wavelength",
           "wavenumber"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "use_wavenumber1",
@@ -262,10 +262,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

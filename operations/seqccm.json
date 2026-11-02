@@ -108,10 +108,10 @@
         "name": "gamma",
         "kind": "float",
         "default": 1,
+        "minimum": 0.0,
+        "maximum": 10.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 10
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -121,10 +121,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

@@ -2,11 +2,11 @@
   "definition_id": "a0ef0d58-ef58-5ced-812a-6285035a35c8",
   "source": "package",
   "name": "Fill Pixels (fill)",
+  "description": "Fills the loaded image entirely or only the selection if there is one with pixels having the value intensity expressed in ADU\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "pixel-math",
     "pixel-editing"
   ],
-  "description": "Fills the loaded image entirely or only the selection if there is one with pixels having the value intensity expressed in ADU\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -38,33 +38,33 @@
       "name": "x",
       "kind": "int",
       "default": 0,
+      "minimum": 0.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0
+      "nullable": false
     },
     {
       "name": "y",
       "kind": "int",
       "default": 0,
+      "minimum": 0.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0
+      "nullable": false
     },
     {
       "name": "width",
       "kind": "int",
       "default": 1,
+      "minimum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 1
+      "nullable": false
     },
     {
       "name": "height",
       "kind": "int",
       "default": 1,
+      "minimum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 1
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -78,9 +78,6 @@
     "package_id": "siril",
     "operation_id": "fill",
     "inputs": {
-      "image": "image"
-    },
-    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -112,6 +109,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

@@ -2,11 +2,11 @@
   "definition_id": "d517af55-29e4-5327-a7cd-7e73bf569128",
   "source": "package",
   "name": "Flip about Horizontal Axis (mirrorx)",
+  "description": "Flips the loaded image about the horizontal axis. Option -bottomup will only flip it if it's not already bottom-up\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "geometry-channels",
     "rotate-flip"
   ],
-  "description": "Flips the loaded image about the horizontal axis. Option -bottomup will only flip it if it's not already bottom-up\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -41,9 +41,6 @@
     "inputs": {
       "image": "image"
     },
-    "outputs": {
-      "image": "image"
-    },
     "parameters": {
       "bottomup": {
         "kind": "parameter",
@@ -53,6 +50,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

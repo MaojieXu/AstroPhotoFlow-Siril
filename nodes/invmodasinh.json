@@ -2,11 +2,11 @@
   "definition_id": "2e321334-9e29-59b3-af0c-427508df9120",
   "source": "package",
   "name": "Inverse Modified Asinh Stretch (invmodasinh)",
+  "description": "Inverts a modified arcsinh stretch. It provides the inverse transformation of MODASINH, if provided with the same parameters, undoes a MODASINH command, possibly returning to a linear image. It can also work the same way as MODASINH but for images in negative\n\nLinks: modasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "stretch-color",
     "stretch-transforms"
   ],
-  "description": "Inverts a modified arcsinh stretch. It provides the inverse transformation of MODASINH, if provided with the same parameters, undoes a MODASINH command, possibly returning to a linear image. It can also work the same way as MODASINH but for images in negative\n\nLinks: modasinh\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -24,57 +24,55 @@
       "name": "stretch",
       "kind": "float",
       "default": 1,
+      "minimum": 0.0,
+      "maximum": 10.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 10
+      "nullable": false
     },
     {
       "name": "low_protection",
       "kind": "float",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "symmetry_point",
       "kind": "float",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "high_protection",
       "kind": "float",
       "default": 1,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "clipmode",
       "kind": "choice",
       "default": "rgbblend",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "rgbblend",
         "clip",
         "rescale",
         "globalrescale"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "channels",
       "kind": "choice",
       "default": "RGB",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "RGB",
         "R",
@@ -83,20 +81,22 @@
         "RG",
         "RB",
         "GB"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "colour_model",
       "kind": "choice",
       "default": "independent",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "independent",
         "human",
         "even",
         "sat"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -110,9 +110,6 @@
     "package_id": "siril",
     "operation_id": "invmodasinh",
     "inputs": {
-      "image": "image"
-    },
-    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -148,6 +145,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

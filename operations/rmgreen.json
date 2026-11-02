@@ -50,19 +50,19 @@
         "name": "method",
         "kind": "int",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 3.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 3
+        "nullable": false
       },
       {
         "name": "amount",
         "kind": "float",
         "default": 1,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -72,10 +72,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

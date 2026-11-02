@@ -64,23 +64,23 @@
         "name": "offset",
         "kind": "float",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": true,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "clipmode",
         "kind": "choice",
         "default": "rgbblend",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "rgbblend",
           "clip",
           "rescale",
           "globalrescale"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -90,10 +90,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": {
     "kind": "science-image",

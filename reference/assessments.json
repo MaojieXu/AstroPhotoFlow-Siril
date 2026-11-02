@@ -40,7 +40,7 @@
       "command": "asinh",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/asinh.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms the currently loaded image; sequence behavior is not documented here or tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/asinh.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -65,7 +65,7 @@
       "command": "autoghs",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/autoghs.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms the current image; default channel handling is per-channel, optional -linked uses mean channel values. Sequence behavior not tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/autoghs.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -90,7 +90,7 @@
       "command": "autostretch",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/autostretch.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "single FITS image verified; sequences and other contexts not verified",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/autostretch.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -115,7 +115,7 @@
       "command": "bg",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/bg.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies to the currently loaded single image; no sequence counterpart was tested for this command.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/bg.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -140,7 +140,7 @@
       "command": "bgnoise",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/bgnoise.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies to the currently loaded single image; no sequence counterpart was tested for this command.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/bgnoise.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -165,7 +165,7 @@
       "command": "binxy",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/binxy.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on the in-memory image; no sequence form is described or tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/binxy.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -215,7 +215,7 @@
       "command": "calibrate",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/calibrate.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires a sequence and may use supplied calibration frames/BPM. CFA-related switches apply only to CFA images. No sequence or calibration files were tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/calibrate.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -240,7 +240,7 @@
       "command": "calibrate_single",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/calibrate_single.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Processes one named image with optional calibration references. CFA-related switches apply only to CFA images. No input formats or calibration combination were tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/calibrate_single.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -265,7 +265,7 @@
       "command": "capabilities",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/capabilities.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reports available Siril capabilities from compile-time options and runtime; image/sequence context is not required by the description.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/capabilities.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -290,7 +290,7 @@
       "command": "catsearch",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/catsearch.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Searches local annotation catalogs first and queries SIMBAD if not found; solar-system lookup uses date/time/location from the image header and IMCCE Miriade.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/catsearch.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -315,7 +315,7 @@
       "command": "ccm",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/ccm.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies a color matrix to the current image; sequence behavior and supported channel layouts are unverified.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/ccm.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -365,7 +365,7 @@
       "command": "cdg",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/cdg.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Computes image center of gravity using pixels above 15.7% of max ADU whose four neighbors also meet the threshold.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/cdg.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -390,7 +390,7 @@
       "command": "clahe",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/clahe.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies contrast-limited adaptive histogram equalization to an image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/clahe.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -490,7 +490,7 @@
       "command": "conesearch",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/conesearch.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires a loaded, plate-solved image and catalog data; no sequence mode is described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/conesearch.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -515,7 +515,7 @@
       "command": "convert",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/convert.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Converts supported files in the current directory into a sequence. Two files with the same FITS object metadata but different B and G filters were converted; this is not a same-filter science sequence or a stack.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/convert.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -540,7 +540,7 @@
       "command": "convertraw",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/convertraw.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Same conversion behavior as CONVERT but only for DSLR RAW files in the current working directory.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/convertraw.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -565,7 +565,7 @@
       "command": "cosme",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/cosme.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies local-mean correction to the loaded image. Sequence counterpart is SEQCOSME; not tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/cosme.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -590,7 +590,7 @@
       "command": "cosme_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/cosme_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies COSME bad-pixel correction to raw CFA images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/cosme_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -615,7 +615,7 @@
       "command": "crop",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/crop.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Crops the current loaded image; script use requires explicit coordinates unless a selection command sets context. Sequence behavior is unverified.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/crop.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -665,7 +665,7 @@
       "command": "denoise",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/denoise.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Executed in Siril 1.4.4 CLI script mode on a copied single mono 32-bit FITS master-light; no sequence form is documented or was tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/denoise.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -740,7 +740,7 @@
       "command": "dumpheader",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/dumpheader.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads the FITS header of the currently loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/dumpheader.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -765,7 +765,7 @@
       "command": "entropy",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/entropy.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Computes entropy on the displayed layer of the loaded image, restricted to the selected area if present or otherwise the whole image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/entropy.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -790,7 +790,7 @@
       "command": "epf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/epf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies to the currently loaded image; no sequence behavior is described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/epf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -840,7 +840,7 @@
       "command": "extract",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/extract.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Extracts wavelet-domain planes from the loaded image; distinct from color-channel extraction.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/extract.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -865,7 +865,7 @@
       "command": "extract_Green",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/extract_Green.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads the Bayer matrix from image metadata or preferences and extracts averaged green-filter data from the loaded CFA image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/extract_Green.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -890,7 +890,7 @@
       "command": "extract_Ha",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/extract_Ha.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads Bayer matrix information from the image or preferences and extracts red-filter H-alpha data from the loaded CFA image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/extract_Ha.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -915,7 +915,7 @@
       "command": "extract_HaOIII",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/extract_HaOIII.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires one loaded CFA image; no sequence behavior described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/extract_HaOIII.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -940,7 +940,7 @@
       "command": "fdiv",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fdiv.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Divides the loaded image by a named image, then multiplies the result by the supplied scalar.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fdiv.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -965,7 +965,7 @@
       "command": "ffill",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/ffill.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Symmetrically fills a selected region in an image, intended for Fourier-domain processing.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/ffill.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -990,7 +990,7 @@
       "command": "fftd",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fftd.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Computes a Fourier transform of the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fftd.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1015,7 +1015,7 @@
       "command": "ffti",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/ffti.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reconstructs a corrected loaded image from the supplied Fourier modulus and phase.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/ffti.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1040,7 +1040,7 @@
       "command": "fill",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fill.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Fills the loaded image, or selected rectangle, with one intensity.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fill.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1065,7 +1065,7 @@
       "command": "find_cosme",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/find_cosme.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Automatically detects cold/hot pixels and replaces them in the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/find_cosme.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1090,7 +1090,7 @@
       "command": "find_cosme_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/find_cosme_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Runs the FIND_COSME operation on CFA images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/find_cosme_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1115,7 +1115,7 @@
       "command": "find_hot",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/find_hot.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Analyzes the currently loaded image; description recommends master-dark input. Sequence application is via separate COSME/SEQCOSME commands.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/find_hot.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1140,7 +1140,7 @@
       "command": "findcompstars",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/findcompstars.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires a loaded plate-solved image and a named variable star; no sequence operation described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/findcompstars.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1165,7 +1165,7 @@
       "command": "findstar",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/findstar.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "single stretched FITS verified; sequence behavior not verified",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/findstar.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1190,7 +1190,7 @@
       "command": "fix_xtrans",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fix_xtrans.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Corrects the Fujifilm X-Trans autofocus photosites in the loaded image; the documented artifact is especially visible in dark/bias frames.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fix_xtrans.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1215,7 +1215,7 @@
       "command": "fixbanding",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fixbanding.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on the loaded image; no sequence behavior is described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fixbanding.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1240,7 +1240,7 @@
       "command": "fmedian",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fmedian.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on the loaded image; no sequence form is described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fmedian.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1265,7 +1265,7 @@
       "command": "fmul",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/fmul.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Multiplies the loaded image by the scalar.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/fmul.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1290,7 +1290,7 @@
       "command": "gauss",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/gauss.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies a Gaussian blur to the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/gauss.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1315,7 +1315,7 @@
       "command": "get",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/get.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads Siril settings; it does not update them.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/get.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1340,7 +1340,7 @@
       "command": "getref",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/getref.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads the reference image information for a sequence; the first image index is 0.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/getref.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1365,7 +1365,7 @@
       "command": "ght",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/ght.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms the current loaded image; channel selection applies to image channels, not a sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/ght.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1390,7 +1390,7 @@
       "command": "grey_flat",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/grey_flat.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Equalizes mean RGB-layer intensity in a loaded CFA image, matching the calibration option for equalizing CFA flats.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/grey_flat.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1415,7 +1415,7 @@
       "command": "help",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/help.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads command reference information; no image/sequence context.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/help.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1440,7 +1440,7 @@
       "command": "histo",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/histo.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Computes a histogram for a layer of the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/histo.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1465,7 +1465,7 @@
       "command": "iadd",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/iadd.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Adds the named image to the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/iadd.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1490,7 +1490,7 @@
       "command": "icc_assign",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/icc_assign.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Assigns a profile to the current image without describing a pixel transform. For monochrome input, built-ins map to corresponding Gray/TRC profiles.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/icc_assign.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1515,7 +1515,7 @@
       "command": "icc_convert_to",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/icc_convert_to.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Converts the current image to the specified ICC profile; monochrome built-ins map to Gray/TRC profiles.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/icc_convert_to.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1540,7 +1540,7 @@
       "command": "icc_remove",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/icc_remove.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Removes the ICC profile from the current image if present.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/icc_remove.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1565,7 +1565,7 @@
       "command": "idiv",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/idiv.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Divides the loaded image by the named image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/idiv.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1590,7 +1590,7 @@
       "command": "imul",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/imul.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Multiplies the named image by the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/imul.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1640,7 +1640,7 @@
       "command": "invght",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/invght.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Inverts GHT with matching parameters, possibly returning a linear image; it can also apply GHT behavior to negative images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/invght.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1665,7 +1665,7 @@
       "command": "invmodasinh",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/invmodasinh.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Inverts MODASINH with the same parameters, possibly returning a linear image; it can also operate on negative images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/invmodasinh.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1690,7 +1690,7 @@
       "command": "invmtf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/invmtf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Inverts the midtones transfer function with matching MTF parameters; it can also apply MTF behavior to negative images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/invmtf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1715,7 +1715,7 @@
       "command": "isub",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/isub.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Subtracts the named image from the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/isub.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1740,7 +1740,7 @@
       "command": "jsonmetadata",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/jsonmetadata.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on one FITS file/current loaded image; no sequence behavior is documented or tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/jsonmetadata.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1765,7 +1765,7 @@
       "command": "light_curve",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/light_curve.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Performs aperture photometry on target and comparison stars across a sequence to create a calibrated light curve.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/light_curve.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1790,7 +1790,7 @@
       "command": "limit",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/limit.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on a loaded single image; no sequence form is described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/limit.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1815,7 +1815,7 @@
       "command": "linear_match",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/linear_match.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Uses a reference image and the currently loaded image; no sequence form described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/linear_match.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1840,7 +1840,7 @@
       "command": "link",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/link.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Processes FITS files only from the current working directory, avoiding unrelated JPEG outputs.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/link.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1865,7 +1865,7 @@
       "command": "linstretch",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/linstretch.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms the currently loaded image; no sequence form described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/linstretch.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1890,7 +1890,7 @@
       "command": "livestack",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/live_stack.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Processes an incoming image through configured calibration, OSC demosaic if applicable, registration, and stacking.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/live_stack.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -1965,7 +1965,7 @@
       "command": "log",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/log.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies the documented per-channel transform `log(1 - (value - min)/(max - min))`, where min/max are channel extrema.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/log.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2015,7 +2015,7 @@
       "command": "makepsf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/makepsf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "PSF is stateful for subsequent RL/SB/WIENER commands and may be based on current image or sequence; no runtime/context test.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/makepsf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2040,7 +2040,7 @@
       "command": "merge",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/merge.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Combines same-type sequences (FITS images, FITS sequence, or SER).",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/merge.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2065,7 +2065,7 @@
       "command": "merge_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/merge_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Combines separate CFA0/CFA1/CFA2/CFA3 image data into a Bayer-masked color image before demosaicing.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/merge_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2090,7 +2090,7 @@
       "command": "mirrorx",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/mirrorx.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Flips the loaded image about the horizontal axis, with an orientation-aware conditional form.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/mirrorx.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2115,7 +2115,7 @@
       "command": "mirrorx_single",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/mirrorx_single.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Conditionally flips a file about the horizontal axis only if it is not already bottom-up; avoids reading image data if no flip is needed.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/mirrorx_single.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2140,7 +2140,7 @@
       "command": "mirrory",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/mirrory.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Flips the loaded image about its vertical axis.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/mirrory.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2165,7 +2165,7 @@
       "command": "modasinh",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/modasinh.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms the current loaded image; channel options are per-image channel selections, no sequence mode described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/modasinh.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2190,7 +2190,7 @@
       "command": "mtf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/mtf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies to current loaded image; no sequence form described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/mtf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2215,7 +2215,7 @@
       "command": "neg",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/neg.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Changes loaded image pixel values to a negative view; display mode is unchanged.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/neg.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2265,7 +2265,7 @@
       "command": "nozero",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/nozero.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Replaces null/zero values with the provided level; the command is documented as useful before IDIV/FDIV, mostly for 16-bit images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/nozero.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2315,7 +2315,7 @@
       "command": "offset",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/offset.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Adds a constant to the current image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/offset.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2365,7 +2365,7 @@
       "command": "parse",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/parse.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Uses current image header; `$seqname$` is available when a sequence is loaded. No sequence operation tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/parse.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2390,7 +2390,7 @@
       "command": "pcc",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/pcc.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Photometric color correction for a loaded plate-solved image; no sequence operation described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/pcc.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2415,7 +2415,7 @@
       "command": "platesolve",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/platesolve.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Plate-solves the currently loaded image; catalog solver and local Astrometry.net variants documented. No runtime or sequence behavior tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/platesolve.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2440,7 +2440,7 @@
       "command": "pm",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/pm.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Current image plus optional working-directory images named in the expression; no sequence abstraction documented.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/pm.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2465,7 +2465,7 @@
       "command": "profile",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/profile.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads intensity along points in a loaded image; CFA mode only for Bayer images. No sequence form described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/profile.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2490,7 +2490,7 @@
       "command": "psf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/psf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Analyzes a selected star with PSF and displays results; headless selection can be given with BOXSELECT pixels.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/psf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2540,7 +2540,7 @@
       "command": "pyscript",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/pyscript.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Runs an arbitrary Siril Python script in the Siril context; the called script determines image/sequence behavior.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/pyscript.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2565,7 +2565,7 @@
       "command": "register",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/register.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires one or more sequences; star-based registration is documented for deep-sky images. CFA/color layer handling and sequence behavior are source-described but not tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/register.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2640,7 +2640,7 @@
       "command": "resample",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/resample.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Resamples the loaded image; no sequence behavior documented.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/resample.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2665,7 +2665,7 @@
       "command": "rgbcomp",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/rgbcomp.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Combines separate image files into RGB or LRGB; no sequence operation described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/rgbcomp.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2690,7 +2690,7 @@
       "command": "rgradient",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/rgradient.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on the current image with a specified center; no sequence mode described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/rgradient.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2715,7 +2715,7 @@
       "command": "rl",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/rl.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Restores the current image using Richardson-Lucy and a PSF; sequence behavior not described for this command.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/rl.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2740,7 +2740,7 @@
       "command": "rmgreen",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/rmgreen.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies a chromatic filter to the current image; sequence mode is not documented.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/rmgreen.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2765,7 +2765,7 @@
       "command": "rotate",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/rotate.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Rotates the loaded image or active selected crop; no sequence form documented.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/rotate.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2790,7 +2790,7 @@
       "command": "rotatePi",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/rotatePi.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Rotates the loaded image by 180° about its center, equivalent to ROTATE 180 or ROTATE -180.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/rotatePi.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2815,7 +2815,7 @@
       "command": "satu",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/satu.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Enhances saturation of the loaded image; color-channel behavior and mono applicability unverified.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/satu.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2840,7 +2840,7 @@
       "command": "save",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/save.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded single image; sequence-save behavior was not tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/save.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2865,7 +2865,7 @@
       "command": "savebmp",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savebmp.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded image as an 8-bit-per-channel BMP (24-bit total).",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savebmp.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2890,7 +2890,7 @@
       "command": "savejpg",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savejpg.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the current image to JPEG; no sequence form described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savejpg.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2915,7 +2915,7 @@
       "command": "savejxl",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savejxl.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves current image to JPEG XL; no sequence behavior described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savejxl.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2940,7 +2940,7 @@
       "command": "savepng",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savepng.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded image as PNG. Output is 16 bits/channel for 16- or 32-bit loaded data, and 8 bits/channel for 8-bit loaded data.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savepng.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2965,7 +2965,7 @@
       "command": "savepnm",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savepnm.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded image as 16-bit-per-channel NetPBM; output extension is `.ppm` for RGB and `.pgm` for grayscale.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savepnm.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -2990,7 +2990,7 @@
       "command": "savetif",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savetif.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded image as 16-bit-per-channel TIFF; documented as uncompressed by default, with optional deflate compression.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savetif.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3015,7 +3015,7 @@
       "command": "savetif32",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savetif32.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded image as 32-bit-per-channel TIFF with the same documented format/compression options as SAVETIF.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savetif32.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3040,7 +3040,7 @@
       "command": "savetif8",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/savetif8.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Saves the currently loaded image as 8-bit-per-channel TIFF with the same documented format/compression options as SAVETIF.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/savetif8.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3065,7 +3065,7 @@
       "command": "sb",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/sb.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Restores current image using Split Bregman; sequence behavior not described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/sb.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3090,7 +3090,7 @@
       "command": "select",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/select.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Changes which sequence images are selected for later processing.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/select.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3115,7 +3115,7 @@
       "command": "seqapplyreg",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqapplyreg.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires sequence and registration data computed by REGISTER; no sequence runtime tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqapplyreg.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3140,7 +3140,7 @@
       "command": "seqccm",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqccm.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies CCM to selected members of a named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqccm.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3165,7 +3165,7 @@
       "command": "seqclean",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqclean.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Clears stored sequence selection, registration and/or statistics data.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqclean.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3190,7 +3190,7 @@
       "command": "seqcosme",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqcosme.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies COSME bad-pixel correction to selected frames in a named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqcosme.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3215,7 +3215,7 @@
       "command": "seqcosme_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqcosme_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies CFA COSME correction to selected sequence frames.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqcosme_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3240,7 +3240,7 @@
       "command": "seqcrop",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqcrop.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Crops selected members using the same rectangle semantics as CROP.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqcrop.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3265,7 +3265,7 @@
       "command": "seqextract_Green",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqextract_Green.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Extracts averaged green-filter data from each sequence CFA image using Bayer information from image/preferences.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqextract_Green.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3290,7 +3290,7 @@
       "command": "seqextract_Ha",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqextract_Ha.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Extracts red-filter H-alpha signal from sequence CFA frames using Bayer information.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqextract_Ha.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3315,7 +3315,7 @@
       "command": "seqextract_HaOIII",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqextract_HaOIII.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Extracts Ha from red CFA pixels and OIII from the other three channels for sequence members.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqextract_HaOIII.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3340,7 +3340,7 @@
       "command": "seqfind_cosme",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqfind_cosme.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Automatically detects/replaces cold and hot pixels for a named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqfind_cosme.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3365,7 +3365,7 @@
       "command": "seqfind_cosme_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqfind_cosme_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Runs FIND_COSME_CFA behavior on a named CFA sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqfind_cosme_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3390,7 +3390,7 @@
       "command": "seqfindstar",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqfindstar.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires a sequence and runs star detection per member, producing per-frame list files; no sequence input tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqfindstar.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3415,7 +3415,7 @@
       "command": "seqfixbanding",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqfixbanding.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies banding correction to sequence members; vertical option selects vertical rather than horizontal banding.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqfixbanding.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3440,7 +3440,7 @@
       "command": "seqght",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqght.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies GHT per sequence as described; no compatible science sequence was available/tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqght.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3465,7 +3465,7 @@
       "command": "seqheader",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqheader.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reads headers from all frames or selected frames of a sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqheader.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3490,7 +3490,7 @@
       "command": "seqinvght",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqinvght.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies inverse GHT to a named sequence; sequence is the first argument.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqinvght.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3515,7 +3515,7 @@
       "command": "seqinvmodasinh",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqinvmodasinh.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies inverse modified arcsinh to a named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqinvmodasinh.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3540,7 +3540,7 @@
       "command": "seqlinstretch",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqlinstretch.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies linear stretch to sequence frames; sequence is the first argument.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqlinstretch.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3565,7 +3565,7 @@
       "command": "seqmerge_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqmerge_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Consumes four ordered CFA-channel sequences; not tested due absence of a compatible same-layout sequence set.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqmerge_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3590,7 +3590,7 @@
       "command": "seqmodasinh",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqmodasinh.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies modified arcsinh stretch to a sequence; no compatible science sequence tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqmodasinh.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3615,7 +3615,7 @@
       "command": "seqmtf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqmtf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies MTF to a named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqmtf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3640,7 +3640,7 @@
       "command": "seqprofile",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqprofile.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Generates an intensity profile between two points for each image of the sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqprofile.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3665,7 +3665,7 @@
       "command": "seqpsf",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqpsf.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Sequence photometry/PSF analysis, not alignment. Registration data help shift search positions; motion and output behavior are not runtime tested.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqpsf.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3690,7 +3690,7 @@
       "command": "seqplatesolve",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqplatesolve.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Plate-solves sequence frames; existing solutions are skipped unless forced. Uses local catalog or local Astrometry.net, and can use forced remote catalogues.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqplatesolve.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3715,7 +3715,7 @@
       "command": "seqresample",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqresample.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Resizes selected sequence members using the requested target/factor and interpolation.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqresample.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3740,7 +3740,7 @@
       "command": "seqrl",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqrl.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies Richardson–Lucy deconvolution to the named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqrl.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3765,7 +3765,7 @@
       "command": "seqsb",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqsb.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies SB deconvolution to the named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqsb.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3815,7 +3815,7 @@
       "command": "seqsplit_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqsplit_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Splits a CFA sequence into four CFA-channel output sequences.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqsplit_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3840,7 +3840,7 @@
       "command": "seqstarnet",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqstarnet.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Calls the external StarNet++ program to remove stars from a sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqstarnet.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3865,7 +3865,7 @@
       "command": "seqstat",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqstat.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires a sequence. The probe used a two-member B/G conversion, not a same-filter science sequence. Siril first reported `sample.seq` missing and then created/used `sample_.seq`; this observed naming behavior remains limited to this invocation.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqstat.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3890,7 +3890,7 @@
       "command": "seqsubsky",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqsubsky.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Removes modeled background from selected sequence images.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqsubsky.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3915,7 +3915,7 @@
       "command": "seqtilt",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqtilt.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies TILT measurement to a sequence; official page says it generally gives better results than single-image form.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqtilt.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3965,7 +3965,7 @@
       "command": "sequpdate_key",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/sequpdate_key.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies FITS-header updates in a named sequence; official text says it does not work on SER sequences.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/sequpdate_key.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -3990,7 +3990,7 @@
       "command": "seqwiener",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/seqwiener.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Applies Wiener restoration to a named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/seqwiener.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4265,7 +4265,7 @@
       "command": "setref",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/setref.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Changes the reference image for the named sequence.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/setref.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4315,7 +4315,7 @@
       "command": "spcc",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/spcc.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Runs spectrophotometric color correction on the loaded plate-solved image. Uses Gaia DR3; local xp_sampled is used by default if available, with documented catalog selection override. Sensor/filter/reference names must exactly match SPCC lists; omitted spectral arguments may reuse previously used values.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/spcc.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4340,7 +4340,7 @@
       "command": "spcc_list",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/spcc_list.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Lists names available for SPCC sensor/filter/white-reference arguments; no image context.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/spcc_list.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4365,7 +4365,7 @@
       "command": "split",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/split.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Splits the currently loaded color image into three channel files; optional HSL/HSV/CIE-LAB extraction.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/split.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4390,7 +4390,7 @@
       "command": "split_cfa",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/split_cfa.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Requires a loaded CFA image; sequence behavior is not documented.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/split_cfa.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4415,7 +4415,7 @@
       "command": "stack",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/stack.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Consumes a sequence of images and optional registration/statistical metadata; not tested because no coherent same-filter sequence is available.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/stack.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4440,7 +4440,7 @@
       "command": "stackall",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/stackall.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Opens all sequences in the current working directory and stacks them.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/stackall.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4465,7 +4465,7 @@
       "command": "starnet",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/starnet.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Calls the separately installed StarNet CLI on the loaded image; `-stretch` pre/inverse-stretches linear inputs.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/starnet.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4490,7 +4490,7 @@
       "command": "start_ls",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/live_stack.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Starts a live-stacking session, optionally with calibration files, and waits for LIVESTACK inputs.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/live_stack.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4515,7 +4515,7 @@
       "command": "stat",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/stat.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Operates on the currently loaded single image; tested on one Ha master-light. Sequence statistics use the separate seqstat command.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/stat.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4540,7 +4540,7 @@
       "command": "stop_ls",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/live_stack.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Stops an active live-stacking session and returns Siril to normal state.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/live_stack.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4565,7 +4565,7 @@
       "command": "subsky",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/subsky.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Models a synthetic background gradient with polynomial or RBF and subtracts it from the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/subsky.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4590,7 +4590,7 @@
       "command": "synthstar",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/synthstar.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Detects stars if needed, then builds a synthetic mask with round star PSFs; the documented recommendation is to run before stretching.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/synthstar.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4615,7 +4615,7 @@
       "command": "threshlo",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/threshlo.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Replaces values below the supplied level with that level in the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/threshlo.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4640,7 +4640,7 @@
       "command": "threshhi",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/threshhi.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Official description says values above level are replaced with level in the loaded image.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/threshhi.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4665,7 +4665,7 @@
       "command": "thresh",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/thresh.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Official prose says values below `level` are replaced with `level`, which does not fully explain the two-argument `lo hi` syntax.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/thresh.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4715,7 +4715,7 @@
       "command": "trixel",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/trixel.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Developer-focused utility for plate-solved images; trixel identifiers can be passed to CONESEARCH.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/trixel.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4740,7 +4740,7 @@
       "command": "unclipstars",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/unclipstars.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Re-profiles clipped stars in the loaded image to desaturate them.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/unclipstars.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4765,7 +4765,7 @@
       "command": "unpurple",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/unpurple.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reduces purple fringing using a star mask (existing PSF or generated) or across the whole image without the mask.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/unpurple.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4790,7 +4790,7 @@
       "command": "unselect",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/unselect.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Removes selection for the inclusive image range in a sequence. The sequence selection is used by later processing.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/unselect.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4840,7 +4840,7 @@
       "command": "unsharp",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/unsharp.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms the loaded image; no sequence form described.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/unsharp.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4865,7 +4865,7 @@
       "command": "update_key",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/update_key.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Updates a FITS keyword associated with the current command context; exact persistent target is not specified.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/update_key.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4915,7 +4915,7 @@
       "command": "wavelet",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/wavelet_reconstruction.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Transforms a loaded image; sequence behavior is not documented.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/wavelet_reconstruction.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4940,7 +4940,7 @@
       "command": "wiener",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/wiener.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Restores the loaded image with Wiener deconvolution, optionally using a PSF made by MAKEPSF.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/wiener.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",
@@ -4965,7 +4965,7 @@
       "command": "wrecons",
       "assessment": {
         "parameter_details": "Fixed executable help is recorded in reference/cli-help.json. The implemented parameter contract is operations/wavelet_reconstruction.json; optional values require their use_* control, preserving zero.",
-        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
+        "structured_parameter_defaults_ranges": "See the operation declaration and adapter/recipes/catalog.py. Values disabled by use_* are omitted from the command; their widget seed is not a claimed Siril default.",
         "single_image_sequence_context": "Reconstructs the current image from previously computed wavelet layers weighted by supplied coefficients.",
         "input_output_semantics": "Fixed named image, sequence or file inputs and checked named outputs are declared by operations/wavelet_reconstruction.json. Originals are protected by invocation-owned writable staging.",
         "headless_status": "fixed_executable_help_scriptable; current_recipe_runtime_verification_pending",

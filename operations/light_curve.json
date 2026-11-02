@@ -79,10 +79,10 @@
         "name": "channel",
         "kind": "int",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 2.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 2
+        "nullable": false
       },
       {
         "name": "autoring",
@@ -95,13 +95,13 @@
         "name": "coordinate_type",
         "kind": "choice",
         "default": "pixel",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "pixel",
           "wcs",
           "nina"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "position",
@@ -125,11 +125,11 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "reference_positions": "multiline",
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

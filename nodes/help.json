@@ -2,11 +2,11 @@
   "definition_id": "831a58f4-7c2d-5f0d-85b7-168dc276c365",
   "source": "package",
   "name": "Command Help (help)",
+  "description": "Lists the available commands or help for one command\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "tools",
     "runtime-queries"
   ],
-  "description": "Lists the available commands or help for one command\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [],
   "outputs": [
     {
@@ -45,10 +45,6 @@
     "package_id": "siril",
     "operation_id": "help",
     "inputs": {},
-    "outputs": {
-      "analysis": "analysis",
-      "files": "files"
-    },
     "parameters": {
       "use_command_name": {
         "kind": "parameter",
@@ -62,6 +58,10 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
     }
   }
 }

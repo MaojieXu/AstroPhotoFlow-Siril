@@ -111,13 +111,13 @@
         "name": "mode",
         "kind": "choice",
         "default": "rgb",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "rgb",
           "lrgb",
           "l_rgb"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "no_sum",
@@ -134,10 +134,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

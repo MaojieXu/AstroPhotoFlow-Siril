@@ -2,11 +2,11 @@
   "definition_id": "776aa6b1-ccb3-5dfa-ae21-60f77940e3d5",
   "source": "package",
   "name": "Sequence Linear Stretch (seqlinstretch)",
+  "description": "Same command as LINSTRETCH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: linstretch\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "stretch-color",
     "stretch-transforms"
   ],
-  "description": "Same command as LINSTRETCH but the sequence must be specified as the first argument. In addition, the optional argument -prefix= can be used to set a custom prefix\n\nLinks: linstretch\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -24,30 +24,28 @@
       "name": "black_point",
       "kind": "float",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "clipmode",
       "kind": "choice",
       "default": "rgbblend",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "rgbblend",
         "clip",
         "rescale",
         "globalrescale"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "channels",
       "kind": "choice",
       "default": "RGB",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "RGB",
         "R",
@@ -56,7 +54,9 @@
         "RG",
         "RB",
         "GB"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "saturation",
@@ -77,9 +77,6 @@
     "package_id": "siril",
     "operation_id": "seqlinstretch",
     "inputs": {
-      "image": "image"
-    },
-    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -103,6 +100,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

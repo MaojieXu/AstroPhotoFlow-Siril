@@ -86,12 +86,12 @@
         "name": "script_source",
         "kind": "choice",
         "default": "inline",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "inline",
           "file"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "load_image",
@@ -129,13 +129,13 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "script": "multiline",
       "arguments": "multiline",
       "output_files": "multiline",
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": false,

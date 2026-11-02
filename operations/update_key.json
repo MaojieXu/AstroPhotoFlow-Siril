@@ -43,14 +43,14 @@
         "name": "action",
         "kind": "choice",
         "default": "set",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "set",
           "delete",
           "rename",
           "comment"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "key",
@@ -81,10 +81,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": false,

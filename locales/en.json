@@ -18,7 +18,7 @@
       },
       "targetbg": {
         "label": "targetbg",
-        "description": "Type: float · Widget initial value: 0.25 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0.25 · minimum: 0.0 · maximum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -61,7 +61,7 @@
       },
       "offset": {
         "label": "offset",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -151,23 +151,23 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "local_intensity": {
         "label": "local intensity",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 15"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 15.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -210,23 +210,23 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "local_intensity": {
         "label": "local intensity",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 15"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 15.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -269,19 +269,19 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -324,19 +324,19 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -379,7 +379,7 @@
     "parameters": {
       "black_point": {
         "label": "black point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -422,15 +422,15 @@
     "parameters": {
       "low": {
         "label": "low",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "mid": {
         "label": "mid",
-        "description": "Type: float · Widget initial value: 0.5 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0.5 · minimum: 0.0 · maximum: 1.0"
       },
       "high": {
         "label": "high",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "channels": {
         "label": "channels",
@@ -465,15 +465,15 @@
     "parameters": {
       "low": {
         "label": "low",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "mid": {
         "label": "mid",
-        "description": "Type: float · Widget initial value: 0.5 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0.5 · minimum: 0.0 · maximum: 1.0"
       },
       "high": {
         "label": "high",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "channels": {
         "label": "channels",
@@ -724,7 +724,7 @@
     "parameters": {
       "coefficient": {
         "label": "coefficient",
-        "description": "Type: int · Widget initial value: 2 · minimum: 1"
+        "description": "Type: int · Widget initial value: 2 · minimum: 1.0"
       },
       "sum": {
         "label": "sum",
@@ -833,7 +833,7 @@
     "parameters": {
       "kernel_size": {
         "label": "kernel size",
-        "description": "Type: int · Widget initial value: 3 · minimum: 1"
+        "description": "Type: int · Widget initial value: 3 · minimum: 1.0"
       },
       "modulation": {
         "label": "modulation",
@@ -1202,11 +1202,11 @@
       },
       "method": {
         "label": "method",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 3"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 3.0"
       },
       "amount": {
         "label": "amount",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -1245,7 +1245,7 @@
       },
       "hue_range": {
         "label": "hue range",
-        "description": "Type: int · Widget initial value: 6 · minimum: 0 · maximum: 6"
+        "description": "Type: int · Widget initial value: 6 · minimum: 0.0 · maximum: 6.0"
       },
       "runtime": {
         "label": "runtime",
@@ -1335,7 +1335,7 @@
       },
       "sos_iterations": {
         "label": "sos iterations",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "use_rho": {
         "label": "use rho",
@@ -1523,19 +1523,19 @@
       },
       "x": {
         "label": "x",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "y": {
         "label": "y",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "width": {
         "label": "width",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "height": {
         "label": "height",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -1574,19 +1574,19 @@
       },
       "x": {
         "label": "x",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "y": {
         "label": "y",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "width": {
         "label": "width",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "height": {
         "label": "height",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -1621,19 +1621,19 @@
       },
       "x": {
         "label": "x",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "y": {
         "label": "y",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "width": {
         "label": "width",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "height": {
         "label": "height",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -1786,7 +1786,7 @@
       },
       "gamma": {
         "label": "gamma",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "runtime": {
         "label": "runtime",
@@ -2155,7 +2155,7 @@
       },
       "degree": {
         "label": "degree",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1 · maximum: 4"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0 · maximum: 4.0"
       },
       "dither": {
         "label": "dither",
@@ -2163,15 +2163,15 @@
       },
       "samples": {
         "label": "samples",
-        "description": "Type: int · Widget initial value: 20 · minimum: 2"
+        "description": "Type: int · Widget initial value: 20 · minimum: 2.0"
       },
       "tolerance": {
         "label": "tolerance",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0"
       },
       "smooth": {
         "label": "smooth",
-        "description": "Type: float · Widget initial value: 0.5 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0.5 · minimum: 0.0 · maximum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -2396,7 +2396,7 @@
     "parameters": {
       "channel": {
         "label": "channel",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "runtime": {
         "label": "runtime",
@@ -2474,7 +2474,7 @@
       },
       "layer": {
         "label": "layer",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "use_maximum_stars": {
         "label": "use maximum stars",
@@ -2482,7 +2482,7 @@
       },
       "maximum_stars": {
         "label": "maximum stars",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "runtime": {
         "label": "runtime",
@@ -2556,7 +2556,7 @@
     "parameters": {
       "channel": {
         "label": "channel",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "selection": {
         "label": "selection",
@@ -2756,7 +2756,7 @@
     "parameters": {
       "layers": {
         "label": "layers",
-        "description": "Type: int · Widget initial value: 3 · minimum: 1"
+        "description": "Type: int · Widget initial value: 3 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -3098,7 +3098,7 @@
     "parameters": {
       "quality": {
         "label": "quality",
-        "description": "Type: int · Widget initial value: 95 · minimum: 0 · maximum: 100"
+        "description": "Type: int · Widget initial value: 95 · minimum: 0.0 · maximum: 100.0"
       },
       "runtime": {
         "label": "runtime",
@@ -3129,11 +3129,11 @@
     "parameters": {
       "effort": {
         "label": "effort",
-        "description": "Type: int · Widget initial value: 7 · minimum: 1 · maximum: 9"
+        "description": "Type: int · Widget initial value: 7 · minimum: 1.0 · maximum: 9.0"
       },
       "quality": {
         "label": "quality",
-        "description": "Type: float · Widget initial value: 100 · minimum: 0 · maximum: 100"
+        "description": "Type: float · Widget initial value: 100 · minimum: 0.0 · maximum: 100.0"
       },
       "eight_bit": {
         "label": "eight bit",
@@ -3413,7 +3413,7 @@
     "parameters": {
       "layers": {
         "label": "layers",
-        "description": "Type: int · Widget initial value: 3 · minimum: 1 · maximum: 6"
+        "description": "Type: int · Widget initial value: 3 · minimum: 1.0 · maximum: 6.0"
       },
       "transform": {
         "label": "transform",
@@ -3456,7 +3456,7 @@
       },
       "regularisation": {
         "label": "regularisation",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0"
       },
       "use_iterations": {
         "label": "use iterations",
@@ -3464,7 +3464,7 @@
       },
       "iterations": {
         "label": "iterations",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "use_stop": {
         "label": "use stop",
@@ -3531,7 +3531,7 @@
       },
       "regularisation": {
         "label": "regularisation",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0"
       },
       "use_iterations": {
         "label": "use iterations",
@@ -3539,7 +3539,7 @@
       },
       "iterations": {
         "label": "iterations",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -3578,7 +3578,7 @@
       },
       "regularisation": {
         "label": "regularisation",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0"
       },
       "runtime": {
         "label": "runtime",
@@ -3617,7 +3617,7 @@
       },
       "regularisation": {
         "label": "regularisation",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0"
       },
       "use_iterations": {
         "label": "use iterations",
@@ -3625,7 +3625,7 @@
       },
       "iterations": {
         "label": "iterations",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "use_stop": {
         "label": "use stop",
@@ -3692,7 +3692,7 @@
       },
       "regularisation": {
         "label": "regularisation",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0"
       },
       "use_iterations": {
         "label": "use iterations",
@@ -3700,7 +3700,7 @@
       },
       "iterations": {
         "label": "iterations",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -3739,7 +3739,7 @@
       },
       "regularisation": {
         "label": "regularisation",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0"
       },
       "runtime": {
         "label": "runtime",
@@ -4113,7 +4113,7 @@
       },
       "gamma": {
         "label": "gamma",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "runtime": {
         "label": "runtime",
@@ -4144,19 +4144,19 @@
     "parameters": {
       "x": {
         "label": "x",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "y": {
         "label": "y",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "width": {
         "label": "width",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "height": {
         "label": "height",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -4393,23 +4393,23 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "local_intensity": {
         "label": "local intensity",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 15"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 15.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -4452,23 +4452,23 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "local_intensity": {
         "label": "local intensity",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 15"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 15.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -4511,19 +4511,19 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -4566,7 +4566,7 @@
     "parameters": {
       "black_point": {
         "label": "black point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -4609,19 +4609,19 @@
     "parameters": {
       "stretch": {
         "label": "stretch",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 10"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 10.0"
       },
       "low_protection": {
         "label": "low protection",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "symmetry_point": {
         "label": "symmetry point",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "high_protection": {
         "label": "high protection",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "clipmode": {
         "label": "clipmode",
@@ -4664,15 +4664,15 @@
     "parameters": {
       "low": {
         "label": "low",
-        "description": "Type: float · Widget initial value: 0 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0 · minimum: 0.0 · maximum: 1.0"
       },
       "mid": {
         "label": "mid",
-        "description": "Type: float · Widget initial value: 0.5 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0.5 · minimum: 0.0 · maximum: 1.0"
       },
       "high": {
         "label": "high",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0 · maximum: 1.0"
       },
       "channels": {
         "label": "channels",
@@ -4894,7 +4894,7 @@
       },
       "degree": {
         "label": "degree",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1 · maximum: 4"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0 · maximum: 4.0"
       },
       "no_dither": {
         "label": "no dither",
@@ -4902,15 +4902,15 @@
       },
       "samples": {
         "label": "samples",
-        "description": "Type: int · Widget initial value: 20 · minimum: 2"
+        "description": "Type: int · Widget initial value: 20 · minimum: 2.0"
       },
       "tolerance": {
         "label": "tolerance",
-        "description": "Type: float · Widget initial value: 1 · minimum: 0"
+        "description": "Type: float · Widget initial value: 1 · minimum: 0.0"
       },
       "smooth": {
         "label": "smooth",
-        "description": "Type: float · Widget initial value: 0.5 · minimum: 0 · maximum: 1"
+        "description": "Type: float · Widget initial value: 0.5 · minimum: 0.0 · maximum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -5123,7 +5123,7 @@
     "parameters": {
       "start_index": {
         "label": "start index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "debayer": {
         "label": "debayer",
@@ -5162,7 +5162,7 @@
     "parameters": {
       "start_index": {
         "label": "start index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "debayer": {
         "label": "debayer",
@@ -5201,7 +5201,7 @@
     "parameters": {
       "start_index": {
         "label": "start index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "date": {
         "label": "date",
@@ -5256,7 +5256,7 @@
       },
       "layer": {
         "label": "layer",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "interpolation": {
         "label": "interpolation",
@@ -5363,7 +5363,7 @@
       },
       "layer": {
         "label": "layer",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "interpolation": {
         "label": "interpolation",
@@ -5763,11 +5763,11 @@
     "parameters": {
       "from_index": {
         "label": "from index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "to_index": {
         "label": "to index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -5798,11 +5798,11 @@
     "parameters": {
       "from_index": {
         "label": "from index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "to_index": {
         "label": "to index",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -5833,7 +5833,7 @@
     "parameters": {
       "image_number": {
         "label": "image number",
-        "description": "Type: int · Widget initial value: 1 · minimum: 1"
+        "description": "Type: int · Widget initial value: 1 · minimum: 1.0"
       },
       "runtime": {
         "label": "runtime",
@@ -6028,7 +6028,7 @@
       },
       "layer": {
         "label": "layer",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "use_maximum_stars": {
         "label": "use maximum stars",
@@ -6036,7 +6036,7 @@
       },
       "maximum_stars": {
         "label": "maximum stars",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0"
       },
       "runtime": {
         "label": "runtime",
@@ -6110,7 +6110,7 @@
     "parameters": {
       "channel": {
         "label": "channel",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "coordinate_type": {
         "label": "coordinate type",
@@ -6161,7 +6161,7 @@
     "parameters": {
       "channel": {
         "label": "channel",
-        "description": "Type: int · Widget initial value: 0 · minimum: 0 · maximum: 2"
+        "description": "Type: int · Widget initial value: 0 · minimum: 0.0 · maximum: 2.0"
       },
       "autoring": {
         "label": "autoring",

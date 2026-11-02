@@ -106,13 +106,13 @@
         "name": "bias_mode",
         "kind": "choice",
         "default": "none",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "none",
           "image",
           "expression"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "bias_expression",
@@ -125,13 +125,13 @@
         "name": "cosmetic",
         "kind": "choice",
         "default": "none",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "none",
           "dark",
           "bpm"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "cosmetic_sigmas",
@@ -186,13 +186,13 @@
         "name": "dark_optimisation",
         "kind": "choice",
         "default": "none",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "none",
           "optimise",
           "exposure"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -202,10 +202,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

@@ -64,13 +64,13 @@
         "name": "statistics",
         "kind": "choice",
         "default": "main",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "basic",
           "main",
           "full"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "cfa",
@@ -87,10 +87,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

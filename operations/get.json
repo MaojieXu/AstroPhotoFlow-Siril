@@ -34,13 +34,13 @@
         "name": "query",
         "kind": "choice",
         "default": "all",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "all",
           "all_with_comments",
           "variable"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "variable_name",
@@ -57,10 +57,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": false,
