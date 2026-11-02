@@ -2,6 +2,8 @@
 
 Bundle 0.2.0-dev.2 / Siril 1.4.4 / Windows x86_64 / host API 2.
 
+Command references and Siril-specific assessment/coverage checks are owned here under `reference/` and `tests/test_catalog.py`. The platform consumes exported metadata; it does not maintain another Siril command reference. Live operations declare both `preview.input` and `preview.output`; Siril decoding, sampling commands and output file naming remain in this adapter. Current checkout changes are unpublished and are not changes to the existing v0.2.0-dev.2 tag.
+
 Install this development release through AstroPhotoFlow using tag `v0.2.0-dev.2` and its pinned Git commit. The app directory is tracked with ordinary Git, not LFS; the Siril 1.4.4 runtime is unchanged.
 
 English and Simplified Chinese display catalogs cover all 160 declared operations/nodes, parameters and ports. They require a platform that supports the optional `locales` Bundle metadata. Authored Chinese text lives in `locales/source.zh.json`; `python -m tools.build_catalog` rebuilds declarations and both display catalogs. `python -m tools.build_locales` rebuilds display catalogs alone without modifying executable declarations. Labels never rename command, parameter, node or port identities. Original Siril logs remain unchanged.
