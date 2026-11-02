@@ -23,7 +23,7 @@ def test_full_index_is_accounted_for_without_non_scriptable_placeholder_nodes():
 
 
 def test_development_watch_covers_adapter_format_dependency():
-    configuration = json.loads((ROOT / 'development.json').read_text())
+    configuration = json.loads((ROOT / 'development.json').read_text(encoding='utf-8'))
     assert any(ROOT / 'reference/formats.json' in ROOT.glob(pattern) for pattern in configuration['watch'])
 
 
@@ -37,7 +37,7 @@ def test_all_generated_ports_and_parameters_are_owned_by_typed_recipes():
         assert all(isinstance(item, RecipeParameter) and isinstance(item.schema, ParameterDefinition) for item in recipe.parameters)
         assert all(isinstance(item, SoftwareInputDefinition) for item in recipe.inputs)
         assert all(isinstance(item, SoftwareOutputDefinition) for item in recipe.outputs)
-        entry = json.loads((ROOT / 'operations' / (name + '.json')).read_text())
+        entry = json.loads((ROOT / 'operations' / (name + '.json')).read_text(encoding='utf-8'))
         operation = SoftwareOperation.model_validate({**entry['operation'], 'content_token': '', 'ready': False, 'reason': None})
         assert operation.inputs == recipe.inputs, name
         assert operation.outputs == recipe.outputs, name

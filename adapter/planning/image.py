@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math
 import shutil
+from dataclasses import replace
 
 from astrophotoflow.contracts.bundles import (
     ProcessOutput,
@@ -55,7 +56,8 @@ def build_image(context: BuildContext) -> None:
             add_file(outputs, 'image', target)
         elif mode == 'analysis':
             if operation_id == 'psf':
-                commands.extend(selection_commands({'selection': json_value(parameters['selection'], list, 'selection')}))
+                selection = json_value(parameters['selection'], list, 'selection')
+                commands.extend(selection_commands(replace(runtime, selection_set=True, selection=tuple(selection))))
             commands.append(analysis_command(operation_id, recipe, parameters, folder, source))
             add_file(outputs, 'analysis', folder / 'analysis.json', 'other')
             outputs.setdefault('files', ProcessOutput())
