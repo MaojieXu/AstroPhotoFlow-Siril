@@ -101,23 +101,23 @@
         "name": "tag",
         "kind": "choice",
         "default": "on",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "on",
           "off"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "log",
         "kind": "choice",
         "default": "on",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "on",
           "off"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "use_trixel",
@@ -141,10 +141,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": false,

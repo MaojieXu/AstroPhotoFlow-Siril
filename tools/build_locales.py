@@ -1,14 +1,12 @@
 """Build display-only translations without changing executable declarations."""
 import json
 import re
-import runpy
 from pathlib import Path
 
 from astrophotoflow.contracts.localization import CapabilityDisplay
 
-
 ROOT = Path(__file__).resolve().parents[1]
-PRESENTATION = runpy.run_path(str(Path(__file__).with_name('presentation.py')))
+from . import presentation as PRESENTATION
 
 
 def parameter_label(name, source):
@@ -38,16 +36,16 @@ def parameter_help(parameter, locale):
 def main():
     manifest = json.loads((ROOT / 'bundle.json').read_text(encoding='utf-8'))
     entries = [json.loads((ROOT / name).read_text(encoding='utf-8')) for name in manifest['operations']]
-    source = PRESENTATION['load_presentation'](ROOT, [entry['operation']['operation_id'] for entry in entries])
+    source = PRESENTATION.load_presentation(ROOT, [entry['operation']['operation_id'] for entry in entries])
     values = {'en': {}, 'zh': {}}
     for entry in entries:
         operation = entry['operation']
         identity = operation['operation_id']
         notes = [note for section in ('limitations', 'dependencies', 'corrections') for note in entry.get(section, [])]
-        for locale in values:
+        for locale, translations in values.items():
             zh = locale == 'zh'
             translated = source['operations'][identity]
-            name = PRESENTATION['node_name'](translated, identity, locale)
+            name = PRESENTATION.node_name(translated, identity, locale)
             description = translated['description'] if zh else operation['description']
             help_text = entry['help'] if not zh else '\n\n'.join([
                 description, *(source['notes'][note] for note in notes),
@@ -55,13 +53,21 @@ def main():
                 'selection 省略表示全图，显式 null 清除选择。运行配置 runtime 为 JSON；默认离线，联网须显式启用。',
                 '允许自动结果计算的处理与分析操作可作为本次执行目标，无需额外导出节点；手动运行仍使用明确的导出、叠加或分析终点。只执行所请求的依赖。保存引用指向完整且已检查的文件，不是预览像素。',
                 '命令与标识符保持原文。详见 reference/coverage.json 和 docs/usage.md。'])
-            display = dict(name=name, category=PRESENTATION['category_labels'](source, identity, locale),
-                description=description, help=help_text,
-                parameters={parameter['name']: dict(label=parameter_label(parameter['name'], source) if zh else parameter['name'].replace('_', ' '),
-                    description=parameter_help(parameter, locale)) for parameter in operation['parameters']},
-                **{section: {port['name']: dict(label=source['ports'][port['name']] if zh else port['name'].replace('_', ' '),
-                    description=('端口类型：' if zh else 'Port type: ') + port['type']) for port in operation[section]} for section in ('inputs', 'outputs')})
-            values[locale][identity] = CapabilityDisplay.model_validate(display).model_dump(mode='json')
+            display = {
+                'name': name,
+                'category': PRESENTATION.category_labels(source, identity, locale),
+                'description': description,
+                'help': help_text,
+                'parameters': {parameter['name']: {
+                    'label': parameter_label(parameter['name'], source) if zh else parameter['name'].replace('_', ' '),
+                    'description': parameter_help(parameter, locale),
+                } for parameter in operation['parameters']},
+                **{section: {port['name']: {
+                    'label': source['ports'][port['name']] if zh else port['name'].replace('_', ' '),
+                    'description': ('端口类型：' if zh else 'Port type: ') + port['type'],
+                } for port in operation[section]} for section in ('inputs', 'outputs')},
+            }
+            translations[identity] = CapabilityDisplay.model_validate(display).model_dump(mode='json')
     for locale, catalog in values.items():
         (ROOT / 'locales' / (locale + '.json')).write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'Built {len(entries)} operation/node translations in each of en and zh.')

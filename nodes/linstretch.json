@@ -2,11 +2,11 @@
   "definition_id": "0538263b-37f0-59f8-a284-abf592bf46f7",
   "source": "package",
   "name": "Linear Stretch (linstretch)",
+  "description": "Stretches the image linearly to a new black point BP.\n\nThe argument [channels] may optionally be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels.\n\nOptionally the parameter -sat may be used to apply the linear stretch to the image saturation channel. This argument only works if all channels are selected. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "stretch-color",
     "stretch-transforms"
   ],
-  "description": "Stretches the image linearly to a new black point BP.\n\nThe argument [channels] may optionally be used to specify the channels to apply the stretch to: this may be R, G, B, RG, RB or GB. The default is all channels.\n\nOptionally the parameter -sat may be used to apply the linear stretch to the image saturation channel. This argument only works if all channels are selected. The clip mode can be set using the argument -clipmode= : values clip , rescale , rgbblend or globalrescale are accepted and the default is rgbblend\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -24,30 +24,28 @@
       "name": "black_point",
       "kind": "float",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "clipmode",
       "kind": "choice",
       "default": "rgbblend",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "rgbblend",
         "clip",
         "rescale",
         "globalrescale"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "channels",
       "kind": "choice",
       "default": "RGB",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "RGB",
         "R",
@@ -56,7 +54,9 @@
         "RG",
         "RB",
         "GB"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "saturation",
@@ -77,9 +77,6 @@
     "package_id": "siril",
     "operation_id": "linstretch",
     "inputs": {
-      "image": "image"
-    },
-    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -103,6 +100,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

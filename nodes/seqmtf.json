@@ -2,11 +2,11 @@
   "definition_id": "fff9ee71-350c-5bc5-8742-38650fc7cf1a",
   "source": "package",
   "name": "Sequence Midtones Transfer Function (seqmtf)",
+  "description": "Same command as MTF but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"mtf_\" unless otherwise specified with -prefix= option\n\nLinks: mtf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "stretch-color",
     "stretch-transforms"
   ],
-  "description": "Same command as MTF but for the sequence sequencename .\n\nThe output sequence name starts with the prefix \"mtf_\" unless otherwise specified with -prefix= option\n\nLinks: mtf\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -24,35 +24,33 @@
       "name": "low",
       "kind": "float",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "mid",
       "kind": "float",
       "default": 0.5,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "high",
       "kind": "float",
       "default": 1,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "channels",
       "kind": "choice",
       "default": "RGB",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "RGB",
         "R",
@@ -61,7 +59,9 @@
         "RG",
         "RB",
         "GB"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -75,9 +75,6 @@
     "package_id": "siril",
     "operation_id": "seqmtf",
     "inputs": {
-      "image": "image"
-    },
-    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -101,6 +98,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

@@ -42,10 +42,10 @@
         "name": "quality",
         "kind": "int",
         "default": 95,
+        "minimum": 0.0,
+        "maximum": 100.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 100
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -55,10 +55,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": false,

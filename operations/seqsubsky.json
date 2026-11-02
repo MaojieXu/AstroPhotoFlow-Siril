@@ -45,21 +45,21 @@
         "name": "model",
         "kind": "choice",
         "default": "polynomial",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "polynomial",
           "rbf"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "degree",
         "kind": "int",
         "default": 1,
+        "minimum": 1.0,
+        "maximum": 4.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 1,
-        "maximum": 4
+        "nullable": false
       },
       {
         "name": "no_dither",
@@ -72,26 +72,26 @@
         "name": "samples",
         "kind": "int",
         "default": 20,
+        "minimum": 2.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 2
+        "nullable": false
       },
       {
         "name": "tolerance",
         "kind": "float",
         "default": 1,
+        "minimum": 0.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0
+        "nullable": false
       },
       {
         "name": "smooth",
         "kind": "float",
         "default": 0.5,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -101,10 +101,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

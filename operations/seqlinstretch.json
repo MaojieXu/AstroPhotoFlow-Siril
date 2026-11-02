@@ -45,30 +45,28 @@
         "name": "black_point",
         "kind": "float",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 1
+        "nullable": false
       },
       {
         "name": "clipmode",
         "kind": "choice",
         "default": "rgbblend",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "rgbblend",
           "clip",
           "rescale",
           "globalrescale"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "channels",
         "kind": "choice",
         "default": "RGB",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "RGB",
           "R",
@@ -77,7 +75,9 @@
           "RG",
           "RB",
           "GB"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "saturation",
@@ -94,10 +94,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

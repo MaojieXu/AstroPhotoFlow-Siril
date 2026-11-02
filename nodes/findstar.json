@@ -2,11 +2,11 @@
   "definition_id": "9d0bef9b-48ae-5fb8-a5e9-8d0ccc517ca0",
   "source": "package",
   "name": "Find Stars (findstar)",
+  "description": "Detects stars in the currently loaded image, having a level greater than a threshold computed by Siril.\n\nAfter that, a PSF is applied and Siril rejects all detected structures that don't fulfill a set of prescribed detection criteria, that can be tuned with command SETFINDSTAR.\n\nFinally, an ellipse is drawn around detected stars.\n\nOptional parameter -out= allows the results to be saved to the given path.\n\nOption -layer= specifies the layer onto which the detection is performed (for color images only).\n\nYou can also limit the maximum number of stars detected by passing a value to option -maxstars= .\n\nSee also CLEARSTAR\n\nLinks: psf , setfindstar , clearstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "analysis",
     "star-optics"
   ],
-  "description": "Detects stars in the currently loaded image, having a level greater than a threshold computed by Siril.\n\nAfter that, a PSF is applied and Siril rejects all detected structures that don't fulfill a set of prescribed detection criteria, that can be tuned with command SETFINDSTAR.\n\nFinally, an ellipse is drawn around detected stars.\n\nOptional parameter -out= allows the results to be saved to the given path.\n\nOption -layer= specifies the layer onto which the detection is performed (for color images only).\n\nYou can also limit the maximum number of stars detected by passing a value to option -maxstars= .\n\nSee also CLEARSTAR\n\nLinks: psf , setfindstar , clearstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -35,10 +35,10 @@
       "name": "layer",
       "kind": "int",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 2.0,
       "advanced": true,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 2
+      "nullable": false
     },
     {
       "name": "use_maximum_stars",
@@ -51,9 +51,9 @@
       "name": "maximum_stars",
       "kind": "int",
       "default": 0,
+      "minimum": 0.0,
       "advanced": true,
-      "nullable": false,
-      "minimum": 0
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -68,10 +68,6 @@
     "operation_id": "findstar",
     "inputs": {
       "image": "image"
-    },
-    "outputs": {
-      "analysis": "analysis",
-      "files": "files"
     },
     "parameters": {
       "use_layer": {
@@ -94,6 +90,10 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "analysis": "analysis",
+      "files": "files"
     }
   }
 }

@@ -2,11 +2,11 @@
   "definition_id": "101781dd-4e63-59af-b067-cf05fa018e10",
   "source": "package",
   "name": "Stack Invocation Sequences (stackall)",
+  "description": "Opens all sequences in the current directory and stacks them with the optionally specified stacking type and filtering or with sum stacking. See STACK command for options description\n\nLinks: stack\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "preprocessing",
     "stacking"
   ],
-  "description": "Opens all sequences in the current directory and stacks them with the optionally specified stacking type and filtering or with sum stacking. See STACK command for options description\n\nLinks: stack\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "sequences",
@@ -28,22 +28,20 @@
       "name": "method",
       "kind": "choice",
       "default": "mean",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "mean",
         "sum",
         "min",
         "max",
         "median"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "rejection",
       "kind": "choice",
       "default": "winsorized",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "none",
         "percentile",
@@ -53,7 +51,9 @@
         "winsorized",
         "linear",
         "generalized"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "sigma_low",
@@ -73,15 +73,15 @@
       "name": "normalisation",
       "kind": "choice",
       "default": "none",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "none",
         "add",
         "mul",
         "addscale",
         "mulscale"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "fast_normalisation",
@@ -115,15 +115,15 @@
       "name": "weight",
       "kind": "choice",
       "default": "none",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "none",
         "noise",
         "wfwhm",
         "nbstars",
         "nbstack"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "use_feather",
@@ -164,13 +164,13 @@
       "name": "rejection_maps",
       "kind": "choice",
       "default": "none",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "none",
         "combined",
         "separate"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -185,10 +185,6 @@
     "operation_id": "stackall",
     "inputs": {
       "sequences": "sequences"
-    },
-    "outputs": {
-      "image": "image",
-      "rejection_maps": "rejection_maps"
     },
     "parameters": {
       "method": {
@@ -259,6 +255,10 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image",
+      "rejection_maps": "rejection_maps"
     }
   }
 }

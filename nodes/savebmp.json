@@ -2,11 +2,11 @@
   "definition_id": "f6848102-ae26-5c0a-8942-ed87e421fcdc",
   "source": "package",
   "name": "Export BMP (savebmp)",
+  "description": "Saves current image under the form of a bitmap file with 8-bit per channel: filename .bmp (BMP 24-bit)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "files-sequences",
     "export"
   ],
-  "description": "Saves current image under the form of a bitmap file with 8-bit per channel: filename .bmp (BMP 24-bit)\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -34,14 +34,14 @@
     "inputs": {
       "image": "image"
     },
-    "outputs": {
-      "file": "file"
-    },
     "parameters": {
       "runtime": {
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "file": "file"
     }
   }
 }

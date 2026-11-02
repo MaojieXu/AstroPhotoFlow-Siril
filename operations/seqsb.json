@@ -69,9 +69,9 @@
         "name": "regularisation",
         "kind": "float",
         "default": 0,
+        "minimum": 0.0,
         "advanced": true,
-        "nullable": false,
-        "minimum": 0
+        "nullable": false
       },
       {
         "name": "use_iterations",
@@ -84,9 +84,9 @@
         "name": "iterations",
         "kind": "int",
         "default": 1,
+        "minimum": 1.0,
         "advanced": true,
-        "nullable": false,
-        "minimum": 1
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -96,10 +96,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

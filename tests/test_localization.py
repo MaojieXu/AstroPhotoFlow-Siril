@@ -1,14 +1,12 @@
 import json
-from pathlib import Path
-import runpy
 import shutil
 from collections import Counter
+from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
 import pytest
 
 from astrophotoflow.contracts.localization import CapabilityDisplay
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -76,7 +74,7 @@ def test_presentation_generation_rejects_incomplete_mapping(tmp_path, change):
         source['categories']['stretch-color']['zh'] = ''
     (tmp_path / 'locales').mkdir()
     (tmp_path / 'locales/source.zh.json').write_text(json.dumps(source), encoding='utf-8')
-    load = runpy.run_path(str(ROOT / 'tools/presentation.py'))['load_presentation']
+    from tools.presentation import load_presentation as load
     with pytest.raises(ValueError):
         load(tmp_path, identities)
 
@@ -87,7 +85,7 @@ def test_every_operation_parameter_and_port_has_bilingual_display_text():
     operations = {entry['operation']['operation_id']: entry['operation'] for name in manifest['operations']
                   for entry in [json.loads((ROOT / name).read_text(encoding='utf-8'))]}
     assert len(operations) == 160
-    for locale, filename in manifest['locales'].items():
+    for filename in manifest['locales'].values():
         values = json.loads((ROOT / filename).read_text(encoding='utf-8'))
         assert set(values) == set(operations)
         for identity, raw in values.items():
@@ -104,7 +102,7 @@ def test_translation_rebuild_preserves_executable_declarations(tmp_path):
     shutil.copyfile(ROOT / 'bundle.json', tmp_path / 'bundle.json')
     paths = [*tmp_path.glob('operations/*.json'), *tmp_path.glob('nodes/*.json')]
     before = {path: path.read_bytes() for path in paths}
-    build = runpy.run_path(str(ROOT / 'tools/build_locales.py'))['main']
+    from tools.build_locales import main as build
     build.__globals__['ROOT'] = tmp_path
     build()
     assert {path: path.read_bytes() for path in paths} == before

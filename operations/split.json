@@ -63,14 +63,14 @@
         "name": "colour_space",
         "kind": "choice",
         "default": "rgb",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "rgb",
           "hsl",
           "hsv",
           "lab"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -80,10 +80,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

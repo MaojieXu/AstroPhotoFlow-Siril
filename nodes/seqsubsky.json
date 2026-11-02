@@ -2,11 +2,11 @@
   "definition_id": "4ed4a438-8d35-5c85-b5d9-4b08760a8412",
   "source": "package",
   "name": "Sequence Background Extraction (seqsubsky)",
+  "description": "Same command as SUBSKY but for the sequence sequencename .\n\nDithering, required for low dynamic gradients, can be disabled with -nodither . Note that the -existing option is not available for sequence background removal, as the frames of a sequence are not necessarily always aligned.\n\nThe output sequence name starts with the prefix \"bkg_\" unless otherwise specified with -prefix= option. Only selected images in the sequence are processed\n\nLinks: subsky\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "background-filters",
     "background-extraction"
   ],
-  "description": "Same command as SUBSKY but for the sequence sequencename .\n\nDithering, required for low dynamic gradients, can be disabled with -nodither . Note that the -existing option is not available for sequence background removal, as the frames of a sequence are not necessarily always aligned.\n\nThe output sequence name starts with the prefix \"bkg_\" unless otherwise specified with -prefix= option. Only selected images in the sequence are processed\n\nLinks: subsky\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -24,21 +24,21 @@
       "name": "model",
       "kind": "choice",
       "default": "polynomial",
-      "advanced": false,
-      "nullable": false,
       "choices": [
         "polynomial",
         "rbf"
-      ]
+      ],
+      "advanced": false,
+      "nullable": false
     },
     {
       "name": "degree",
       "kind": "int",
       "default": 1,
+      "minimum": 1.0,
+      "maximum": 4.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 1,
-      "maximum": 4
+      "nullable": false
     },
     {
       "name": "no_dither",
@@ -51,26 +51,26 @@
       "name": "samples",
       "kind": "int",
       "default": 20,
+      "minimum": 2.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 2
+      "nullable": false
     },
     {
       "name": "tolerance",
       "kind": "float",
       "default": 1,
+      "minimum": 0.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0
+      "nullable": false
     },
     {
       "name": "smooth",
       "kind": "float",
       "default": 0.5,
+      "minimum": 0.0,
+      "maximum": 1.0,
       "advanced": false,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 1
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -84,9 +84,6 @@
     "package_id": "siril",
     "operation_id": "seqsubsky",
     "inputs": {
-      "image": "image"
-    },
-    "outputs": {
       "image": "image"
     },
     "parameters": {
@@ -118,6 +115,9 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image"
     }
   }
 }

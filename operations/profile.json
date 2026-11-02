@@ -94,15 +94,15 @@
         "name": "layer",
         "kind": "choice",
         "default": "red",
-        "advanced": true,
-        "nullable": false,
         "choices": [
           "red",
           "green",
           "blue",
           "lum",
           "col"
-        ]
+        ],
+        "advanced": true,
+        "nullable": false
       },
       {
         "name": "use_width",
@@ -154,10 +154,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

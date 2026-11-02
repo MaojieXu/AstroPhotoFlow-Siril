@@ -59,24 +59,24 @@
         "name": "search_width",
         "kind": "choice",
         "default": "default",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "default",
           "narrow",
           "wide"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "catalogue",
         "kind": "choice",
         "default": "nomad",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "nomad",
           "apass"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "magnitude_difference",
@@ -107,10 +107,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": false,

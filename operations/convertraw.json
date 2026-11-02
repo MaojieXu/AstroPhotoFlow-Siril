@@ -40,9 +40,9 @@
         "name": "start_index",
         "kind": "int",
         "default": 1,
+        "minimum": 1.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 1
+        "nullable": false
       },
       {
         "name": "debayer",
@@ -55,13 +55,13 @@
         "name": "sequence_format",
         "kind": "choice",
         "default": "images",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "images",
           "fitseq",
           "ser"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "runtime",
@@ -71,10 +71,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

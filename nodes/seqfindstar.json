@@ -2,11 +2,11 @@
   "definition_id": "3fb50f4e-51a0-5b30-8a08-dea1dadaf0a7",
   "source": "package",
   "name": "Sequence Find Stars (seqfindstar)",
+  "description": "Same command as FINDSTAR but for the sequence sequencename .\n\nThe option -out= is not available for this process as all the star list files are saved with the default name seqname_seqnb.lst\n\nLinks: findstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "category": [
     "analysis",
     "star-optics"
   ],
-  "description": "Same command as FINDSTAR but for the sequence sequencename .\n\nThe option -out= is not available for this process as all the star list files are saved with the default name seqname_seqnb.lst\n\nLinks: findstar\n\nUses fixed input references and writes only invocation-owned outputs. Optional argument values are sent only when their use_* control is true; zero is preserved.",
   "inputs": [
     {
       "name": "image",
@@ -39,10 +39,10 @@
       "name": "layer",
       "kind": "int",
       "default": 0,
+      "minimum": 0.0,
+      "maximum": 2.0,
       "advanced": true,
-      "nullable": false,
-      "minimum": 0,
-      "maximum": 2
+      "nullable": false
     },
     {
       "name": "use_maximum_stars",
@@ -55,9 +55,9 @@
       "name": "maximum_stars",
       "kind": "int",
       "default": 0,
+      "minimum": 0.0,
       "advanced": true,
-      "nullable": false,
-      "minimum": 0
+      "nullable": false
     },
     {
       "name": "runtime",
@@ -72,11 +72,6 @@
     "operation_id": "seqfindstar",
     "inputs": {
       "image": "image"
-    },
-    "outputs": {
-      "image": "image",
-      "analysis": "analysis",
-      "files": "files"
     },
     "parameters": {
       "use_layer": {
@@ -99,6 +94,11 @@
         "kind": "parameter",
         "name": "runtime"
       }
+    },
+    "outputs": {
+      "image": "image",
+      "analysis": "analysis",
+      "files": "files"
     }
   }
 }

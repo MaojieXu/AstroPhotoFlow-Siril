@@ -57,15 +57,15 @@
         "name": "interpolation",
         "kind": "choice",
         "default": "lanczos4",
-        "advanced": false,
-        "nullable": false,
         "choices": [
           "lanczos4",
           "nearest",
           "cubic",
           "linear",
           "area"
-        ]
+        ],
+        "advanced": false,
+        "nullable": false
       },
       {
         "name": "no_clamp",
@@ -82,10 +82,10 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

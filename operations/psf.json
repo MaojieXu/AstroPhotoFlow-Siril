@@ -52,10 +52,10 @@
         "name": "channel",
         "kind": "int",
         "default": 0,
+        "minimum": 0.0,
+        "maximum": 2.0,
         "advanced": false,
-        "nullable": false,
-        "minimum": 0,
-        "maximum": 2
+        "nullable": false
       },
       {
         "name": "selection",
@@ -72,11 +72,11 @@
         "nullable": false
       }
     ],
-    "cancel_supported": true,
     "parameter_widgets": {
       "selection": "multiline",
       "runtime": "multiline"
-    }
+    },
+    "cancel_supported": true
   },
   "preview": null,
   "automatic_result_preview": true,

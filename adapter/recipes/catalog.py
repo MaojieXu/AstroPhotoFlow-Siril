@@ -1,54 +1,24 @@
-"""Explicit command recipes for Siril 1.4.4, not inferred from its usage strings."""
+"""Explicit command recipes for Siril 1.4.4, not inferred from help strings."""
+from dataclasses import replace
+from typing import Literal
 
-RECIPES = {}
+from astrophotoflow.contracts.software import SoftwareInputDefinition
 
+from .factories import choice, finalize_ports, flag, number, parameter, port, text
+from .types import Recipe, RecipeMode, RecipeParameter
 
-def parameter(name, kind, default, *, token=None, minimum=None, maximum=None, choices=None, enabled=None):
-    schema = dict(name=name, kind=kind, default=default, advanced=enabled is not None, nullable=False)
-    if minimum is not None:
-        schema['minimum'] = minimum
-    if maximum is not None:
-        schema['maximum'] = maximum
-    if choices is not None:
-        schema['choices'] = choices
-    value = dict(schema=schema, token=token, enabled=enabled)
-    if enabled:
-        switch = dict(schema=dict(name=enabled, kind='boolean', default=False, advanced=True, nullable=False), control=True)
-        return [switch, value]
-    return [value]
+RECIPES: dict[str, Recipe] = {}
 
 
-def number(name, default, *, token=None, minimum=None, maximum=None, optional=False, integer=False):
-    return parameter(name, 'int' if integer else 'float', default, token=token,
-                     minimum=minimum, maximum=maximum, enabled='use_' + name if optional else None)
-
-
-def text(name, default='', *, token=None, optional=False):
-    return parameter(name, 'string', default, token=token, enabled='use_' + name if optional else None)
-
-
-def choice(name, values, default=None, *, token=None, optional=False):
-    return parameter(name, 'choice', values[0] if default is None else default, token=token,
-                     choices=values, enabled='use_' + name if optional else None)
-
-
-def flag(name, token=None):
-    return parameter(name, 'boolean', False, token=token or '-' + name)
-
-
-def port(name='image', *, required=True, one=False, file=False, video=False, multiple=False):
-    return dict(name=name, type='APF_FILE' if file else 'APF_SCIENCE',
-                formats=['other', 'fits', 'image'] if file else ['fits', 'xisf', 'image', 'raw'] + (['video'] if video else []),
-                cardinality='one' if one else 'many', required=required, supports_hdu=False, supports_slice=False,
-                multiple_connections=multiple)
-
-
-def add(command, mode='image', *parameters, inputs=None, outputs=None, display='auto', live=False, **options):
+def add(command: str, mode: RecipeMode = 'image', *parameters: list[RecipeParameter],
+        inputs: list[SoftwareInputDefinition] | None = None, display: Literal['auto', 'direct'] = 'auto', live: bool = False, covers: list[str] | None = None, dependencies: list[str] | None = None, limitations: list[str] | None = None, output_prefix: str | None = None) -> None:
     if command in RECIPES:
         raise ValueError('Duplicate command recipe: ' + command)
-    RECIPES[command] = dict(command=command, mode=mode, parameters=[item for group in parameters for item in group],
-                            inputs=[port()] if inputs is None else inputs, outputs=outputs,
-                            display=display, live=live, **options)
+    RECIPES[command] = Recipe(command=command, mode=mode,
+        parameters=[item for group in parameters for item in group], inputs=[port()] if inputs is None else inputs,
+        display=display, live=live, covers=[] if covers is None else covers,
+        dependencies=[] if dependencies is None else dependencies,
+        limitations=[] if limitations is None else limitations, output_prefix=output_prefix)
 
 
 CLIP = ['rgbblend', 'clip', 'rescale', 'globalrescale']
@@ -146,7 +116,7 @@ for command in ['bg', 'bgnoise', 'entropy', 'cdg', 'dumpheader']:
 add('stat', 'analysis', flag('cfa'), choice('statistics', ['basic', 'main'], token='stat_mode'))
 add('histo', 'analysis', number('channel', 0, minimum=0, maximum=2, integer=True))
 add('jsonmetadata', 'analysis', flag('statistics_from_loaded', '-stats_from_loaded'), flag('no_statistics', '-nostats'),
-    inputs=[dict(port(), formats=['fits'])])
+    inputs=[port(formats=['fits'])])
 add('findstar', 'analysis', number('layer', 0, minimum=0, maximum=2, integer=True, token='-layer=', optional=True),
     number('maximum_stars', 0, minimum=0, integer=True, token='-maxstars=', optional=True))
 add('find_hot', 'analysis', number('cold_sigma', 3), number('hot_sigma', 3))
@@ -216,7 +186,7 @@ for command in ['starnet', 'seqstarnet']:
         dependencies=['A compatible StarNet executable and weights configured in the isolated Siril settings.'])
 add('synthstar', 'image', dependencies=['Siril star measurements are prepared with findstar on the fixed image before synthstar.'])
 
-add('mirrorx_single', 'file_transform', inputs=[dict(port(), formats=['fits'])])
+add('mirrorx_single', 'file_transform', inputs=[port(formats=['fits'])])
 
 for command, original in [
     ('seqccm', 'ccm'), ('seqcrop', 'crop'), ('seqextract_Green', 'extract_Green'), ('seqextract_Ha', 'extract_Ha'),
@@ -224,12 +194,12 @@ for command, original in [
     ('seqfixbanding', 'fixbanding'), ('seqght', 'ght'), ('seqinvght', 'invght'), ('seqinvmodasinh', 'invmodasinh'),
     ('seqlinstretch', 'linstretch'), ('seqmodasinh', 'modasinh'), ('seqmtf', 'mtf')]:
     source = RECIPES[original]
-    RECIPES[command] = dict(source, command=command, mode='sequence_transform', live=False,
+    RECIPES[command] = replace(source, command=command, mode='sequence_transform', live=False,
                              output_prefix='result_', inputs=[port(video=True)])
     if command == 'seqccm':
-        RECIPES[command]['corrections'] = ['The shipped help omits the matrix arguments; command.c requires nine coefficients and optional gamma.']
+        RECIPES[command].corrections = ['The shipped help omits the matrix arguments; command.c requires nine coefficients and optional gamma.']
     if command == 'seqcrop':
-        RECIPES[command]['parameters'] = [item for group in [number('x', 0, minimum=0, integer=True), number('y', 0, minimum=0, integer=True),
+        RECIPES[command].parameters = [item for group in [number('x', 0, minimum=0, integer=True), number('y', 0, minimum=0, integer=True),
             number('width', 1, minimum=1, integer=True), number('height', 1, minimum=1, integer=True)] for item in group]
 for command in ['seqcosme', 'seqcosme_cfa']:
     add(command, 'sequence_transform', inputs=[port(video=True), port('bad_pixels', one=True, file=True)], output_prefix='result_')
@@ -253,7 +223,7 @@ for command in ['calibrate', 'calibrate_single']:
     if command == 'calibrate':
         params += [flag('all_frames', '-all'), flag('fits_sequence', '-fitseq')]
     add(command, 'calibration_sequence' if command == 'calibrate' else 'calibration_single', *params,
-        inputs=[port(video=True) if command == 'calibrate' else dict(port(), formats=['fits']), port('bias', one=True, required=False), port('dark', one=True, required=False),
+        inputs=[port(video=True) if command == 'calibrate' else port(formats=['fits']), port('bias', one=True, required=False), port('dark', one=True, required=False),
                 port('flat', one=True, required=False), port('bad_pixels', one=True, file=True, required=False)])
 
 for command in ['convert', 'convertraw', 'link']:
@@ -262,7 +232,7 @@ for command in ['convert', 'convertraw', 'link']:
         parameters += [flag('date')]
     else:
         parameters += [flag('debayer'), choice('sequence_format', ['images', 'fitseq', 'ser'], token='sequence_format')]
-    add(command, 'conversion', *parameters, inputs=[dict(port(), formats=['raw'] if command == 'convertraw' else ['fits'] if command == 'link' else ['fits', 'xisf', 'image', 'raw'])])
+    add(command, 'conversion', *parameters, inputs=[port(formats=['raw'] if command == 'convertraw' else ['fits'] if command == 'link' else ['fits', 'xisf', 'image', 'raw'])])
 
 FILTERS = [number('filter_' + name, 0, token='-filter-' + name + '=', optional=True)
            for name in ['fwhm', 'wfwhm', 'round', 'bkg', 'nbstars', 'quality']]
@@ -305,7 +275,7 @@ add('seqpsf', 'sequence_analysis', number('channel', 0, minimum=0, maximum=2, in
 add('light_curve', 'sequence_analysis', number('channel', 0, minimum=0, maximum=2, integer=True), flag('autoring'),
     choice('coordinate_type', ['pixel', 'wcs', 'nina'], token='coordinate_type'), text('position', '64,64', token='star_position'),
     text('reference_positions', '[]', token='reference_positions'), inputs=[port(video=True), port('nina_stars', one=True, file=True, required=False)])
-add('seqprofile', 'sequence_analysis', *[ [dict(item) for item in RECIPES['profile']['parameters']] ],
+add('seqprofile', 'sequence_analysis', *[ [replace(item) for item in RECIPES['profile'].parameters] ],
     choice('x_axis', ['distance', 'wavelength', 'wavenumber'], token='profile_axis'),
     *[number(name, 0, token='-' + name + '=', optional=True) for name in ['wavenumber1', 'wavenumber2', 'wavelength1', 'wavelength2']],
     text('first_reference_pixel', '0,0', token='-wn1at=', optional=True), text('second_reference_pixel', '1,1', token='-wn2at=', optional=True),
@@ -381,3 +351,7 @@ SESSION_COMMANDS = {
     'online': 'runtime.online explicitly enables Siril networking for this invocation.',
     'offline': 'The process starts offline unless runtime.online is explicitly true.',
 }
+
+
+for recipe in RECIPES.values():
+    finalize_ports(recipe)
