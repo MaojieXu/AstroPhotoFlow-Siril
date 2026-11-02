@@ -100,8 +100,8 @@
   "preview": {
     "kind": "science-image",
     "input": "image",
-    "max_edge": 1024,
-    "output": "image"
+    "output": "image",
+    "max_edge": 1024
   },
   "automatic_result_preview": true,
   "output_display": "direct",
