@@ -61,3 +61,8 @@ Siril 1.4.4 silently ignores both requested modes for `stat -cfa main`; this com
 ## 2026-10-31 集成验证
 
 本轮候选 `cdf952c14ae160e86add8dcc2142b16c39719936` 经独立审查后修复单帧输出压缩描述与格式依赖热加载；完整 Bundle 回归 51 项通过。平台配套产品提交 `2a1b98cdb9dd26c39d79886525a567e1a7456b63` 已验证双分支共享上游、分析输出、跨运行签名及原件保护；详细结果见平台 `docs/development/test-matrix.md#node-ui-bundle-integration`。本轮仍为开发源码候选，不修改已发布 tag，不表示 160 项操作全部科学验收。
+
+
+## 2026-11-01 integration verification
+
+The cumulative modernization candidate 824a1910773a95287e567bc369c3ed2b27e3aed3 was independently reviewed together with AstroPhotoFlow. Fix 83c79cf813df4a35c64dc4a1f7da932902a710cd passes typed RuntimeOptions to PSF selection planning; default/custom selection regressions and all 58 author tests pass. No app binary or release tag changed. Paired platform product source 1bd7ffc2f0c4501c52bb138315cc547c4b5ebdea passed representative real Siril calibration, registration/stacking, single-frame analysis, compressed output, cancellation and missing-dependency checks, plus native queue/science/view/save/export browser checks. This is not verification of all 160 scientific operations or a newly published Bundle. seqprofile can leave tracked Python children alive after parent exit; retain unknown, inspect that same call until stopped, and never turn it into a fabricated success or blind replay. Full integration evidence is committed in the platform docs/development/test-matrix.md section modernization-equipment-channel-integration. Private transient logs are deleted with the Feature space under user authorization.
