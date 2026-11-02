@@ -42,3 +42,30 @@ def test_all_generated_ports_and_parameters_are_owned_by_typed_recipes():
         assert operation.inputs == recipe.inputs, name
         assert operation.outputs == recipe.outputs, name
         assert operation.parameters[:-1] == [item.schema for item in recipe.parameters], name
+
+
+def test_command_reference_and_assessments_have_complete_siril_coverage():
+    import hashlib
+    commands_bytes = (ROOT / 'reference/commands.json').read_bytes()
+    commands = json.loads(commands_bytes)
+    assessments = json.loads((ROOT / 'reference/assessments.json').read_text(encoding='utf-8'))
+    assert assessments['package_id'] == 'siril' and assessments['version'] == '1.4.4'
+    assert assessments['source_commands_file_sha256'].lower() == hashlib.sha256(commands_bytes).hexdigest()
+    names = {row['command'] for row in commands}
+    assert len(names) == len(commands) == 199
+    rows = {row['command']: row['assessment'] for row in assessments['commands']}
+    assert set(rows) == names and len(rows) == len(assessments['commands'])
+    fields = {'parameter_details', 'structured_parameter_defaults_ranges', 'single_image_sequence_context',
+              'input_output_semantics', 'headless_status', 'dependencies', 'security_risk', 'semantic_review_status',
+              'node_definition_status', 'node_definition_reason', 'node_generation_status', 'node_generation_reason',
+              'registry_load_status', 'registry_load_reason', 'runtime_test_status', 'runtime_test_reason'}
+    assert all(set(row) == fields and all(isinstance(value, str) and value for value in row.values()) for row in rows.values())
+    assert sum(row['scriptable'] for row in commands) == 181
+    assert 'Python' in rows['pyscript']['security_risk']
+
+
+def test_live_operations_declare_preview_input_and_output():
+    for name, recipe in recipes.RECIPES.items():
+        entry = json.loads((ROOT / 'operations' / (name + '.json')).read_text(encoding='utf-8'))
+        if recipe.live:
+            assert entry['preview']['input'] == entry['preview']['output'] == 'image'

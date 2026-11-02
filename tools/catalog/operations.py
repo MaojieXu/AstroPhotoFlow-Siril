@@ -41,7 +41,7 @@ def build_entry(recipe: Recipe, value: SoftwareOperation, display: dict) -> dict
                  'Selection is omitted for the whole image or explicitly null to clear it; optional CLI arguments use separate use_* controls. '
                  'Automatic complete-result calculation can target explicitly opted-in processing and analysis operations without an export node. Manual execution retains explicit export, stacking, or analysis endpoints. Only requested dependencies are executed. '
                  'Saved output references identify complete checked files, never preview pixels. See reference/coverage.json and docs/usage.md.')
-    return {'operation': operation, 'preview': {'kind': 'science-image', 'input': 'image', 'max_edge': 1024} if recipe.live else None,
+    return {'operation': operation, 'preview': {'kind': 'science-image', 'input': 'image', 'output': 'image', 'max_edge': 1024} if recipe.live else None,
                  'automatic_result_preview': presentation['operations'][name]['automatic_result_preview'],
                  'output_display': recipe.display, 'help': help_text,
                  'examples': [{item['name']: item['default'] for item in parameters}],

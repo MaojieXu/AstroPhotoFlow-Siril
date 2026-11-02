@@ -133,6 +133,7 @@
   "preview": {
     "kind": "science-image",
     "input": "image",
+    "output": "image",
     "max_edge": 1024
   },
   "automatic_result_preview": true,
