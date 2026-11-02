@@ -25,3 +25,8 @@ This repository currently contains development builds only. Development uses the
 Production releases require explicit owner approval, a stable release_channel and a vX.Y.Z tag without a prerelease suffix. Development tags are never promoted by moving or overwriting an existing tag. A production release must use a separate approved catalog entry. No production release has been published.
 
 The four SDK entry points in `adapter/siril.py` delegate to typed planning, runtime, sequences, outputs, analysis and result modules. `BuildContext`, `RuntimeOptions`, `SequenceDescriptor` and `ResultLayout` describe actual per-call inputs and output facts; they do not store ComfyUI graphs or schedule execution.
+
+
+## Local integration verification (2026-11-01)
+
+The reference/preview-output candidate `a6f5ad0f3eafceb44018ac4b99dc7b9f5b9c3786` and generator normalization `7c75f46931a2aa52b86d06e43ab295f8fad850cf` were independently reviewed read-only. The latter only orders ten preview declarations as generated; parsed JSON values are unchanged. All 60 Bundle tests passed on the normalized candidate. Platform validation is committed in `docs/development/test-matrix.md#file-ownership-siril-decoupling-integration` in AstroPhotoFlow: generic named preview contracts, command references, HTTP/client/MCP/CLI, frontend and wheel resources. No new scientific processing acceptance or publication is implied. Manifest remains Bundle 0.2.0-dev.2 / Siril 1.4.4 / SDK v2; published tag v0.2.0-dev.2 remains at `5d16fb6fc10b4ee57de428d6eba522c918b1b441`.
